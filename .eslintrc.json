@@ -1,0 +1,12 @@
+{
+    "extends": [
+      "react-app",
+      "react-app/jest",
+      "naver",
+      "prettier"
+    ],
+    "rules": {
+      "import/prefer-default-export": "off",
+      "arrow-body-style": ["error", "always"]
+    }
+  }
