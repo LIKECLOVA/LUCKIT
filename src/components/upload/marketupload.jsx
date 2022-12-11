@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const upload = () => {
+export const MarketUpload = () => {
   return (
     <div>upload</div>
   )

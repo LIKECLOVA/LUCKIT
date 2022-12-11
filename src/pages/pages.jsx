@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { LoginScreen } from '../components/login/loginscreen';
-import { Splash } from '../components/splash/Splash.jsx';
+import { Splash } from '../components/splash/splash.jsx';
 import { Login } from '../components/login/login';
+import { SnsUpload } from '../components/upload/snsupload';
 import Home from './home/home.jsx';
 import Error from './404-error/errorpage.jsx';
 
@@ -32,6 +33,7 @@ const MainPages = () => {
       <Route path='/' element={isLogin ? <Home /> : <LoginScreen />}></Route>
       <Route path='/login' element={<Login/>}></Route>
       <Route path='/*' element={<Error />}></Route>
+      <Route path='/snsupload' element={<SnsUpload />}></Route>
     </Routes>
   );
 };
