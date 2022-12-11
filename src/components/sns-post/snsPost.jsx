@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const sns-post = () => {
+export const snsPost = () => {
   return (
     <div>sns-post</div>
   )

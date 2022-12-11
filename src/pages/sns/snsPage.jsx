@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const sns = () => {
+export const SnsPage = () => {
   return (
     <div>sns</div>
   )

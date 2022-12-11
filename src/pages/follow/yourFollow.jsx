@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const follow = () => {
+export const YourFollow = () => {
   return (
     <div>follow</div>
   )
