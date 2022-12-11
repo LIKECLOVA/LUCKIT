@@ -1,7 +1,12 @@
 import React from 'react'
+import { Header } from '../../components/header/Header'
+import { Navbar } from '../../components/navbar/Navbar'
 
-export const search = () => {
+export const Search = () => {
   return (
-    <div>search</div>
+    <div>
+      <Header />
+      <Navbar />
+    </div>
   )
 }
