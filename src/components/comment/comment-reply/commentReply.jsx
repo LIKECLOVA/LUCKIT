@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const comment-reply = () => {
+export const CommentReply = () => {
   return (
     <div>comment-reply</div>
   )

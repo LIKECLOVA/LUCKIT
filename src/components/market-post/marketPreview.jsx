@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const market-preview = () => {
+export const MarketPreview = () => {
   return (
     <div>market-preview</div>
   )

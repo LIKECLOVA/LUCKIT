@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const comment-box = () => {
+export const CommentBox = () => {
   return (
     <div>comment-box</div>
   )

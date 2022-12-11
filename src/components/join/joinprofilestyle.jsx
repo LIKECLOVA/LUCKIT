@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const SignProfileWrap = styled.div`
+export const JoinProfileWrap = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;

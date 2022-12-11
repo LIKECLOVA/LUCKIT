@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const chat = () => {
+export const Chat = () => {
   return (
     <div>chat</div>
   )

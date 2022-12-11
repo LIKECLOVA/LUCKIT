@@ -1,10 +1,10 @@
 import React from 'react';
-import { ProfileInput, ProfileLabel, SignProfileWrap } from './signInProfileStyle';
+import { ProfileInput, ProfileLabel, JoinProfileWrap } from './joinprofileStyle';
 
-const SignInProfile = () => {
+const JoinProfile = () => {
   return (
     <>
-      <SignProfileWrap>
+      <JoinProfileWrap>
         <h2>프로필 설정</h2>
         <p>나중에 언제든지 변경할 수 있습니다.</p>
         <img src='https://mandarin.api.weniv.co.kr/Ellipse.png' alt='프로필 사진' />
@@ -19,9 +19,9 @@ const SignInProfile = () => {
         <ProfileLabel>소개
           <ProfileInput placeholder='자신이 판매할 상품에 대해 소개해주세요!' name='userIntro' type='text'/>
         </ProfileLabel>
-      </SignProfileWrap>
+      </JoinProfileWrap>
     </>
   );
 };
 
-export default SignInProfile;
+export default JoinProfile;

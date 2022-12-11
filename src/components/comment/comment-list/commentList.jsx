@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const comment-list = () => {
+export const CommentList = () => {
   return (
     <div>comment-list</div>
   )
