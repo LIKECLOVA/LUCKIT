@@ -38,7 +38,6 @@ const MainPages = () => {
       <Route path='/' element={isLogin ? <Home2 /> : <LoginScreen />}></Route>
       <Route path='/login' element={<Login/>}></Route>
 <<<<<<< HEAD
-      <Route path='/profileset' element={<SignInProfile/>}></Route>
 =======
       <Route path='/search' element={<Search/>}></Route>
       <Route path='/profilepage' element={<Profile/>}></Route>
