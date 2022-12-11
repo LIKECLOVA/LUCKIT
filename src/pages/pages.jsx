@@ -5,6 +5,7 @@ import { Splash } from '../components/splash/Splash.jsx';
 import { Login } from '../components/login/login';
 import Home from './home/home.jsx';
 import Error from './404-error/errorpage.jsx';
+import SignInProfile from '../components/sign-in/signInProfile';
 
 const Pages = () => {
   
@@ -31,6 +32,7 @@ const MainPages = () => {
     <Routes>
       <Route path='/' element={isLogin ? <Home /> : <LoginScreen />}></Route>
       <Route path='/login' element={<Login/>}></Route>
+      <Route path='/profileset' element={<SignInProfile/>}></Route>
       <Route path='/*' element={<Error />}></Route>
     </Routes>
   );
