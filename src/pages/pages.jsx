@@ -1,16 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { LoginScreen } from '../components/login/loginscreen';
-import { Splash } from '../components/splash/Splash.jsx';
+import { Splash } from '../components/splash/splash.jsx';
 import { Login } from '../components/login/login';
-import Home2 from './home/Home2.jsx';
+import { SnsUpload } from '../components/upload/snsupload';
+import Home from './home/home.jsx';
 import Error from './404-error/errorpage.jsx';
-<<<<<<< HEAD
 import SignInProfile from '../components/sign-in/signInProfile';
-=======
 import { Search } from './search/Search';
 import { Profile } from './profile/Profile';
->>>>>>> develop
 
 const Pages = () => {
   
@@ -35,14 +33,12 @@ const MainPages = () => {
 
   return (
     <Routes>
-      <Route path='/' element={isLogin ? <Home2 /> : <LoginScreen />}></Route>
+      <Route path='/' element={isLogin ? <Home /> : <LoginScreen />}></Route>
       <Route path='/login' element={<Login/>}></Route>
-<<<<<<< HEAD
-=======
       <Route path='/search' element={<Search/>}></Route>
       <Route path='/profilepage' element={<Profile/>}></Route>
->>>>>>> develop
       <Route path='/*' element={<Error />}></Route>
+      <Route path='/snsupload' element={<SnsUpload />}></Route>
     </Routes>
   );
 };
