@@ -5,8 +5,12 @@ import { Splash } from '../components/splash/Splash.jsx';
 import { Login } from '../components/login/login';
 import Home2 from './home/Home2.jsx';
 import Error from './404-error/errorpage.jsx';
+<<<<<<< HEAD
+import SignInProfile from '../components/sign-in/signInProfile';
+=======
 import { Search } from './search/Search';
 import { Profile } from './profile/Profile';
+>>>>>>> develop
 
 const Pages = () => {
   
@@ -33,8 +37,11 @@ const MainPages = () => {
     <Routes>
       <Route path='/' element={isLogin ? <Home2 /> : <LoginScreen />}></Route>
       <Route path='/login' element={<Login/>}></Route>
+<<<<<<< HEAD
+=======
       <Route path='/search' element={<Search/>}></Route>
       <Route path='/profilepage' element={<Profile/>}></Route>
+>>>>>>> develop
       <Route path='/*' element={<Error />}></Route>
     </Routes>
   );
