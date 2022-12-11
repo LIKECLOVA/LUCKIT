@@ -3,9 +3,14 @@ import { Routes, Route } from 'react-router-dom';
 import { LoginScreen } from '../components/login/loginscreen';
 import { Splash } from '../components/splash/Splash.jsx';
 import { Login } from '../components/login/login';
-import Home from './home/home.jsx';
+import Home2 from './home/Home2.jsx';
 import Error from './404-error/errorpage.jsx';
+<<<<<<< HEAD
 import SignInProfile from '../components/sign-in/signInProfile';
+=======
+import { Search } from './search/Search';
+import { Profile } from './profile/Profile';
+>>>>>>> develop
 
 const Pages = () => {
   
@@ -26,13 +31,18 @@ const Pages = () => {
 const MainPages = () => {
   /* const [isLogin, setIsLogin] = useState(true);  */
   /* 로그인 토큰 자리 */
-  const isLogin = false;
+  const isLogin = true;
 
   return (
     <Routes>
-      <Route path='/' element={isLogin ? <Home /> : <LoginScreen />}></Route>
+      <Route path='/' element={isLogin ? <Home2 /> : <LoginScreen />}></Route>
       <Route path='/login' element={<Login/>}></Route>
+<<<<<<< HEAD
       <Route path='/profileset' element={<SignInProfile/>}></Route>
+=======
+      <Route path='/search' element={<Search/>}></Route>
+      <Route path='/profilepage' element={<Profile/>}></Route>
+>>>>>>> develop
       <Route path='/*' element={<Error />}></Route>
     </Routes>
   );
