@@ -1,7 +1,10 @@
 import React from 'react'
+import { SplashWrap,Splashimg } from './styled'
 
-export const splash = () => {
+export const Splash = () => {
   return (
-    <div>splash</div>
+    <SplashWrap>
+      <Splashimg/>
+    </SplashWrap>
   )
 }

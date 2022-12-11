@@ -1,7 +1,9 @@
 import React from 'react'
 
-export const home = () => {
+const Home = () => {
   return (
-    <div>home</div>
+    <div>home페이지 입니다</div>
   )
 }
+
+export default Home

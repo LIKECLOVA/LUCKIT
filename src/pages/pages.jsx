@@ -1,7 +1,39 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react';
+import { Routes, Route } from 'react-router-dom';
+import { LoginScreen } from '../components/login/loginscreen';
+import { Splash } from '../components/splash/Splash.jsx';
+import { Login } from '../components/login/login';
+import Home from './home/home.jsx';
+import Error from './404-error/errorpage.jsx';
 
-export const pages = () => {
+const Pages = () => {
+  
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    if (window.location.pathname === '/') {
+      setLoading(true);
+      setTimeout(() => {
+        setLoading(false);
+      }, 2400);
+    }
+  }, []);
+
+  return loading ? <Splash /> : <MainPages />;
+};
+
+const MainPages = () => {
+  /* const [isLogin, setIsLogin] = useState(true);  */
+  /* 로그인 토큰 자리 */
+  const isLogin = false;
+
   return (
-    <div>pages</div>
-  )
-}
+    <Routes>
+      <Route path='/' element={isLogin ? <Home /> : <LoginScreen />}></Route>
+      <Route path='/login' element={<Login/>}></Route>
+      <Route path='/*' element={<Error />}></Route>
+    </Routes>
+  );
+};
+
+export default Pages;
