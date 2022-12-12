@@ -1,29 +1,31 @@
 import React from 'react';
-import { ProfileInput, ProfileLabel, JoinProfileWrap } from './joinprofilestyle';
+import { ProfileInput, ProfileLabel, JoinProfileWrap, ProfileTextarea } from './joinprofilestyle';
 
 const JoinProfile = () => {
   return (
     <>
       <JoinProfileWrap>
-        <h2>프로필 설정</h2>
+        <h2>반가워요!</h2>
         <p>프로필을 설정해볼까요?</p>
         <p>나중에 언제든지 변경할 수 있습니다.</p>
-        <div className=''>
-        <img src='https://mandarin.api.weniv.co.kr/Ellipse.png' alt='프로필 사진' />
-        <ProfileLabel>
-          사용자 이름
-          <ProfileInput placeholder='2~10자 이내여야 합니다.' type='text' name='userName' required />
-        </ProfileLabel>
-        
-        <ProfileLabel>
-          계정 ID
-          <ProfileInput placeholder='영문, 숫자, 밑줄 및 마침표만 사용할 수 있습니다.' type='text' name='userId' />
-        </ProfileLabel>
+        <div className='profileMidWrap'>
+          <img src='https://mandarin.api.weniv.co.kr/Ellipse.png' alt='프로필 사진' />
+          <div>
+          <ProfileLabel>           
+            <ProfileInput placeholder='닉네임' type='text' name='userName' required />
+          </ProfileLabel>
+          
+          <ProfileLabel>
+            <ProfileInput placeholder='아이디' type='text' name='userId' />
+          </ProfileLabel>
+          </div>
         </div>
         
-        <ProfileLabel>소개
-          <ProfileInput placeholder='자신이 판매할 상품에 대해 소개해주세요!' name='userIntro' type='text'/>
-        </ProfileLabel>
+        <ProfileLabel>To. 나의 럭킷에게</ProfileLabel>
+        <ProfileTextarea name='userInfo' style={{'resize':'none'}}/>
+        <div className='buttonFlexBox'>
+        <button>버튼 자리입니다</button>
+        </div>
       </JoinProfileWrap>
     </>
   );
