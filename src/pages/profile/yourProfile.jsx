@@ -1,9 +1,9 @@
 import React from 'react'
-import { Header } from '../../components/header/Header'
-import { Navbar } from '../../components/navbar/Navbar'
+import { Header } from '../../components/header/header'
+import { Navbar } from '../../components/navbar/navbar'
 import { ProfileTxt } from './profilestyle'
 
-export const Profile = () => {
+export const YourProfile = () => {
   return (
     <div>
       <Header />

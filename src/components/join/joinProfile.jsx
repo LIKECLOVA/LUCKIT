@@ -1,5 +1,5 @@
 import React from 'react';
-import { ProfileInput, ProfileLabel, JoinProfileWrap } from './joinprofileStyle';
+import { ProfileInput, ProfileLabel, JoinProfileWrap } from './joinprofilestyle';
 
 const JoinProfile = () => {
   return (
