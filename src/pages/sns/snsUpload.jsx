@@ -1,5 +1,5 @@
 import React from 'react'
-import { Snsuploadart, Snsuploadsec, SnsuploadForm, SnsUploadImg, ImgUploadBtn} from './uploadstyle';
+import { Snsuploadart, Snsuploadsec, SnsuploadForm, SnsUploadImg, ImgUploadBtn} from './snsstyle';
 
 export const SnsUpload = () => {
   return (

@@ -11,7 +11,7 @@ import { MyProfile } from './profile/myProfile';
 import { YourProfile } from './profile/yourProfile';
 import { EditProfile } from './profile/editProfile';
 import {YourFollow} from './follow/yourFollow'
-import {MyFollow} from './follow/MyFollow'
+import {MyFollow} from './follow/myFollow'
 import {ChatPage} from './chat/chatPage'
 import {ChatDetail} from './chat/chatDetail'
 import { SnsUpload } from './sns/snsUpload';
