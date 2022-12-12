@@ -1,21 +1,21 @@
 import React from 'react'
-import { Snsuploadart, Snsuploadsec, SnsuploadForm, SnsUploadImg, ImgUploadBtn} from './snsstyle';
+import { SnsUploadArt, SnsUploadSec, SnsUploadForm, SnsUploadImg, ImgUploadBtn} from './snsstyle';
 
 export const SnsUpload = () => {
   return (
     <>
-    <Snsuploadart>
+    <SnsUploadArt>
       <button>뒤로가기</button>
       <button>업로드</button>
-    </Snsuploadart>
-    <Snsuploadsec>
-<SnsuploadForm>
+    </SnsUploadArt>
+    <SnsUploadSec>
+<SnsUploadForm>
 <textarea name="snsuploadtxt" id="snsuploadtxt" placeholder='게시글 입력하기 ...'/>
 <SnsUploadImg>
   <img src="" alt="" />
 </SnsUploadImg>
-</SnsuploadForm>
-    </Snsuploadsec>
+</SnsUploadForm>
+    </SnsUploadSec>
     <ImgUploadBtn>
     <input name="snsuploadimg" id="snsuploadimg" type="file"/>
     </ImgUploadBtn>
