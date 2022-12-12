@@ -9,7 +9,7 @@ const LoginScreen = () => {
     <SplashWrap>
       <LoginImg />
       <LoginScreenTxt>
-        널 만난건 <span>행운</span>이야
+        널 만난건 <span>행운</span>입니다
       </LoginScreenTxt>
       <button
         onClick={() => {

@@ -2,7 +2,7 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 import { NavWrap, NavList, NavListItem } from './navbarstyle'
 
-export const Navbar = () => {
+export const NavBar = () => {
   return (
     <NavWrap>
 	    <NavList>

@@ -1,12 +1,12 @@
-import React from 'react'
-import { Header } from '../../components/header/header'
-import { Navbar } from '../../components/navbar/navbar'
+import React from 'react';
+import { Header } from '../../components/header/header';
+import { NavBar } from '../../components/navbar/navBar';
 
 export const Search = () => {
   return (
     <div>
       <Header />
-      <Navbar />
+      <NavBar />
     </div>
-  )
-}
+  );
+};
