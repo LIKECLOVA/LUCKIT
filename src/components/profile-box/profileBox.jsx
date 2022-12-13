@@ -7,21 +7,23 @@ export const ProfileBox = () => {
           <div className='topmyInfoBox'>
             <div className='leftMyInfoBox'>
               <img src='https://mandarin.api.weniv.co.kr/Ellipse.png' alt='프로필사진'></img>
-              <div>
+              <div className='profileCont'>
                 <h2>유죠미짱</h2>
                 <p>@아이디</p>
-                <span>팔로워 1330</span>
-                <span>팔로잉 380</span>
+                <div>
+                  <span>팔로워 1330</span>
+                  <span>팔로잉 380</span>
+                </div>
               </div>
             </div>
             <div className='rightInfoBox'>
-              <button>버튼자리입니다</button>
+              <button>팔로우</button>
             </div>
           </div>
 
           <div className='bottomInfoBox'>
-            <p>to 마이럭킷</p>
-            <p>저는 집 꾸미기를 좋아합니다.</p>
+            <p>To. 마이럭킷</p>
+            <p className='btInfoTxt'>저는 집 꾸미기를 참 좋아해요! 같이 소품샵 가용 저는 집 꾸미기를 참 좋아해요! 같이 소품샵 가용</p>
           </div>
         </MyProfileInfoBox>
   )

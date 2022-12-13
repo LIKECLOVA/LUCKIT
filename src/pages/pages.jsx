@@ -15,7 +15,8 @@ import { MyFollow } from './follow/myFollow';
 import { ChatPage } from './chat/chatPage';
 import { ChatDetail } from './chat/chatDetail';
 import { SnsUpload } from './sns/snsUpload';
-import { SnsPage } from './sns/snsPage';
+import {SnsPage} from './sns/snsPage'
+import {SnsPost} from '../components/sns-post/snsPost';
 import Error from './404-error/errorPage.jsx';
 
 const Pages = () => {
@@ -55,6 +56,7 @@ const MainPages = () => {
       <Route path='/snspage' element={<SnsPage />}></Route>
       <Route path='/snsupload' element={<SnsUpload />}></Route>
       <Route path='/loginScreen' element={<LoginScreen />}></Route>
+      <Route path='/snsPost' element={<SnsPost />}></Route>
       <Route path='/*' element={<Error />}></Route>
     </Routes>
   );

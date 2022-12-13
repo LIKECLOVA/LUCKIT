@@ -1,13 +1,33 @@
 import React from 'react';
 import { Header } from '../../components/header/header';
-import { NavBar } from '../../components/navbar/navBar';
-
+import { MarketPreviewPost } from '../../components/market-preview-post/marketPreviewPost';
+import { ProfileBox } from '../../components/profile-box/profileBox';
+import { MyProfileWrap, SnsPostBtn } from './myprofilestyle';
+import { NavBar } from '../../components/navbar/navBar'
+import MainSnsPost from '../../components/mainpost/mainSnsPost';
 
 export const YourProfile = () => {
   return (
-    <div>
+    <>
       <Header />
+      <MyProfileWrap>
+        <ProfileBox/>
+        <MarketPreviewPost/>
+        <section>
+        <SnsPostBtn>
+          <button>List</button>
+          <button>Thum</button>
+        </SnsPostBtn>
+        <ul>
+          <li><MainSnsPost /></li>
+          <li><MainSnsPost /></li>
+          <li><MainSnsPost /></li>
+          <li><MainSnsPost /></li>
+          <li><MainSnsPost /></li>
+        </ul>
+      </section>
+      </MyProfileWrap>
       <NavBar />
-    </div>
+    </>
   );
 };
