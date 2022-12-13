@@ -13,7 +13,7 @@ import { EditProfile } from './profile/editProfile';
 import {YourFollow} from './follow/yourFollow'
 import {MyFollow} from './follow/myFollow'
 import {ChatPage} from './chat/chatPage'
-import {ChatDetail} from './chat/chatDetail'
+import {ChatRoom} from './chat/chatRoom'
 import { SnsUpload } from './sns/snsUpload';
 import {SnsPage} from './sns/snsPage'
 import Error from './404-error/errorPage.jsx';
@@ -51,7 +51,7 @@ const MainPages = () => {
       <Route path='/myprofile' element={<MyProfile/>}></Route>
       <Route path='/editprofile' element={<EditProfile/>}></Route>
       <Route path='/chatpage' element={<ChatPage/>}></Route>
-      <Route path='/chatdetail' element={<ChatDetail/>}></Route>
+      <Route path='/chatroom' element={<ChatRoom/>}></Route>
       <Route path='/myfollow' element={<MyFollow />}></Route>
       <Route path='/yourfollow' element={<YourFollow />}></Route>
       <Route path='/snspage' element={<SnsPage />}></Route>
