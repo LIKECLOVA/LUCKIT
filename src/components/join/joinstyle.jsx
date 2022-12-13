@@ -45,14 +45,16 @@ export const Envelope = styled.main`
     left: 25px;
     top: 5px;
     background: #fff;
-    border: 1px solid #d7f4b4;
-    border-radius: 10px;
+    border: 1px solid #f1f1f1;
+    box-shadow: 0px 2px 5px 0px #f1f1f1;
+    border-radius: 20px;
     transition: all 0.5s ease;
     text-align: center;
     position: absolute;
     z-index: -5;
     margin-left: 25px;
     transform: translate(0, -480px);
+
     .title {
       font-size: 20px;
       color: #559705;
@@ -124,8 +126,9 @@ export const Gogo = styled.button`
   color: ${(props) => {
     return props.bg === '#85CE2D' ? 'white' : '#475A24';
   }};
-  margin: 25px 20px 7px 20px;
-  padding: 12px;
+  margin: 0 auto;
+  margin-top: 20px;
+  padding: 14px;
   background-color: ${(props) => {
     return props.bg;
   }};
@@ -142,7 +145,7 @@ export const Gogo = styled.button`
 
 /* 로그인하는 페이지 */
 
-export const LoginWrap = styled.section`
+export const JoinWrap = styled.section`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -151,7 +154,7 @@ export const LoginWrap = styled.section`
   height: 100%;
 `;
 
-export const LoginForm = styled.form`
+export const JoinForm = styled.form`
   display: flex;
   flex-direction: column;
 
@@ -159,16 +162,21 @@ export const LoginForm = styled.form`
     width: 270px;
     border-radius: 50px;
     font-size: 14px;
-    box-shadow: 0 1px 5px 0 #b9d795;
+    background: #f1f1f1;
+    box-shadow: 0 1px 5px 0 #f1f1f1;
     border: none;
     outline: none;
     font-size: 14px;
-    padding: 12px;
+    padding: 14px;
     margin-top: 10px;
     margin-bottom: 10px;
     :focus {
       border: 1px solid #78d00c;
       box-shadow: 0 1px 5px 0 ${palette.텍스트초록};
+    }
+
+    ::placeholder {
+      color: #a9a9a9;
     }
   }
 `;
@@ -180,3 +188,15 @@ const GoSignupLink = styled(Link)`
 `;
 
 export { GoSignupLink };
+
+export const JoinSection = styled.section`
+  animation: fadein 1s;
+  @keyframes fadein {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+`;
