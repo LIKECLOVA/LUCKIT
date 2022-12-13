@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-
-// import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { Envelope, Logo } from './logscreenstyle';
 
 const Gogo = styled.button`
@@ -26,7 +25,7 @@ const Gogo = styled.button`
 `;
 
 export const LoginScreen = () => {
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
   return (
     <Envelope>
@@ -40,8 +39,22 @@ export const LoginScreen = () => {
                 널 만난 건 <span>행운</span>이야!
               </p>
 
-              <Gogo bg='#fff'>이메일로 로그인</Gogo>
-              <Gogo bg='#85CE2D'>30초 회원가입</Gogo>
+              <Gogo
+                bg='#fff'
+                onClick={() => {
+                  return navigate('/login');
+                }}
+              >
+                이메일로 로그인
+              </Gogo>
+              <Gogo
+                bg='#85CE2D'
+                onClick={() => {
+                  return navigate('/join');
+                }}
+              >
+                30초 회원가입
+              </Gogo>
             </div>
             <div className='rest'></div>
           </div>
