@@ -10,17 +10,15 @@ import { Search } from './search/search';
 import { MyProfile } from './profile/myProfile';
 import { YourProfile } from './profile/yourProfile';
 import { EditProfile } from './profile/editProfile';
-import {YourFollow} from './follow/yourFollow'
-import {MyFollow} from './follow/myFollow'
-import {ChatPage} from './chat/chatPage'
-import {ChatDetail} from './chat/chatDetail'
+import { YourFollow } from './follow/yourFollow';
+import { MyFollow } from './follow/myFollow';
+import { ChatPage } from './chat/chatPage';
+import { ChatDetail } from './chat/chatDetail';
 import { SnsUpload } from './sns/snsUpload';
-import {SnsPage} from './sns/snsPage'
+import { SnsPage } from './sns/snsPage';
 import Error from './404-error/errorPage.jsx';
 
-
 const Pages = () => {
-  
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -43,19 +41,20 @@ const MainPages = () => {
   return (
     <Routes>
       <Route path='/' element={isLogin ? <Home /> : <LoginScreen />}></Route>
-      <Route path='/login' element={<Login/>}></Route>
-      <Route path='/join' element={<Join/>}></Route>
+      <Route path='/login' element={<Login />}></Route>
+      <Route path='/join' element={<Join />}></Route>
       <Route path='/joinprofile' element={<JoinProfile />}></Route>
-      <Route path='/search' element={<Search/>}></Route>
-      <Route path='/yourprofile' element={<YourProfile/>}></Route>
-      <Route path='/myprofile' element={<MyProfile/>}></Route>
-      <Route path='/editprofile' element={<EditProfile/>}></Route>
-      <Route path='/chatpage' element={<ChatPage/>}></Route>
-      <Route path='/chatdetail' element={<ChatDetail/>}></Route>
+      <Route path='/search' element={<Search />}></Route>
+      <Route path='/yourprofile' element={<YourProfile />}></Route>
+      <Route path='/myprofile' element={<MyProfile />}></Route>
+      <Route path='/editprofile' element={<EditProfile />}></Route>
+      <Route path='/chatpage' element={<ChatPage />}></Route>
+      <Route path='/chatdetail' element={<ChatDetail />}></Route>
       <Route path='/myfollow' element={<MyFollow />}></Route>
       <Route path='/yourfollow' element={<YourFollow />}></Route>
       <Route path='/snspage' element={<SnsPage />}></Route>
       <Route path='/snsupload' element={<SnsUpload />}></Route>
+      <Route path='/loginScreen' element={<LoginScreen />}></Route>
       <Route path='/*' element={<Error />}></Route>
     </Routes>
   );
