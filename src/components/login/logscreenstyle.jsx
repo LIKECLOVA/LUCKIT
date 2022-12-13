@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import screenLogo from '../../assets/loginScreen-logo.png';
 
 export const Envelope = styled.main`
   @font-face {
@@ -40,7 +40,7 @@ export const Envelope = styled.main`
     width: 400px;
     margin-bottom: 500px;
     padding: 10px 20px;
-    height: 650px;
+    height: 250px;
     left: 25px;
     top: 5px;
     background: #f3fbe9;
@@ -51,7 +51,8 @@ export const Envelope = styled.main`
     position: absolute;
     z-index: -5;
     margin-left: 25px;
-    transform: translate(0, -485px);
+    transform: translate(0, 0);
+    animation-delay: 2s;
     p {
       font-size: 20px;
       font-family: 'TmoneyRoundWindExtraBold';
@@ -66,7 +67,6 @@ export const Envelope = styled.main`
       color: #1e9c21;
     }
   }
-
   .env .top {
     display: block;
     width: 0;
@@ -83,10 +83,13 @@ export const Envelope = styled.main`
     position: relative;
     border-radius: 10px;
   }
-
   .env .openEnv label.top {
-    transform: rotateX(-180deg) scale(1.25, 1);
-    z-index: -20;
+    animation: labeltop 1s ease forwards 1 0.5s;
+    animation-delay: 1.2s;
+  }
+  .env .openEnv .content {
+    animation: out 1s ease forwards 1 0.5s;
+    animation-delay: 2s;
   }
 
   @keyframes out {
@@ -96,6 +99,9 @@ export const Envelope = styled.main`
     }
   }
   @keyframes envelope {
+    0% {
+      opacity: 0;
+    }
     100% {
       opacity: 100;
       transform: scale(1, 1) translate(0px, 0px);
@@ -109,81 +115,9 @@ export const Envelope = styled.main`
   }
 `;
 
-export const Gogo = styled.button`
-  width: 270px;
-  color: ${(props) => {
-    return props.bg === '#85CE2D' ? 'white' : '#475A24';
-  }};
-  margin: 10px 20px;
-  padding: 12px;
-  background-color: ${(props) => {
-    return props.bg;
-  }};
-  border-radius: 50px;
-  font-size: 14px;
-  box-shadow: 0 1px 5px 0 #b9d795;
-  border: 1px solid #b9d795;
-  &:hover {
-    background-color: #64b603;
-    color: white;
-    cursor: pointer;
-  }
-`;
-
-/* 로그인하는 페이지 */
-
-const LoginWrap = styled.section`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+export const Logo = styled.div`
   width: 100%;
-  height: 100%;
-  background-color: #c8ec9c;
+  height: 290px;
+  background: url(${screenLogo}) no-repeat;
+  background-size: contain;
 `;
-
-export { LoginWrap };
-
-const LoginTxt = styled.h1`
-  font-size: 22px;
-  line-height: 29px;
-  color: #1e9c21;
-  h1 {
-    color: #475a24;
-  }
-`;
-
-export { LoginTxt };
-
-const LoginForm = styled.form`
-  display: flex;
-  flex-direction: column;
-  label {
-    font-size: 1.2rem;
-    margin-bottom: 0.7rem;
-    color: #000;
-  }
-  input {
-    width: 32.2rem;
-    line-height: 2.5rem;
-    border: none;
-    outline: none;
-    font-size: 1.4rem;
-    margin-bottom: 1.6rem;
-    border-bottom: 0.1rem solid #000;
-    :focus {
-      border-bottom: 0.1rem solid #000;
-    }
-  }
-`;
-
-export { LoginForm };
-
-const GoSignupLink = styled(Link)`
-  font-size: 1.2rem;
-  margin-bottom: 0.7rem;
-  color: #000;
-  text-decoration: none;
-`;
-
-export { GoSignupLink };
