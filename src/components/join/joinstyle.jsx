@@ -44,7 +44,7 @@ export const Envelope = styled.main`
     height: 650px;
     left: 25px;
     top: 5px;
-    background: #f3fbe9;
+    background: #fff;
     border: 1px solid #d7f4b4;
     border-radius: 10px;
     transition: all 0.5s ease;
