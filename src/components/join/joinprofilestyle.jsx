@@ -1,36 +1,37 @@
 import styled from 'styled-components';
 
 export const JoinProfileWrap = styled.div`
-  padding:25px;
-  h2{
-    margin-top:50px;
-    font-size:40px;
+  padding: 25px;
+
+  h2 {
+    margin-top: 50px;
+    font-size: 40px;
   }
-  p:nth-of-type(1){
-    font-size:20px;
-    margin-top:14px;
+  p:nth-of-type(1) {
+    font-size: 20px;
+    margin-top: 14px;
   }
-  p:nth-of-type(2){
-    font-size:14px;
-    margin-top:14px;
+  p:nth-of-type(2) {
+    font-size: 14px;
+    margin-top: 14px;
   }
-  .profileMidWrap{
+  .profileMidWrap {
     margin-top: 150px;
-    display:flex;
-    img{
+    display: flex;
+    img {
       width: 200px;
       height: 200px;
-      object-fit:cover;
+      object-fit: cover;
     }
-    div{
-      display:flex;
+    div {
+      display: flex;
       flex-wrap: wrap;
       justify-content: space-evenly;
       align-items: center;
     }
   }
-  .buttonFlexBox{
-    display:flex;
+  .buttonFlexBox {
+    display: flex;
     justify-content: center;
     margin-top: 30px;
   }
@@ -50,11 +51,11 @@ export const ProfileInput = styled.input`
 `;
 
 export const ProfileTextarea = styled.textarea`
-  width:100%;
-  height:195px;
-  padding:15px;
-  background-color:#F1F1F1;
+  width: 100%;
+  height: 195px;
+  padding: 15px;
+  background-color: #f1f1f1;
   border-radius: 20px;
-  border:none;
-  margin-top:30px;
-`
+  border: none;
+  margin-top: 30px;
+`;

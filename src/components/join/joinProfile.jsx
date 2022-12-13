@@ -11,20 +11,20 @@ const JoinProfile = () => {
         <div className='profileMidWrap'>
           <img src='https://mandarin.api.weniv.co.kr/Ellipse.png' alt='프로필 사진' />
           <div>
-          <ProfileLabel>           
-            <ProfileInput placeholder='닉네임' type='text' name='userName' required />
-          </ProfileLabel>
-          
-          <ProfileLabel>
-            <ProfileInput placeholder='아이디' type='text' name='userId' />
-          </ProfileLabel>
+            <ProfileLabel>
+              <ProfileInput placeholder='닉네임' type='text' name='userName' required />
+            </ProfileLabel>
+
+            <ProfileLabel>
+              <ProfileInput placeholder='아이디' type='text' name='userId' />
+            </ProfileLabel>
           </div>
         </div>
-        
+
         <ProfileLabel>To. 나의 럭킷에게</ProfileLabel>
-        <ProfileTextarea name='userInfo' style={{'resize':'none'}}/>
+        <ProfileTextarea name='userInfo' style={{ resize: 'none' }} />
         <div className='buttonFlexBox'>
-        <button>버튼 자리입니다</button>
+          <button>버튼 자리입니다</button>
         </div>
       </JoinProfileWrap>
     </>
