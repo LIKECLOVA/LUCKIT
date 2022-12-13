@@ -47,15 +47,12 @@ const MainPages = () => {
       <Route path='/login' element={<Login />}></Route>
       <Route path='/join' element={<Join />}></Route>
       <Route path='/joinprofile' element={<JoinProfile />}></Route>
-
       <Route path='/search' element={<Search/>}></Route>
       <Route path='/yourprofile' element={<YourProfile/>}></Route>
       <Route path='/myprofile' element={<MyProfile/>}></Route>
       <Route path='/editprofile' element={<EditProfile/>}></Route>
       <Route path='/chatpage' element={<ChatPage/>}></Route>
       <Route path='/chatroom' element={<ChatRoom/>}></Route>
-
-
       <Route path='/myfollow' element={<MyFollow />}></Route>
       <Route path='/yourfollow' element={<YourFollow />}></Route>
       <Route path='/snspage' element={<SnsPage />}></Route>
