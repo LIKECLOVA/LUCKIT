@@ -1,7 +1,11 @@
 import React from 'react'
+import {CommentBoxWrap} from '../commentstyle'
+import {CommentList} from '../comment-list/commentList'
 
 export const CommentBox = () => {
   return (
-    <div>comment-box</div>
+    <CommentBoxWrap> 
+      <CommentList/>
+    </CommentBoxWrap>
   )
 }
