@@ -1,7 +1,5 @@
-import React from 'react'
+import React from 'react';
 
 export const Join = () => {
-  return (
-    <div>Join</div>
-  )
-}
+  return <div>Join</div>;
+};
