@@ -2,6 +2,8 @@ import React from 'react';
 import { FollowInfoWrap, FollowLi } from './followstyle';
 
 export const Follow = () => {
+  /* 받아오는 유저 정보에 따라 (follower인지 following인지) 바뀌는 컴포넌트 */
+
   return (
    
     <FollowLi>
