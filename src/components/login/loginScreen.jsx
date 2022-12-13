@@ -1,25 +1,52 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import { SplashWrap, LoginImg, LoginScreenTxt } from './loginstyle';
+import styled from 'styled-components';
 
-const LoginScreen = () => {
-  const navigate = useNavigate();
+// import { useNavigate } from 'react-router-dom';
+import { Envelope, Logo } from './logscreenstyle';
+
+const Gogo = styled.button`
+  width: 270px;
+  color: ${(props) => {
+    return props.bg === '#85CE2D' ? 'white' : '#475A24';
+  }};
+  margin: 10px 20px;
+  padding: 12px;
+  background-color: ${(props) => {
+    return props.bg;
+  }};
+  border-radius: 50px;
+  font-size: 14px;
+  box-shadow: 0 1px 5px 0 #b9d795;
+  border: 1px solid #b9d795;
+  &:hover {
+    background-color: #64b603;
+    color: white;
+    cursor: pointer;
+  }
+`;
+
+export const LoginScreen = () => {
+  // const navigate = useNavigate();
 
   return (
-    <SplashWrap>
-      <LoginImg />
-      <LoginScreenTxt>
-        널 만난건 <span>행운</span>입니다
-      </LoginScreenTxt>
-      <button
-        onClick={() => {
-          return navigate('/login');
-        }}
-      >
-        로그인
-      </button>
-    </SplashWrap>
+    <Envelope>
+      <section className='envbox'>
+        <div className='env'>
+          <div className='openEnv'>
+            <label className='top'></label>
+            <div className='content'>
+              <Logo />
+              <p>
+                널 만난 건 <span>행운</span>이야!
+              </p>
+
+              <Gogo bg='#fff'>이메일로 로그인</Gogo>
+              <Gogo bg='#85CE2D'>30초 회원가입</Gogo>
+            </div>
+            <div className='rest'></div>
+          </div>
+        </div>
+      </section>
+    </Envelope>
   );
 };
-
-export { LoginScreen };
