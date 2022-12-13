@@ -7,7 +7,12 @@ import { NavBar } from '../../components/navbar/navBar';
 
 
 export const SnsPage = () => {
-  
+  // const [modalOpen, setModalOpen] = useState(false);
+
+  //   // 모달창 노출
+  //   const showModal = () => {
+  //       setModalOpen(!modalOpen);
+  //   };
   
   return (
     <>

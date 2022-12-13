@@ -7,6 +7,7 @@ export const NavWrap = styled.nav`
     bottom: 0px;
     width: 100%;
     border-top: 1px solid #DBDBDB;
+    z-index: 9999;
 
 `
 

@@ -3,44 +3,66 @@ import styled from 'styled-components';
 export const MyProfileInfoBox = styled.div`
     margin-top: 90px;
     width: 100%;
-    height:250px;
-    background-color: lightblue;
-    box-shadow: 0px -20px 0 0px  #D5EBBB;;
-    border-radius:10px;
+    height: 230px;
+    padding: 20px;
+    background-color: #FBFBFB;
+    box-shadow: 0px -15px 0 0px pink;
+    border-radius: 30px;
     .topmyInfoBox{
         display:flex;
         justify-content: space-between;
     }
     .leftMyInfoBox{
         display:flex;
-        padding:20px;
+        align-items: center;
+
+        .profileCont {
+            display: flex;
+            flex-direction: column;
+            padding: 12px;
+        }
         img{
-            width: 150px;
-            height: 150px;
+            width: 120px;
+            height: 120px;
         }
         h2{
-            font-size:30px;
-            margin: 10px 0px 0px 10px;
+            font-size: 22px;
+            font-weight: 500;
         }
         p{
-            font-size:15px;
-            margin-left: 15px;
+            font-size:14px;
+            margin-top: 8px;
         }
-        span{
-            display:inline-block;
-            margin-top:20px;
-            margin-left:20px;
+        span {
+            display: inline-block;
+            margin-top: 15px;
         }
 
-    }
-    .rightInfoBox{
-        button{
-            margin:30px;
+        span + span {
+            margin-left: 12px;
         }
     }
 
-    .bottomInfoBox{
-        margin-left:30px
-
+    .rightInfoBox {
+        button {
+            display: block;
+            width: 80px;
+            height: 35px;
+            background-color: #85CE2D;
+            color: white;
+            border-radius: 30px;
+        }
     }
+
+    .bottomInfoBox {
+        margin-top: 26px;
+
+        .btInfoTxt {
+            margin-top: 8px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    }
+
 `

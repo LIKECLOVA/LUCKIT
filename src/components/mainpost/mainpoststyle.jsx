@@ -9,7 +9,10 @@ const MainSnsPostWhap= styled.div`
     background: rgb(255, 255, 255);
     display: flex;
     z-index: 10;
-> img{
+    border-top-right-radius:10px;
+    border-top-left-radius: 10px;
+    overflow: hidden;
+img{
     margin: 0 20px;
     border: 3px solid #85CE2D;
       border-radius: 50%;
@@ -29,12 +32,12 @@ const SnsPostBox= styled.div`
     display: flex;
     flex-direction: column;
     z-index: 10;
-> p{
+p{
     margin: 10px 0px;
     font-size: 14px;
     line-height: 16px;
 }
-> img{
+img{
       margin-top:20px;
       border-radius: 10px;
       width: 319px;
