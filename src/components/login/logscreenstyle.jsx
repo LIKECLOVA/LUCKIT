@@ -1,6 +1,5 @@
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
-import { palette } from '../../styles/global/globalColor';
+import screenLogo from '../../assets/loginScreen-logo.png';
 
 export const Envelope = styled.main`
   @font-face {
@@ -41,7 +40,7 @@ export const Envelope = styled.main`
     width: 400px;
     margin-bottom: 500px;
     padding: 10px 20px;
-    height: 650px;
+    height: 250px;
     left: 25px;
     top: 5px;
     background: #f3fbe9;
@@ -52,30 +51,22 @@ export const Envelope = styled.main`
     position: absolute;
     z-index: -5;
     margin-left: 25px;
-    transform: translate(0, -480px);
-    .title {
+    transform: translate(0, 0);
+    animation-delay: 2s;
+    p {
       font-size: 20px;
-      color: #559705;
-      margin-top: 130px;
+      font-family: 'TmoneyRoundWindExtraBold';
+      color: #475a24;
       margin-bottom: 50px;
       & font {
         font-family: 'TmoneyRoundWindExtraBold';
       }
     }
 
-    .message {
-      font-size: 12px;
-      color: red;
-    }
-
-    .joinMessage {
-      display: inline-block;
-      font-size: 12px;
-      color: #a9a9a9;
-      margin-right: 5px;
+    span {
+      color: #1e9c21;
     }
   }
-
   .env .top {
     display: block;
     width: 0;
@@ -92,10 +83,13 @@ export const Envelope = styled.main`
     position: relative;
     border-radius: 10px;
   }
-
   .env .openEnv label.top {
-    transform: rotateX(-180deg) scale(1.25, 1);
-    z-index: -20;
+    animation: labeltop 1s ease forwards 1 0.5s;
+    animation-delay: 1.2s;
+  }
+  .env .openEnv .content {
+    animation: out 1s ease forwards 1 0.5s;
+    animation-delay: 2s;
   }
 
   @keyframes out {
@@ -105,6 +99,9 @@ export const Envelope = styled.main`
     }
   }
   @keyframes envelope {
+    0% {
+      opacity: 0;
+    }
     100% {
       opacity: 100;
       transform: scale(1, 1) translate(0px, 0px);
@@ -118,64 +115,9 @@ export const Envelope = styled.main`
   }
 `;
 
-export const Gogo = styled.button`
-  width: 270px;
-  color: ${(props) => {
-    return props.bg === '#85CE2D' ? 'white' : '#475A24';
-  }};
-  margin: 25px 20px 7px 20px;
-  padding: 12px;
-  background-color: ${(props) => {
-    return props.bg;
-  }};
-  border-radius: 50px;
-  font-size: 14px;
-  box-shadow: 0 1px 5px 0 #b9d795;
-  border: 1px solid #b9d795;
-  &:hover {
-    background-color: #64b603;
-    color: white;
-    cursor: pointer;
-  }
-`;
-
-/* 로그인하는 페이지 */
-
-export const LoginWrap = styled.section`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+export const Logo = styled.div`
   width: 100%;
-  height: 100%;
+  height: 290px;
+  background: url(${screenLogo}) no-repeat;
+  background-size: contain;
 `;
-
-export const LoginForm = styled.form`
-  display: flex;
-  flex-direction: column;
-
-  input {
-    width: 270px;
-    border-radius: 50px;
-    font-size: 14px;
-    box-shadow: 0 1px 5px 0 #b9d795;
-    border: none;
-    outline: none;
-    font-size: 14px;
-    padding: 12px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    :focus {
-      border: 1px solid #78d00c;
-      box-shadow: 0 1px 5px 0 ${palette.텍스트초록};
-    }
-  }
-`;
-
-const GoSignupLink = styled(Link)`
-  font-size: 13px;
-  color: ${palette.텍스트초록};
-  text-decoration: none;
-`;
-
-export { GoSignupLink };
