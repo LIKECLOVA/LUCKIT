@@ -5,7 +5,7 @@ export const MyProfileWrap = styled.section`
     overflow: scroll;
     height: 100%;
 
-    }
+    
 `
 
 export const SnsPostBtn = styled.div`
@@ -16,7 +16,7 @@ export const SnsPostBtn = styled.div`
     width: 100%;
     height: 50px;
     border: 1px solid black;
-    text-align; center;
+    text-align: center;
   
     button {
         display: block;
