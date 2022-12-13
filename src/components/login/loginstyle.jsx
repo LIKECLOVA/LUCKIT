@@ -164,6 +164,7 @@ export const LoginForm = styled.form`
     width: 270px;
     border-radius: 50px;
     font-size: 14px;
+
     box-shadow: 0 1px 5px 0 #f1f1f1;
     border: none;
     outline: none;
@@ -174,6 +175,7 @@ export const LoginForm = styled.form`
     :focus {
       border: 1px solid #78d00c;
       box-shadow: 0 1px 5px 0 ${palette.텍스트초록};
+
     }
 
     ::placeholder {
