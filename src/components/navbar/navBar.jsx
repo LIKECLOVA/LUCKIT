@@ -16,7 +16,7 @@ export const NavBar = () => {
 	         <NavLink to='/chatpage'>채팅</NavLink>
         </NavListItem>
         <NavListItem>
-	        <NavLink to='/profilepage'>프로필</NavLink>
+	        <NavLink to='/myprofile'>프로필</NavLink>
         </NavListItem>
       </NavList>
     </NavWrap>

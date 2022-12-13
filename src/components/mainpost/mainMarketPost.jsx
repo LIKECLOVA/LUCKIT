@@ -1,9 +1,11 @@
 import React from 'react'
 
-export const EditProfile = () => {
+const mainMarketPost = () => {
   return (
     <div>
       
     </div>
   )
 }
+
+export default mainMarketPost
