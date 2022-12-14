@@ -23,7 +23,8 @@ const setPosition = (posi) => {
         return null;
     }
   };
-
+  
+/* 기본설정: 원형+ 하단 fixed */
 export const IconBtn = styled.button`
   position:fixed;
   right:10px;

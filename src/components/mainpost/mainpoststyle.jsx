@@ -90,22 +90,3 @@ const IconWrap= styled.div`
 `;
 
 export { IconWrap }
-
-
-const TestDiv= styled.div`
-   position: relative;
-   img{
-    margin-top:20px;
-      border-radius: 10px;
-      width: 319px;
-      height: 264px;
-    :last-child{ 
-        margin-top:0px;
-        border-radius: 0px;
-      width: 20px;
-      height: 20px;
-    }
-    }
-`;
-
-export { TestDiv }
