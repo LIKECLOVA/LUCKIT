@@ -8,8 +8,6 @@ const setPosition = (posi) => {
           background-color: orange;
           bottom: 0px;
           right: 0px;
-          width: 36px;
-          height: 36px;
           img{
             width: 36px;
             height: 36px;
@@ -24,9 +22,8 @@ const setPosition = (posi) => {
     }
   };
   
-/* 기본설정: 원형+ 하단 fixed */
+/* 기본설정: 원형 */
 export const IconBtn = styled.button`
-  position:fixed;
   right:10px;
   bottom:70px;
   z-index: 30;
@@ -34,11 +31,13 @@ export const IconBtn = styled.button`
   height: 50px;
   margin: 0px;
   padding: 0px;
+  background-color: #FFFFFF;
  border-radius: 50%;
   cursor: pointer;
   img{
-    width: 50px;
-    height: 50px;
+    width: 28px;
+    height: 28px;
+    margin: 0px;
   }
   
   /* 위치 설정 */

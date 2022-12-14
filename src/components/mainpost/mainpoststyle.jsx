@@ -13,8 +13,7 @@ const MainSnsPostWhap= styled.div`
     border-top-left-radius: 10px;
     overflow: hidden;
 img{
-    margin: 0 20px;
-    border: 3px solid #85CE2D;
+      margin: 0 20px;
       border-radius: 50%;
       width: 80px;
       height: 80px;

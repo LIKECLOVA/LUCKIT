@@ -1,6 +1,5 @@
 import React from 'react'
-import { SnsUploadArt, SnsUploadSec, SnsUploadForm, SnsUploadImg} from './snsstyle';
-import {ImgUploadBtn} from '../../components/button/iconBtn'
+import { SnsUploadArt, SnsUploadSec, SnsUploadForm, SnsUploadImg, ImgUploadBtn} from './snsstyle';
 
 export const SnsUpload = () => {
   return (
@@ -13,10 +12,12 @@ export const SnsUpload = () => {
 <SnsUploadForm>
 <textarea name="snsuploadtxt" id="snsuploadtxt" placeholder='게시글 입력하기 ...'/>
 <SnsUploadImg>
-  <img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fcafefiles.naver.net%2F20160622_226%2Fsang7145_1466595386985CQdGk_JPEG%2Fg.jpg&type=sc960_832" alt="" />
+  <img src="" alt="" />
 </SnsUploadImg>
 </SnsUploadForm>
     </SnsUploadSec>
-    <ImgUploadBtn posi='fixed'/>
+    <ImgUploadBtn>
+    <input name="snsuploadimg" id="snsuploadimg" type="file"/>
+    </ImgUploadBtn>
     </>
   )};

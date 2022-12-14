@@ -1,6 +1,7 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 import {MainSnsPostWhap,IconWrap, SnsIdWhap, SnsPostBox} from './mainpoststyle'
+import { MoreBtn } from "../button/iconBtn";
 
 const MainSnsPost = () => {
   return (
@@ -26,7 +27,7 @@ const MainSnsPost = () => {
       </NavLink>
       </IconWrap>
       </SnsPostBox>
-      
+      <MoreBtn/>
     </MainSnsPostWhap>
   )
 }
