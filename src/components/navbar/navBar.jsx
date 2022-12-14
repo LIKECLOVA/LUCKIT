@@ -1,13 +1,13 @@
 import React from 'react'
 import { NavWrap, StyleNavLink } from './navbarstyle'
-import homeIcon from '../../assets/home-disabled.png'
-import homeIconFill from '../../assets/home-클로바.png'
-import snsIcon from '../../assets/document.png'
-import snsIconFill from '../../assets/document-disabled.png'
-import chatIcon from '../../assets/chat-disabled.png'
-import chatIconFill from '../../assets/chat.png'
-import profileIcon from '../../assets/profile-disabled.png'
-import profileIconFill from '../../assets/profile.png'
+import homeIcon from '../../assets/icon/home-disabled.png'
+import homeIconFill from '../../assets/icon/home-클로바.png'
+import snsIcon from '../../assets/icon/document.png'
+import snsIconFill from '../../assets/icon/document-disabled.png'
+import chatIcon from '../../assets/icon/chat-disabled.png'
+import chatIconFill from '../../assets/icon/chat.png'
+import profileIcon from '../../assets/icon/profile-disabled.png'
+import profileIconFill from '../../assets/icon/profile.png'
 
 
 export const NavBar = () => {
