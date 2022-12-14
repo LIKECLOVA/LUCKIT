@@ -1,4 +1,5 @@
 import React from 'react';
+import { NextBtn } from '../button/button';
 import { ProfileInput, ProfileLabel, JoinProfileWrap, ProfileTextarea } from './joinprofilestyle';
 
 const JoinProfile = () => {
@@ -14,7 +15,6 @@ const JoinProfile = () => {
             <ProfileLabel>
               <ProfileInput placeholder='닉네임' type='text' name='userName' required />
             </ProfileLabel>
-
             <ProfileLabel>
               <ProfileInput placeholder='아이디' type='text' name='userId' />
             </ProfileLabel>
@@ -24,7 +24,7 @@ const JoinProfile = () => {
         <ProfileLabel>To. 나의 럭킷에게</ProfileLabel>
         <ProfileTextarea name='userInfo' style={{ resize: 'none' }} />
         <div className='buttonFlexBox'>
-          <button>버튼 자리입니다</button>
+          <NextBtn size={'large'}/>
         </div>
       </JoinProfileWrap>
     </>
