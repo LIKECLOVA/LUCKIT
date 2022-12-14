@@ -39,6 +39,7 @@ top:4%;
 `;
 
 export { Snsuploadsec }
+
 const SnsuploadForm = styled.form`
 display: flex;
 flex-direction: column;
@@ -74,12 +75,3 @@ const SnsUploadImg = styled.section`
   `;
 
 export { SnsUploadImg }
-
-const ImgUploadBtn = styled.button`
-  position:fixed;
-  right:0px;
-  bottom: 10px;
-  cursor: pointer;
-  `;
-
-export { ImgUploadBtn }
