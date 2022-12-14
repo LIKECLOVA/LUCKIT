@@ -47,20 +47,18 @@ export const Article = styled.article`
         top: 50%;
         transform: translateY(-50%);
         font-size: 30px;
-        color: rgba(0, 0, 0, 0.5);
-        background: rgba(255,255,255, 0.4);
+        background: transparent;
         border-radius: 20px;
         cursor: pointer;
+        padding: 110px 80px;
     }
 
     .prevBtn {
         left: 10px;
-        padding: 30px 20px 30px 15px;
     }
 
     .nextBtn {
         right: 10px;
-        padding: 30px 15px 30px 20px;
     }
 
 `

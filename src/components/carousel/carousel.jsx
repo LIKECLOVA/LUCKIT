@@ -5,17 +5,17 @@ const bannerData = [
     {
         id: 1,
         name: '광고1',
-        image: 'https://pixabay.com/get/ge42b02d348e5d0ae8fa677996638b841043a769037bdd246029c8f685b37f75fb0ec3523e09665a1c2ab443da8155b5167421b0c7683f9e79f5720fd6bf22822b299a8b9461bba764364a16dd5e1f0b4_1280.jpg'
+        image: 'https://raw.githubusercontent.com/christianB053/likelion/develop/christmas-cookies.jpg'
     },
     {
         id: 2,
         name: '광고2',
-        image: 'https://pixabay.com/get/g381663a3f12d006db061b9d433c1de7864415869c8b108b484a891c345d6ecb61ad6195a4eb3a25446e7ec50ebee1c8c5ee4ad82d280e4c0dd81f6d393a0d1e6568a6b4c31982a0f0f9d2794dc3fd9b7_1280.jpg'
+        image: 'https://raw.githubusercontent.com/christianB053/likelion/develop/angel.jpg'
     },
     {
         id: 3,
         name: '광고3',
-        image: 'https://pixabay.com/get/gc0bd4217638e85c3041930e42f53396c9af5b6dd853c3d8c4ad1e1a4259e7f443d5b9b673729b3a29ab794e340038fde82e459924de63a8db1705f87baf6e3e326cfc2020c8db9ede5d8e043d79ae7b8_1280.jpg'
+        image: 'https://raw.githubusercontent.com/christianB053/likelion/develop/snowman.jpg'
     },
 ]
 
@@ -64,8 +64,8 @@ export function Carousel() {
         })}
       </ul>
       <div className='btnWrap'>
-        <button onClick={()=> {return setIndex(index-1)}} className='prevBtn'>◀️</button>
-        <button onClick={()=> {return setIndex(index+1)}} className='nextBtn'>▶️</button>
+        <button onClick={()=> {return setIndex(index-1)}} className='prevBtn'></button>
+        <button onClick={()=> {return setIndex(index+1)}} className='nextBtn'></button>
       </div>
     </Article>
   )
