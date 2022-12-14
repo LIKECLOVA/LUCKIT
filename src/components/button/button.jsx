@@ -1,7 +1,17 @@
 import React from 'react'
+import { Button,FollowButton } from './buttonstyle'
 
-export const button = () => {
+export const NextBtn = ({size}) => {
   return (
-    <div>button</div>
+    <Button size={size}>다음</Button>
   )
+}
+
+export const FollowBtn = ({size,onClick,isFollow }) => {
+ 
+  return <FollowButton isFollow={isFollow} onClick={ onClick } size={size}>{isFollow ? '취소': '팔로우'}</FollowButton>
+}
+
+export const StoreBtn = ({size}) => {
+  return <Button size={size}>저장</Button>
 }

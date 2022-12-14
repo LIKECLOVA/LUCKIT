@@ -1,8 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { FollowBtn } from '../button/button';
 import { FollowInfoWrap, FollowLi } from './followstyle';
 
 export const Follow = () => {
-  /* 받아오는 유저 정보에 따라 (follower인지 following인지) 바뀌는 컴포넌트 */
+/* 받아오는 유저 정보에 따라 (follower인지 following인지) 바뀌는 컴포넌트 */
+
+/* follow 버튼 컴포넌트를 클릭했을때 텍스트,색상 변경함수 */
+  const [isFollow,setIsFollow] = useState(false);
+  const onClick = () => {
+    setIsFollow(!isFollow);
+  }
 
   return (
    
@@ -14,7 +21,7 @@ export const Follow = () => {
           <p>자기소개@@@@@@@</p>
         </div>
       </FollowInfoWrap>
-      <button>버튼자리입니다</button>
+      <FollowBtn isFollow={isFollow} onClick={onClick} size='middle'/>
     </FollowLi>
    
   );

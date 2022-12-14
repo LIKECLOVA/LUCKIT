@@ -16,7 +16,7 @@ export const JoinProfileWrap = styled.div`
     margin-top: 14px;
   }
   .profileMidWrap {
-    margin-top: 150px;
+    margin-top: 100px;
     display: flex;
     img {
       width: 200px;
@@ -46,8 +46,12 @@ export const ProfileLabel = styled.label`
 
 export const ProfileInput = styled.input`
   display: block;
-  width: 220px;
+  width: 270px;
   height: 70px;
+  border-radius:50px;
+  padding:15px;
+  border: none;
+  background-color:#f1f1f1;
 `;
 
 export const ProfileTextarea = styled.textarea`
