@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { HomeHeaderWrap, SearchHeaderWrap, FeedHeaderWrap, ProfileHeaderWrap, FollowHeaderWrap, EditAndUploadHeaderWrap} from './headerstyle'
 import IconSearch from '../../assets/icon/icon-search.png'
 import IconArrowLeft from '../../assets/icon/icon-arrow-left.png'
@@ -33,9 +33,11 @@ export const FeedPageHeader = () => {
 
 // 검색 페이지
 export const SearchHeader = () => {
+  const navigate = useNavigate();
+ 
   return (
     <SearchHeaderWrap>
-        <button>
+        <button onClick={() => {navigate(-1)}}>
           <img src={IconArrowLeft} alt='뒤로가기' />
         </button>
         <input type='search' placeholder='계정 검색'/>
@@ -45,9 +47,11 @@ export const SearchHeader = () => {
 
 // 프로필 페이지
 export const ProfileAndChatHeader = () => {
+  const navigate = useNavigate();
+
   return (
     <ProfileHeaderWrap>
-      <button>
+      <button onClick={() => {navigate(-1)}}>
         <img src={IconArrowLeft} alt='뒤로가기' />
       </button>
       <button>
@@ -59,9 +63,11 @@ export const ProfileAndChatHeader = () => {
 
 // 팔로워 페이지
 export const FollowerHeader = () => {
+  const navigate = useNavigate();
+
   return (
     <FollowHeaderWrap>
-      <button>
+      <button onClick={() => {navigate(-1)}}>
          <img src={IconArrowLeft} alt='뒤로가기' />
        </button>
        <strong>followers</strong>
@@ -71,9 +77,11 @@ export const FollowerHeader = () => {
 
 // 팔로잉 페이지
 export const FollowingHeader = () => {
+  const navigate = useNavigate();
+
   return (
     <FollowHeaderWrap>
-      <button>
+      <button onClick={() => {navigate(-1)}}>
          <img src={IconArrowLeft} alt='뒤로가기' />
        </button>
        <strong>followings</strong>
@@ -83,9 +91,11 @@ export const FollowingHeader = () => {
 
 // 프로필 수정 페이지 헤더
 export const ProfileEditHeader = () => {
+  const navigate = useNavigate();
+
   return (
     <EditAndUploadHeaderWrap>
-      <button className='backBtn'>
+      <button onClick={() => {navigate(-1)}} className='backBtn'>
         <img src={IconArrowLeft} alt='뒤로가기' />
       </button>
       <StoreBtn size='middle-sm' />
@@ -95,9 +105,11 @@ export const ProfileEditHeader = () => {
 
 // 게시글 업로드 헤더
 export const PostUploadHeader = () => {
+  const navigate = useNavigate();
+
   return (
     <EditAndUploadHeaderWrap>
-      <button className='backBtn'>
+      <button onClick={() => {navigate(-1)}} className='backBtn'>
         <img src={IconArrowLeft} alt='뒤로가기' />
       </button>
       <UploadBtn size='middle-sm'/>
@@ -107,9 +119,11 @@ export const PostUploadHeader = () => {
 
 // 채팅방 페이지
 export const ChatRoomHeader = () => {
+  const navigate = useNavigate();
+
   return (
     <ProfileHeaderWrap>
-      <button>
+      <button onClick={() => {navigate(-1)}}>
         <img src={IconArrowLeft} alt='뒤로가기' />
       </button>
       <strong>유저 네임 data 또는 그냥 지정</strong>
