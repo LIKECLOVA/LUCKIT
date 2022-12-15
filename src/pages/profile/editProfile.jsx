@@ -1,5 +1,5 @@
 import React from 'react';
-import { Header } from '../../components/header/header';
+import { ProfileEditHeader } from '../../components/header/header';
 import {
   EditProfilePageWrap,
   EditProfilePageUserInfo,
@@ -11,7 +11,7 @@ import {
 export const EditProfile = () => {
   return (
     <>
-      <Header />
+      <ProfileEditHeader />
       <EditProfilePageWrap>
         <EditProfilePageUserInfo>
           <img src='https://mandarin.api.weniv.co.kr/Ellipse.png' alt='프로필설정사진' />

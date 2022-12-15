@@ -20,9 +20,10 @@ const setSize = (size) => {
       `;
     case 'middle-sm':
       return css`
-        padding: 17px 0;
-        line-height: 20px;
-        color: blue;
+        width: 16%;
+        height: 32px;
+        font-size: 14px;
+        padding: 0;
       `;
     default:
       return null;
@@ -38,8 +39,6 @@ export const Button = styled.button`
   padding: 20px;
   border-radius: 30px;
   color: white;
-
-
   /* 사이즈 설정 */
   ${({ size }) => {
     return setSize(size);
@@ -52,7 +51,6 @@ export const FollowButton = styled.button`
   padding: 20px;
   border-radius: 30px;
   color: white;
-
   ${({ isFollow }) => {
     return isFollow
       ? css`
@@ -64,7 +62,6 @@ export const FollowButton = styled.button`
           background-color: ${palette.초록초록};
         `;
   }};
-
   /* 사이즈 설정 */
   ${({ size }) => {
     return setSize(size);

@@ -15,3 +15,8 @@ export const FollowBtn = ({size,onClick,isFollow }) => {
 export const StoreBtn = ({size}) => {
   return <Button size={size}>저장</Button>
 }
+
+export const UploadBtn = ({size}) => {
+  return <Button size={size}>업로드</Button>
+}
+

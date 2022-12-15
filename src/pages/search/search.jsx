@@ -1,16 +1,12 @@
 import React from 'react';
+import { SearchHeader } from '../../components/header/header';
 import { NavBar } from '../../components/navbar/navBar';
-import { SearchHeader, SearchMain } from './searchstyle'
+import { SearchMain } from './searchstyle'
 
 export const Search = () => {
   return (
     <div>
-      <SearchHeader>
-        <button>
-          ⬅️
-        </button>
-        <input type='search' placeholder='계정 검색'/>
-      </SearchHeader>
+      <SearchHeader />
       <SearchMain>
         <span>검색 TIP</span><p>취미 키워드를 넣어서 검색해 보세요.</p>
         <div className='searchKeyword'>

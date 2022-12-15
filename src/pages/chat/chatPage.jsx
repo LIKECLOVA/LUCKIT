@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Header } from '../../components/header/header';
+import { ProfileAndChatHeader } from '../../components/header/header';
 import { ChatPageUl, ChatPageWrap } from './chatpagestyle';
 import ChatUser from './chatUser';
 
@@ -9,7 +9,7 @@ import ChatUser from './chatUser';
 export const ChatPage = () => {
   return (
     <>
-      <Header />
+      <ProfileAndChatHeader />
       <ChatPageWrap>
         <ChatPageUl>
           <Link to='/chatroom'>
