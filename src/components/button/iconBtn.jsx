@@ -14,7 +14,7 @@ export function AddBtn() {
 export function ImgUploadBtn({ posi }) {
   return (
     <IconBtn posi={posi}>
-      <img src={imgUpload} alt="이미지 업로드 버튼"/>
+      <img src={imgUpload} alt="이미지 업로드 버튼" />
     </IconBtn>
   );
 }
