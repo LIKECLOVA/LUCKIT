@@ -18,7 +18,7 @@ export const NavBar = () => {
           <StyleNavLink 
             to={'/'}
             icon={homeIcon}
-            hoverIcon={homeIconFill}
+            hovericon={homeIconFill}
             className={({isActive}) => {
               return (
                 isActive ? 'active' : null  
@@ -30,7 +30,7 @@ export const NavBar = () => {
           <StyleNavLink 
             to={'/snspage'} 
             icon={snsIcon}
-            hoverIcon={snsIconFill}
+            hovericon={snsIconFill}
             className={({isActive}) => {
               return (
                 isActive ? 'active' : null  
@@ -42,7 +42,7 @@ export const NavBar = () => {
           <StyleNavLink 
             to={'/chatpage'} 
             icon={chatIcon}
-            hoverIcon={chatIconFill}
+            hovericon={chatIconFill}
             className={({isActive}) => {
               return (
                 isActive ? 'active' : null  
@@ -54,7 +54,7 @@ export const NavBar = () => {
           <StyleNavLink 
             to={'/myprofile'} 
             icon={profileIcon}
-            hoverIcon={profileIconFill}
+            hovericon={profileIconFill}
             className={({isActive}) => {
               return (
                 isActive ? 'active' : null  
