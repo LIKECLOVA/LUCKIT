@@ -1,5 +1,5 @@
 import React from 'react';
-import { Header } from '../../components/header/header';
+import { ProfileAndChatHeader } from '../../components/header/header';
 import { MarketPreviewPost } from '../../components/market-preview-post/marketPreviewPost';
 import { ProfileBox } from '../../components/profile-box/profileBox';
 import { MyProfileWrap, SnsPostBtn } from './myprofilestyle';
@@ -9,7 +9,7 @@ import MainSnsPost from '../../components/mainpost/mainSnsPost';
 export const YourProfile = () => {
   return (
     <>
-      <Header />
+      <ProfileAndChatHeader />
       <MyProfileWrap>
         <ProfileBox/>
         <MarketPreviewPost/>

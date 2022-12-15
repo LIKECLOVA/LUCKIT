@@ -1,14 +1,14 @@
 import React from 'react'
 // import { Link } from 'react-router-dom';
 import { Carousel } from '../../components/carousel/carousel'
-import { Header } from '../../components/header/header'
+import { HomepageHeader } from '../../components/header/header'
 import { NavBar } from '../../components/navbar/navBar'
 import { HomeSection, Hidden, HomeTitle, ListWrap, ListItem, CardWrap, CardImg, CardCont, CardTitle, CardTxt, CardUser,   } from './homestyle'
 
 const Home2 = () => {
   return (
     <main>
-        <Header />
+        <HomepageHeader />
         <Carousel />
         <HomeSection>
             <Hidden>Home 피드 페이지</Hidden>

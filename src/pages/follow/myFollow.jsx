@@ -1,6 +1,6 @@
 import React from 'react';
 import { FollowPageUl, FollowPageWrap } from './followstyle';
-import { Header } from '../../components/header/header';
+import { FollowerHeader } from '../../components/header/header';
 import { Follow } from '../../components/follow/follow';
 
 export const MyFollow = () => {
@@ -8,7 +8,7 @@ export const MyFollow = () => {
 
   return (
     <>
-      <Header />
+      <FollowerHeader />
       <FollowPageWrap>
         <FollowPageUl>
           <Follow/>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Header } from '../../components/header/header';
+import { ChatRoomHeader } from '../../components/header/header';
 import { ChatRoomWrap, LeftChatTxT, RightChatTxT, ChatInput,ChatInputWrap } from './chatroomstyle';
 
 export const ChatRoom = () => {
@@ -25,7 +25,7 @@ export const ChatRoom = () => {
   return (
     <>
       <ChatRoomWrap>
-        <Header />
+        <ChatRoomHeader />
         <RightText chatTxT={'왼쪽 채팅입니다'} />
         <LeftText chatTxT={'오른쪽입니다'} />
         <RightText chatTxT={'왼쪽'} />

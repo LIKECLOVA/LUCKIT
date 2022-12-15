@@ -2,7 +2,7 @@ import React from 'react';
 // import ScrollMenu from "react-horizontal-scrolling-menu";
 import MainSnsPost from '../../components/mainpost/mainSnsPost'
 import { SnsPageArt, SnsPageSec, MainPostArea } from './snsstyle';
-import { Header } from '../../components/header/header';
+import { FeedPageHeader } from '../../components/header/header';
 import { NavBar } from '../../components/navbar/navBar';
 
 
@@ -16,7 +16,7 @@ export const SnsPage = () => {
   
   return (
     <>
-    <Header />
+    <FeedPageHeader />
     <SnsPageArt>
       <ul>
         <li>
