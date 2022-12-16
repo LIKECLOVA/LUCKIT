@@ -38,6 +38,7 @@ export const JoinProfileWrap = styled.div`
 `;
 
 export const ProfileImgLabel =styled.label`
+  position: relative;
  
 `
 export const ProfileImgInput = styled.input`
