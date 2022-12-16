@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { NextBtn } from '../button/button';
+import {ImgUploadBtn} from '../button/iconBtn';
 import {
   ProfileInput,
   ProfileLabel,
@@ -90,6 +91,11 @@ const JoinProfile = () => {
 
   };
 
+  /* 이미지 변경 함수 */
+  const setImg = () => {
+    fileInput.current.click();
+  }
+
   return (
     <>
       <JoinProfileWrap>
@@ -107,6 +113,7 @@ const JoinProfile = () => {
               }}
             />
             <ProfileImgInput onChange={postImg} ref={fileInput} type='file' id='joinProfileImg' />
+            <ImgUploadBtn click={setImg} posi='in'/>
           </ProfileImgLabel>
           <div>
             <ProfileLabel>
