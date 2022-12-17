@@ -9,7 +9,12 @@ export const ProfileBox = () => {
 
   useEffect(() => {
 
-   fetch(`https://mandarin.api.weniv.co.kr/profile/${accountname}`, {
+    profileDataList();
+    
+  }, [])
+
+const profileDataList = async () => {
+  fetch(`https://mandarin.api.weniv.co.kr/profile/${accountname}`, {
       method: 'GET',
       headers: {
         "Authorization" : `Bearer ${token}`,
@@ -20,11 +25,7 @@ export const ProfileBox = () => {
     }).then(data => {
       setProfileData(data.profile)
     })
-    
-  }, [])
-
-console.log(profileData)
-
+}
 
 return (
       <MyProfileInfoBox>

@@ -12,7 +12,12 @@ export const MarketPreviewPost = () => {
 
   useEffect(() => {
 
-   fetch(`https://mandarin.api.weniv.co.kr/product/${accountname}/?limit=5`, {
+    marketPostList();
+    
+  }, [])
+
+  const marketPostList = async () => {
+    await fetch(`https://mandarin.api.weniv.co.kr/product/${accountname}/?limit=5`, {
       method: 'GET',
       headers: {
         "Authorization" : `Bearer ${token}`,
@@ -23,10 +28,7 @@ export const MarketPreviewPost = () => {
     }).then(data => {
       setMarketPostsData(data.product)
     })
-    
-  }, [])
-
-console.log(marketPostsData)
+  }
 
   return (
     <MarketPreviewBoxWrap>
