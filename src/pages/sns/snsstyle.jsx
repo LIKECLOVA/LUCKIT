@@ -1,9 +1,10 @@
 import styled from 'styled-components';
+import imgBtn from '../../assets/icon/img-button.png';
+import deleteBtn from '../../assets/icon/x.png'
 
 /* SnsUpload 페이지 */
 const SnsUploadArt = styled.article`
   display: flex;
-  position: relative;
   align-items: center;
   border-bottom: 1px solid rgb(219, 219, 219);
     box-sizing: border-box;
@@ -26,64 +27,98 @@ const SnsUploadArt = styled.article`
 export { SnsUploadArt }
 
 const SnsUploadSec = styled.section`
-position: absolute;
 top:4%;
-  display: flex;
+  padding : 30px 34px;
   justify-content: center;
-  align-content: space-around;
   width: 100%;
   height: 90%;
-  background-color: #000;
     & > input{
   }
 `;
 
 export { SnsUploadSec }
-const SnsUploadForm = styled.form`
-display: flex;
-flex-direction: column;
-position: relative;
-width: 80%;
-textarea {
-  flex-grow:2;
+
+const SnsTextLable = styled.label`
+display: none;
+`
+
+export { SnsTextLable }
+
+const SnsTextInput = styled.textarea`
   width: 100%;
-  height: 60%;
-  line-height: 2.5rem;
-  margin: 0px;
-  border: none;
-  outline: none;
-  font-size: 1.4rem;
-  margin-bottom: 1.6rem;
-  border-bottom: 0.1rem solid #000;
-  :focus {
-    border-bottom: 0.1rem solid #000
-    };
-  };
-`;
+  height: 40vh;
+  padding: 32px 0;
+  box-sizing:border-box;
+  border:none;
+  outline:0px none transparent;
+  resize: none;
+`
 
-export { SnsUploadForm }
+export { SnsTextInput }
 
-const SnsUploadImg = styled.section`
-& > input{
-    box-sizing:border-box;
-    width:100%;
-    height:80px;
-    left : 0;
-    right:0;
-  };
+const SnsUploadImg = styled.div`
+ box-sizing:border-box;
+  width:100%;
+  height:300px;
+  bottom: 130px;
+  left : 0;
+  right:0;
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:space-evenly;
+  margin-top: 25px; 
   `;
 
 export { SnsUploadImg }
 
-const ImgUploadBtn = styled.button`
-  position:fixed;
-  right:0px;
-  bottom: 10px;
+export const FileUploader = styled.label`
+  background: url(${imgBtn});
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: fixed;
   cursor: pointer;
-  `;
+  width: 36px;
+  height: 36px;
+  bottom: 20px;
+  right : 20px;
+  z-index: 90;
+`
 
-export { ImgUploadBtn }
+export const FileInput = styled.input`
+  display: none;
+`
 
+export const SingleImg = styled.img`
+  width: 400px;
+  height:300px;
+  border-radius:10px;
+  object-fit: cover;
+  @media screen and (max-width:380px){
+    width:150px;
+    height:90px;
+  }
+`
+export const DeleteBtn = styled.button`
+  cursor: pointer;
+  position:absolute;
+  width:20px;
+  height:20px;
+  background: url(${deleteBtn});
+  background-repeat: no-repeat;
+  background-size: cover;
+`
+export const Img = styled.img`
+  object-fit: cover;
+  position: relative;
+  margin:5px;
+  width:200px;
+  height:130px;
+  border-radius:10px;
+  @media screen and (max-width:380px){
+    width:150px;
+    height:90px;
+  }
+`
 
 /* sns 페이지 */
 
