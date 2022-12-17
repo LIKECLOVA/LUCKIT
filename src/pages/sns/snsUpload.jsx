@@ -109,19 +109,21 @@ async function ImgUpload(userImg) {
           'Content-type': 'application/json'
         },
       })
-        .then(async() =>{
-          const config = {
-            headers: {
-              'Authorization' : `Bearer ${token}`,
-              'Content-type' : 'application/json'
-            },
-          }
-          const res = await axios(URL,config);
+      // .then( async()=> {axios.post(URL + REQ_PATH + '/' + accountname + '/userpost')})
+      // .then(dispatch(AxiosPost(URL + REQ_PATH + '/' + accountname + '/userpost')))
+        // .then(async() =>{
+        //   const config = {
+        //     headers: {
+        //       'Authorization' : `Bearer ${token}`,
+        //       'Content-type' : 'application/json'
+        //     },
+        //   }
+        //   const res = await axios(URL,config);
           
-          console.log('성공',res);
+        //   console.log('성공',res);
 
-          return res.data;
-        })
+        //   return res.data;
+        // })
     }
     catch (error) {
       console.log(error);
