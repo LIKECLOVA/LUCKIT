@@ -61,7 +61,7 @@ export const ProfileAndChatHeader = () => {
   )
 }
 
-// 팔로워 페이지
+// 내 팔로우 페이지 헤더
 export const FollowerHeader = () => {
   const navigate = useNavigate();
 
@@ -75,7 +75,7 @@ export const FollowerHeader = () => {
   )
 }
 
-// 팔로잉 페이지
+// 상대방 팔로우 페이지 헤더
 export const FollowingHeader = () => {
   const navigate = useNavigate();
 

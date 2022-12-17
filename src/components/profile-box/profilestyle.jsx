@@ -38,7 +38,7 @@ export const MyProfileInfoBox = styled.div`
             margin-top: 15px;
         }
 
-        span + span {
+        a + a {
             margin-left: 12px;
         }
     }

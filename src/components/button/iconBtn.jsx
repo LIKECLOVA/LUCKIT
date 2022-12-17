@@ -2,7 +2,8 @@ import React from 'react';
 import { IconBtn } from './iconBtnstyle';
 import addBtn from '../../assets/icon/market-plus.png';
 import moreBtn from '../../assets/icon/s-icon-more-vertical.png';
-import imgBtn from '../../assets/icon/upload-file.png'
+import imgBtn from '../../assets/icon/upload-file.png';
+
 
 export function AddBtn({ posi }) {
   return (
@@ -18,8 +19,6 @@ export function ImgUploadBtn({ posi, click }) {
 
 export function MoreBtn() {
   return (
-    <IconBtn>
-      <img src={moreBtn} alt='더보기버튼' />
-    </IconBtn>
+    <IconBtn icon={moreBtn}></IconBtn>
   );
 }

@@ -24,6 +24,7 @@ export const SnsPostBtn = styled.div`
         height: 35px;
         border: none;
         background-color: pink;
+        
 
     }
 `

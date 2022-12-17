@@ -24,8 +24,8 @@ export const IconBtn = styled.button`
   right:10px;
   bottom:70px;
   z-index: 30;
-  width: 60px;
-  height: 60px;
+  width: 30px;
+  height: 30px;
   margin: 0px;
   padding: 0px;
   background-color: #FFFFFF;

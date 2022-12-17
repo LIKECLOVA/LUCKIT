@@ -7,6 +7,7 @@ import { NavBar } from '../../components/navbar/navBar'
 import MainSnsPost from '../../components/mainpost/mainSnsPost';
 
 export const MyProfile = () => {
+
   return (
     <>
       <ProfileAndChatHeader />
