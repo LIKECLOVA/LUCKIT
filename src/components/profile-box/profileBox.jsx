@@ -1,30 +1,62 @@
-import React from 'react'
-import { MyProfileInfoBox } from './profilestyle'
+import React, { useEffect, useState } from 'react'
+import { MyProfileInfoBox, FollowNavLink, EditProfileNavLink } from './profilestyle'
 
 export const ProfileBox = () => {
-  return (
-    <MyProfileInfoBox>
+  const [profileData, setProfileData] = useState()
+
+  const accountname = '클로바2'
+  const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzOWMyMDY3MTdhZTY2NjU4MWM2NGNhNCIsImV4cCI6MTY3NjM2NzU3MSwiaWF0IjoxNjcxMTgzNTcxfQ.DwRg_udzt-BG1TCQ43G2gHRNy72fSux7QaSjnZrdt5w'
+
+  useEffect(() => {
+
+   fetch(`https://mandarin.api.weniv.co.kr/profile/${accountname}`, {
+      method: 'GET',
+      headers: {
+        "Authorization" : `Bearer ${token}`,
+        "Content-type" : "application/json"
+      },
+    }).then(res => {
+      return res.json()
+    }).then(data => {
+      setProfileData(data.profile)
+    })
+    
+  }, [])
+
+console.log(profileData)
+
+
+return (
+      <MyProfileInfoBox>
+        {profileData ? <>
           <div className='topmyInfoBox'>
             <div className='leftMyInfoBox'>
-              <img src='https://mandarin.api.weniv.co.kr/Ellipse.png' alt='프로필사진'></img>
+              <img src={profileData.image} alt='프로필사진'></img>
               <div className='profileCont'>
-                <h2>유죠미짱</h2>
-                <p>@아이디</p>
-                <div>
-                  <span>팔로워 1330</span>
-                  <span>팔로잉 380</span>
+                <h2>{profileData.accountname}</h2>
+                <p>@ {profileData.username}</p>
+                <div className='followerCont'>
+                  <span>팔로워</span>
+                  <FollowNavLink to='/myfollow'>
+                  {profileData.followerCount}
+                  </FollowNavLink>
+                  <span className='followingTxt'>팔로잉</span>
+                  <FollowNavLink to='/myfollow'>
+                  {profileData.followingCount}
+                  </FollowNavLink>
                 </div>
               </div>
             </div>
-            <div className='rightInfoBox'>
-              <button>팔로우</button>
+            <div>
+              <EditProfileNavLink to='/editprofile'>프로필 수정</EditProfileNavLink>
             </div>
           </div>
 
           <div className='bottomInfoBox'>
             <p>To. 마이럭킷</p>
-            <p className='btInfoTxt'>저는 집 꾸미기를 참 좋아해요! 같이 소품샵 가용 저는 집 꾸미기를 참 좋아해요! 같이 소품샵 가용</p>
+            <p className='btInfoTxt'>{profileData.intro}</p>
           </div>
+        </> : <></>}
         </MyProfileInfoBox>
-  )
+    )
 }
