@@ -38,11 +38,11 @@ return (
                 <p>@ {profileData.username}</p>
                 <div className='followerCont'>
                   <span>팔로워</span>
-                  <FollowNavLink to='/myfollow'>
+                  <FollowNavLink to='/myfollow' state={{ text: 'followers' }}>
                   {profileData.followerCount}
                   </FollowNavLink>
                   <span className='followingTxt'>팔로잉</span>
-                  <FollowNavLink to='/myfollow'>
+                  <FollowNavLink to='/myfollow' state={{ text: 'followings' }}>
                   {profileData.followingCount}
                   </FollowNavLink>
                 </div>

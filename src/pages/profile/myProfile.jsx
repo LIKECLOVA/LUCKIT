@@ -40,8 +40,6 @@ export const MyProfile = () => {
     })
   }
 
-  console.log(snsPostsData)
-
   const onClickListBtn = () => {
     setImgList(true);
     setImgAlbum(false);
