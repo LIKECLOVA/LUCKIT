@@ -23,7 +23,6 @@ export const SnsUpload = () => {
   const fileInput = useRef(null);
   const [showImg, setShowImg] = useState([]);
   const [postImg, setPostImg] = useState([]);
-  // const [uploadBtn, SetuploadBtn] = useState(true);
 
   const data = {
     'post': {
@@ -34,13 +33,13 @@ export const SnsUpload = () => {
 
 /* 이미지 업로드 함수 */
 async function ImgUpload(userImg) {
-  const URL = 'https://mandarin.api.weniv.co.kr';
   const formData = new FormData()
 
   formData.append('image', userImg)
   const res = await axios.post('https://mandarin.api.weniv.co.kr/image/uploadfile', formData)
 
-  return `${URL}/${res.data.filename}`
+  console.log('이미지 파일 업로드',res);
+  return `${res.data.filename}`
 }
 
   /* 이미지 띄워주는 함수 */
@@ -95,9 +94,9 @@ async function ImgUpload(userImg) {
     for (let i = 0; i < postImg?.length; i++) {
       snsImgList.push(ImgUpload(postImg[i]));
     }
-    await Promise.all(snsImgList);
+    const test = await Promise.all(snsImgList)
 
-    data.post.image = snsImgList.join(',');
+    data.post.image = test.join(',');
     data.post.content = content;
     const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzOWFhZjY0MTdhZTY2NjU4MWM2MTA1OCIsImV4cCI6MTY3NjI2NjUxOCwiaWF0IjoxNjcxMDgyNTE4fQ.MRzZ7BLEa1mDMVT-qGRYYiI6L00-wChvd0e95hAD7Cs';
 
@@ -109,38 +108,11 @@ async function ImgUpload(userImg) {
           'Content-type': 'application/json'
         },
       })
-      // .then( async()=> {axios.post(URL + REQ_PATH + '/' + accountname + '/userpost')})
-      // .then(dispatch(AxiosPost(URL + REQ_PATH + '/' + accountname + '/userpost')))
-        // .then(async() =>{
-        //   const config = {
-        //     headers: {
-        //       'Authorization' : `Bearer ${token}`,
-        //       'Content-type' : 'application/json'
-        //     },
-        //   }
-        //   const res = await axios(URL,config);
-          
-        //   console.log('성공',res);
-
-        //   return res.data;
-        // })
     }
     catch (error) {
       console.log(error);
     }
   }
-
-  // useEffect(() => {
-  //   if (content.length > 0 && postImg.length > 0) {
-  //     SetuploadBtn(false);
-  //   }
-  //   else {
-  //     SetuploadBtn(true);
-  //   }
-  // }, [content, postImg])
-
-
-
 
   return (
     <>
