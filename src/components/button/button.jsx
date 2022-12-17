@@ -12,11 +12,10 @@ export const FollowBtn = ({size,onClick,isFollow }) => {
   return <FollowButton isFollow={isFollow} onClick={ onClick } size={size}>{isFollow ? '취소': '팔로우'}</FollowButton>
 }
 
-export const StoreBtn = ({size}) => {
-  return <Button size={size}>저장</Button>
+export const StoreBtn = ({size,onClick}) => {
+  return <Button onClick={onClick} size={size}>저장</Button>
 }
 
 export const UploadBtn = ({size}) => {
   return <Button size={size}>업로드</Button>
 }
-
