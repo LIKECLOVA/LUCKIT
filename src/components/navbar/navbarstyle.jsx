@@ -56,7 +56,7 @@ export const StyleNavLink = styled(NavLink)`
         ::before{
             ${(props) => {
             return css`
-              background-image: url(${props.hoverIcon});
+              background-image: url(${props.hovericon});
             `}}
           }}
     }
@@ -67,7 +67,7 @@ export const StyleNavLink = styled(NavLink)`
         ::before {
             ${(props) => {
             return  css`
-            background-image: url(${props.hoverIcon})
+            background-image: url(${props.hovericon})
             `}}
         }
 }
