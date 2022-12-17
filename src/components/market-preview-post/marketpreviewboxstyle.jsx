@@ -5,14 +5,32 @@ export const MarketPreviewBoxWrap = styled.div`
     margin: 34px 0;
     background-color: white;
 
+    .headingWrap {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
         h2 {
-            font-size: 18px;
+            font-size: 16px;
         }
     
         h2 > strong {
+            font-size: 20px;
             font-weight: 600;
+            margin-right: 3px;
         }
-    
+
+        img {
+            width: 25px;
+            height: 25px;
+            padding: 7px;
+            border-radius: 50%;
+            background-color: #F5F3F3;
+            vertical-align: top;
+        }
+    }
+
+
         ul {
             display: flex;
             flex-wrap: nowrap;
@@ -49,6 +67,5 @@ export const MarketPreviewBoxWrap = styled.div`
         }
 
     }
-
 
 `

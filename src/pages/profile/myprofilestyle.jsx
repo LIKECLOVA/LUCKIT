@@ -3,8 +3,11 @@ import styled from 'styled-components';
 export const MyProfileWrap = styled.section`
     padding: 0 15px;
     overflow: scroll;
+      -ms-overflow-style: none;
+      ::-webkit-scrollbar{
+        display: none;
+      }
     height: 100%;
-
     
 `
 

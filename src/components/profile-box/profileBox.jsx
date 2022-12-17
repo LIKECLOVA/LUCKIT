@@ -4,7 +4,7 @@ import { MyProfileInfoBox, FollowNavLink, EditProfileNavLink } from './profilest
 export const ProfileBox = () => {
   const [profileData, setProfileData] = useState()
 
-  const accountname = '클로바2'
+  const accountname = 'clover2'
   const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzOWMyMDY3MTdhZTY2NjU4MWM2NGNhNCIsImV4cCI6MTY3NjM2NzU3MSwiaWF0IjoxNjcxMTgzNTcxfQ.DwRg_udzt-BG1TCQ43G2gHRNy72fSux7QaSjnZrdt5w'
 
   useEffect(() => {
