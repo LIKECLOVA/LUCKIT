@@ -5,7 +5,7 @@ export const ProfileBox = () => {
   const [profileData, setProfileData] = useState()
 
   const accountname = 'clover2'
-  const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzOWMyMDY3MTdhZTY2NjU4MWM2NGNhNCIsImV4cCI6MTY3NjM2NzU3MSwiaWF0IjoxNjcxMTgzNTcxfQ.DwRg_udzt-BG1TCQ43G2gHRNy72fSux7QaSjnZrdt5w'
+  const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzOWMyMDY3MTdhZTY2NjU4MWM2NGNhNCIsImV4cCI6MTY3NjQ2NTQ4OCwiaWF0IjoxNjcxMjgxNDg4fQ.CftU86sxCaIbsE1lmhRwWEW2x8yBMa4DrcGR331D84A'
 
   useEffect(() => {
 

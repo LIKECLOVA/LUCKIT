@@ -23,6 +23,8 @@ export const MyProfileInfoBox = styled.div`
             width: 120px;
             height: 120px;
             border-radius: 50%;
+            object-fit: cover;
+            object-position: center;
         }
 
         .profileCont {

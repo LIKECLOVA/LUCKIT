@@ -5,10 +5,10 @@ import IconMarketPostUpload from '../../assets/icon/market-plus.png'
 
 
 export const MarketPreviewPost = () => {
-  const [marketPostsData, setMarketPostsData] = useState()
+  const [marketPostsData, setMarketPostsData] = useState([])
 
   const accountname = 'clover2'
-  const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzOWMyMDY3MTdhZTY2NjU4MWM2NGNhNCIsImV4cCI6MTY3NjM2NzU3MSwiaWF0IjoxNjcxMTgzNTcxfQ.DwRg_udzt-BG1TCQ43G2gHRNy72fSux7QaSjnZrdt5w'
+  const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzOWMyMDY3MTdhZTY2NjU4MWM2NGNhNCIsImV4cCI6MTY3NjQ2NTQ4OCwiaWF0IjoxNjcxMjgxNDg4fQ.CftU86sxCaIbsE1lmhRwWEW2x8yBMa4DrcGR331D84A'
 
   useEffect(() => {
 
@@ -32,14 +32,14 @@ export const MarketPreviewPost = () => {
 
   return (
     <MarketPreviewBoxWrap>
-      {marketPostsData ? 
+      {marketPostsData.length !== 0 ? 
       <>
       <div className='headingWrap'>
         <h2><strong>{marketPostsData[0].author.username}</strong>님이 찾는 럭킷 메이트✨</h2>
         <Link to='#'><img src={IconMarketPostUpload} alt='마켓 게시글 등록 버튼'/></Link>
       </div>
       <ul>
-        {marketPostsData.map((post)=> {
+        {marketPostsData && marketPostsData.map((post)=> {
           return(
             <li key={post.id}>
               <Link to='#'>
@@ -49,8 +49,14 @@ export const MarketPreviewPost = () => {
             </li>
           )
         })}
-      </ul>      
-      </> : <></>}
+      </ul>     
+      </> : 
+      <>
+      <div className='headingWrap'>
+        <h2><strong>{accountname}</strong>님이 찾는 럭킷 메이트✨</h2>
+        <Link to='#'><img src={IconMarketPostUpload} alt='마켓 게시글 등록 버튼'/></Link>
+      </div>
+      </>}
     </MarketPreviewBoxWrap>
   )
 }
