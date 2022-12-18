@@ -4,12 +4,13 @@ import { NavLink } from 'react-router-dom';
 import { ProfileAndChatHeader } from '../../components/header/header';
 import { MarketPreviewPost } from '../../components/market-preview-post/marketPreviewPost';
 import { ProfileBox } from '../../components/profile-box/profileBox';
-import { MyProfileWrap, SnsPostBtn , NavLinkStyle, ImgAlbumBox, ImgAlbumList, TestNavLinkStyle, ImgListDiv } from './myprofilestyle';
-import { NavBar } from '../../components/navbar/navBar'
-import {MainSnsPostWhap, IconWrap, SnsIdWhap, SnsPostBox} from '../../components/mainpost/mainpoststyle'
+import { MyProfileWrap, SnsPostBtn , NavLinkStyle, ImgAlbumBox, ImgAlbumList,  ImgListDiv, SnsPostWrap, SnsProfileWrap, AuthorNavLink, AuthorImgNavLink, SnsContBox, MoreBtnWrap } from './myprofilestyle';
+import { NavBar } from '../../components/navbar/navBar';
 import { MoreBtn } from "../../components/button/iconBtn";
-import IconPostList from '../../assets/icon/icon-post-list-on.png'
-import IconPostAlbum from '../../assets/icon/icon-post-album-on.png'
+import IconPostList from '../../assets/icon/icon-post-list-on.png';
+import IconPostAlbum from '../../assets/icon/icon-post-album-on.png';
+import IconHeart from '../../assets/icon/icon-heart.png';
+import IconMessage from '../../assets/icon/icon-message-circle.png';
 
 
 
@@ -20,7 +21,7 @@ export const YourProfile = () => {
 
   // const {accountname} = useParams();
 
-  const accountname = 'lovecat'
+  const accountname = 'clover2'
   const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzOWMyMDY3MTdhZTY2NjU4MWM2NGNhNCIsImV4cCI6MTY3NjQ2NTQ4OCwiaWF0IjoxNjcxMjgxNDg4fQ.CftU86sxCaIbsE1lmhRwWEW2x8yBMa4DrcGR331D84A'
 
   useEffect(() => {
@@ -73,38 +74,45 @@ export const YourProfile = () => {
         <ul>
           {imgList && snsPostsData.map((post) => {
             return (
-              <MainSnsPostWhap key={post.id}>
-                <NavLink to='/yourprofile'>
-                  <img src={post.author.image} alt="프로필이미지" />
-                </NavLink>
-                <SnsPostBox>
-                <NavLink to='/yourprofile'>
-                <SnsIdWhap>
-                  <strong>{post.author.username}</strong>
-                  <p>@ {post.author.accountname}</p>
-                </SnsIdWhap>
-                </NavLink>
-                <TestNavLinkStyle to='/snsPost'>
-                  <p>{post.content}</p>
-                {post.image ? post.image.split(',').map((src, index)=> {
-                  return (
-                    <ImgListDiv key={index}>
-                      <img src={src} alt="게시글이미지" />
-                    </ImgListDiv>
-                  )
-                })
-                : 
-                <></>}
-                </TestNavLinkStyle>
-                <IconWrap>
-                <button>좋아요버튼</button>
-                <NavLink to='/snsPost'>
-                  <button>댓글버튼</button>
-                </NavLink>
-                </IconWrap>
-                </SnsPostBox>
-                <MoreBtn/>
-            </MainSnsPostWhap>
+              <SnsPostWrap key={post.id}>
+                <SnsProfileWrap>
+                  <AuthorImgNavLink to='/yourprofile'>
+                    <img src={post.author.image} alt="프로필이미지" />
+                  </AuthorImgNavLink>
+                  <AuthorNavLink to='/yourprofile' className='authorInfo'>
+                    <strong>{post.author.username}</strong>
+                    <p>@ {post.author.accountname}</p>
+                  </AuthorNavLink>
+                </SnsProfileWrap>
+                <SnsContBox>
+                  <NavLink to='/snsPost'>
+                    <p>{post.content}</p>
+                    <div className='testtest'>
+                    {post.image ? post.image.split(',').map((src, index)=> {
+                      return (
+                        <ImgListDiv key={index}>
+                          <img src={src} alt="게시글이미지" />
+                        </ImgListDiv>
+                    )
+                  })
+                  : 
+                  <></>}
+                  </div>
+                  </NavLink>
+                  <div className='btnWrap'>
+                    <button>
+                      <img src={IconHeart} alt='좋아요 버튼' />
+                    </button>
+                    <NavLink to='/snsPost'>
+                      <button>
+                        <img src={IconMessage} alt='댓글 버튼'/></button>
+                    </NavLink>
+                  </div>
+                </SnsContBox>
+                <MoreBtnWrap>
+                  <MoreBtn/>
+                </MoreBtnWrap>
+            </SnsPostWrap>
             )
           })}
         </ul>
@@ -117,7 +125,7 @@ export const YourProfile = () => {
               <ImgAlbumList key={post.id}>
                 <NavLinkStyle to='/snsPost'>
                   <img src={post.image.split(',')[0]} alt="게시글이미지" />
-                 </NavLinkStyle>
+                </NavLinkStyle>
               </ImgAlbumList>
               </> : <></>}
             </>

@@ -41,6 +41,7 @@ export const SnsPostBtn = styled.div`
       width: 100%;
       height: 100%;
     }
+
 `
 
 export const ImgAlbumBox = styled.ul`
@@ -57,6 +58,8 @@ export const ImgAlbumList = styled.li`
     img {
       width: 178px;
       height: 178px;
+      object-fit: cover;
+      object-position: center;
 }
 `
 
@@ -65,14 +68,97 @@ display: flex;
 
 `
 
-export const TestNavLinkStyle = styled(NavLink)`
+/* sns 게시글 design*/
+
+export const SnsPostWrap = styled.li`
+
+  margin: 15px 0 35px;
+  position: relative;
+
+  `
+export const SnsProfileWrap = styled.div`
   display: flex;
-  flex-direction: column;
+`
+export const AuthorImgNavLink = styled(NavLink)`
   
+    img {
+      width: 50px;
+      height: 50px;
+      margin-right: 10px;
+      border-radius: 50%;
+      vertical-align: top;
+    }
+
+  `
+
+export const AuthorNavLink = styled(NavLink)`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    strong {
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    p {
+      margin-top: 5px;
+      font-size: 12px;
+    }
+    
 `
 
-export const ImgListDiv = styled.div`
-  display: flex;
-  overflow-x: auto;
+export const SnsContBox = styled.div`
+  
+  margin-top : 15px;
+  margin-left: auto;
+  width: 510px;
 
+  p {
+    margin-bottom: 10px;
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .btnWrap {
+    margin-top: 20px;
+
+    button {
+      background-color: transparent;
+      padding: 0;
+      margin-right: 10px;
+
+      img {
+        width: 20px;
+        height: 20px;
+      }
+    }
+  }
+
+  .testtest {
+    display: flex;
+    gap: 10px;
+    flex-wrap: no-wrap;
+    overflow-x: auto;
+  }
+  `
+
+  export const ImgListDiv = styled.div`
+
+  img {
+    width: 510px;
+    height: 400px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 20px;
+    border: 1px solid #DBDBDB;
+    vertical-align: top;
+  }
+
+`
+
+export const MoreBtnWrap = styled.div`
+  position: absolute;
+  right: 0;
+  top: 8px;
 `
