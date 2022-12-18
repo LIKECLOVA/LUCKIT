@@ -64,3 +64,15 @@ export const NavLinkStyle = styled(NavLink)`
 display: flex;
 
 `
+
+export const TestNavLinkStyle = styled(NavLink)`
+  display: flex;
+  flex-direction: column;
+  
+`
+
+export const ImgListDiv = styled.div`
+  display: flex;
+  overflow-x: auto;
+
+`
