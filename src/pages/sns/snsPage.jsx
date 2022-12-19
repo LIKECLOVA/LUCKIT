@@ -6,6 +6,7 @@ import { FeedPageHeader } from '../../components/header/header';
 import { NavBar } from '../../components/navbar/navBar';
 
 
+
 export const SnsPage = () => {
   // const [modalOpen, setModalOpen] = useState(false);
 
@@ -13,7 +14,8 @@ export const SnsPage = () => {
   //   const showModal = () => {
   //       setModalOpen(!modalOpen);
   //   };
-  
+
+
   return (
     <>
     <FeedPageHeader />
