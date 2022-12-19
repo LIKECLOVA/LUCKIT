@@ -1,9 +1,9 @@
 import React,{ useEffect , useState} from 'react';
 import MainSnsPost from '../../components/mainpost/mainSnsPost'
-import { SnsPageArt, SnsPageSec, MainPostArea } from './snsstyle';
+import { SnsPageArt, SnsPageSec, MainPostArea, SnsStoryImg } from './snsstyle';
 import { FeedPageHeader } from '../../components/header/header';
 import { NavBar } from '../../components/navbar/navBar';
-
+import DefaultUserImg from '../../assets/icon/basic-profile-img-.png'
 
 export const SnsPage = () => {
   
@@ -51,7 +51,7 @@ export const SnsPage = () => {
       .then((data) => data.json())
       .then((data) => {
         const myStoryImg = {image : data.user.image}
-
+        
         setFollowList(value => [ myStoryImg, ...value] )
       })
 }
@@ -61,13 +61,17 @@ export const SnsPage = () => {
     fetchUserStoryData();
   },[])
 
+  const onErrorImg = (e) => {
+    e.target.src = DefaultUserImg;
+  }
+
   return (
     <>
     <FeedPageHeader />
     <SnsPageArt>
       <ul>
       {followList.map((story)=> {
-           return <li><img src={story.image} /></li>
+           return <li><SnsStoryImg src={story.image} onError={onErrorImg} /></li>
         })}
       {}
       </ul>
