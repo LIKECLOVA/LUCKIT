@@ -1,31 +1,66 @@
-import React, { useEffect, useState } from 'react'
-import { MyProfileInfoBox, FollowNavLink, EditProfileNavLink } from './profilestyle'
+import React, { useState } from 'react'
+import axios from 'axios';
+import { useParams } from 'react-router-dom';
+import { MyProfileInfoBox, FollowNavLink, EditProfileNavLink, IsFollowButton } from './profilestyle'
 
-export const ProfileBox = () => {
-  const [profileData, setProfileData] = useState()
+export const ProfileBox = ({profileData}) => {
+  const [isFollow, setIsFollow] = useState();
+  const [followerCount, setFollowerCount] = useState(profileData.followerCount);
+  const accounNname = 'clover2'
 
-  const accountname = 'clover2'
   const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzOWMyMDY3MTdhZTY2NjU4MWM2NGNhNCIsImV4cCI6MTY3NjQ2NTQ4OCwiaWF0IjoxNjcxMjgxNDg4fQ.CftU86sxCaIbsE1lmhRwWEW2x8yBMa4DrcGR331D84A'
+  const { id } = useParams();
 
-  useEffect(() => {
 
-    profileDataList();
+      const unfollow = async () => {
+        await axios(`https://mandarin.api.weniv.co.kr/profile/${
+          id === accounNname || id === undefined ? accounNname : id
+        }/unfollow`, {
+          method: 'DELETE',
+          headers: {
+            Authorization: `Bearer ${token}`,
+            'Content-type': 'application/json',
+          },
+        }).then((res) => {
+          console.log(res.data.profile)
+          setIsFollow(res.data.profile.isfollow);
+          setFollowerCount(res.data.profile.followerCount)
+      })
+      .then((error) => {
+          console.log(error);
+      });
+      };
+
+      const follow = async () => {
+        await axios(`https://mandarin.api.weniv.co.kr/profile/${
+          id === accounNname || id === undefined ? accounNname : id
+        }/follow`, {
+          method: 'POST',
+          headers: {
+            Authorization: `Bearer ${token}`,
+            'Content-type': 'application/json',
+          },
+        }).then((res) => {
+          console.log(res.data.profile)
+          setIsFollow(res.data.profile.isfollow);
+          setFollowerCount(res.data.profile.followerCount)
+      })
+      .then((error) => {
+        console.log(error);
+    });
+      };
+
+      console.log(followerCount);
     
-  }, [])
-
-const profileDataList = async () => {
-  fetch(`https://mandarin.api.weniv.co.kr/profile/${accountname}`, {
-      method: 'GET',
-      headers: {
-        "Authorization" : `Bearer ${token}`,
-        "Content-type" : "application/json"
-      },
-    }).then(res => {
-      return res.json()
-    }).then(data => {
-      setProfileData(data.profile)
-    })
-}
+      const onClick = () => {
+        setIsFollow(!isFollow);
+    
+        if (isFollow === true) {
+          unfollow();
+        } else if (isFollow === false) {
+          follow();
+        }
+      };
 
 return (
       <MyProfileInfoBox>
@@ -39,7 +74,7 @@ return (
                 <div className='followerCont'>
                   <span>팔로워</span>
                   <FollowNavLink to='/myfollow' state={{ text: 'followers' }}>
-                  {profileData.followerCount}
+                  {followerCount}
                   </FollowNavLink>
                   <span className='followingTxt'>팔로잉</span>
                   <FollowNavLink to='/myfollow' state={{ text: 'followings' }}>
@@ -49,7 +84,13 @@ return (
               </div>
             </div>
             <div>
-              <EditProfileNavLink to='/editprofile'>프로필 수정</EditProfileNavLink>
+              {profileData.accountname === accounNname ? 
+              <>
+                <EditProfileNavLink to='/editprofile'>프로필 수정</EditProfileNavLink>
+              </> : 
+              <>
+                <IsFollowButton onClick={ onClick }>{isFollow ? '언팔로우': '팔로우'}</IsFollowButton>
+              </>}
             </div>
           </div>
 
