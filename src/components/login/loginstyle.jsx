@@ -119,11 +119,12 @@ export const Envelope = styled.main`
 `;
 
 export const Gogo = styled.button`
+  display: block;
   width: 270px;
   color: ${(props) => {
     return props.bg === '#85CE2D' ? 'white' : '#475A24';
   }};
-  margin: 25px 20px 7px 20px;
+  margin: 20px auto;
   padding: 12px;
   background-color: ${(props) => {
     return props.bg;
@@ -153,29 +154,27 @@ export const LoginWrap = styled.section`
 export const LoginForm = styled.form`
   display: flex;
   flex-direction: column;
+`;
 
-  input {
-    width: 270px;
-    border-radius: 50px;
-    font-size: 14px;
-    box-shadow: 0 1px 5px 0 #b9d795;
-    border: none;
-    outline: none;
-    font-size: 14px;
-    padding: 12px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    :focus {
-      border: 1px solid #78d00c;
-      box-shadow: 0 1px 5px 0 ${palette.텍스트초록};
-    }
+export const LoginInput = styled.input`
+  width: 270px;
+  border-radius: 50px;
+  font-size: 14px;
+  box-shadow: 0 1px 5px 0 #b9d795;
+  border: none;
+  outline: none;
+  font-size: 14px;
+  padding: 12px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  :focus {
+    border: 1px solid #78d00c;
+    box-shadow: 0 1px 5px 0 ${palette.텍스트초록};
   }
 `;
 
-const GoSignupLink = styled(Link)`
+export const GoSignupLink = styled(Link)`
   font-size: 13px;
   color: ${palette.텍스트초록};
   text-decoration: none;
 `;
-
-export { GoSignupLink };
