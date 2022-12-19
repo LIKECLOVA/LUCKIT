@@ -5,64 +5,71 @@ const MainSnsPostWhap= styled.div`
     box-sizing: border-box;
     margin-top: 20px;
     width: 100%;
-    height: 350px;
     background: rgb(255, 255, 255);
     display: flex;
     z-index: 10;
     border-top-right-radius:10px;
     border-top-left-radius: 10px;
     overflow: hidden;
-img{
+`;
+
+export { MainSnsPostWhap }
+
+const UserProfileImg= styled.img`
       margin: 0 20px;
       border-radius: 50%;
       width: 80px;
       height: 80px;
-}
 `;
 
-export { MainSnsPostWhap }
+export { UserProfileImg }
 
 const SnsPostBox= styled.div`
     align-items: left;
     box-sizing: border-box;
     width: 90%;
-    height: 350px;
     background: rgb(255, 255, 255);
     display: flex;
     flex-direction: column;
     z-index: 10;
-p{
-    margin: 10px 0px;
-    font-size: 14px;
-    line-height: 16px;
-}
-img{
-      margin-top:20px;
-      border-radius: 10px;
-      width: 319px;
-      height: 264px;
-}
 `;
 
 export { SnsPostBox }
 
+const SnsPostContent= styled.p`
+      margin: 15px 0px;
+      font-weight: 300;
+    font-size: 18px;
+    line-height: 16px;
+`;
+
+export { SnsPostContent }
+
+const SnsPostImg= styled.img`
+      border-radius: 10px;
+      width: 355px;
+      height: 264px;
+`;
+
+export { SnsPostImg }
+
 const SnsIdWhap= styled.div`
     left:0;
     box-sizing: border-box;
-    width: 50%;
     height: 14px;
     background: rgb(255, 255, 255);
     display: flex;
+    justify-items:center;
+    align-items: baseline;
     z-index: 10;
     > strong{
-    margin: 10px 0px;
-    font-size: 14px;
+    margin-right:5px;
+    font-size: 16px;
     line-height: 14px;
-    font-weight: 500;
+    font-weight: 600;
 }
 > p{
-    margin: 10px 0px;
-    font-size: 10px;
+    font-size: 12px;
     line-height: 11px;
 }
 `;
@@ -77,12 +84,7 @@ const IconWrap= styled.div`
     background: rgb(255, 255, 255);
     display: flex;
     z-index: 10;
-    > strong{
     margin: 10px 0px;
-    font-size: 14px;
-    line-height: 14px;
-    font-weight: 500;
-}
 >button{
     cursor: pointer;
 }

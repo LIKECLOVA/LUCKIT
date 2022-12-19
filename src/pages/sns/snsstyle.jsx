@@ -149,22 +149,27 @@ const SnsPageArt = styled.article`
         margin-right:0px;
       }
     }
-    li > img{
+`;
+
+export { SnsPageArt }
+
+const SnsStoryImg =styled.img`
+      box-sizing: inherit;
       border: 3px solid #85CE2D;
       border-radius: 50%;
       width: 80px;
       height: 80px;
-    }
+
 `;
 
-export { SnsPageArt }
+export { SnsStoryImg }
 
 const SnsPageSec= styled.section`
   align-items: center;
     box-sizing: border-box;
     width: 95%;
     margin: 15px;
-    height: 70%;
+    height: 79%;
     top: 0px;
     background: rgb(255, 255, 255);
     display: flex;

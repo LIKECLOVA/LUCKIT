@@ -1,13 +1,19 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-import {MainSnsPostWhap,IconWrap, SnsIdWhap, SnsPostBox} from './mainpoststyle'
+import {MainSnsPostWhap,IconWrap, SnsIdWhap, SnsPostBox,UserProfileImg, SnsPostImg, SnsPostContent} from './mainpoststyle'
 import { MoreBtn } from "../button/iconBtn";
+import DefaultUserImg from '../../assets/icon/basic-profile-img-.png'
+
+const onErrorImg = (e) => {
+  e.target.src = DefaultUserImg;
+}
 
 const MainSnsPost = ({data}) => {
+
   return (
     <MainSnsPostWhap>
        <NavLink to='/yourprofile'>
-      <img src={data.author.image} alt="프로필이미지" />
+      <UserProfileImg src={data.author.image} onError={onErrorImg} />
       </NavLink>
       <SnsPostBox>
       <NavLink to='/yourprofile'>
@@ -17,8 +23,8 @@ const MainSnsPost = ({data}) => {
       </SnsIdWhap>
       </NavLink>
       <NavLink to='/snsPost'>
-      <p>{data.content}</p>
-      <img src={data.image} alt="게시글이미지" />
+      <SnsPostContent>{data.content}</SnsPostContent>
+      <SnsPostImg src={data.image} onError = {e =>{e.target.style.display = 'none'}}/>
       </NavLink>
       <IconWrap>
       <button>좋아요버튼</button>
