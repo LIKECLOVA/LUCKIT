@@ -1,5 +1,4 @@
 import React,{ useEffect , useState} from 'react';
-// import ScrollMenu from "react-horizontal-scrolling-menu";
 import MainSnsPost from '../../components/mainpost/mainSnsPost'
 import { SnsPageArt, SnsPageSec, MainPostArea } from './snsstyle';
 import { FeedPageHeader } from '../../components/header/header';
@@ -7,21 +6,17 @@ import { NavBar } from '../../components/navbar/navBar';
 
 
 export const SnsPage = () => {
-  // const [modalOpen, setModalOpen] = useState(false);
-
-  //   // 모달창 노출
-  //   const showModal = () => {
-  //       setModalOpen(!modalOpen);
-  //   };
   
   const [list ,setList] = useState([]);
-  // const [followList,setFollowList] = useState([]);
+  const [followList,setFollowList] = useState([]);
   const URL = `https://mandarin.api.weniv.co.kr`;
   const FEED_PATH = `/post/feed`;
-  // const STORY_PATH=`/profile/:accountname/following`;
+  const STORY_PATH=`/profile/fffffff/following`;
+  const USER_PATH=`/user/myinfo`;
   const token =
   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzOTA5MzIwMTdhZTY2NjU4MWMwMzNlNyIsImV4cCI6MTY3NjQ0NDc2OSwiaWF0IjoxNjcxMjYwNzY5fQ.PcmkXNY7JTV8PlIYVh9XOCbYhiD789NfFYXrjOQ6_ik';
   
+  // 팔로잉한 유저의 게시글 정보 불러오는 fetch
   async function fetchFeedPostData(){
     await fetch(URL+FEED_PATH, {
       method: 'GET',
@@ -33,25 +28,37 @@ export const SnsPage = () => {
     .then((data) => data.json())
     .then((data) =>  {
       setList(data.posts)
-      // console.log(data.posts)
     });
   }
-  // async function fetchUserStoryData() {
-    
-  //   await fetch( URL+STORY_PATH, {
-  //     method: 'GET',
-  //     headers: {
-  //       Authorization: `Bearer ${token}`,
-  //       'Content-type': 'application/json',
-  //     },
-  //   })
-  //     .then((data) => data.json())
-  //     .then((data) => console.log([...data]))
-  //     /* setFollowList([...data]));*/
-  // }
+// 팔로잉한 유저 프로필 정보 불러오는 fetch
+  async function fetchUserStoryData() {  
+    await fetch( URL+STORY_PATH, {
+      method: 'GET',
+      headers: {
+        Authorization: `Bearer ${token}`,
+        'Content-type': 'application/json',
+      },
+    })
+      .then((data) => data.json())
+      .then((data) =>setFollowList([...data]))
+      // 내 프로필 정보 불러오는 fetch
+      await fetch( URL+USER_PATH, {
+        method: 'GET',
+        headers: {
+          Authorization: `Bearer ${token}`
+        },  
+  })
+      .then((data) => data.json())
+      .then((data) => {
+        const myStoryImg = {image : data.user.image}
+
+        setFollowList(value => [ myStoryImg, ...value] )
+      })
+}
+
   useEffect( ()=>{
     fetchFeedPostData();
-    // fetchUserStoryData();
+    fetchUserStoryData();
   },[])
 
   return (
@@ -59,9 +66,10 @@ export const SnsPage = () => {
     <FeedPageHeader />
     <SnsPageArt>
       <ul>
-      {/* {followList.map((story)=> {
+      {followList.map((story)=> {
            return <li><img src={story.image} /></li>
-        })} */}
+        })}
+      {}
       </ul>
     </SnsPageArt>
     <SnsPageSec>
