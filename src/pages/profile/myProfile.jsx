@@ -12,8 +12,6 @@ import ProfileAndSnsPost from './ProfileAndSnsPost';
 
 export const MyProfile = () => {
   const [profileData, setProfileData] = useState();
-  // const [followState, setFollowState] = useState();
-  // const [followerCountData, setFollowerCountData] = useState();
   const [marketPostsData, setMarketPostsData] = useState([])
   const [snsPostsData, setSnsPostsData] = useState([]);
   const [imgList, setImgList] = useState(true);
@@ -84,7 +82,7 @@ export const MyProfile = () => {
     <>
       <ProfileAndChatHeader />
       <MyProfileWrap>
-        {profileData !== undefined && 
+        {profileData && 
         <ProfileBox profileData={{...profileData}} />} 
         <MarketPreviewPost marketPostsData={marketPostsData}/>
         {snsPostsData.length !== 0 ? 
@@ -126,7 +124,7 @@ export const MyProfile = () => {
       </section>
         </> : <></>}
       </MyProfileWrap>
-      <NavBar />     
+      <NavBar />
     </>
   );
 };
