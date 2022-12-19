@@ -1,4 +1,5 @@
 import React from 'react'
+import { useParams } from 'react-router-dom'
 import { NavWrap, StyleNavLink } from './navbarstyle'
 import homeIcon from '../../assets/icon/home-disabled.png'
 import homeIconFill from '../../assets/icon/home-클로바.png'
@@ -11,6 +12,9 @@ import profileIconFill from '../../assets/icon/profile.png'
 
 
 export const NavBar = () => {
+
+  const { id } = useParams();
+  
   return (
     <NavWrap>
 	    <ul>
@@ -52,7 +56,7 @@ export const NavBar = () => {
 	      </li>
         <li>
           <StyleNavLink 
-            to={'/myprofile'} 
+            to={`/profile/${id}`}
             icon={profileIcon}
             hovericon={profileIconFill}
             className={({isActive}) => {

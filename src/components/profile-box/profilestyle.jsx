@@ -1,5 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
+import { palette } from '../../styles/global/globalColor'
 
 export const MyProfileInfoBox = styled.div`
     margin-top: 80px;
@@ -90,9 +91,20 @@ export const EditProfileNavLink = styled(NavLink)`
     align-items: center;
     width: 90px;
     height: 34px;
-    background-color: #85CE2D;
+    background-color: ${palette.초록초록};
     color: white;
     border-radius: 30px;
     font-size: 14px;
     
+`
+
+export const IsFollowButton = styled.button`
+
+    width: 75px;
+    height: 34px;
+    color: white;
+    background-color: ${palette.초록초록};
+    border-radius: 30px;
+    font-size: 14px;
+
 `
