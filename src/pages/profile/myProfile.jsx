@@ -11,7 +11,7 @@ import IconPostAlbum from '../../assets/icon/icon-post-album-on.png';
 import ProfileAndSnsPost from './ProfileAndSnsPost';
 
 export const MyProfile = () => {
-  const [profileData, setProfileData] = useState([])
+  const [profileData, setProfileData] = useState();
   const [marketPostsData, setMarketPostsData] = useState([])
   const [snsPostsData, setSnsPostsData] = useState([]);
   const [imgList, setImgList] = useState(true);
@@ -30,12 +30,15 @@ export const MyProfile = () => {
           'Content-type': 'application/json',
         },
       }).then((res) => {
-              setProfileData(res.data.profile);
+              const resProfileData = res.data.profile;
+
+              setProfileData(resProfileData);
+   
             })
             .then((error) => {
               console.log(error);
             });
-
+            
     axios({
         method: 'get',
         url: `https://mandarin.api.weniv.co.kr/product/${id}/?limit=5`,
@@ -65,10 +68,6 @@ export const MyProfile = () => {
           });
       }, [location])
 
-  // console.log("프로필데이터", profileData);
-  // console.log("마켓데이터", marketPostsData);
-  // console.log("게시글데이터", snsPostsData)
-
   const onClickListBtn = () => {
     setImgList(true);
     setImgAlbum(false);
@@ -83,7 +82,8 @@ export const MyProfile = () => {
     <>
       <ProfileAndChatHeader />
       <MyProfileWrap>
-        <ProfileBox profileData={profileData}/>
+        {profileData && 
+        <ProfileBox profileData={{...profileData}} />} 
         <MarketPreviewPost marketPostsData={marketPostsData}/>
         {snsPostsData.length !== 0 ? 
         <>
@@ -124,7 +124,7 @@ export const MyProfile = () => {
       </section>
         </> : <></>}
       </MyProfileWrap>
-      <NavBar />     
+      <NavBar />
     </>
   );
 };

@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const MarketPreviewBoxWrap = styled.div`
     height:200px;
-    margin: 34px 0 55px;
+    margin: 0 0 55px;
     background-color: white;
 
     .headingWrap {

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { palette } from '../../styles/global/globalColor'
 
 export const MyProfileInfoBox = styled.div`
-    margin-top: 80px;
+    margin: 80px 0 34px;
     width: 100%;
     height: 230px;
     padding: 20px;
