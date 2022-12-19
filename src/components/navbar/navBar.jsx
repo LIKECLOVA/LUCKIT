@@ -52,7 +52,7 @@ export const NavBar = () => {
 	      </li>
         <li>
           <StyleNavLink 
-            to={'/myprofile'} 
+            to={'/myprofile'}
             icon={profileIcon}
             hovericon={profileIconFill}
             className={({isActive}) => {
