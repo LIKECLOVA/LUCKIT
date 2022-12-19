@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import {  useLocation, useNavigate, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import { ProfileAndChatHeader } from '../../components/header/header';
 import { MarketPreviewPost } from '../../components/market-preview-post/marketPreviewPost';
@@ -16,26 +16,15 @@ export const MyProfile = () => {
   const [snsPostsData, setSnsPostsData] = useState([]);
   const [imgList, setImgList] = useState(true);
   const [imgAlbum, setImgAlbum] = useState(false);
-  const navigate = useNavigate();
-  const location = useLocation();
   const { id } = useParams();
 
-  const accountName = 'clover2'
   const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzOWMyMDY3MTdhZTY2NjU4MWM2NGNhNCIsImV4cCI6MTY3NjQ2NTQ4OCwiaWF0IjoxNjcxMjgxNDg4fQ.CftU86sxCaIbsE1lmhRwWEW2x8yBMa4DrcGR331D84A'
-
-  useEffect(() => {
-    if (location.pathname === `/yourprofile/${accountName}`) {
-      navigate('/myprofile');
-    }
-  }, [location]);
 
   useEffect(() => {
 
     axios({
         method: 'get',
-        url: `https://mandarin.api.weniv.co.kr/profile/${
-          id === accountName || id === undefined ? accountName : id
-        }`,
+        url: `https://mandarin.api.weniv.co.kr/profile/${id}`,
         headers: {
           'Authorization': `Bearer ${token}`,
           'Content-type': 'application/json',
@@ -49,9 +38,7 @@ export const MyProfile = () => {
 
     axios({
         method: 'get',
-        url: `https://mandarin.api.weniv.co.kr/product/${
-          id === accountName || id === undefined ? accountName : id
-        }/?limit=5`,
+        url: `https://mandarin.api.weniv.co.kr/product/${id}/?limit=5`,
         headers: {
           'Authorization': `Bearer ${token}`,
           'Content-type': 'application/json',
@@ -65,9 +52,7 @@ export const MyProfile = () => {
 
     axios({
         method: 'get',
-        url: `https://mandarin.api.weniv.co.kr/post/${
-          id === accountName || id === undefined ? accountName : id
-        }/userpost/?limit=5`,
+        url: `https://mandarin.api.weniv.co.kr/post/${id}/userpost/?limit=5`,
         headers: {
           'Authorization': `Bearer ${token}`,
           'Content-type': 'application/json',
@@ -80,9 +65,9 @@ export const MyProfile = () => {
           });
       }, [location])
 
-  // console.log("프로필데이터", profileData);
-  // console.log("마켓데이터", marketPostsData);
-  // console.log("게시글데이터", snsPostsData)
+  console.log("프로필데이터", profileData);
+  console.log("마켓데이터", marketPostsData);
+  console.log("게시글데이터", snsPostsData)
 
   const onClickListBtn = () => {
     setImgList(true);
@@ -98,7 +83,7 @@ export const MyProfile = () => {
     <>
       <ProfileAndChatHeader />
       <MyProfileWrap>
-        {profileData && <ProfileBox profileData={profileData}/>}
+        <ProfileBox profileData={profileData}/>
         <MarketPreviewPost marketPostsData={marketPostsData}/>
         {snsPostsData.length !== 0 ? 
         <>

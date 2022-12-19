@@ -5,7 +5,7 @@ import IconMarketPostUpload from '../../assets/icon/market-plus.png'
 
 
 export const MarketPreviewPost = ({marketPostsData}) => {
-    const accountname = 'clover2'
+  const accountName = 'clover2';
  
   return (
     <MarketPreviewBoxWrap>
@@ -30,8 +30,8 @@ export const MarketPreviewPost = ({marketPostsData}) => {
       </> : 
       <>
       <div className='headingWrap'>
-        <h2><strong>{accountname}</strong>님이 찾는 럭킷 메이트✨</h2>
-        <Link to='#'><img src={IconMarketPostUpload} alt='마켓 게시글 등록 버튼'/></Link>
+          <h2><strong>{accountName}</strong>님이 찾는 럭킷 메이트✨</h2>
+          <Link to='#'><img src={IconMarketPostUpload} alt='마켓 게시글 등록 버튼'/></Link>
       </div>
       </>}
     </MarketPreviewBoxWrap>
