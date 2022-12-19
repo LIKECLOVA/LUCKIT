@@ -8,15 +8,16 @@ import Home from './home/home.jsx';
 import JoinProfile from '../components/join/joinProfile';
 import { Search } from './search/search';
 import { MyProfile } from './profile/myProfile';
-import { YourProfile } from './profile/yourProfile';
 import { EditProfile } from './profile/editProfile';
+
 import { YourFollow } from './follow/yourFollow';
 import { MyFollow } from './follow/myFollow';
 import { ChatPage } from './chat/chatPage';
-import { ChatDetail } from './chat/chatDetail';
+import { ChatRoom } from './chat/chatRoom';
+
 import { SnsUpload } from './sns/snsUpload';
-import {SnsPage} from './sns/snsPage'
-import {SnsPost} from '../components/sns-post/snsPost';
+import { SnsPage } from './sns/snsPage';
+import { SnsPost } from '../components/sns-post/snsPost';
 import Error from './404-error/errorPage.jsx';
 
 const Pages = () => {
@@ -27,7 +28,7 @@ const Pages = () => {
       setLoading(true);
       setTimeout(() => {
         setLoading(false);
-      }, 2400);
+      }, 3000);
     }
   }, []);
 
@@ -46,11 +47,10 @@ const MainPages = () => {
       <Route path='/join' element={<Join />}></Route>
       <Route path='/joinprofile' element={<JoinProfile />}></Route>
       <Route path='/search' element={<Search />}></Route>
-      <Route path='/yourprofile' element={<YourProfile />}></Route>
-      <Route path='/myprofile' element={<MyProfile />}></Route>
+      <Route path='/profile/:id' element={<MyProfile />}></Route>
       <Route path='/editprofile' element={<EditProfile />}></Route>
       <Route path='/chatpage' element={<ChatPage />}></Route>
-      <Route path='/chatdetail' element={<ChatDetail />}></Route>
+      <Route path='/chatroom' element={<ChatRoom />}></Route>
       <Route path='/myfollow' element={<MyFollow />}></Route>
       <Route path='/yourfollow' element={<YourFollow />}></Route>
       <Route path='/snspage' element={<SnsPage />}></Route>

@@ -4,19 +4,18 @@ import { useNavigate } from 'react-router-dom';
 import { Envelope, Logo } from './logscreenstyle';
 
 const Gogo = styled.button`
-  width: 270px;
+  width: 240px;
   color: ${(props) => {
     return props.bg === '#85CE2D' ? 'white' : '#475A24';
   }};
   margin: 10px 20px;
-  padding: 12px;
+  padding: 14px;
   background-color: ${(props) => {
     return props.bg;
   }};
   border-radius: 50px;
   font-size: 14px;
   box-shadow: 0 1px 5px 0 #b9d795;
-  border: 1px solid #b9d795;
   &:hover {
     background-color: #64b603;
     color: white;

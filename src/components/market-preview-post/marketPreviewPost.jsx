@@ -1,44 +1,39 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { MarketPreviewBoxWrap } from './marketpreviewboxstyle'
+import IconMarketPostUpload from '../../assets/icon/market-plus.png'
 
 
-export const MarketPreviewPost = () => {
+export const MarketPreviewPost = ({marketPostsData}) => {
+  const accountName = 'clover2';
+ 
   return (
     <MarketPreviewBoxWrap>
-      <h2><strong>유조미짱</strong>님이 찾는 럭킷 메이트✨</h2>
+      {marketPostsData.length !== 0 ? 
+      <>
+      <div className='headingWrap'>
+        <h2><strong>{marketPostsData[0].author.username}</strong>님이 찾는 럭킷 메이트✨</h2>
+        <Link to='#'><img src={IconMarketPostUpload} alt='마켓 게시글 등록 버튼'/></Link>
+      </div>
       <ul>
-        <li>
-          <Link to='#'>
-            <p>아이브 콘서트 가요아이브 콘서트 가요아이브 콘서트 가요아이브 콘서트 가요</p>
-            <img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fcafefiles.naver.net%2F20160622_226%2Fsang7145_1466595386985CQdGk_JPEG%2Fg.jpg&type=sc960_832" />
-          </Link>
-        </li>
-        <li>
-          <Link to='#'>
-            <p>아이브 콘서트 가요</p>
-            <img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fcafefiles.naver.net%2F20160622_226%2Fsang7145_1466595386985CQdGk_JPEG%2Fg.jpg&type=sc960_832" />
-          </Link>
-        </li>
-        <li>
-          <Link to='#'>
-            <p>아이브 콘서트 가요</p>
-            <img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fcafefiles.naver.net%2F20160622_226%2Fsang7145_1466595386985CQdGk_JPEG%2Fg.jpg&type=sc960_832" />
-          </Link>
-        </li>
-        <li>
-          <Link to='#'>
-            <p>아이브 콘서트 가요</p>
-            <img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fcafefiles.naver.net%2F20160622_226%2Fsang7145_1466595386985CQdGk_JPEG%2Fg.jpg&type=sc960_832" />
-          </Link>
-        </li>
-        <li>
-          <Link to='#'>
-            <p>아이브 콘서트 가요</p>
-            <img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fcafefiles.naver.net%2F20160622_226%2Fsang7145_1466595386985CQdGk_JPEG%2Fg.jpg&type=sc960_832" />
-          </Link>
-        </li>
-      </ul>      
+        {marketPostsData && marketPostsData.map((post)=> {
+          return(
+            <li key={post.id}>
+              <Link to='#'>
+                <p>{post.itemName}</p>
+                <img src={post.itemImage} />
+              </Link>  
+            </li>
+          )
+        })}
+      </ul>     
+      </> : 
+      <>
+      <div className='headingWrap'>
+          <h2><strong>{accountName}</strong>님이 찾는 럭킷 메이트✨</h2>
+          <Link to='#'><img src={IconMarketPostUpload} alt='마켓 게시글 등록 버튼'/></Link>
+      </div>
+      </>}
     </MarketPreviewBoxWrap>
   )
 }

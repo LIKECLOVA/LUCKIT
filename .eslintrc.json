@@ -7,6 +7,6 @@
     ],
     "rules": {
       "import/prefer-default-export": "off",
-      "arrow-body-style": ["error", "always"]
+      "arrow-body-style": 0
     }
   }

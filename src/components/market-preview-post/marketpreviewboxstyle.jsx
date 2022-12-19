@@ -2,17 +2,35 @@ import styled from 'styled-components';
 
 export const MarketPreviewBoxWrap = styled.div`
     height:200px;
-    margin: 34px 0;
+    margin: 0 0 55px;
     background-color: white;
 
+    .headingWrap {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
         h2 {
-            font-size: 18px;
+            font-size: 16px;
         }
     
         h2 > strong {
+            font-size: 20px;
             font-weight: 600;
+            margin-right: 3px;
         }
-    
+
+        img {
+            width: 25px;
+            height: 25px;
+            padding: 7px;
+            border-radius: 50%;
+            background-color: #F5F3F3;
+            vertical-align: top;
+        }
+    }
+
+
         ul {
             display: flex;
             flex-wrap: nowrap;
@@ -23,9 +41,8 @@ export const MarketPreviewBoxWrap = styled.div`
     
         li {
             flex-shrink: 0;
-            width: 160px;
-            background-color: #D5EBBB;
-            border: 1px solid black;
+            width: 180px;
+            border: 2px solid #F1F1F1;
             border-radius: 10px;
             overflow: hidden;
         
@@ -49,6 +66,5 @@ export const MarketPreviewBoxWrap = styled.div`
         }
 
     }
-
 
 `

@@ -1,10 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+<<<<<<< HEAD
 import { Envelope, Gogo, GoSignupLink, LoginForm, LoginInput, LoginWrap } from './loginstyle';
 
 // - 로그인 버튼 클릭 시 login 함수 실행
 // - axios! try,catch로 서버에 날리기
+=======
+
+import { Envelope, Gogo, GoSignupLink, LoginForm, LoginSection, LoginWrap } from './loginstyle';
+>>>>>>> c221eb2b1712230567e389e0748beed50eacb7eb
 
 export const Login = () => {
   const navigate = useNavigate();
@@ -57,6 +62,7 @@ export const Login = () => {
           <div className='openEnv'>
             <label className='top'></label>
             <div className='content'>
+<<<<<<< HEAD
               <p className='title'>로그인</p>
               <LoginForm>
                 <LoginWrap>
@@ -87,6 +93,29 @@ export const Login = () => {
 
               <span className='joinMessage'>앗! 아직 럭킷메이트가 아니신가요?</span>
               <GoSignupLink to={'/join'}>회원가입</GoSignupLink>
+=======
+              <LoginSection>
+                <p className='title'>로그인</p>
+                <LoginForm>
+                  <LoginWrap>
+                    <input type='text' id='email' name='email' placeholder='이메일' />
+                    <input type='password' id='password' name='password' placeholder='비밀번호' />
+                    <span className='message'>이메일 또는 비밀번호를 다시 한 번 확인해주세요.</span>
+                  </LoginWrap>
+                  <Gogo
+                    bg='#85CE2D'
+                    onClick={() => {
+                      return navigate('/login');
+                    }}
+                  >
+                    로그인
+                  </Gogo>
+                </LoginForm>
+
+                <span className='joinMessage'>앗! 아직 럭킷메이트가 아니신가요?</span>
+                <GoSignupLink to={'/join'}>회원가입</GoSignupLink>
+              </LoginSection>
+>>>>>>> c221eb2b1712230567e389e0748beed50eacb7eb
             </div>
             <div className='rest'></div>
           </div>

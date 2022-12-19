@@ -1,30 +1,90 @@
-import React from 'react'
-import { MyProfileInfoBox } from './profilestyle'
+import React, { useState } from 'react'
+import axios from 'axios';
+import { useParams } from 'react-router-dom';
+import { MyProfileInfoBox, FollowNavLink, EditProfileNavLink, IsFollowButton } from './profilestyle'
 
-export const ProfileBox = () => {
-  return (
-    <MyProfileInfoBox>
+export const ProfileBox = ({ profileData }) => {
+  const {followerCount, isfollow} = profileData;
+  const [isFollow, setIsFollow] = useState(isfollow);
+  const [followersCount, setFollowersCount] = useState(followerCount)
+  const { id } = useParams();
+
+  const accountName = 'clover2'
+  const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzOWMyMDY3MTdhZTY2NjU4MWM2NGNhNCIsImV4cCI6MTY3NjQ2NTQ4OCwiaWF0IjoxNjcxMjgxNDg4fQ.CftU86sxCaIbsE1lmhRwWEW2x8yBMa4DrcGR331D84A'
+
+  const unfollow = async () => {
+    await axios(`https://mandarin.api.weniv.co.kr/profile/${id}/unfollow`, {
+      method: 'DELETE',
+      headers: {
+        Authorization: `Bearer ${token}`,
+        'Content-type': 'application/json',
+      },
+    }).then((res) => {
+      setFollowersCount(res.data.profile.followerCount); 
+      setIsFollow(res.data.profile.isfollow);       
+  })
+  };
+
+  const follow = async () => {
+    await axios(`https://mandarin.api.weniv.co.kr/profile/${id}/follow`, {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${token}`,
+        'Content-type': 'application/json',
+      },
+    }).then((res) => {
+      setFollowersCount(res.data.profile.followerCount)
+      setIsFollow(res.data.profile.isfollow);       
+  })
+  };
+
+  const onClick = () => {
+
+    if(isFollow) {
+      unfollow();
+      
+    }else {
+      follow();
+    }
+  }
+
+return (
+      <MyProfileInfoBox>
+        {profileData ? <>
           <div className='topmyInfoBox'>
             <div className='leftMyInfoBox'>
-              <img src='https://mandarin.api.weniv.co.kr/Ellipse.png' alt='프로필사진'></img>
+              <img src={profileData.image} alt='프로필사진'></img>
               <div className='profileCont'>
-                <h2>유죠미짱</h2>
-                <p>@아이디</p>
-                <div>
-                  <span>팔로워 1330</span>
-                  <span>팔로잉 380</span>
+                <h2>{profileData.accountname}</h2>
+                <p>@ {profileData.username}</p>
+                <div className='followerCont'>
+                  <span>팔로워</span>
+                  <FollowNavLink to='/myfollow' state={{ text: 'followers' }}>
+                    {followersCount}
+                  </FollowNavLink>
+                  <span className='followingTxt'>팔로잉</span>
+                  <FollowNavLink to='/myfollow' state={{ text: 'followings' }}>
+                  {profileData.followingCount}
+                  </FollowNavLink>
                 </div>
               </div>
             </div>
-            <div className='rightInfoBox'>
-              <button>팔로우</button>
+            <div>
+              {profileData.accountname === accountName ? 
+              <>
+                <EditProfileNavLink to='/editprofile'>프로필 수정</EditProfileNavLink>
+              </> : 
+              <>
+                <IsFollowButton onClick={ onClick }>{isFollow ? '언팔로우': '팔로우'}</IsFollowButton>
+              </>}
             </div>
           </div>
 
           <div className='bottomInfoBox'>
             <p>To. 마이럭킷</p>
-            <p className='btInfoTxt'>저는 집 꾸미기를 참 좋아해요! 같이 소품샵 가용 저는 집 꾸미기를 참 좋아해요! 같이 소품샵 가용</p>
+            <p className='btInfoTxt'>{profileData.intro}</p>
           </div>
+        </> : <></>}
         </MyProfileInfoBox>
-  )
+    )
 }
