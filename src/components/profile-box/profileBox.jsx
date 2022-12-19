@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import { MyProfileInfoBox, FollowNavLink, EditProfileNavLink, IsFollowButton } from './profilestyle'
@@ -12,58 +12,41 @@ export const ProfileBox = ({ profileData }) => {
   const accountName = 'clover2'
   const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzOWMyMDY3MTdhZTY2NjU4MWM2NGNhNCIsImV4cCI6MTY3NjQ2NTQ4OCwiaWF0IjoxNjcxMjgxNDg4fQ.CftU86sxCaIbsE1lmhRwWEW2x8yBMa4DrcGR331D84A'
 
-  // useEffect(() => {
-  //   setIsFollow(isfollow);
-  //   setFollowersCount(followerCount);
-  // }, [isfollow, followerCount])
+  const unfollow = async () => {
+    await axios(`https://mandarin.api.weniv.co.kr/profile/${id}/unfollow`, {
+      method: 'DELETE',
+      headers: {
+        Authorization: `Bearer ${token}`,
+        'Content-type': 'application/json',
+      },
+    }).then((res) => {
+      setFollowersCount(res.data.profile.followerCount); 
+      setIsFollow(res.data.profile.isfollow);       
+  })
+  };
 
-  useEffect(() => {
-    console.log(followersCount)
-  }, [followersCount])
+  const follow = async () => {
+    await axios(`https://mandarin.api.weniv.co.kr/profile/${id}/follow`, {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${token}`,
+        'Content-type': 'application/json',
+      },
+    }).then((res) => {
+      setFollowersCount(res.data.profile.followerCount)
+      setIsFollow(res.data.profile.isfollow);       
+  })
+  };
 
-      const unfollow = async () => {
-        await axios(`https://mandarin.api.weniv.co.kr/profile/${id}/unfollow`, {
-          method: 'DELETE',
-          headers: {
-            Authorization: `Bearer ${token}`,
-            'Content-type': 'application/json',
-          },
-        }).then((res) => {
-          setFollowersCount(res.data.profile.followerCount)         
-      })
-      };
+  const onClick = () => {
 
-      const follow = async () => {
-        await axios(`https://mandarin.api.weniv.co.kr/profile/${id}/follow`, {
-          method: 'POST',
-          headers: {
-            Authorization: `Bearer ${token}`,
-            'Content-type': 'application/json',
-          },
-        }).then((res) => {
-          setFollowersCount(res.data.profile.followerCount)
-      })
-      };
-
-      const onClick = () => {
-        if(isFollow) {
-          unfollow();
-          setIsFollow(false);
-        }else {
-          follow();
-          setIsFollow(true);
-        }
-      }
-
-      // const onClick = () => {
-      //   setIsFollow(!isFollow);
-    
-      //   if (isFollow === true) {
-      //     unfollow();
-      //   } else if (isFollow === false) {
-      //     follow();
-      //   }
-      // };
+    if(isFollow) {
+      unfollow();
+      
+    }else {
+      follow();
+    }
+  }
 
 return (
       <MyProfileInfoBox>
