@@ -65,9 +65,9 @@ export const MyProfile = () => {
           });
       }, [location])
 
-  console.log("프로필데이터", profileData);
-  console.log("마켓데이터", marketPostsData);
-  console.log("게시글데이터", snsPostsData)
+  // console.log("프로필데이터", profileData);
+  // console.log("마켓데이터", marketPostsData);
+  // console.log("게시글데이터", snsPostsData)
 
   const onClickListBtn = () => {
     setImgList(true);

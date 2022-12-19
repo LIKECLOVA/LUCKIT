@@ -1,15 +1,16 @@
-import React, {useState} from 'react'
+import React, { useState} from 'react'
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import { MyProfileInfoBox, FollowNavLink, EditProfileNavLink, IsFollowButton } from './profilestyle'
 
 export const ProfileBox = ({profileData}) => {
-  const [isFollow, setIsFollow] = useState();
-  // const [followerCount, setFollowerCount] = useState(profileData?.followerCount);
-  const accountName = 'clover2'
-
-  const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzOWMyMDY3MTdhZTY2NjU4MWM2NGNhNCIsImV4cCI6MTY3NjQ2NTQ4OCwiaWF0IjoxNjcxMjgxNDg4fQ.CftU86sxCaIbsE1lmhRwWEW2x8yBMa4DrcGR331D84A'
+  const [isFollow, setIsFollow] = useState(false);
+  const { followerCount } = profileData;
+  const [followersCount, setFollowersCount] = useState()
   const { id } = useParams();
+
+  const accountName = 'clover2'
+  const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzOWMyMDY3MTdhZTY2NjU4MWM2NGNhNCIsImV4cCI6MTY3NjQ2NTQ4OCwiaWF0IjoxNjcxMjgxNDg4fQ.CftU86sxCaIbsE1lmhRwWEW2x8yBMa4DrcGR331D84A'
 
       const unfollow = async () => {
         await axios(`https://mandarin.api.weniv.co.kr/profile/${id}/unfollow`, {
@@ -19,12 +20,9 @@ export const ProfileBox = ({profileData}) => {
             'Content-type': 'application/json',
           },
         }).then((res) => {
-          setIsFollow(res.data.profile.isfollow);
-          // setFollowerCount(res.data.profile.followerCount)
+          setIsFollow(res.data.profile.isfollow)
+          setFollowersCount(res.data.profile.followerCount);
       })
-      .then((error) => {
-          console.log(error);
-      });
       };
 
       const follow = async () => {
@@ -35,13 +33,9 @@ export const ProfileBox = ({profileData}) => {
             'Content-type': 'application/json',
           },
         }).then((res) => {
-          setIsFollow(res.data.profile.isfollow);
-          console.log('target', res.data.profile.followerCount);
-          // setFollowerCount(res.data.profile.followerCount)
+          setIsFollow(res.data.profile.isfollow)
+          setFollowersCount(res.data.profile.followerCount);
       })
-      .then((error) => {
-        console.log(error);
-    });
       };
 
       const onClick = () => {
@@ -66,7 +60,7 @@ return (
                 <div className='followerCont'>
                   <span>팔로워</span>
                   <FollowNavLink to='/myfollow' state={{ text: 'followers' }}>
-                  {profileData.followerCount}
+                  {followersCount === undefined ? followerCount : followersCount}
                   </FollowNavLink>
                   <span className='followingTxt'>팔로잉</span>
                   <FollowNavLink to='/myfollow' state={{ text: 'followings' }}>
