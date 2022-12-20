@@ -44,6 +44,7 @@ const MainPages = () => {
     <Routes>
       <Route path='/' element={isLogin ? <Home /> : <LoginScreen />}></Route>
       <Route path='/login' element={<Login />}></Route>
+      <Route path='/home' element={<Home />}></Route>
       <Route path='/join' element={<Join />}></Route>
       <Route path='/joinprofile' element={<JoinProfile />}></Route>
       <Route path='/search' element={<Search />}></Route>
