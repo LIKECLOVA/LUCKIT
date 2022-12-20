@@ -2,7 +2,8 @@ import { createSlice,createAsyncThunk } from "@reduxjs/toolkit"
 import axios from 'axios';
 
 const initialState = {
-    userData: {}
+    userData: {},
+    status: 'state',
 }
 
 
@@ -27,7 +28,15 @@ export const userInfoSlice = createSlice({
     name:'유저정보',
     initialState,
     reducers:{
-        
+      onChangeIntro(state,action){
+          state.userData.intro = action.payload
+      },
+      onChangeUserName(state,action){
+          state.userData.username = action.payload
+      },
+      onChangeUserImg(state,action){
+          state.userData.image = action.payload
+      }
     },
     extraReducers: (builder) => {
         builder
@@ -43,3 +52,5 @@ export const userInfoSlice = createSlice({
           });
       },
 })
+
+export const {onChangeIntro, onChangeUserName , onChangeUserImg} = userInfoSlice.actions

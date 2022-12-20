@@ -90,7 +90,7 @@ export const FollowingHeader = () => {
 }
 
 // 프로필 수정 페이지 헤더
-export const ProfileEditHeader = () => {
+export const ProfileEditHeader = ({onClick}) => {
   const navigate = useNavigate();
 
   return (
@@ -98,7 +98,7 @@ export const ProfileEditHeader = () => {
       <button onClick={() => {navigate(-1)}} className='backBtn'>
         <img src={IconArrowLeft} alt='뒤로가기' />
       </button>
-      <StoreBtn size='middle-sm' />
+      <StoreBtn onClick={onClick} size='middle-sm' />
     </EditAndUploadHeaderWrap>
   )
 }

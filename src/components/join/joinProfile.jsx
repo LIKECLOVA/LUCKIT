@@ -20,10 +20,10 @@ const JoinProfile = () => {
     이미지: profileDefaultImg,
   });
 
-  /* 프로필 사진 등록 함수 */
+  /* 프로필 사진 서버 등록 함수 */
   const postImg = async (event) => {
     const imageFile = event.target.files[0];
-
+   
     const formData = new FormData();
 
     formData.append('image', imageFile);
@@ -92,7 +92,7 @@ const JoinProfile = () => {
   };
 
   /* 이미지 변경 함수 */
-  const setImg = () => {
+  const changeImg = () => {
     fileInput.current.click();
   }
 
@@ -113,7 +113,7 @@ const JoinProfile = () => {
               }}
             />
             <ProfileImgInput onChange={postImg} ref={fileInput} type='file' id='joinProfileImg' />
-            <ImgUploadBtn click={setImg} posi='in'/>
+            <ImgUploadBtn click={changeImg} posi='in'/>
           </ProfileImgLabel>
           <div>
             <ProfileLabel>
