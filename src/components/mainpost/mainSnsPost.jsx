@@ -9,26 +9,37 @@ const onErrorImg = (e) => {
 }
 
 const MainSnsPost = ({data}) => {
+  // const date = new Date(data.createAt);
+  // const dateOptions = {
+  //   day: "numeric",
+  //   month: "long",
+  //   year: "numeric",
+  // };
+  // const createAtFormat = new Intl.DateTimeFormat("ko-KR", dateOptions).format(
+  //   date
+  // );
+
+  console.log(data)
 
   return (
     <MainSnsPostWhap>
-       <NavLink to='/yourprofile'>
+       <NavLink to={`/profile/${data.author.accountname}`}>
       <UserProfileImg src={data.author.image} onError={onErrorImg} />
       </NavLink>
       <SnsPostBox>
-      <NavLink to='/yourprofile'>
+      <NavLink to={`/profile/${data.author.accountname}`}>
       <SnsIdWhap>
       <strong>{data.author.username}</strong>
       <p>@{data.author.accountname}</p>
       </SnsIdWhap>
       </NavLink>
-      <NavLink to='/snsPost'>
+      <NavLink to={`/snspost/${data.id}`}>
       <SnsPostContent>{data.content}</SnsPostContent>
       <SnsPostImg src={data.image} onError = {e =>{e.target.style.display = 'none'}}/>
       </NavLink>
       <IconWrap>
       <button>좋아요버튼</button>
-      <NavLink to='/snsPost'>
+      <NavLink to={`/snspost/${data.id}`}>
       <button>댓글버튼</button>
       </NavLink>
       </IconWrap>

@@ -1,9 +1,11 @@
 import styled from 'styled-components';
 
 const MainSnsPostWhap= styled.div`
+    position: relative;
     align-items:top;
     box-sizing: border-box;
     margin-top: 20px;
+    padding: 20px 0px 40px 0px;
     width: 100%;
     background: rgb(255, 255, 255);
     display: flex;
@@ -84,6 +86,7 @@ const IconWrap= styled.div`
     background: rgb(255, 255, 255);
     display: flex;
     z-index: 10;
+    padding: 10px 0px;
     margin: 10px 0px;
 >button{
     cursor: pointer;
