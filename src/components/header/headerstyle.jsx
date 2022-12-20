@@ -31,7 +31,6 @@ export const HomeHeaderWrap = styled(BasicHeader)`
 
 export const SearchHeaderWrap = styled(BasicHeader)`
   padding: 8px 16px 8px 16px;
-  background-color: white;
   border-bottom: 1px solid #dbdbdb;
 
   input {

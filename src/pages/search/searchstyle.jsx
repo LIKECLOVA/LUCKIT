@@ -1,9 +1,21 @@
-import styled from 'styled-components';
+import styled, {css} from 'styled-components';
+import { palette } from '../../styles/global/globalColor';
+
+export const SearchListWrap = styled.div`
+
+  margin-top: 50px;
+  padding: 15px;
+
+  li {
+    margin: 20px 0;
+  }
+`
 
 export const SearchMain = styled.main`
 
-  margin: 80px 20px 20px;
-  background-color: white;
+  margin-top: 80px;
+  font-weight: 500;
+  padding: 15px;
 
   p {
     display: inline-block;
@@ -14,20 +26,51 @@ export const SearchMain = styled.main`
   span {
     background-color: #E5F3D3;
     padding: 10px 20px;
-    border-radius: 15px;
+    border-radius: 20px;
     color: #539404;
   }
 
   .searchKeyword{
-    margin-top: 25px;
+    margin-top: 40px;
     display: flex;
     flex-wrap: wrap;
     gap: 15px 20px;
+    
+    li {
+     color: #838383;
+     background-color: #F1F1F1;
+     padding: 8px 18px;
+     font-size: 14px;
+     border-radius: 20px;
+   }
   }
-  .searchKeyword > span {
-    color: #838383;
-    background-color: #F1F1F1;
-    padding: 8px 18px;
-    font-size: 14px;
-  }
+`
+
+export const NoResultWrap = styled.div`
+  
+  padding: 15px;
+  color: #838383;
+
+`
+
+export const Span = styled.span`
+  color: ${palette.텍스트초록}
+`
+
+export const Div = styled.div`
+  display: flex;
+
+  ${({ type }) => {
+    return type === 'username'
+      ? css`
+          font-size: 14px;
+          margin-bottom: 6px;
+          font-weight: 500;
+        `
+      : css`
+          font-size: 12px;
+        `;
+  }};
+
+
 `

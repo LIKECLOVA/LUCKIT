@@ -5,7 +5,7 @@ import { MoreBtn } from "../../components/button/iconBtn";
 import IconHeart from '../../assets/icon/icon-heart.png';
 import IconMessage from '../../assets/icon/icon-message-circle.png';
 
-export default function ProfileAndSnsPost({post}) {
+export default function ProfilePost({post}) {
   return (
     <>
         <SnsProfileWrap>
@@ -20,7 +20,7 @@ export default function ProfileAndSnsPost({post}) {
         <SnsContBox>
             <NavLink to='/snsPost'>
                 <p>{post.content}</p>
-                <div className='testtest'>
+                <div className='snsImgList'>
                 {post.image ? post.image.split(',').map((src, index)=> {
                     return (
                     <ImgListDiv key={index}>
