@@ -1,6 +1,8 @@
- import axios from 'axios';
+// import axios from 'axios';
 import React, {useEffect, useRef, useState} from 'react';
+import { useDispatch,useSelector } from 'react-redux';
 import { ProfileEditHeader } from '../../components/header/header';
+import { AxiosUserData } from '../../reducers/getUserInfoSlice';
 import {
   EditProfilePageWrap,
   EditProfilePageUserInfo,
@@ -12,8 +14,10 @@ import {
 } from './editprofilestyle';
 
 export const EditProfile = () => {
- 
-  const [profileImg, setProfileImg] = useState('');
+  // ////
+  
+  // /////
+  const [profileImg, setProfileImg] = useState('ㅁ');
   const [userName, setUserName] = useState('');
   const [userID, setUserID] = useState('');
   const [userIntro, setUserIntro] = useState('');
@@ -21,33 +25,28 @@ export const EditProfile = () => {
   // 임시 데이터
   const accountname = 'fffffff'
   const URL = `https://mandarin.api.weniv.co.kr/profile/${accountname}`;
-  const token =
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzOTA5MzIwMTdhZTY2NjU4MWMwMzNlNyIsImV4cCI6MTY3NjQ0NDc2OSwiaWF0IjoxNjcxMjYwNzY5fQ.PcmkXNY7JTV8PlIYVh9XOCbYhiD789NfFYXrjOQ6_ik';
-  
 
-  // 내 프로필 정보 가져오는 함수
-  const getMyProfileInfo = async () => {
+  const dispatch = useDispatch(); // 함수 호출해서 액션 요청
 
-    await axios.get( URL, {
-      headers: { Authorization : `Bearer ${token}` }
-     }
-      ).then(data => {
-        
-        setProfileImg(data.data.profile.image);
-        setUserName(data.data.profile.accountname);
-        setUserID(data.data.profile.username);
-        setUserIntro(data.data.profile.intro)
-      })
-  
-  }
+  const userInfoData = useSelector(state => state.userInfoSlice.userData); // 받아온 데이터
 
+  console.log('리덕스에서 받아온 데이터', userInfoData);
+  console.log('이게문제에!!', profileImg);
+
+  // 내 프로필 정보 리덕스 store에 요청
   useEffect(()=>{
-    getMyProfileInfo();
+    // 액션 함수를 호출해서 slice안에 있는 데이터를 바꿔주는 것 
+    dispatch(AxiosUserData(URL));
+    setProfileImg(userInfoData.image);
+    setUserName(userInfoData.accountname);
+    setUserID(userInfoData.username);
+    setUserIntro(userInfoData.intro)
    
-  },[])
+  },[]);
 
-
-
+  const ontest = () => {
+    console.log(1);
+  };
 
   return (
     <>
@@ -64,10 +63,10 @@ export const EditProfile = () => {
 
           <div className='profiledetail'>
             <EditProFileUserLabel>
-              <EditProfileUserInput  value={userID} type='text' id='userName' name='userName' placeholder='닉네임' />
+              <EditProfileUserInput onChange={ontest} value={userID} type='text' id='userName' name='userName' placeholder='닉네임' />
             </EditProFileUserLabel>
             <EditProFileUserLabel>
-              <EditProfileUserInput value={userName} type='text' id='userID' name='userID' placeholder='아이디' />
+              <EditProfileUserInput onChange={ontest} value={userName} type='text' id='userID' name='userID' placeholder='아이디' />
             </EditProFileUserLabel>
           </div>
           
