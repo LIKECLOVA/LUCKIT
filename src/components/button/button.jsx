@@ -1,11 +1,9 @@
-import React from 'react'
-import { Button,FollowButton } from './buttonstyle'
+import React from 'react';
+import { Button, FollowButton } from './buttonstyle';
 
-export const NextBtn = ({size}) => {
-  return (
-    <Button size={size}>다음</Button>
-  )
-}
+export const NextBtn = ({ size }) => {
+  return <Button size={size}>다음</Button>;
+};
 
 export const FollowBtn = ({size,onClick,isFollow }) => {
  
@@ -19,3 +17,4 @@ export const StoreBtn = ({size,onClick}) => {
 export const UploadBtn = ({size}) => {
   return <Button size={size}>업로드</Button>
 }
+

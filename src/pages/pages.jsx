@@ -8,7 +8,6 @@ import Home from './home/home.jsx';
 import JoinProfile from '../components/join/joinProfile';
 import { Search } from './search/search';
 import { MyProfile } from './profile/myProfile';
-import { YourProfile } from './profile/yourProfile';
 import { EditProfile } from './profile/editProfile';
 
 import { YourFollow } from './follow/yourFollow';
@@ -45,11 +44,11 @@ const MainPages = () => {
     <Routes>
       <Route path='/' element={isLogin ? <Home /> : <LoginScreen />}></Route>
       <Route path='/login' element={<Login />}></Route>
+      <Route path='/home' element={<Home />}></Route>
       <Route path='/join' element={<Join />}></Route>
       <Route path='/joinprofile' element={<JoinProfile />}></Route>
       <Route path='/search' element={<Search />}></Route>
-      <Route path='/yourprofile' element={<YourProfile />}></Route>
-      <Route path='/myprofile' element={<MyProfile />}></Route>
+      <Route path='/profile/:id' element={<MyProfile />}></Route>
       <Route path='/editprofile' element={<EditProfile />}></Route>
       <Route path='/chatpage' element={<ChatPage />}></Route>
       <Route path='/chatroom' element={<ChatRoom />}></Route>
