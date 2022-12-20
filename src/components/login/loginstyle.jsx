@@ -128,15 +128,8 @@ export const Gogo = styled.button`
   color: ${(props) => {
     return props.bg === '#85CE2D' ? 'white' : '#475A24';
   }};
-<<<<<<< HEAD
   margin: 20px auto;
   padding: 12px;
-=======
-  margin: 0 auto;
-  margin-top: 20px;
-  margin-bottom: 5px;
-  padding: 14px;
->>>>>>> c221eb2b1712230567e389e0748beed50eacb7eb
   background-color: ${(props) => {
     return props.bg;
   }};
@@ -167,7 +160,6 @@ export const LoginForm = styled.form`
   flex-direction: column;
 `;
 
-<<<<<<< HEAD
 export const LoginInput = styled.input`
   width: 270px;
   border-radius: 50px;
@@ -182,30 +174,6 @@ export const LoginInput = styled.input`
   :focus {
     border: 1px solid #78d00c;
     box-shadow: 0 1px 5px 0 ${palette.텍스트초록};
-=======
-  input {
-    width: 270px;
-    border-radius: 50px;
-    font-size: 14px;
-
-    box-shadow: 0 1px 5px 0 #f1f1f1;
-    border: none;
-    outline: none;
-    font-size: 14px;
-    padding: 14px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    :focus {
-      border: 1px solid #78d00c;
-      box-shadow: 0 1px 5px 0 ${palette.텍스트초록};
-
-    }
-
-    ::placeholder {
-      font-family: 'GmarketSans';
-      color: #a9a9a9;
-    }
->>>>>>> c221eb2b1712230567e389e0748beed50eacb7eb
   }
 `;
 
@@ -214,20 +182,3 @@ export const GoSignupLink = styled(Link)`
   color: ${palette.텍스트초록};
   text-decoration: none;
 `;
-<<<<<<< HEAD
-=======
-
-export { GoSignupLink };
-
-export const LoginSection = styled.section`
-  animation: fadein 1s;
-  @keyframes fadein {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-`;
->>>>>>> c221eb2b1712230567e389e0748beed50eacb7eb
