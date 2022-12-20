@@ -126,21 +126,24 @@ export const Gogo = styled.button`
   display: block;
   width: 270px;
   color: ${(props) => {
-    return props.bg === '#85CE2D' ? 'white' : '#475A24';
+    return props.isActive === true ? 'white' : '#a4c16e';
   }};
   margin: 20px auto;
   padding: 12px;
   background-color: ${(props) => {
-    return props.bg;
+    return props.isActive === true ? '#78d00c' : '#b9d795;';
   }};
   border-radius: 50px;
   font-size: 14px;
   box-shadow: 0 1px 5px 0 #b9d795;
   border: 1px solid #b9d795;
+  cursor: ${(props) => {
+    return props.isActive === true ? 'pointer' : 'not-allowed';
+  }};
   &:hover {
-    background-color: #64b603;
-    color: white;
-    cursor: pointer;
+    background-color: ${(props) => {
+      return props.isActive === true ? '#47a902' : '#b9d795;';
+    }};
   }
 `;
 
