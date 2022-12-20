@@ -61,7 +61,7 @@ export const Join = () => {
       },
     });
 
-    if (res.data.message === '사용 가능한 이메일입니다.') {
+    if (res.data.message === '사용 가능한 이메일 입니다.') {
       setCheckValidatedEmail(true);
       navigate('/joinProfile', {
         state: {
@@ -69,7 +69,7 @@ export const Join = () => {
           password,
         },
       });
-    } else if (res.data.message === '이미 가입된 이메일 주소입니다.') {
+    } else if (res.data.message === '이미 가입된 이메일 주소 입니다.') {
       setCheckValidatedEmail(false);
       setEmailMessage('가입된 이메일 주소입니다. 이미 럭킷 회원이시군요!');
     } else {
