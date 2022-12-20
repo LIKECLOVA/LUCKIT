@@ -58,7 +58,7 @@ const MainPages = () => {
       <Route path='/snspage' element={<SnsPage />}></Route>
       <Route path='/snsupload' element={<SnsUpload />}></Route>
       <Route path='/loginScreen' element={<LoginScreen />}></Route>
-      <Route path='/snsPost' element={<SnsPost />}></Route>
+      <Route path='/snspost/:postId' element={<SnsPost />}></Route>
       <Route path='/*' element={<Error />}></Route>
     </Routes>
   );
