@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const MarketPreviewBoxWrap = styled.div`
     height:200px;
-    margin: 34px 0 55px;
+    margin: 0 0 55px;
     background-color: white;
 
     .headingWrap {
@@ -42,8 +42,7 @@ export const MarketPreviewBoxWrap = styled.div`
         li {
             flex-shrink: 0;
             width: 180px;
-            background-color: #D5EBBB;
-            border: 1px solid black;
+            border: 2px solid #F1F1F1;
             border-radius: 10px;
             overflow: hidden;
         

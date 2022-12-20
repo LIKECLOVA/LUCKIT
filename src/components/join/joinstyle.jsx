@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
 import { palette } from '../../styles/global/globalColor';
 
 export const Envelope = styled.main`
@@ -122,28 +121,29 @@ export const Envelope = styled.main`
 `;
 
 export const Gogo = styled.button`
+  display: block;
   width: 270px;
   color: ${(props) => {
-    return props.bg === '#85CE2D' ? 'white' : '#475A24';
+    return props.disabled === 'disabled' ? '#a4c16e' : '#fff';
   }};
-  margin: 0 auto;
-  margin-top: 20px;
-  padding: 14px;
+  margin: 20px auto;
+  padding: 12px;
   background-color: ${(props) => {
-    return props.bg;
+    return props.disabled === 'disabled' ? '#b9d795' : '#78d00c';
   }};
   border-radius: 50px;
   font-size: 14px;
   box-shadow: 0 1px 5px 0 #b9d795;
   border: 1px solid #b9d795;
+  cursor: ${(props) => {
+    return props.disabled === 'disabled' ? 'not-allowed' : 'pointer';
+  }};
   &:hover {
-    background-color: #64b603;
-    color: white;
-    cursor: pointer;
+    background-color: ${(props) => {
+      return props.disabled !== 'disabled' ? '#47a902' : '#b9d795;';
+    }};
   }
 `;
-
-/* 로그인하는 페이지 */
 
 export const JoinWrap = styled.section`
   display: flex;
@@ -157,37 +157,28 @@ export const JoinWrap = styled.section`
 export const JoinForm = styled.form`
   display: flex;
   flex-direction: column;
+`;
 
-  input {
-    width: 270px;
-    border-radius: 50px;
-    font-size: 14px;
-    background: #f1f1f1;
-    box-shadow: 0 1px 5px 0 #f1f1f1;
-    border: none;
-    outline: none;
-    font-size: 14px;
-    padding: 14px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    :focus {
-      border: 1px solid #78d00c;
-      box-shadow: 0 1px 5px 0 ${palette.텍스트초록};
-    }
-
-    ::placeholder {
-      color: #a9a9a9;
-    }
+export const JoinInput = styled.input`
+  width: 270px;
+  border-radius: 50px;
+  font-size: 14px;
+  background: #f1f1f1;
+  box-shadow: 0 1px 5px 0 #f1f1f1;
+  border: none;
+  outline: none;
+  font-size: 14px;
+  padding: 14px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  :focus {
+    border: 1px solid #78d00c;
+    box-shadow: 0 1px 5px 0 ${palette.텍스트초록};
+  }
+  ::placeholder {
+    color: #a9a9a9;
   }
 `;
-
-const GoSignupLink = styled(Link)`
-  font-size: 13px;
-  color: ${palette.텍스트초록};
-  text-decoration: none;
-`;
-
-export { GoSignupLink };
 
 export const JoinSection = styled.section`
   animation: fadein 1s;
