@@ -18,3 +18,8 @@ export const UploadBtn = ({size}) => {
   return <Button size={size}>업로드</Button>
 }
 
+export const SerchBtn = ({size}) => {
+  return <Button size={size}>검색하기</Button>
+}
+
+

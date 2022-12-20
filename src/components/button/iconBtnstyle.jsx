@@ -13,6 +13,7 @@ const setPosition = (posi) => {
       case 'fixed':
         return css`
         position:fixed;
+        z-index:40;
 `;
       default:
         return null;
