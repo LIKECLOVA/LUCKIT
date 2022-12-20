@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import imgBtn from '../../assets/icon/img-button.png';
 import deleteBtn from '../../assets/icon/x.png'
+import addBtn from '../../assets/icon/addBtn.svg';
 
 /* SnsUpload 페이지 */
 const SnsUploadArt = styled.article`
@@ -143,11 +144,10 @@ const SnsPageArt = styled.article`
         display: none;
       }
     }
-    ul > li{
+   li{
         margin-right:15px;
-      :last-child{
-        margin-right:0px;
-      }
+        width: 80px;
+        height: 80px;
     }
 `;
 
@@ -155,11 +155,11 @@ export { SnsPageArt }
 
 const SnsStoryImg =styled.img`
       box-sizing: inherit;
+      object-fit: cover;
       border: 3px solid #85CE2D;
       border-radius: 50%;
-      width: 80px;
-      height: 80px;
-
+      width: 100%;
+      height:100%;
 `;
 
 export { SnsStoryImg }
@@ -189,6 +189,9 @@ h1{
   border-radius: 20px;
   font-size:14px;
 }
+.test1{
+  align-items: center;
+}
 `;
 
 export { SnsPageSec }
@@ -206,3 +209,17 @@ const MainPostArea= styled.div`
 `;
 
 export { MainPostArea }
+
+export const AddBtn = styled.button`
+  cursor: pointer;
+  position:fixed;
+  right: 10px;
+  bottom:70px;
+  width: 80px;
+  height: 80px;
+  padding:0px;
+  background: url(${addBtn});
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: 90;
+`
