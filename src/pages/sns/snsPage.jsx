@@ -6,8 +6,9 @@ import { FeedPageHeader } from '../../components/header/header';
 import { NavBar } from '../../components/navbar/navBar';
 import DefaultUserImg from '../../assets/icon/basic-profile-img-.png'
 
+
 export const SnsPage = () => {
-  
+
   const [list ,setList] = useState([]);
   const [followList,setFollowList] = useState([]);
   const URL = `https://mandarin.api.weniv.co.kr`;
@@ -66,6 +67,7 @@ export const SnsPage = () => {
   const onErrorImg = (e) => {
     e.target.src = DefaultUserImg;
   }
+
 
   return (
     <>

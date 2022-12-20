@@ -42,7 +42,7 @@ export const ProfileImgLabel =styled.label`
  
 `
 export const ProfileImgInput = styled.input`
-  display:none;
+   display:none;
 `
 
 
