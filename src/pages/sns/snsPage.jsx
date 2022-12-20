@@ -1,12 +1,14 @@
 import React,{ useEffect , useState} from 'react';
+import { NavLink } from 'react-router-dom'
 import MainSnsPost from '../../components/mainpost/mainSnsPost'
 import { SnsPageArt, SnsPageSec, MainPostArea, SnsStoryImg } from './snsstyle';
 import { FeedPageHeader } from '../../components/header/header';
 import { NavBar } from '../../components/navbar/navBar';
 import DefaultUserImg from '../../assets/icon/basic-profile-img-.png'
 
+
 export const SnsPage = () => {
-  
+
   const [list ,setList] = useState([]);
   const [followList,setFollowList] = useState([]);
   const URL = `https://mandarin.api.weniv.co.kr`;
@@ -40,7 +42,8 @@ export const SnsPage = () => {
       },
     })
       .then((data) => data.json())
-      .then((data) =>setFollowList([...data]))
+      .then((data) =>{setFollowList([...data])
+      console.log(data)})
       // 내 프로필 정보 불러오는 fetch
       await fetch( URL+USER_PATH, {
         method: 'GET',
@@ -50,7 +53,7 @@ export const SnsPage = () => {
   })
       .then((data) => data.json())
       .then((data) => {
-        const myStoryImg = {image : data.user.image}
+        const myStoryImg = {image : data.user.image, accountname:data.user.accountname}
         
         setFollowList(value => [ myStoryImg, ...value] )
       })
@@ -65,13 +68,14 @@ export const SnsPage = () => {
     e.target.src = DefaultUserImg;
   }
 
+
   return (
     <>
     <FeedPageHeader />
     <SnsPageArt>
       <ul>
       {followList.map((story)=> {
-           return <li><SnsStoryImg src={story.image} onError={onErrorImg} /></li>
+           return<NavLink to={`/profile/${story.accountname}`}><li><SnsStoryImg src={story.image} onError={onErrorImg} /></li></NavLink>
         })}
       {}
       </ul>

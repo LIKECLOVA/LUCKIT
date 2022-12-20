@@ -78,6 +78,8 @@ export const MyProfile = () => {
     setImgAlbum(true);
   }
 
+  
+
   return (
     <>
       <ProfileAndChatHeader />
@@ -113,7 +115,7 @@ export const MyProfile = () => {
               <>
               <ImgAlbumList key={post.id}>
                 <NavLinkStyle to='/snsPost'>
-                  <img src={post.image.split(',')[0]} alt="게시글이미지" />
+                  <img src={post.image.split(',')[0]} onError = {e =>{e.target.style.display = 'none'}} alt="게시글이미지" />
                 </NavLinkStyle>
               </ImgAlbumList>
               </> : <></>}
