@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import { MyProfileInfoBox, FollowNavLink, EditProfileNavLink, IsFollowButton } from './profilestyle'
+import DefaultUserImg from '../../assets/icon/basic-profile-img-.png'
 
 export const ProfileBox = ({ profileData }) => {
   const {followerCount, isfollow} = profileData;
@@ -48,12 +49,17 @@ export const ProfileBox = ({ profileData }) => {
     }
   }
 
+  const onErrorImg = (e) => {
+    e.target.src = DefaultUserImg;
+  }
+
+
 return (
       <MyProfileInfoBox>
         {profileData ? <>
           <div className='topmyInfoBox'>
             <div className='leftMyInfoBox'>
-              <img src={profileData.image} alt='프로필사진'></img>
+              <img src={profileData.image} onError={onErrorImg} alt='프로필사진'></img>
               <div className='profileCont'>
                 <h2>{profileData.accountname}</h2>
                 <p>@ {profileData.username}</p>
