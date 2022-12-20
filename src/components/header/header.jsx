@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { HomeHeaderWrap, SearchHeaderWrap, FeedHeaderWrap, ProfileHeaderWrap, FollowHeaderWrap, EditAndUploadHeaderWrap} from './headerstyle'
+import { HomeHeaderWrap,  SearchHeaderWrap, FeedHeaderWrap, ProfileHeaderWrap, FollowHeaderWrap, EditAndUploadHeaderWrap} from './headerstyle'
 import IconSearch from '../../assets/icon/icon-search.png'
 import IconArrowLeft from '../../assets/icon/icon-arrow-left.png'
 import IconLuckitLogo from '../../assets/icon/icon-luckit.png'
@@ -32,7 +32,7 @@ export const FeedPageHeader = () => {
 }
 
 // 검색 페이지
-export const SearchHeader = () => {
+export const SearchHeader = ({value, onChange}) => {
   const navigate = useNavigate();
  
   return (
@@ -40,7 +40,7 @@ export const SearchHeader = () => {
         <button onClick={() => {navigate(-1)}}>
           <img src={IconArrowLeft} alt='뒤로가기' />
         </button>
-        <input type='search' placeholder='계정 검색'/>
+        <input type='search' placeholder='계정 검색' value={value} onChange={onChange}/>
     </SearchHeaderWrap>
   )
 }
@@ -90,7 +90,7 @@ export const FollowingHeader = () => {
 }
 
 // 프로필 수정 페이지 헤더
-export const ProfileEditHeader = () => {
+export const ProfileEditHeader = ({onClick}) => {
   const navigate = useNavigate();
 
   return (
@@ -98,7 +98,7 @@ export const ProfileEditHeader = () => {
       <button onClick={() => {navigate(-1)}} className='backBtn'>
         <img src={IconArrowLeft} alt='뒤로가기' />
       </button>
-      <StoreBtn size='middle-sm' />
+      <StoreBtn onClick={onClick} size='middle-sm' />
     </EditAndUploadHeaderWrap>
   )
 }

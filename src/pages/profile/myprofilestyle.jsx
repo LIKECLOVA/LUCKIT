@@ -2,6 +2,7 @@ import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const MyProfileWrap = styled.section`
+
     padding: 0 15px;
     overflow: scroll;
       -ms-overflow-style: none;
@@ -13,6 +14,7 @@ export const MyProfileWrap = styled.section`
 `
 
 export const SnsPostBtn = styled.div`
+
     position: relative;
     display: flex;
     justify-content: flex-end;
@@ -64,7 +66,8 @@ export const ImgAlbumList = styled.li`
 `
 
 export const NavLinkStyle = styled(NavLink)`
-display: flex;
+
+  display: flex;
 
 `
 
@@ -77,6 +80,7 @@ export const SnsPostWrap = styled.li`
 
   `
 export const SnsProfileWrap = styled.div`
+
   display: flex;
 `
 export const AuthorImgNavLink = styled(NavLink)`
@@ -87,11 +91,13 @@ export const AuthorImgNavLink = styled(NavLink)`
       margin-right: 10px;
       border-radius: 50%;
       vertical-align: top;
+      border: 0.5px solid #DBDBDB;
     }
 
   `
 
 export const AuthorNavLink = styled(NavLink)`
+
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -120,8 +126,8 @@ export const SnsContBox = styled.div`
     line-height: 20px;
   }
 
-  .btnWrap {
-    margin-top: 20px;
+    .btnWrap {
+      margin-top: 20px;
 
     button {
       background-color: transparent;
@@ -135,7 +141,7 @@ export const SnsContBox = styled.div`
     }
   }
 
-  .testtest {
+  .snsImgList {
     display: flex;
     gap: 10px;
     flex-wrap: no-wrap;
@@ -158,6 +164,7 @@ export const SnsContBox = styled.div`
 `
 
 export const MoreBtnWrap = styled.div`
+
   position: absolute;
   right: 0;
   top: 8px;

@@ -7,8 +7,9 @@ import { NavBar } from '../../components/navbar/navBar';
 import DefaultUserImg from '../../assets/icon/basic-profile-img-.png'
 import {SerchBtn} from '../../components/button/button'
 
+
 export const SnsPage = () => {
-  
+
   const [list ,setList] = useState([]);
   const [followList,setFollowList] = useState([]);
   const URL = `https://mandarin.api.weniv.co.kr`;
@@ -67,7 +68,7 @@ export const SnsPage = () => {
   const onErrorImg = (e) => {
     e.target.src = DefaultUserImg;
   }
-  
+
   return (
     <NavLink>
     <FeedPageHeader />
