@@ -32,13 +32,32 @@ const setSize = (size) => {
 
 export const Button = styled.button`
   /* 기본셋팅 */
-  background-color: ${palette.마이너스초록};
-  &:hover {
-    background-color: ${palette.초록초록};
-  }
   padding: 20px;
-  border-radius: 30px;
-  color: white;
+  border-radius: 50px;
+  font-size: 14px;
+  box-shadow: 0 1px 5px 0 #b9d795;
+  border: 1px solid #b9d795;
+
+  // color: white;
+
+  color: ${(props) => {
+    return props.disabled === 'disabled' ? '#a4c16e' : '#fff';
+  }};
+
+  background-color: ${(props) => {
+    return props.disabled === 'disabled' ? '#b9d795' : '#78d00c';
+  }};
+
+  cursor: ${(props) => {
+    return props.disabled === 'disabled' ? 'not-allowed' : 'pointer';
+  }};
+
+  &:hover {
+    background-color: ${(props) => {
+      return props.disabled !== 'disabled' ? '#47a902' : '#b9d795;';
+    }};
+  }
+
   /* 사이즈 설정 */
   ${({ size }) => {
     return setSize(size);

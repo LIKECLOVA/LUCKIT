@@ -54,7 +54,8 @@ export const Join = () => {
   }, [password]);
 
   // 다음 버튼 클릭 시
-  const sendDatatoJoinProfile = async function () {
+  const sendDatatoJoinProfile = async function (event) {
+    event.preventDefault();
     const res = await axios.post('https://mandarin.api.weniv.co.kr/user/emailvalid', {
       user: {
         email,
@@ -63,7 +64,7 @@ export const Join = () => {
 
     if (res.data.message === '사용 가능한 이메일 입니다.') {
       setCheckValidatedEmail(true);
-      navigate('/joinProfile', {
+      navigate('/joinprofile', {
         state: {
           email,
           password,
