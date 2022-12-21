@@ -54,7 +54,7 @@ export const NoResultWrap = styled.div`
 `
 
 export const Span = styled.span`
-  color: ${palette.텍스트초록}
+  color: ${palette.텍스트초록};
 `
 
 export const Div = styled.div`

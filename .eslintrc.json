@@ -2,6 +2,7 @@
   "extends": ["react-app", "react-app/jest", "naver", "prettier"],
   "rules": {
     "import/prefer-default-export": "off",
-    "arrow-body-style": 0
+    "arrow-body-style": 0,
+    "object-shorthand" : 0
   }
 }
