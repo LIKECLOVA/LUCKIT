@@ -16,11 +16,12 @@ import {
 export const EditProfile = () => {
   const fileInput = useRef();
   // 임시 데이터 /////
-  const accountname = 'fffffff';
+  
+  const accountname = localStorage.getItem('Account Name');
   const URL = `https://mandarin.api.weniv.co.kr/profile/${accountname}`;
 
   const dispatch = useDispatch(); // 함수 호출해서 액션 요청
-
+  
   const userInfoData = useSelector((state) => state.userInfoSlice.userData); // 받아온 데이터
 
   // console.log('리덕스에서 받아온 데이터', userInfoData);
