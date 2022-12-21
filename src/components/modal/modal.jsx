@@ -1,17 +1,5 @@
 import React from 'react'
-import { ModalWrap, ModalBtnWrap, PostModalWrap, PostModalBtnWrap } from './modalstyle' 
-
-export const LogoutModal = () => {
-  return (
-    <ModalWrap>
-      <strong>로그아웃 하시겠습니까?</strong>
-      <ModalBtnWrap>
-        <button>취소</button>
-        <button>로그아웃</button>
-      </ModalBtnWrap>
-    </ModalWrap>
-  )
-}
+import { ModalWrap, ModalBtnWrap, PostModalWrap, PostModalBtnWrap} from './modalstyle' 
 
 export const DeletePostModal = () => {
   return (
@@ -52,16 +40,6 @@ export const ReportModal = () => {
 
 // 아래 슬라이드 형태로 나타나는 모달
 // 아마도 기능 구현하면서 다른 컴포넌트로 분리할 예정
-export const PostModal = () => {
-  return (
-    <PostModalWrap>
-      <PostModalBtnWrap>
-        <button>설정 및 개인 정보</button>
-        <button>로그아웃</button>
-      </PostModalBtnWrap>
-    </PostModalWrap>
-  )
-}
 
 export const PostReportModal = () => {
   return (
@@ -79,16 +57,6 @@ export const PostEditModal = () => {
       <PostModalBtnWrap>
         <button>삭제</button>
         <button>수정</button>
-      </PostModalBtnWrap>
-    </PostModalWrap>
-  )
-}
-
-export const ChatModal = () => {
-  return (
-    <PostModalWrap>
-      <PostModalBtnWrap>
-        <button>채팅방 나가기</button>
       </PostModalBtnWrap>
     </PostModalWrap>
   )
