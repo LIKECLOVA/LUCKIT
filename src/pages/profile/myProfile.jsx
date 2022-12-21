@@ -11,7 +11,7 @@ import IconPostAlbum from '../../assets/icon/icon-post-album-on.png';
 import ProfilePost from './ProfilePost';
 
 export const MyProfile = () => {
-  const [profileData, setProfileData] = useState();
+  const [profileData, setProfileData] = useState('');
   const [marketPostsData, setMarketPostsData] = useState([])
   const [snsPostsData, setSnsPostsData] = useState([]);
   const [imgList, setImgList] = useState(true);
@@ -19,6 +19,8 @@ export const MyProfile = () => {
   const { id } = useParams();
 
   const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzOWMyMDY3MTdhZTY2NjU4MWM2NGNhNCIsImV4cCI6MTY3NjQ2NTQ4OCwiaWF0IjoxNjcxMjgxNDg4fQ.CftU86sxCaIbsE1lmhRwWEW2x8yBMa4DrcGR331D84A'
+
+  console.log('프로필 박스', profileData);
 
   useEffect(() => {
 
@@ -85,7 +87,7 @@ export const MyProfile = () => {
       <ProfileAndChatHeader />
       <MyProfileWrap>
         {profileData && 
-        <ProfileBox profileData={{...profileData}} />} 
+        <ProfileBox profileData={profileData} />} 
         <MarketPreviewPost marketPostsData={marketPostsData}/>
         {snsPostsData.length !== 0 ? 
         <>

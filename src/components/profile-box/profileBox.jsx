@@ -5,14 +5,14 @@ import { MyProfileInfoBox, FollowNavLink, EditProfileNavLink, IsFollowButton } f
 import DefaultUserImg from '../../assets/icon/basic-profile-img-.png'
 
 export const ProfileBox = ({ profileData }) => {
-  const {followerCount, isfollow} = profileData;
+  const {followerCount, isfollow, accountname} = profileData;
   const [isFollow, setIsFollow] = useState(isfollow);
   const [followersCount, setFollowersCount] = useState(followerCount)
   const { id } = useParams();
 
-  const accountName = 'clover2'
-  const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzOWMyMDY3MTdhZTY2NjU4MWM2NGNhNCIsImV4cCI6MTY3NjQ2NTQ4OCwiaWF0IjoxNjcxMjgxNDg4fQ.CftU86sxCaIbsE1lmhRwWEW2x8yBMa4DrcGR331D84A'
 
+  const myAccountName = localStorage.getItem('Account Name')
+  const token = localStorage.getItem('Access Token')
   const unfollow = async () => {
     await axios(`https://mandarin.api.weniv.co.kr/profile/${id}/unfollow`, {
       method: 'DELETE',
@@ -53,6 +53,10 @@ export const ProfileBox = ({ profileData }) => {
     e.target.src = DefaultUserImg;
   }
 
+/* 프로필 구분 */
+
+const CheckProfile = Boolean(myAccountName === accountname) 
+
 
 return (
       <MyProfileInfoBox>
@@ -65,18 +69,18 @@ return (
                 <p>@ {profileData.username}</p>
                 <div className='followerCont'>
                   <span>팔로워</span>
-                  <FollowNavLink to='/myfollow' state={{ text: 'followers' }}>
+                  <FollowNavLink to={ CheckProfile ? `/myfollow` : `/yourfollow`} state={{ text: 'followers', accountname: accountname }}>
                     {followersCount}
                   </FollowNavLink>
                   <span className='followingTxt'>팔로잉</span>
-                  <FollowNavLink to='/myfollow' state={{ text: 'followings' }}>
+                  <FollowNavLink to={ CheckProfile ? `/myfollow` : `/yourfollow`} state={{ text: 'followings', accountname: accountname }}>
                   {profileData.followingCount}
                   </FollowNavLink>
                 </div>
               </div>
             </div>
             <div>
-              {profileData.accountname === accountName ? 
+              {CheckProfile ? 
               <>
                 <EditProfileNavLink to='/editprofile'>프로필 수정</EditProfileNavLink>
               </> : 

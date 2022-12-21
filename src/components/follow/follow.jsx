@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { FollowBtn } from '../button/button';
 import { FollowInfoWrap, FollowLi } from './followstyle';
 
@@ -9,6 +10,7 @@ export const Follow = ({ user }) => {
   const unfollowURL = `https://mandarin.api.weniv.co.kr/profile/${user.accountname}/unfollow`;
   const followURL = `https://mandarin.api.weniv.co.kr/profile/${user.accountname}/follow`;
   const token = localStorage.getItem('Access Token');
+  const navigate = useNavigate();
 
   const unfollow = async () => {
     await fetch(unfollowURL, {
@@ -32,7 +34,7 @@ export const Follow = ({ user }) => {
   /* follow 버튼 컴포넌트를 클릭했을때 텍스트,색상 변경함수 */
   const [isFollow, setIsFollow] = useState(user.isfollow);
   // 만약 팔로우가 되어있으면 언팔로우 요청, 팔로우가 안되어 있으면 팔로우 요청.
-  const onClick = () => {
+  const followToggle = () => {
     setIsFollow(!isFollow);
 
     if (isFollow === true) {
@@ -42,16 +44,20 @@ export const Follow = ({ user }) => {
     }
   };
 
+  const goYourProfile = () => {
+    navigate(`/profile/${user.accountname}`)
+  }
+
   return (
     <FollowLi>
-      <FollowInfoWrap>
+      <FollowInfoWrap onClick={goYourProfile}>
         <img src={user.image} alt='프로필사진' />
         <div>
           <p>{user.accountname}</p>
           <p>{user.intro}</p>
         </div>
       </FollowInfoWrap>
-      <FollowBtn isFollow={isFollow} onClick={onClick} size='middle' />
+      <FollowBtn isFollow={isFollow} onClick={followToggle} size='middle' />
     </FollowLi>
   );
 };
