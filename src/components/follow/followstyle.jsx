@@ -10,6 +10,7 @@ export const FollowLi = styled.li`
 export const FollowInfoWrap = styled.div`
     display:flex;
     align-items: center;
+    cursor: pointer;
     img{
         width:110px;
         height:110px;
