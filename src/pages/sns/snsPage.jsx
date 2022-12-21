@@ -14,10 +14,12 @@ export const SnsPage = () => {
   const [followList,setFollowList] = useState([]);
   const URL = `https://mandarin.api.weniv.co.kr`;
   const FEED_PATH = `/post/feed`;
-  const STORY_PATH=`/profile/clover3/following`;
+  const STORY_PATH=`/profile/fffffff/following`;
   const USER_PATH=`/user/myinfo`;
-  const token ="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzYTFkOGFiMTdhZTY2NjU4MWQ4OTNkNyIsImV4cCI6MTY3NjczNTE2MCwiaWF0IjoxNjcxNTUxMTYwfQ.mZ65WvbPOHTMjCBes56OHWVcTBH-yPHsRrlQvorojEQ";
-  // 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzOTA5MzIwMTdhZTY2NjU4MWMwMzNlNyIsImV4cCI6MTY3NjQ0NDc2OSwiaWF0IjoxNjcxMjYwNzY5fQ.PcmkXNY7JTV8PlIYVh9XOCbYhiD789NfFYXrjOQ6_ik';
+  const token =
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzOTA5MzIwMTdhZTY2NjU4MWMwMzNlNyIsImV4cCI6MTY3NjQ0NDc2OSwiaWF0IjoxNjcxMjYwNzY5fQ.PcmkXNY7JTV8PlIYVh9XOCbYhiD789NfFYXrjOQ6_ik';
+
+  // "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzYTFkOGFiMTdhZTY2NjU4MWQ4OTNkNyIsImV4cCI6MTY3NjczNTE2MCwiaWF0IjoxNjcxNTUxMTYwfQ.mZ65WvbPOHTMjCBes56OHWVcTBH-yPHsRrlQvorojEQ";
   
   // 팔로잉한 유저의 게시글 정보 불러오는 fetch
   async function fetchFeedPostData(){
@@ -83,7 +85,7 @@ export const SnsPage = () => {
     {followList.length === 1 ? 
     <SnsPageSec className='test1'>
     <h1>새로운 럭킷을 찾아보세요!</h1>
-    <SerchBtn size='middle'>검색하기</SerchBtn>
+    <NavLink to='/search'><SerchBtn>검색하기</SerchBtn></NavLink>
     </SnsPageSec>
     :
     <SnsPageSec>
