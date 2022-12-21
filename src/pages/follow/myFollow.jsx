@@ -15,11 +15,10 @@ export const MyFollow = () => {
 
   },[]);
 
-  const accountname = 'fffffff';
+  const accountname = localStorage.getItem('Account Name');
   const URL = `https://mandarin.api.weniv.co.kr/profile/${accountname}/follower?limit=1000`;
   const URL2 = `https://mandarin.api.weniv.co.kr/profile/${accountname}/following?limit=1000`;
-  const token =
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzOTA5MzIwMTdhZTY2NjU4MWMwMzNlNyIsImV4cCI6MTY3NjQ0NDc2OSwiaWF0IjoxNjcxMjYwNzY5fQ.PcmkXNY7JTV8PlIYVh9XOCbYhiD789NfFYXrjOQ6_ik';
+  const token = localStorage.getItem('Access Token')
   const target = useLocation()?.state.text;
   const [followerList, setFollowerList] = useState([]);
   const [followingList, setFollowingList] = useState([]);
