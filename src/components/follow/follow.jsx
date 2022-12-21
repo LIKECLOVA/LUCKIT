@@ -8,8 +8,7 @@ export const Follow = ({ user }) => {
 
   const unfollowURL = `https://mandarin.api.weniv.co.kr/profile/${user.accountname}/unfollow`;
   const followURL = `https://mandarin.api.weniv.co.kr/profile/${user.accountname}/follow`;
-  const token =
-    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzOTA5MzIwMTdhZTY2NjU4MWMwMzNlNyIsImV4cCI6MTY3NjQ0NDc2OSwiaWF0IjoxNjcxMjYwNzY5fQ.PcmkXNY7JTV8PlIYVh9XOCbYhiD789NfFYXrjOQ6_ik';
+  const token = localStorage.getItem('Access Token');
 
   const unfollow = async () => {
     await fetch(unfollowURL, {
