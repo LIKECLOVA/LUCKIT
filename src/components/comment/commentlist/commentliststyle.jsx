@@ -5,6 +5,12 @@ export const CommentListWrapper = styled.section`
   padding: 2rem 1.6rem;
   border-top: 1px solid #ddd;
   background-color: #ffffff;
+  height: 100%;
+  overflow: auto;
+  padding-bottom: 80px;
+  ::-webkit-scrollbar {
+    display: none;
+  }
 `;
 
 export const CommentListContainer = styled.ul`

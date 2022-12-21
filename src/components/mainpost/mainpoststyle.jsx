@@ -79,18 +79,35 @@ const SnsIdWhap= styled.div`
 export { SnsIdWhap }
 
 const IconWrap= styled.div`
-    align-items: center;
-    box-sizing: border-box;
-    width: 50%;
-    height: 14px;
-    background: rgb(255, 255, 255);
     display: flex;
-    z-index: 10;
-    padding: 10px 0px;
-    margin: 10px 0px;
+  font-weight: 400;
+  font-size: 1.2rem;
+  line-height: 1.2rem;
+  margin-bottom: 1.6rem;
+  align-items: center;
+  vertical-align:bottom;
+  z-index: 10;
 >button{
     cursor: pointer;
+}
+.test{
+    flex-grow: 1;
 }
 `;
 
 export { IconWrap }
+
+
+export const CommentBtnWrap= styled.div`
+    box-sizing: border-box;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    margin-right: 1rem;
+    flex-grow: 1;
+    z-index: 10;
+    span{
+        font-size:1rem;
+    }
+`;
+

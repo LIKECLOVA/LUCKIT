@@ -1,15 +1,15 @@
 import React, {useEffect,useState} from 'react'
 import axios from 'axios';
-import { useParams } from 'react-router-dom';
-import {SnsPostModalWrap} from './snspoststyle'
+import { useNavigate, useParams } from 'react-router-dom';
+import {SnsPostModalWrap, CloseBtn} from './snspoststyle'
 import MainSnsPost from '../mainpost/mainSnsPost'
 import CommentBox from '../comment/commentBox'
-
 
 export const SnsPost = () => {
   const {postId}=useParams()
   const [postDetail ,setPostDetail] = useState(null);
   const [comments, setComments] = useState([]);
+  const navigate=useNavigate();
 
   const URL = `https://mandarin.api.weniv.co.kr/post/${postId}`;
   const token =
@@ -54,7 +54,7 @@ export const SnsPost = () => {
 
   return (
     <SnsPostModalWrap>
-      <button>닫기</button>
+      <CloseBtn onClick={()=>{navigate(-1)}}/>
       {postDetail !== null && < MainSnsPost data={postDetail}/>} 
       <CommentBox postId={postId}
         comments={comments}

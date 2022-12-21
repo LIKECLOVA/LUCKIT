@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import closeBtn from '../../assets/icon/x.svg'
 
 const SnsPostModalWrap= styled.div`
   align-items: left;
@@ -16,11 +17,6 @@ const SnsPostModalWrap= styled.div`
     z-index: 90;
     border: 1px solid black;
     border-radius: 8px;
-    > button{
-    position: absolute;
-    right: 10px;
-    top: 10px;
-    }
 `;
 
 export { SnsPostModalWrap }
@@ -39,3 +35,16 @@ const CommentInp= styled.input`
 `;
 
 export { CommentInp }
+
+export const CloseBtn= styled.button`
+    box-sizing: border-box;
+    cursor: pointer;
+    background: url(${closeBtn});
+    background-size: cover;
+    position: absolute;
+    width: 1rem;
+    height: 1rem;
+    padding: 0px;
+    right: 10px;
+    top: 10px;
+`;
