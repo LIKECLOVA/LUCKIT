@@ -1,17 +1,6 @@
-import React from 'react'
-import { ModalWrap, ModalBtnWrap, PostModalWrap, PostModalBtnWrap} from './modalstyle' 
+import React, { useState } from 'react'
+import { ModalWrap, ModalBtnWrap, PostModalWrap, PostModalBtnWrap, NavLinkStyle, Div} from './modalstyle' 
 
-export const DeletePostModal = () => {
-  return (
-    <ModalWrap>
-      <strong>게시글을 삭제할까요?</strong>
-      <ModalBtnWrap>
-        <button>취소</button>
-        <button>삭제</button>
-      </ModalBtnWrap>
-    </ModalWrap>
-  )
-}
 
 export const DeleteCommentModal = () => {
   return (
@@ -58,6 +47,41 @@ export const PostEditModal = () => {
         <button>삭제</button>
         <button>수정</button>
       </PostModalBtnWrap>
+    </PostModalWrap>
+  )
+}
+
+export const MarketPreviewModal = ({onClickClose}) => {
+  const [isOpenModal, setIsOpenModal] = useState(false)
+
+  const onClickDeleteModal = () => {
+    setIsOpenModal(true)
+  }
+
+  const onClickCancel = () => {
+    setIsOpenModal(false)
+  }
+
+  return (
+    <PostModalWrap onClick={() => onClickClose(false)}>
+      <div className='test' onClick={(e) => e.stopPropagation()}>
+        <PostModalBtnWrap>
+          <button onClick={onClickDeleteModal}>삭제</button>
+          <NavLinkStyle to='#'>수정</NavLinkStyle>
+          <NavLinkStyle to='#'>상세 페이지로 가기</NavLinkStyle>
+        </PostModalBtnWrap>
+        {isOpenModal && 
+          <Div>
+          <ModalWrap>
+            <strong>게시글을 삭제할까요?</strong>
+            <ModalBtnWrap>
+              <button onClick={onClickCancel}>취소</button>
+              <button>삭제</button>
+            </ModalBtnWrap>
+          </ModalWrap>
+        </Div>
+        }
+      </div>
     </PostModalWrap>
   )
 }

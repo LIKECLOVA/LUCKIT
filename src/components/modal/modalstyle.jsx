@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 
 export const Div = styled.div`
+
     position: absolute;
     inset: 0;
     z-index: 99;
@@ -50,6 +51,11 @@ export const ModalBtnWrap = styled.div`
         
     }
 
+    button + button {
+        border-left: 0.5px solid #DBDBDB;
+        color: #64B603;
+    }
+
     }
 
 `
@@ -83,6 +89,7 @@ export const PostModalWrap = styled.div`
     display: flex;
     align-items: flex-end;
     background-color: rgba(0, 0, 0, 0.3);
+    z-index: 9999;
     
     .test {
 
