@@ -1,26 +1,20 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-import {MainSnsPostWhap,IconWrap, SnsIdWhap, SnsPostBox,UserProfileImg, SnsPostImg, SnsPostContent} from './mainpoststyle'
+import {MainSnsPostWhap,IconWrap, SnsIdWhap, SnsPostBox,UserProfileImg, SnsPostImg, SnsPostContent,CommentBtnWrap} from './mainpoststyle'
 import { MoreBtn } from "../button/iconBtn";
 import DefaultUserImg from '../../assets/icon/basic-profile-img-.png'
+import CommentIcon from "../../assets/icon/icon-message-circle.svg"
+import HeartBtn from "../button/heart/heartBtn"
 
 const onErrorImg = (e) => {
   e.target.src = DefaultUserImg;
 }
 
 const MainSnsPost = ({data}) => {
-  // const date = new Date(data.createAt);
-  // const dateOptions = {
-  //   day: "numeric",
-  //   month: "long",
-  //   year: "numeric",
-  // };
-  // const createAtFormat = new Intl.DateTimeFormat("ko-KR", dateOptions).format(
-  //   date
-  // );
+  const token =
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzOTA5MzIwMTdhZTY2NjU4MWMwMzNlNyIsImV4cCI6MTY3NjQ0NDc2OSwiaWF0IjoxNjcxMjYwNzY5fQ.PcmkXNY7JTV8PlIYVh9XOCbYhiD789NfFYXrjOQ6_ik';
 
   console.log(data)
-
   return (
     <MainSnsPostWhap>
        <NavLink to={`/profile/${data.author.accountname}`}>
@@ -38,9 +32,17 @@ const MainSnsPost = ({data}) => {
       <SnsPostImg src={data.image} onError = {e =>{e.target.style.display = 'none'}}/>
       </NavLink>
       <IconWrap>
-      <button>좋아요버튼</button>
+      <HeartBtn
+          userToken={token}
+          hearted={data.hearted}
+          postId={data.id}
+          heartCount={data.heartCount}
+        />
       <NavLink to={`/snspost/${data.id}`}>
-      <button>댓글버튼</button>
+      <CommentBtnWrap>
+        <img src={CommentIcon} alt="" style={{ marginRight: '6px' }} />
+        <span>{data.comments.length}</span>
+      </CommentBtnWrap>
       </NavLink>
       </IconWrap>
       </SnsPostBox>
