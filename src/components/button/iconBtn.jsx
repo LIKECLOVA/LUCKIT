@@ -4,7 +4,7 @@ import { IconBtn } from './iconBtnstyle';
 // import addBtn from '../../assets/icon/addBtn.svg';
 import moreBtn from '../../assets/icon/s-icon-more-vertical.png';
 import imgBtn from '../../assets/icon/upload-file.png';
-import { SnsPostModal } from '../modal/modal';
+import { CommentModal, SnsPostModal } from '../modal/modal';
 
 
 // export function AddBtn({ posi }) {
@@ -35,7 +35,27 @@ export function MoreBtn() {
   return (
     <>
       <IconBtn onClick={onClick}icon={moreBtn}></IconBtn>
-      {isOpen && <SnsPostModal onClickClose={onClickClose} accountName={accountName} id={id}/>}
+      {isOpen && <SnsPostModal onClickClose={onClickClose} accountName={accountName} id={id} />}
+    </>
+  );
+}
+
+export function CommentMoreBtn({accountname}) {
+  const [isOpen, setIsOpen] = useState(false);
+  const id = localStorage.getItem("Account Name");
+
+  const onClick = () => {
+    setIsOpen(true);
+  }
+
+  const onClickClose = (value) => {
+    setIsOpen(value);
+  }
+
+  return (
+    <>
+      <IconBtn onClick={onClick}icon={moreBtn}></IconBtn>
+      {isOpen && <CommentModal onClickClose={onClickClose} id={id} accountname={accountname}/>}
     </>
   );
 }
