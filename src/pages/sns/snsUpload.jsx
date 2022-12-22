@@ -3,22 +3,10 @@ import axios from 'axios'
 import { SnsUploadArt, SnsUploadSec, SnsUploadImg, SnsTextLable, SnsTextInput, FileUploader,FileInput, SingleImg, DeleteBtn, Img } from './snsstyle';
 import {StoreBtn} from '../../components/button/button'
 
-/*
-{
-    "user": {
-        "_id": "639aaf6417ae666581c61058",
-        "username": "clover",
-        "email": "clover@naver.com",
-        "accountname": "cloverGood",
-        "intro": "hi",
-        "image": "http://146.56.183.55:5050/Ellipse.png",
-        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzOWFhZjY0MTdhZTY2NjU4MWM2MTA1OCIsImV4cCI6MTY3NjI2NjUxOCwiaWF0IjoxNjcxMDgyNTE4fQ.MRzZ7BLEa1mDMVT-qGRYYiI6L00-wChvd0e95hAD7Cs",
-        "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2NzEwODI1MTgsImV4cCI6MTY3MjI5MjExOH0.YVlF7NCRf1FSH06TLN3PJriCQkd_Xd5YHPxu__-cI6A"
-    }
-}
-*/
+
 
 export const SnsUpload = () => {
+  const token = localStorage.getItem('Access Token');
   const [content, setContent] = useState('');
   const fileInput = useRef(null);
   const [showImg, setShowImg] = useState([]);
@@ -98,7 +86,6 @@ async function ImgUpload(userImg) {
 
     data.post.image = test.join(',');
     data.post.content = content;
-    const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzOWFhZjY0MTdhZTY2NjU4MWM2MTA1OCIsImV4cCI6MTY3NjI2NjUxOCwiaWF0IjoxNjcxMDgyNTE4fQ.MRzZ7BLEa1mDMVT-qGRYYiI6L00-wChvd0e95hAD7Cs';
 
     try {
       await axios.post(URL + REQ_PATH, data, {
