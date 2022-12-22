@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import axios from 'axios';
 import { ModalWrap, ModalBtnWrap, PostModalWrap, PostModalBtnWrap, NavLinkStyle, Div, ModalNavLink} from './modalstyle' 
 
 export const LogoutModal = ({onClickClose}) => {
@@ -74,7 +75,9 @@ export const MarketPreviewModal = ({onClickClose}) => {
   )
 }
 
-export const SnsPostModal = ({onClickClose, accountName, id}) => {
+/* Sns게시글 모달 */
+export const SnsPostModal = ({onClickClose, accountName, id, postId}) => {
+  const token = localStorage.getItem('Access Token');
   const [isOpenModal, setIsOpenModal] = useState(false)
 
   const onClickDeleteModal = () => {
@@ -84,6 +87,27 @@ export const SnsPostModal = ({onClickClose, accountName, id}) => {
   const onClickCancel = () => {
     setIsOpenModal(false)
   } 
+  const deletePost =() =>{
+    console.log('게시글아이디',`${postId}`)
+
+    axios({
+      url: `https://mandarin.api.weniv.co.kr/post/${postId}`,
+      method: 'DELETE',
+      headers: {
+        'Authorization': `Bearer ${token}`,
+        'Content-type': 'application/json'
+      },
+    })
+      .then(() => {
+        setIsOpenModal(false)
+        onClickClose(false)
+        console.log('삭제완료')
+        location.reload()
+      })
+      .catch((error) => {
+        console.log(error);
+      });  
+  }
 
   return (
     <PostModalWrap onClick={() => onClickClose(false)}>
@@ -99,7 +123,7 @@ export const SnsPostModal = ({onClickClose, accountName, id}) => {
                 <strong>게시글을 삭제할까요?</strong>
                 <ModalBtnWrap>
                   <button onClick={onClickCancel}>취소</button>
-                  <button>삭제</button>
+                  <button onClick={deletePost}>삭제</button>
                 </ModalBtnWrap>
               </ModalWrap>
             </Div>

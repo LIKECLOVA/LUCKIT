@@ -18,8 +18,8 @@ import { CommentModal, SnsPostModal } from '../modal/modal';
 export function ImgUploadBtn({ posi, click }) {
   return <IconBtn onClick={click} icon={imgBtn} posi={posi}></IconBtn>;
 }
-
-export function MoreBtn() {
+/* Sns게시글 더보기 버튼 */
+export function MoreBtn({postId}) {
   const [isOpen, setIsOpen] = useState(false);
   const accountName = localStorage.getItem("Account Name");
   const {id} = useParams();
@@ -35,7 +35,7 @@ export function MoreBtn() {
   return (
     <>
       <IconBtn onClick={onClick}icon={moreBtn}></IconBtn>
-      {isOpen && <SnsPostModal onClickClose={onClickClose} accountName={accountName} id={id} />}
+      {isOpen && <SnsPostModal onClickClose={onClickClose} accountName={accountName} id={id} postId={postId} />}
     </>
   );
 }

@@ -78,8 +78,8 @@ export const SnsPage = () => {
     <FeedPageHeader />
     <SnsPageArt>
       <ul>
-      {followList.map((story)=> {
-           return<NavLink to={`/profile/${story.accountname}`}><li><SnsStoryImg src={story.image} onError={onErrorImg} /></li></NavLink>
+      {followList.map((story,index)=> {
+           return<NavLink key={index} to={`/profile/${story.accountname}`}><li><SnsStoryImg src={story.image} onError={onErrorImg} /></li></NavLink>
         })}
       {}
       </ul>
