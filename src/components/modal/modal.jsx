@@ -136,3 +136,53 @@ export const ChatRoomModal = ({onClickClose}) => {
       </PostModalWrap>
   )
 }
+
+export const CommentModal = ({onClickClose, id, accountname}) => {
+  const [isOpenModal, setIsOpenModal] = useState(false)
+
+  const onClickDeleteModal = () => {
+    setIsOpenModal(true)
+  }
+
+  const onClickCancel = () => {
+    setIsOpenModal(false)
+  } 
+
+  return (
+    <PostModalWrap onClick={() => onClickClose(false)}>
+        <div className='test' onClick={(e) => e.stopPropagation()}>
+            {accountname === id ? <>
+            <PostModalBtnWrap>
+              <button onClick={onClickDeleteModal}>삭제</button>
+              <NavLinkStyle to='#'>수정</NavLinkStyle>
+            </PostModalBtnWrap>
+            {isOpenModal && 
+            <Div>
+              <ModalWrap>
+                <strong>댓글을 삭제할까요?</strong>
+                <ModalBtnWrap>
+                  <button onClick={onClickCancel}>취소</button>
+                  <button>삭제</button>
+                </ModalBtnWrap>
+              </ModalWrap>
+            </Div>
+            }
+            </> : <>
+            <PostModalBtnWrap>
+              <button onClick={onClickDeleteModal}>신고하기</button>
+            </PostModalBtnWrap>
+            {isOpenModal && 
+            <Div>
+              <ModalWrap>
+                <strong>신고할까요?</strong>
+                <ModalBtnWrap>
+                  <button onClick={onClickCancel}>취소</button>
+                  <button>신고</button>
+                </ModalBtnWrap>
+              </ModalWrap>
+            </Div>}
+            </>}
+        </div>
+      </PostModalWrap>
+  )
+}

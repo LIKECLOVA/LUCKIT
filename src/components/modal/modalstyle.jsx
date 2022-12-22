@@ -84,7 +84,7 @@ export const PostModalWrap = styled.div`
         }
     }
 
-    z-index: 999;
+    z-index: 99;
     position: fixed;
     inset: 0;
     display: flex;
@@ -118,7 +118,7 @@ export const PostModalWrap = styled.div`
 export const PostModalBtnWrap = styled.div`
 
     margin-top: 16px;
-    z-index: 70;
+    z-index: 99;
 
     button {
         display: block;

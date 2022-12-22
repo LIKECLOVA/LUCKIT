@@ -11,7 +11,7 @@ export const NavWrap = styled.nav`
     height: 60px;
     border-top: 1px solid #DBDBDB;
     padding: 12px 0 8px;
-    z-index: 99;
+    z-index: 50;
 
     ul {
         display: flex;
