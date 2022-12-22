@@ -167,5 +167,19 @@ export const MoreBtnWrap = styled.div`
 
   position: absolute;
   right: 0;
-  top: 8px;
+  top: 11px;
+`
+
+// 게시글 더보기 버튼 임시
+
+export const MoreBtn = styled.button`
+
+  padding: 0;
+  background-color: transparent;
+
+  img {
+    width: 28px;
+    height: 28px;
+    vertical-align: top;
+  }
 `

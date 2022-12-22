@@ -1,16 +1,29 @@
-import React from 'react'
-import { NavLink } from 'react-router-dom';
-import { ImgListDiv, SnsProfileWrap, AuthorNavLink, AuthorImgNavLink, SnsContBox, MoreBtnWrap } from './myprofilestyle';
-import { MoreBtn } from "../../components/button/iconBtn";
+import React, { useState } from 'react'
+import { NavLink, useParams } from 'react-router-dom';
+import { ImgListDiv, SnsProfileWrap, AuthorNavLink, AuthorImgNavLink, SnsContBox, MoreBtnWrap, MoreBtn } from './myprofilestyle';
 import IconHeart from '../../assets/icon/icon-heart.png';
 import IconMessage from '../../assets/icon/icon-message-circle.png';
 import DefaultUserImg from '../../assets/icon/basic-profile-img-.png'
-
-const onErrorImg = (e) => {
-    e.target.src = DefaultUserImg;
-  }
+import IconMoreVerticalS from '../../assets/icon/s-icon-more-vertical.png'
+import { SnsPostModal } from '../../components/modal/modal';
 
 export default function ProfilePost({post}) {
+  const [isOpen, setIsOpen] = useState(false);
+  const accountName = localStorage.getItem("Account Name");
+  const {id} = useParams();
+
+    const onClick = () => {
+        setIsOpen(true);
+      }
+
+    const onClickClose = (value) => {
+        setIsOpen(value);
+    }
+
+    const onErrorImg = (e) => {
+        e.target.src = DefaultUserImg;
+      }
+
   return (
     <>
         <SnsProfileWrap>
@@ -49,8 +62,11 @@ export default function ProfilePost({post}) {
             </div>
         </SnsContBox>
         <MoreBtnWrap>
-            <MoreBtn/>
+            <MoreBtn onClick={onClick}>
+                <img src={IconMoreVerticalS} alt='게시글 수정, 삭제 버튼' />
+            </MoreBtn>
         </MoreBtnWrap>
+        {isOpen && <SnsPostModal onClickClose={onClickClose} accountName={accountName} id={id}/>}
     </>
   )
 }

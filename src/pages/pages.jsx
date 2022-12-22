@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import { LoginScreen } from '../components/login/loginScreen';
 import { Splash } from '../components/splash/splash.jsx';
 import { Login } from '../components/login/login';
 import { Join } from '../components/join/join';
@@ -22,16 +21,25 @@ import { SnsPost } from '../components/sns-post/snsPost';
 import { MarketUpload } from '../components/market-post/marketUpload/marketUpload';
 import { MarketUpdate } from '../components/market-post/marketUpdate/marketUpdate';
 import Error from './404-error/errorPage.jsx';
+import { PrivateRoute, PublicRoute } from '../Route';
+import Start from './start/start.jsx';
 
 const Pages = () => {
+
+
   const [loading, setLoading] = useState(false);
+  const token =!!localStorage.getItem("Access Token"); 
 
   useEffect(() => {
-    if (window.location.pathname === '/') {
+    if (window.location.pathname === '/' && !token) {
       setLoading(true);
+
       setTimeout(() => {
         setLoading(false);
       }, 3000);
+    }
+    else if(window.location.pathname === '/' && token){
+      setLoading(false);
     }
   }, []);
 
@@ -39,31 +47,34 @@ const Pages = () => {
 };
 
 const MainPages = () => {
-  /* const [isLogin, setIsLogin] = useState(true);  */
-  /* 로그인 토큰 자리 */
-  const isLogin = true;
 
   return (
     <Routes>
-      <Route path='/' element={isLogin ? <Home /> : <LoginScreen />}></Route>
-      <Route path='/login' element={<Login />}></Route>
-      <Route path='/home' element={<Home />}></Route>
-      <Route path='/join' element={<Join />}></Route>
-      <Route path='/joinprofile' element={<JoinProfile />}></Route>
-      <Route path='/search' element={<Search />}></Route>
-      <Route path='/profile/:id' element={<MyProfile />}></Route>
-      <Route path='/editprofile' element={<EditProfile />}></Route>
-      <Route path='/chatpage' element={<ChatPage />}></Route>
-      <Route path='/chatroom' element={<ChatRoom />}></Route>
-      <Route path='/myfollow' element={<MyFollow />}></Route>
-      <Route path='/yourfollow' element={<YourFollow />}></Route>
-      <Route path='/snspage' element={<SnsPage />}></Route>
-      <Route path='/snsupload' element={<SnsUpload />}></Route>
-      <Route path='/loginScreen' element={<LoginScreen />}></Route>
-      <Route path='/snspost/:postId' element={<SnsPost />}></Route>
+
 
       <Route path='/upload' element={<MarketUpload />}></Route>
       <Route path='/upload/:productId' element={<MarketUpdate />}></Route>
+
+      {/* PublicRoute */}
+      <Route path='/' element={<Start/>}></Route>
+      <Route path='/login' element={<PublicRoute><Login /></PublicRoute>}></Route>
+      <Route path='/join' element={<PublicRoute><Join /></PublicRoute>}></Route>
+      <Route path='/joinprofile' element={<PublicRoute><JoinProfile /></PublicRoute>}></Route>
+
+      {/* PrivateRoute */}
+      <Route path='/home' element={<PrivateRoute><Home/></PrivateRoute>}></Route>
+      <Route path='/search' element={<PrivateRoute><Search /></PrivateRoute>}></Route>
+      <Route path='/profile/:id' element={<PrivateRoute><MyProfile /></PrivateRoute>}></Route>
+      <Route path='/editprofile' element={<PrivateRoute><EditProfile /></PrivateRoute>}></Route>
+      <Route path='/chatpage' element={<PrivateRoute><ChatPage /></PrivateRoute>}></Route>
+      <Route path='/chatroom' element={<PrivateRoute><ChatRoom /></PrivateRoute>}></Route>
+      <Route path='/myfollow' element={<PrivateRoute><MyFollow /></PrivateRoute>}></Route>
+      <Route path='/yourfollow' element={<PrivateRoute><YourFollow /></PrivateRoute>}></Route>
+      <Route path='/snspage' element={<PrivateRoute><SnsPage /></PrivateRoute>}></Route>
+      <Route path='/snsupload' element={<PrivateRoute><SnsUpload /></PrivateRoute>}></Route>
+      <Route path='/snspost/:postId' element={<PrivateRoute><SnsPost /></PrivateRoute>}></Route>
+      <Route path='/upload' element={<PrivateRoute><MarketUpload /></PrivateRoute>}></Route>
+
       <Route path='/*' element={<Error />}></Route>
     </Routes>
   );

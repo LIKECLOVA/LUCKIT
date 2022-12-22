@@ -80,8 +80,6 @@ export const MyProfile = () => {
     setImgAlbum(true);
   }
 
-  
-
   return (
     <>
       <ProfileAndChatHeader />
