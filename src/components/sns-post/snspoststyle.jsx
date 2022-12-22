@@ -9,14 +9,27 @@ const SnsPostModalWrap= styled.div`
     position: absolute;
     top:50%;
     left: 50%;
-    padding-top: 11px;
     transform: translate(-50%, -50%);
     background: #E2F2CE;
     display: flex;
     flex-direction: column;
-    z-index: 90;
+    z-index: 20;
     border: 1px solid black;
     border-radius: 8px;
+    overflow: hidden;
+    .SnsContentWrap{
+    overflow: scroll;
+    ::-webkit-scrollbar{
+      display: none;
+    }
+    }
+    .closeArt{
+      position: absolute;
+      z-index: 30;
+      width: 100%;
+      height: 1.9rem;
+      background-color: #E2F2CE;
+    }
 `;
 
 export { SnsPostModalWrap }
@@ -47,4 +60,13 @@ export const CloseBtn= styled.button`
     padding: 0px;
     right: 10px;
     top: 10px;
+`;
+
+export const SnsContentWrap= styled.div`
+  display: flex;
+  flex-direction: column;
+  z-index: 90;
+
+  
+  border-radius: 8px;
 `;

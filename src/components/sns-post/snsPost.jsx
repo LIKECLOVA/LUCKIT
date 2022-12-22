@@ -10,11 +10,9 @@ export const SnsPost = () => {
   const [postDetail ,setPostDetail] = useState(null);
   const [comments, setComments] = useState([]);
   const navigate=useNavigate();
-
+  const token = localStorage.getItem('Access Token');
   const URL = `https://mandarin.api.weniv.co.kr/post/${postId}`;
-  const token =
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzOTA5MzIwMTdhZTY2NjU4MWMwMzNlNyIsImV4cCI6MTY3NjQ0NDc2OSwiaWF0IjoxNjcxMjYwNzY5fQ.PcmkXNY7JTV8PlIYVh9XOCbYhiD789NfFYXrjOQ6_ik';
-
+  
 //   console.log(URL)
 //  console.log('뀨?',postId)
  const postDetailaxios = async () => {
@@ -54,11 +52,15 @@ export const SnsPost = () => {
 
   return (
     <SnsPostModalWrap>
+      <div className='closeArt'>
       <CloseBtn onClick={()=>{navigate(-1)}}/>
+      </div>
+      <div className='SnsContentWrap'>
       {postDetail !== null && < MainSnsPost data={postDetail}/>} 
       <CommentBox postId={postId}
         comments={comments}
         getComments={getComments}/>
+      </div>
     </SnsPostModalWrap>
   )
 }

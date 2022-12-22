@@ -4,6 +4,8 @@ import * as S from './commentliststyle';
 import {CommentMoreBtn} from '../../button/iconBtn'
 
 function CommentList({ comments }) {
+  const accountname = localStorage.getItem('Account Name');
+
   return (
     <S.CommentListWrapper>
       <S.CommentListContainer>
@@ -17,7 +19,7 @@ function CommentList({ comments }) {
                   <small>{timeForToday(data.createdAt)}</small>
                 </S.InformationBox>
                 <S.ModalBtnBox>
-                  <CommentMoreBtn accountname={data.author.accountname}/>
+                  <CommentMoreBtn accountname={`${accountname}`}/>
                 </S.ModalBtnBox>
                 <S.CommentText>{data.content}</S.CommentText>
               </S.CommentListLi>
