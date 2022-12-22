@@ -1,31 +1,6 @@
 import React, { useState } from 'react'
 import { ModalWrap, ModalBtnWrap, PostModalWrap, PostModalBtnWrap, NavLinkStyle, Div, ModalNavLink} from './modalstyle' 
 
-
-export const DeleteCommentModal = () => {
-  return (
-    <ModalWrap>
-      <strong>댓글을 삭제할까요?</strong>
-      <ModalBtnWrap>
-        <button>취소</button>
-        <button>삭제</button>
-      </ModalBtnWrap>
-    </ModalWrap>
-  )
-}
-
-export const ReportModal = () => {
-  return (
-    <ModalWrap>
-      <strong>신고할까요?</strong>
-      <ModalBtnWrap>
-        <button>취소</button>
-        <button>신고</button>
-      </ModalBtnWrap>
-    </ModalWrap>
-  )
-}
-
 export const LogoutModal = ({onClickClose}) => {
   const [isOpenModal, setIsOpenModal] = useState(false)
 
@@ -147,7 +122,6 @@ export const SnsPostModal = ({onClickClose, accountName, id}) => {
         </div>
       </PostModalWrap>
   )
-
 }
 
 export const ChatRoomModal = ({onClickClose}) => {
