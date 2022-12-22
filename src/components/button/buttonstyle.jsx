@@ -32,13 +32,31 @@ const setSize = (size) => {
 
 export const Button = styled.button`
   /* 기본셋팅 */
-  background-color: ${palette.마이너스초록};
-  &:hover {
-    background-color: ${palette.초록초록};
-  }
   padding: 20px;
-  border-radius: 30px;
+  border-radius: 50px;
+  font-size: 14px;
+  box-shadow: 0 1px 5px 0 #b9d795;
+
   color: white;
+
+  /* color: ${(props) => {
+    return props.disabled === 'disabled' ? '#a4c16e' : '#fff';
+  }}; */
+
+  background-color: ${(props) => {
+    return props.disabled === 'disabled' ? '#b9d795' : '#78d00c';
+  }};
+
+  cursor: ${(props) => {
+    return props.disabled === 'disabled' ? 'not-allowed' : 'pointer';
+  }};
+
+  &:hover {
+    background-color: ${(props) => {
+      return props.disabled !== 'disabled' ? '#47a902' : '#b9d795;';
+    }};
+  }
+
   /* 사이즈 설정 */
   ${({ size }) => {
     return setSize(size);
@@ -62,6 +80,33 @@ export const FollowButton = styled.button`
           background-color: ${palette.초록초록};
         `;
   }};
+  /* 사이즈 설정 */
+  ${({ size }) => {
+    return setSize(size);
+  }}
+`;
+
+/* ***************업로드 버튼************** */
+export const UploadButton = styled.button`
+  /* 기본셋팅 */
+  padding: 20px;
+  border-radius: 50px;
+  font-size: 14px;
+  box-shadow: 0 1px 5px 0 #b9d795;
+  color: #fff;
+  &.true {
+    background: #74d004;
+    :hover {
+      background: #47a902;
+    }
+  }
+
+  &.false {
+    background: #b9d795;
+    cursor: default;
+  }
+  cursor: pointer;
+
   /* 사이즈 설정 */
   ${({ size }) => {
     return setSize(size);

@@ -12,6 +12,23 @@ const MainSnsPostWhap= styled.div`
     border-top-right-radius:10px;
     border-top-left-radius: 10px;
     overflow: hidden;
+    .snsImgList {
+    width: 420px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: no-wrap;
+    overflow-x: auto;
+    ::-webkit-scrollbar {
+    height: 1.4rem;
+    }
+    ::-webkit-scrollbar-thumb {
+    background-color: rgb(237, 237, 237);
+    border-radius: 20px;
+    border: 0.5rem solid #fff;
+    }
+    ::-webkit-scrollbar-track {
+    }
+  }
 `;
 
 export { MainSnsPostWhap }
@@ -45,13 +62,13 @@ const SnsPostContent= styled.p`
 
 export { SnsPostContent }
 
-const SnsPostImg= styled.img`
-      border-radius: 10px;
-      width: 355px;
-      height: 264px;
-`;
+// const SnsPostImg= styled.img`
+//       border-radius: 10px;
+//       width: 355px;
+//       height: 264px;
+// `;
 
-export { SnsPostImg }
+// export { SnsPostImg }
 
 const SnsIdWhap= styled.div`
     left:0;
@@ -76,17 +93,49 @@ const SnsIdWhap= styled.div`
 export { SnsIdWhap }
 
 const IconWrap= styled.div`
-    align-items: center;
-    box-sizing: border-box;
-    width: 50%;
-    height: 14px;
-    background: rgb(255, 255, 255);
     display: flex;
-    padding: 10px 0px;
-    margin: 10px 0px;
+  font-weight: 400;
+  font-size: 1.2rem;
+  line-height: 1.2rem;
+  margin-bottom: 1.6rem;
+  align-items: center;
+  vertical-align:bottom;
+  z-index: 10;
+
 >button{
     cursor: pointer;
+}
+.test{
+    flex-grow: 1;
 }
 `;
 
 export { IconWrap }
+
+
+export const CommentBtnWrap= styled.div`
+    box-sizing: border-box;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    margin-right: 1rem;
+    flex-grow: 1;
+    z-index: 10;
+    span{
+        font-size:1rem;
+    }
+`;
+
+export const ImgListDiv = styled.div`
+
+  img {
+    width: 420px;
+    height: 320px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 20px;
+    border: 1px solid #DBDBDB;
+    vertical-align: top;
+  }
+`
+
