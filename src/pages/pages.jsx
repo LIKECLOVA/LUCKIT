@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
-// import { LoginScreen } from '../components/login/loginScreen';
 import { Splash } from '../components/splash/splash.jsx';
 import { Login } from '../components/login/login';
 import { Join } from '../components/join/join';
@@ -69,7 +68,7 @@ const MainPages = () => {
       <Route path='/snspage' element={<PrivateRoute><SnsPage /></PrivateRoute>}></Route>
       <Route path='/snsupload' element={<PrivateRoute><SnsUpload /></PrivateRoute>}></Route>
       <Route path='/snspost/:postId' element={<PrivateRoute><SnsPost /></PrivateRoute>}></Route>
-
+      <Route path='/upload' element={<PrivateRoute><MarketUpload /></PrivateRoute>}></Route>
       <Route path='/*' element={<Error />}></Route>
     </Routes>
   );
