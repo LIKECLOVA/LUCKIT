@@ -11,20 +11,21 @@ const onErrorImg = (e) => {
 }
 
 const MainSnsPost = ({data}) => {
-  const token =
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzOTA5MzIwMTdhZTY2NjU4MWMwMzNlNyIsImV4cCI6MTY3NjQ0NDc2OSwiaWF0IjoxNjcxMjYwNzY5fQ.PcmkXNY7JTV8PlIYVh9XOCbYhiD789NfFYXrjOQ6_ik';
+  const token = localStorage.getItem('Access Token');
+  const accountname = localStorage.getItem('Account Name');
 
-  console.log(data)
+  // 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzOTA5MzIwMTdhZTY2NjU4MWMwMzNlNyIsImV4cCI6MTY3NjQ0NDc2OSwiaWF0IjoxNjcxMjYwNzY5fQ.PcmkXNY7JTV8PlIYVh9XOCbYhiD789NfFYXrjOQ6_ik';
+
   return (
     <MainSnsPostWhap>
-       <NavLink to={`/profile/${data.author.accountname}`}>
+       <NavLink to={`/profile/${accountname}`}>
       <UserProfileImg src={data.author.image} onError={onErrorImg} />
       </NavLink>
       <SnsPostBox>
-      <NavLink to={`/profile/${data.author.accountname}`}>
+      <NavLink to={`/profile/${accountname}`}>
       <SnsIdWhap>
       <strong>{data.author.username}</strong>
-      <p>@{data.author.accountname}</p>
+      <p>@{`${accountname}`}</p>
       </SnsIdWhap>
       </NavLink>
       <NavLink to={`/snspost/${data.id}`}>

@@ -45,7 +45,7 @@ export { UserProfileImg }
 const SnsPostBox= styled.div`
     align-items: left;
     box-sizing: border-box;
-    width: 90%;
+    width: 420px;
     background: rgb(255, 255, 255);
     display: flex;
     flex-direction: column;
@@ -57,7 +57,8 @@ const SnsPostContent= styled.p`
       margin: 15px 0px;
       font-weight: 300;
     font-size: 18px;
-    line-height: 16px;
+    line-height: 26px;
+    white-space: initial;
 `;
 
 export { SnsPostContent }
