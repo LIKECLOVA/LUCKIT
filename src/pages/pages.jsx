@@ -19,6 +19,7 @@ import { SnsPage } from './sns/snsPage';
 import { SnsPost } from '../components/sns-post/snsPost';
 
 import { MarketUpload } from '../components/market-post/marketUpload/marketUpload';
+import { MarketUpdate } from '../components/market-post/marketUpdate/marketUpdate';
 import Error from './404-error/errorPage.jsx';
 import { PrivateRoute, PublicRoute } from '../Route';
 import Start from './start/start.jsx';
@@ -50,6 +51,10 @@ const MainPages = () => {
   return (
     <Routes>
 
+
+      <Route path='/upload' element={<MarketUpload />}></Route>
+      <Route path='/upload/:productId' element={<MarketUpdate />}></Route>
+
       {/* PublicRoute */}
       <Route path='/' element={<Start/>}></Route>
       <Route path='/login' element={<PublicRoute><Login /></PublicRoute>}></Route>
@@ -69,6 +74,7 @@ const MainPages = () => {
       <Route path='/snsupload' element={<PrivateRoute><SnsUpload /></PrivateRoute>}></Route>
       <Route path='/snspost/:postId' element={<PrivateRoute><SnsPost /></PrivateRoute>}></Route>
       <Route path='/upload' element={<PrivateRoute><MarketUpload /></PrivateRoute>}></Route>
+
       <Route path='/*' element={<Error />}></Route>
     </Routes>
   );
