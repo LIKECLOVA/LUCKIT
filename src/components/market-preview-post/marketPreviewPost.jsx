@@ -1,11 +1,22 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useState } from 'react'
+import { Link, NavLink, useParams } from 'react-router-dom'
 import { MarketPreviewBoxWrap } from './marketpreviewboxstyle'
 import IconMarketPostUpload from '../../assets/icon/market-plus.png'
+import { MarketPreviewModal } from '../modal/modal'
 
 
 export const MarketPreviewPost = ({marketPostsData}) => {
-  const accountName = 'clover2';
+  const [isOpen, setIsOpen] = useState(false);
+  const accountName = localStorage.getItem("Account Name");
+  const {id} = useParams()
+
+  const onClick = () => {
+    setIsOpen(true);
+  }
+
+  const onClickClose = (value) => {
+    setIsOpen(value)
+  }
  
   return (
     <MarketPreviewBoxWrap>
@@ -19,14 +30,22 @@ export const MarketPreviewPost = ({marketPostsData}) => {
         {marketPostsData && marketPostsData.map((post)=> {
           return(
             <li key={post.id}>
-              <Link to='#'>
+              {accountName === id ? <>
+                <button onClick={onClick}>
                 <p>{post.itemName}</p>
                 <img src={post.itemImage} />
-              </Link>  
+              </button> 
+              </> : 
+              <NavLink to='#'>
+                <p>{post.itemName}</p>
+                <img src={post.itemImage} />
+              </NavLink> 
+              }
             </li>
           )
         })}
       </ul>     
+        {isOpen && <MarketPreviewModal onClickClose={onClickClose}/>}
       </> : 
       <>
       <div className='headingWrap'>

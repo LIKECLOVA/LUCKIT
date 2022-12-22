@@ -1,5 +1,5 @@
-import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import React, { useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 import {
   HomeHeaderWrap,
   SearchHeaderWrap,
@@ -8,11 +8,13 @@ import {
   FollowHeaderWrap,
   EditAndUploadHeaderWrap,
 } from './headerstyle';
-import IconSearch from '../../assets/icon/icon-search.png';
-import IconArrowLeft from '../../assets/icon/icon-arrow-left.png';
-import IconLuckitLogo from '../../assets/icon/icon-luckit.png';
-import IconMoreVertical from '../../assets/icon/icon- more-vertical.png';
-import { StoreBtn, UploadBtn } from '../../components/button/button';
+import IconSearch from '../../assets/icon/icon-search.png'
+import IconArrowLeft from '../../assets/icon/icon-arrow-left.png'
+import IconLuckitLogo from '../../assets/icon/icon-luckit.png'
+import IconMoreVertical from '../../assets/icon/icon- more-vertical.png'
+import { StoreBtn, UploadBtn } from '../../components/button/button'
+import { ChatRoomModal, LogoutModal } from '../modal/modal'
+
 
 // 팔로잉 없을 때 홈페이지, 팔로잉 있을 때 홈페이지(스크롤X)
 export const HomepageHeader = () => {
@@ -55,25 +57,35 @@ export const SearchHeader = ({ value, onChange }) => {
   );
 };
 
-// 프로필 페이지
+// 프로필, 채팅 페이지
 export const ProfileAndChatHeader = () => {
+  const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
 
+  const onClick = () => {
+    setIsOpen(true);
+  }
+
+  const onClickClose = (value) => {
+    setIsOpen(value);
+  }
+
   return (
-    <ProfileHeaderWrap>
-      <button
-        onClick={() => {
-          navigate(-1);
-        }}
-      >
-        <img src={IconArrowLeft} alt='뒤로가기' />
-      </button>
-      <button>
-        <img src={IconMoreVertical} alt='설정 및 로그아웃 버튼' />
-      </button>
-    </ProfileHeaderWrap>
-  );
-};
+    <>
+      <ProfileHeaderWrap>
+        <button onClick={() => {navigate(-1)}}>
+          <img src={IconArrowLeft} alt='뒤로가기' />
+        </button>
+        <button onClick={onClick}>
+          <img src={IconMoreVertical} alt='설정 및 로그아웃 버튼' />
+        </button>
+      </ProfileHeaderWrap>
+        {isOpen && 
+        <LogoutModal onClickClose={onClickClose}/>}
+    </>
+  )
+}
+
 
 // 내 팔로우 페이지 헤더
 export const FollowerHeader = () => {
@@ -151,7 +163,16 @@ export const PostUploadHeader = ({ isActive, handleClick, disabled }) => {
 
 // 채팅방 페이지
 export const ChatRoomHeader = () => {
+  const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
+
+  const onClick = () => {
+    setIsOpen(true);
+  }
+
+  const onClickClose = (value) => {
+    setIsOpen(value);
+  }
 
   return (
     <ProfileHeaderWrap>
@@ -163,9 +184,11 @@ export const ChatRoomHeader = () => {
         <img src={IconArrowLeft} alt='뒤로가기' />
       </button>
       <strong>유저 네임 data 또는 그냥 지정</strong>
-      <button>
+      <button onClick={onClick}>
         <img src={IconMoreVertical} alt='채팅방 나가기 버튼' />
       </button>
+      {isOpen && <ChatRoomModal onClickClose={onClickClose}/>}
     </ProfileHeaderWrap>
   );
 };
+
