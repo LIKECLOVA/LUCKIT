@@ -8,7 +8,8 @@ import { MyProfileWrap, SnsPostBtn , NavLinkStyle, ImgAlbumBox, ImgAlbumList,   
 import { NavBar } from '../../components/navbar/navBar';
 import IconPostList from '../../assets/icon/icon-post-list-on.png';
 import IconPostAlbum from '../../assets/icon/icon-post-album-on.png';
-import ProfilePost from './ProfilePost';
+// import ProfilePost from './ProfilePost';
+import MainSnsPost from '../../components/mainpost/mainSnsPost';
 
 export const MyProfile = () => {
   const [profileData, setProfileData] = useState('');
@@ -102,7 +103,7 @@ export const MyProfile = () => {
           {imgList && snsPostsData.map((post) => {
             return (
               <SnsPostWrap key={post.id}>
-                <ProfilePost post={post}/>
+                <MainSnsPost data={post}/>
               </SnsPostWrap>
             )
           })}
