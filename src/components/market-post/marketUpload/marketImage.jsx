@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useRef } from 'react';
-import { ImgPreviewContainer, UploadLabel } from './marketinputstyle';
+import { ImgInput, ImgPreviewContainer, UploadLabel } from './marketinputstyle';
 
 export const MarketImage = ({ itemImage, setItemImage }) => {
   const imgStyle = {
@@ -38,14 +38,16 @@ export const MarketImage = ({ itemImage, setItemImage }) => {
 
     reader.onload = () => {
       previewImage.current.style.backgroundImage = `url(${reader.result})`;
+      previewImage.current.style.backgroundSize = 'cover';
+      previewImage.current.style.backgroundRepeat = 'no-repeat';
     };
     reader.readAsDataURL(loadImage[0]);
   }
 
   return (
     <ImgPreviewContainer ref={previewImage} style={imgStyle}>
-      <UploadLabel />
-      <input type='file' name='marketImg' id='uploadImg' accept='image/*' onChnage={handleOnChange} />
+      <UploadLabel htmlFor='uploadImg' />
+      <ImgInput type='file' name='marketImg' id='uploadImg' accept='image/*' onChange={handleOnChange} />
     </ImgPreviewContainer>
   );
 };

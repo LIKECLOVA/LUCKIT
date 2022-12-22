@@ -18,6 +18,8 @@ import { ChatRoom } from './chat/chatRoom';
 import { SnsUpload } from './sns/snsUpload';
 import { SnsPage } from './sns/snsPage';
 import { SnsPost } from '../components/sns-post/snsPost';
+
+import { MarketUpload } from '../components/market-post/marketUpload/marketUpload';
 import Error from './404-error/errorPage.jsx';
 
 const Pages = () => {
@@ -58,6 +60,8 @@ const MainPages = () => {
       <Route path='/snsupload' element={<SnsUpload />}></Route>
       <Route path='/loginScreen' element={<LoginScreen />}></Route>
       <Route path='/snspost/:postId' element={<SnsPost />}></Route>
+
+      <Route path='/upload' element={<MarketUpload />}></Route>
       <Route path='/*' element={<Error />}></Route>
     </Routes>
   );

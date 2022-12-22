@@ -123,9 +123,10 @@ export const Envelope = styled.main`
 export const Gogo = styled.button`
   display: block;
   width: 270px;
-  color: ${(props) => {
+  color: #fff;
+  /* color: ${(props) => {
     return props.disabled === 'disabled' ? '#a4c16e' : '#fff';
-  }};
+  }}; */
   margin: 20px auto;
   padding: 12px;
   background-color: ${(props) => {

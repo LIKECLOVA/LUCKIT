@@ -34,12 +34,12 @@ export const ImgUploadWrapper = styled.div`
 `;
 
 export const ImgPreviewContainer = styled.div`
-  width: 500px;
   height: 300px;
   background: #dbdbdb;
   border-radius: 10px;
   position: relative;
   margin-bottom: 70px;
+  object-fit: cover;
 `;
 
 export const PreviewImg = styled.img`
@@ -56,6 +56,50 @@ export const UploadImg = styled.img`
   object-fit: cover;
 `;
 
+export const ImgInput = styled.input`
+  display: none;
+`;
+
+export const ImgLabel = styled.label`
+  margin-bottom: 10px;
+`;
+
+// -----------------------------------
+
+export const MarketForm = styled.form`
+  display: flex;
+  flex-direction: column;
+`;
+
+export const InputWrap = styled.section`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  margin-top: 100px;
+  padding: 0 50px;
+`;
+
+export const MarketInput = styled.input`
+  padding: 15px;
+  background: #f2f2f2;
+  border-radius: 10px;
+  border: 1px solid #f2f2f2;
+
+  &::placeholder {
+    color: #a0a0a0;
+  }
+  :focus {
+    outline: 2px solid #85ce2d;
+  }
+`;
+
+export const TextLabel = styled.label`
+  float: left;
+  margin-bottom: 10px;
+`;
+
 export const UploadLabel = styled.label`
   position: absolute;
   width: 60px;
@@ -66,39 +110,9 @@ export const UploadLabel = styled.label`
   background-size: contain;
 `;
 
-export const ImgInput = styled.input`
-  display: none;
-`;
-
-export const ImgLabel = styled.label`
-  margin-bottom: 10px;
-`;
-
-// -----------------------------------
-export const InputWrap = styled.section`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-`;
-
-export const MarketInput = styled.input`
-  width: 500px;
-  padding: 12px;
-  background: #f2f2f2;
-  border-radius: 10px;
-  border: 1px solid #f2f2f2;
+export const ErrorMessage = styled.em`
+  font-size: 10px;
+  margin-top: 7px;
   margin-bottom: 50px;
-  &::placeholder {
-    color: #a0a0a0;
-  }
-  :focus {
-    outline: 2px solid #85ce2d;
-  }
-`;
-
-export const TextLabel = styled.label`
-  margin-bottom: 10px;
+  color: red;
 `;
