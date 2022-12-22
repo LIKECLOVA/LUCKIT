@@ -10,7 +10,7 @@ const initialState = {
 export const AxiosUserData = createAsyncThunk(
     'userdata/axiosUserData',
     async (URL) => {
-      const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzOTA5MzIwMTdhZTY2NjU4MWMwMzNlNyIsImV4cCI6MTY3NjQ0NDc2OSwiaWF0IjoxNjcxMjYwNzY5fQ.PcmkXNY7JTV8PlIYVh9XOCbYhiD789NfFYXrjOQ6_ik';
+      const token = localStorage.getItem("Access Token");
       const config = {
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -25,7 +25,7 @@ export const AxiosUserData = createAsyncThunk(
 
 
 export const userInfoSlice = createSlice({
-    name:'유저정보',
+    name:'userInfo',
     initialState,
     reducers:{
       onChangeIntro(state,action){

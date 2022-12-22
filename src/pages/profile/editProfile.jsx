@@ -30,7 +30,7 @@ export const EditProfile = () => {
   useEffect(() => {
     // 비동기 액션 함수를 호출해서 slice안에 있는 데이터를 바꿔주는 것
     dispatch(AxiosUserData(URL));
-  }, []);
+  }, [dispatch]);
 
   // 인풋값 수정 액션 함수
   const onEdit = async (event) => {

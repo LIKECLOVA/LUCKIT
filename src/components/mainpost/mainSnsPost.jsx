@@ -14,7 +14,6 @@ const MainSnsPost = ({data}) => {
   const token =
   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzOTA5MzIwMTdhZTY2NjU4MWMwMzNlNyIsImV4cCI6MTY3NjQ0NDc2OSwiaWF0IjoxNjcxMjYwNzY5fQ.PcmkXNY7JTV8PlIYVh9XOCbYhiD789NfFYXrjOQ6_ik';
 
-  console.log(data)
   return (
     <MainSnsPostWhap>
        <NavLink to={`/profile/${data.author.accountname}`}>

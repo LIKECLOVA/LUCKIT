@@ -10,37 +10,46 @@ import IconPostList from '../../assets/icon/icon-post-list-on.png';
 import IconPostAlbum from '../../assets/icon/icon-post-album-on.png';
 import ProfilePost from './ProfilePost';
 
+
+
+
 export const MyProfile = () => {
-  const [profileData, setProfileData] = useState('');
+  /* eslint-disable */
+  // const [profileData, setProfileData] = useState('');
   const [marketPostsData, setMarketPostsData] = useState([])
   const [snsPostsData, setSnsPostsData] = useState([]);
   const [imgList, setImgList] = useState(true);
   const [imgAlbum, setImgAlbum] = useState(false);
   const { id } = useParams();
+  const token = localStorage.getItem('Access Token');
+  // const Base_URL = `https://mandarin.api.weniv.co.kr/`
+  // const dispatch = useDispatch();
+  // const userInfoData = useSelector((state) => state.userInfoSlice.userData);
 
-  const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzOWMyMDY3MTdhZTY2NjU4MWM2NGNhNCIsImV4cCI6MTY3NjQ2NTQ4OCwiaWF0IjoxNjcxMjgxNDg4fQ.CftU86sxCaIbsE1lmhRwWEW2x8yBMa4DrcGR331D84A'
-
-  console.log('프로필 박스', profileData);
+  // console.log('프로필 박스', userInfoData);
 
   useEffect(() => {
 
-    axios({
-        method: 'get',
-        url: `https://mandarin.api.weniv.co.kr/profile/${id}`,
-        headers: {
-          'Authorization': `Bearer ${token}`,
-          'Content-type': 'application/json',
-        },
-      }).then((res) => {
-              const resProfileData = res.data.profile;
+    // axios({
+    //     method: 'get',
+    //     url: `https://mandarin.api.weniv.co.kr/profile/${id}`,
+    //     headers: {
+    //       'Authorization': `Bearer ${token}`,
+    //       'Content-type': 'application/json',
+    //     },
+    //   }).then((res) => {
+    //           const resProfileData = res.data.profile;
 
-              setProfileData(resProfileData);
+    //           setProfileData(resProfileData);
    
-            })
-            .then((error) => {
-              console.log(error);
-            });
-            
+    //         })
+    //         .then((error) => {
+    //           console.log(error);
+    //         });
+
+    // dispatch(AxiosUserData(Base_URL+`profile/${id}`));
+  
+    // ///////////////////////////
     axios({
         method: 'get',
         url: `https://mandarin.api.weniv.co.kr/product/${id}/?limit=5`,
@@ -54,7 +63,7 @@ export const MyProfile = () => {
           .then((error) => {
               console.log(error);
           });
-
+    // ////////////////////////////
     axios({
         method: 'get',
         url: `https://mandarin.api.weniv.co.kr/post/${id}/userpost/?limit=5`,
@@ -69,6 +78,7 @@ export const MyProfile = () => {
               console.log(error);
           });
       }, [location])
+    // /////////////////////////
 
   const onClickListBtn = () => {
     setImgList(true);
@@ -84,8 +94,7 @@ export const MyProfile = () => {
     <>
       <ProfileAndChatHeader />
       <MyProfileWrap>
-        {profileData && 
-        <ProfileBox profileData={profileData} />} 
+        <ProfileBox/>
         <MarketPreviewPost marketPostsData={marketPostsData}/>
         {snsPostsData.length !== 0 ? 
         <>
