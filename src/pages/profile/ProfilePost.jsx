@@ -1,15 +1,14 @@
 import React, { useState } from 'react'
 import { NavLink, useParams } from 'react-router-dom';
 import { ImgListDiv, SnsProfileWrap, AuthorNavLink, AuthorImgNavLink, SnsContBox, MoreBtnWrap, MoreBtn } from './myprofilestyle';
-import {PostModalWrap, PostModalBtnWrap, NavLinkStyle, ModalBtnWrap, ModalWrap, Div} from '../../components/modal/modalstyle'
 import IconHeart from '../../assets/icon/icon-heart.png';
 import IconMessage from '../../assets/icon/icon-message-circle.png';
 import DefaultUserImg from '../../assets/icon/basic-profile-img-.png'
 import IconMoreVerticalS from '../../assets/icon/s-icon-more-vertical.png'
+import { SnsPostModal } from '../../components/modal/modal';
 
 export default function ProfilePost({post}) {
   const [isOpen, setIsOpen] = useState(false);
-  const [isOpenModal, setIsOpenModal] = useState(false);
   const accountName = localStorage.getItem("Account Name");
   const {id} = useParams();
 
@@ -17,16 +16,8 @@ export default function ProfilePost({post}) {
         setIsOpen(true);
       }
 
-    const onClickCloseModal = () => {
-        setIsOpen(false);
-    }
-
-    const onClickDeleteModal = () => {
-        setIsOpenModal(true)
-    }
-
-    const onClickCancel = () => {
-        setIsOpenModal(false)
+    const onClickClose = (value) => {
+        setIsOpen(value);
     }
 
     const onErrorImg = (e) => {
@@ -75,42 +66,7 @@ export default function ProfilePost({post}) {
                 <img src={IconMoreVerticalS} alt='게시글 수정, 삭제 버튼' />
             </MoreBtn>
         </MoreBtnWrap>
-        {isOpen &&
-        <PostModalWrap onClick={onClickCloseModal}>
-        <div className='test' onClick={(e) => e.stopPropagation()}>
-            {accountName === id ? <>
-            <PostModalBtnWrap>
-              <button onClick={onClickDeleteModal}>삭제</button>
-              <NavLinkStyle to='#'>수정</NavLinkStyle>
-            </PostModalBtnWrap>
-            {isOpenModal && 
-            <Div>
-              <ModalWrap>
-                <strong>게시글을 삭제할까요?</strong>
-                <ModalBtnWrap>
-                  <button onClick={onClickCancel}>취소</button>
-                  <button>삭제</button>
-                </ModalBtnWrap>
-              </ModalWrap>
-            </Div>
-            }
-            </> : <>
-            <PostModalBtnWrap>
-              <button onClick={onClickDeleteModal}>신고하기</button>
-            </PostModalBtnWrap>
-            {isOpenModal && 
-            <Div>
-              <ModalWrap>
-                <strong>신고할까요?</strong>
-                <ModalBtnWrap>
-                  <button onClick={onClickCancel}>취소</button>
-                  <button>신고</button>
-                </ModalBtnWrap>
-              </ModalWrap>
-            </Div>}
-            </>}
-        </div>
-      </PostModalWrap>}
+        {isOpen && <SnsPostModal onClickClose={onClickClose} accountName={accountName} id={id}/>}
     </>
   )
 }

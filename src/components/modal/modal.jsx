@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { ModalWrap, ModalBtnWrap, PostModalWrap, PostModalBtnWrap, NavLinkStyle, Div} from './modalstyle' 
+import { ModalWrap, ModalBtnWrap, PostModalWrap, PostModalBtnWrap, NavLinkStyle, Div, ModalNavLink} from './modalstyle' 
 
 
 export const DeleteCommentModal = () => {
@@ -26,27 +26,40 @@ export const ReportModal = () => {
   )
 }
 
+export const LogoutModal = ({onClickClose}) => {
+  const [isOpenModal, setIsOpenModal] = useState(false)
 
-// 아래 슬라이드 형태로 나타나는 모달
-// 아마도 기능 구현하면서 다른 컴포넌트로 분리할 예정
+  const onClickLogoutModal = () => {
+    setIsOpenModal(true)
+  }
 
-export const PostReportModal = () => {
-  return (
-    <PostModalWrap>
-      <PostModalBtnWrap>
-        <button>신고하기</button>
-      </PostModalBtnWrap>
-    </PostModalWrap>
-  )
-}
+  const onClickCancel = () => {
+    setIsOpenModal(false)
+  }
 
-export const PostEditModal = () => {
-  return (
-    <PostModalWrap>
-      <PostModalBtnWrap>
-        <button>삭제</button>
-        <button>수정</button>
-      </PostModalBtnWrap>
+  const onClickLogout = () => {
+    localStorage.clear();
+  }
+
+  return(
+    <PostModalWrap onClick={() => onClickClose(false)}>
+        <div className='test' onClick={(e) => e.stopPropagation()}>
+          <PostModalBtnWrap>
+            <NavLinkStyle to='/editprofile'>설정 및 개인 정보</NavLinkStyle>
+            <button onClick={onClickLogoutModal}>로그아웃</button>
+          </PostModalBtnWrap>
+          {isOpenModal && 
+          <Div>
+            <ModalWrap>
+              <strong>로그아웃 하시겠습니까?</strong>
+              <ModalBtnWrap>
+                <button onClick={onClickCancel}>취소</button>
+                <ModalNavLink to='/login' onClick={onClickLogout}>로그아웃</ModalNavLink>
+              </ModalBtnWrap>
+            </ModalWrap>
+          </Div>
+          }
+        </div>
     </PostModalWrap>
   )
 }
@@ -83,5 +96,69 @@ export const MarketPreviewModal = ({onClickClose}) => {
         }
       </div>
     </PostModalWrap>
+  )
+}
+
+export const SnsPostModal = ({onClickClose, accountName, id}) => {
+  const [isOpenModal, setIsOpenModal] = useState(false)
+
+  const onClickDeleteModal = () => {
+    setIsOpenModal(true)
+  }
+
+  const onClickCancel = () => {
+    setIsOpenModal(false)
+  } 
+
+  return (
+    <PostModalWrap onClick={() => onClickClose(false)}>
+        <div className='test' onClick={(e) => e.stopPropagation()}>
+            {accountName === id ? <>
+            <PostModalBtnWrap>
+              <button onClick={onClickDeleteModal}>삭제</button>
+              <NavLinkStyle to='#'>수정</NavLinkStyle>
+            </PostModalBtnWrap>
+            {isOpenModal && 
+            <Div>
+              <ModalWrap>
+                <strong>게시글을 삭제할까요?</strong>
+                <ModalBtnWrap>
+                  <button onClick={onClickCancel}>취소</button>
+                  <button>삭제</button>
+                </ModalBtnWrap>
+              </ModalWrap>
+            </Div>
+            }
+            </> : <>
+            <PostModalBtnWrap>
+              <button onClick={onClickDeleteModal}>신고하기</button>
+            </PostModalBtnWrap>
+            {isOpenModal && 
+            <Div>
+              <ModalWrap>
+                <strong>신고할까요?</strong>
+                <ModalBtnWrap>
+                  <button onClick={onClickCancel}>취소</button>
+                  <button>신고</button>
+                </ModalBtnWrap>
+              </ModalWrap>
+            </Div>}
+            </>}
+        </div>
+      </PostModalWrap>
+  )
+
+}
+
+export const ChatRoomModal = ({onClickClose}) => {
+
+  return(
+    <PostModalWrap onClick={() => onClickClose(false)}>
+        <div className='test' onClick={(e) => e.stopPropagation()}>
+          <PostModalBtnWrap>
+            <NavLinkStyle to='/chatpage'>채팅방 나가기</NavLinkStyle>
+          </PostModalBtnWrap>
+        </div>
+      </PostModalWrap>
   )
 }
