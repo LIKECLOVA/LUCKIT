@@ -18,6 +18,8 @@ import { ChatRoom } from './chat/chatRoom';
 import { SnsUpload } from './sns/snsUpload';
 import { SnsPage } from './sns/snsPage';
 import { SnsPost } from '../components/sns-post/snsPost';
+
+import { MarketUpload } from '../components/market-post/marketUpload/marketUpload';
 import Error from './404-error/errorPage.jsx';
 import { PrivateRoute, PublicRoute } from '../Route';
 import Start from './start/start.jsx';
@@ -48,6 +50,7 @@ const MainPages = () => {
 
   return (
     <Routes>
+
       {/* PublicRoute */}
       <Route path='/' element={<Start/>}></Route>
       <Route path='/login' element={<PublicRoute><Login /></PublicRoute>}></Route>
@@ -66,6 +69,7 @@ const MainPages = () => {
       <Route path='/snspage' element={<PrivateRoute><SnsPage /></PrivateRoute>}></Route>
       <Route path='/snsupload' element={<PrivateRoute><SnsUpload /></PrivateRoute>}></Route>
       <Route path='/snspost/:postId' element={<PrivateRoute><SnsPost /></PrivateRoute>}></Route>
+
       <Route path='/*' element={<Error />}></Route>
     </Routes>
   );
