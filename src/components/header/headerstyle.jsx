@@ -10,7 +10,7 @@ export const BasicHeader = styled.header`
   width: 100%;
   top: 0;
   height: 48px;
-  z-index: 9999;
+  z-index: 99;
 
   img {
     width: 24px;

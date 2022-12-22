@@ -9,7 +9,6 @@ const MainSnsPostWhap= styled.div`
     width: 100%;
     background: rgb(255, 255, 255);
     display: flex;
-    z-index: 10;
     border-top-right-radius:10px;
     border-top-left-radius: 10px;
     overflow: hidden;
@@ -33,7 +32,6 @@ const SnsPostBox= styled.div`
     background: rgb(255, 255, 255);
     display: flex;
     flex-direction: column;
-    z-index: 10;
 `;
 
 export { SnsPostBox }
@@ -63,7 +61,6 @@ const SnsIdWhap= styled.div`
     display: flex;
     justify-items:center;
     align-items: baseline;
-    z-index: 10;
     > strong{
     margin-right:5px;
     font-size: 16px;
@@ -85,7 +82,6 @@ const IconWrap= styled.div`
     height: 14px;
     background: rgb(255, 255, 255);
     display: flex;
-    z-index: 10;
     padding: 10px 0px;
     margin: 10px 0px;
 >button{

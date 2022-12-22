@@ -202,7 +202,6 @@ const MainPostArea= styled.div`
     background: rgb(255, 255, 255);
     display: flex;
     flex-direction: column;
-    z-index: 10;
 `;
 
 export { MainPostArea }

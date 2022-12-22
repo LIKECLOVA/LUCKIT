@@ -5,7 +5,7 @@ export const Div = styled.div`
 
     position: absolute;
     inset: 0;
-    z-index: 99;
+    z-index: 999;
     background-color: rgba(0, 0, 0, 0.4);
 `
 
@@ -84,12 +84,12 @@ export const PostModalWrap = styled.div`
         }
     }
 
+    z-index: 999;
     position: fixed;
     inset: 0;
     display: flex;
     align-items: flex-end;
     background-color: rgba(0, 0, 0, 0.3);
-    z-index: 9999;
     
     .test {
 
