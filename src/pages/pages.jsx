@@ -20,6 +20,7 @@ import { SnsPage } from './sns/snsPage';
 import { SnsPost } from '../components/sns-post/snsPost';
 
 import { MarketUpload } from '../components/market-post/marketUpload/marketUpload';
+import { MarketUpdate } from '../components/market-post/marketUpdate/marketUpdate';
 import Error from './404-error/errorPage.jsx';
 
 const Pages = () => {
@@ -62,6 +63,7 @@ const MainPages = () => {
       <Route path='/snspost/:postId' element={<SnsPost />}></Route>
 
       <Route path='/upload' element={<MarketUpload />}></Route>
+      <Route path='/upload/:productId' element={<MarketUpdate />}></Route>
       <Route path='/*' element={<Error />}></Route>
     </Routes>
   );
