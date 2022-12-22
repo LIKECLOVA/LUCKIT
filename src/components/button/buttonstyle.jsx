@@ -36,13 +36,12 @@ export const Button = styled.button`
   border-radius: 50px;
   font-size: 14px;
   box-shadow: 0 1px 5px 0 #b9d795;
-  border: 1px solid #b9d795;
 
-  // color: white;
+  color: white;
 
-  color: ${(props) => {
+  /* color: ${(props) => {
     return props.disabled === 'disabled' ? '#a4c16e' : '#fff';
-  }};
+  }}; */
 
   background-color: ${(props) => {
     return props.disabled === 'disabled' ? '#b9d795' : '#78d00c';
@@ -81,6 +80,33 @@ export const FollowButton = styled.button`
           background-color: ${palette.초록초록};
         `;
   }};
+  /* 사이즈 설정 */
+  ${({ size }) => {
+    return setSize(size);
+  }}
+`;
+
+/* ***************업로드 버튼************** */
+export const UploadButton = styled.button`
+  /* 기본셋팅 */
+  padding: 20px;
+  border-radius: 50px;
+  font-size: 14px;
+  box-shadow: 0 1px 5px 0 #b9d795;
+  color: #fff;
+  &.true {
+    background: #74d004;
+    :hover {
+      background: #47a902;
+    }
+  }
+
+  &.false {
+    background: #b9d795;
+    cursor: default;
+  }
+  cursor: pointer;
+
   /* 사이즈 설정 */
   ${({ size }) => {
     return setSize(size);
