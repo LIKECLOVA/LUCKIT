@@ -1,6 +1,6 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-import {MainSnsPostWhap,IconWrap, SnsIdWhap, SnsPostBox,UserProfileImg, SnsPostImg, SnsPostContent,CommentBtnWrap} from './mainpoststyle'
+import {MainSnsPostWhap,IconWrap, SnsIdWhap, SnsPostBox,UserProfileImg, ImgListDiv, SnsPostContent,CommentBtnWrap} from './mainpoststyle'
 import { MoreBtn } from "../button/iconBtn";
 import DefaultUserImg from '../../assets/icon/basic-profile-img-.png'
 import CommentIcon from "../../assets/icon/icon-message-circle.svg"
@@ -29,7 +29,18 @@ const MainSnsPost = ({data}) => {
       </NavLink>
       <NavLink to={`/snspost/${data.id}`}>
       <SnsPostContent>{data.content}</SnsPostContent>
-      <SnsPostImg src={data.image} onError = {e =>{e.target.style.display = 'none'}}/>
+      <div className='snsImgList'>
+                {data.image ? data.image.split(',').map((src, index)=> {
+                    return (
+                    <ImgListDiv key={index}>
+                        <img src={src} onError = {e =>{e.target.style.display = 'none'}} alt="게시글이미지" />
+                    </ImgListDiv>
+                    )
+                })
+                : 
+                <></>}
+                </div>
+      {/* <SnsPostImg src={data.image} onError = {e =>{e.target.style.display = 'none'}}/> */}
       </NavLink>
       <IconWrap>
       <HeartBtn

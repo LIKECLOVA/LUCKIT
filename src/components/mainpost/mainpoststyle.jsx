@@ -13,6 +13,23 @@ const MainSnsPostWhap= styled.div`
     border-top-right-radius:10px;
     border-top-left-radius: 10px;
     overflow: hidden;
+    .snsImgList {
+    width: 420px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: no-wrap;
+    overflow-x: auto;
+    ::-webkit-scrollbar {
+    height: 1.4rem;
+    }
+    ::-webkit-scrollbar-thumb {
+    background-color: rgb(237, 237, 237);
+    border-radius: 20px;
+    border: 0.5rem solid #fff;
+    }
+    ::-webkit-scrollbar-track {
+    }
+  }
 `;
 
 export { MainSnsPostWhap }
@@ -47,13 +64,13 @@ const SnsPostContent= styled.p`
 
 export { SnsPostContent }
 
-const SnsPostImg= styled.img`
-      border-radius: 10px;
-      width: 355px;
-      height: 264px;
-`;
+// const SnsPostImg= styled.img`
+//       border-radius: 10px;
+//       width: 355px;
+//       height: 264px;
+// `;
 
-export { SnsPostImg }
+// export { SnsPostImg }
 
 const SnsIdWhap= styled.div`
     left:0;
@@ -110,4 +127,17 @@ export const CommentBtnWrap= styled.div`
         font-size:1rem;
     }
 `;
+
+export const ImgListDiv = styled.div`
+
+  img {
+    width: 420px;
+    height: 320px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 20px;
+    border: 1px solid #DBDBDB;
+    vertical-align: top;
+  }
+`
 
