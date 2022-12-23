@@ -76,7 +76,7 @@ export const MarketPreviewModal = ({onClickClose}) => {
 }
 
 /* Sns게시글 모달 */
-export const SnsPostModal = ({onClickClose, accountName, id, postId}) => {
+export const SnsPostModal = ({onClickClose, accountName, accountname, postId}) => {
   const token = localStorage.getItem('Access Token');
   const [isOpenModal, setIsOpenModal] = useState(false)
 
@@ -112,7 +112,7 @@ export const SnsPostModal = ({onClickClose, accountName, id, postId}) => {
   return (
     <PostModalWrap onClick={() => onClickClose(false)}>
         <div className='test' onClick={(e) => e.stopPropagation()}>
-            {accountName === id ? <>
+            {accountName === accountname ? <>
             <PostModalBtnWrap>
               <button onClick={onClickDeleteModal}>삭제</button>
               <NavLinkStyle to='#'>수정</NavLinkStyle>
@@ -161,7 +161,7 @@ export const ChatRoomModal = ({onClickClose}) => {
   )
 }
 
-export const CommentModal = ({onClickClose, id, accountname}) => {
+export const CommentModal = ({onClickClose, accountname, accountName}) => {
   const [isOpenModal, setIsOpenModal] = useState(false)
 
   const onClickDeleteModal = () => {
@@ -175,7 +175,7 @@ export const CommentModal = ({onClickClose, id, accountname}) => {
   return (
     <PostModalWrap onClick={() => onClickClose(false)}>
         <div className='test' onClick={(e) => e.stopPropagation()}>
-            {accountname === id ? <>
+            {accountName === accountname ? <>
             <PostModalBtnWrap>
               <button onClick={onClickDeleteModal}>삭제</button>
               <NavLinkStyle to='#'>수정</NavLinkStyle>

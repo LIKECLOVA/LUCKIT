@@ -56,7 +56,7 @@ const MainSnsPost = ({data}) => {
       </NavLink>
       </IconWrap>
       </SnsPostBox>
-      <MoreBtn postId={data.id}/>
+      <MoreBtn postId={data.id} accountname={data.author.accountname}/>
     </MainSnsPostWhap>
   )
 }

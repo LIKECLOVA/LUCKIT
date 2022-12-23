@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useParams } from 'react-router-dom';
+// import { useParams } from 'react-router-dom';
 import { IconBtn } from './iconBtnstyle';
 // import addBtn from '../../assets/icon/addBtn.svg';
 import moreBtn from '../../assets/icon/s-icon-more-vertical.png';
@@ -19,10 +19,9 @@ export function ImgUploadBtn({ posi, click }) {
   return <IconBtn onClick={click} icon={imgBtn} posi={posi}></IconBtn>;
 }
 /* Sns게시글 더보기 버튼 */
-export function MoreBtn({postId}) {
+export function MoreBtn({postId, accountname}) {
   const [isOpen, setIsOpen] = useState(false);
   const accountName = localStorage.getItem("Account Name");
-  const {id} = useParams();
 
   const onClick = () => {
     setIsOpen(true);
@@ -35,14 +34,14 @@ export function MoreBtn({postId}) {
   return (
     <>
       <IconBtn onClick={onClick}icon={moreBtn}></IconBtn>
-      {isOpen && <SnsPostModal onClickClose={onClickClose} accountName={accountName} id={id} postId={postId} />}
+      {isOpen && <SnsPostModal onClickClose={onClickClose} accountName={accountName} postId={postId} accountname={accountname}/>}
     </>
   );
 }
 
 export function CommentMoreBtn({accountname}) {
   const [isOpen, setIsOpen] = useState(false);
-  const id = localStorage.getItem("Account Name");
+  const accountName = localStorage.getItem("Account Name");
 
   const onClick = () => {
     setIsOpen(true);
@@ -55,7 +54,7 @@ export function CommentMoreBtn({accountname}) {
   return (
     <>
       <IconBtn onClick={onClick}icon={moreBtn}></IconBtn>
-      {isOpen && <CommentModal onClickClose={onClickClose} id={id} accountname={accountname}/>}
+      {isOpen && <CommentModal onClickClose={onClickClose} accountName={accountName} accountname={accountname}/>}
     </>
   );
 }
