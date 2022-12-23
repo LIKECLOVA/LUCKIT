@@ -1,7 +1,8 @@
 import React, { useState, useRef } from 'react'
 import axios from 'axios'
-import { SnsUploadArt, SnsUploadSec, SnsUploadImg, SnsTextLable, SnsTextInput, FileUploader,FileInput, SingleImg, DeleteBtn, Img } from './snsstyle';
-import {StoreBtn} from '../../components/button/button'
+import { useNavigate } from 'react-router-dom';
+import { SnsUploadSec, SnsUploadImg, SnsTextLable, SnsTextInput, FileUploader,FileInput, SingleImg, DeleteBtn, Img } from './snsstyle';
+import {PostUploadHeader} from '../../components/header/header'
 
 
 
@@ -11,6 +12,7 @@ export const SnsUpload = () => {
   const fileInput = useRef(null);
   const [showImg, setShowImg] = useState([]);
   const [postImg, setPostImg] = useState([]);
+  const navigate = useNavigate(); 
 
   const data = {
     'post': {
@@ -78,7 +80,7 @@ async function ImgUpload(userImg) {
     const URL = 'https://mandarin.api.weniv.co.kr';
     const REQ_PATH = '/post';
     const snsImgList = [];
-  
+
     for (let i = 0; i < postImg?.length; i++) {
       snsImgList.push(ImgUpload(postImg[i]));
     }
@@ -95,6 +97,7 @@ async function ImgUpload(userImg) {
           'Content-type': 'application/json'
         },
       })
+      .then(navigate('/snspage'))
     }
     catch (error) {
       console.log(error);
@@ -103,10 +106,7 @@ async function ImgUpload(userImg) {
 
   return (
     <>
-    <SnsUploadArt>
-      <button>뒤로가기</button>
-      <StoreBtn size='middle-sm' onClick={handlePostSns}/>
-    </SnsUploadArt>
+    <PostUploadHeader handlePostSns={handlePostSns}/>
 
     <SnsUploadSec>
     <SnsTextLable htmlFor='snspost' />

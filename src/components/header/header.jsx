@@ -143,7 +143,7 @@ export const ProfileEditHeader = ({ onClick }) => {
 };
 
 // 게시글 업로드 헤더
-export const PostUploadHeader = ({ isActive, handleClick, disabled }) => {
+export const PostUploadHeader = ({ isActive, handlePostSns, disabled }) => {
   const navigate = useNavigate();
 
   return (
@@ -156,7 +156,7 @@ export const PostUploadHeader = ({ isActive, handleClick, disabled }) => {
       >
         <img src={IconArrowLeft} alt='뒤로가기' />
       </button>
-      <UploadBtn size='middle-sm' isActive={isActive} handleClick={handleClick} disabled={disabled} text='저장' />
+      <UploadBtn size='middle-sm' isActive={isActive} handlePostSns={handlePostSns} disabled={disabled} text='저장' />
     </EditAndUploadHeaderWrap>
   );
 };

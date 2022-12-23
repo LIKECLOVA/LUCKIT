@@ -26,13 +26,14 @@ export const StoreBtn = ({ size, onClick }) => {
 };
 
 export const UploadBtn = (props) => {
+
   return (
     <UploadButton
       size={props.size}
       form={props.form}
       disabled={props.disabled}
       className={props.isActive}
-      onClick={props.handleClick}
+      onClick={props.handlePostSns}
     >
       {props.text}
     </UploadButton>
