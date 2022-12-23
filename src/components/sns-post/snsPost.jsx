@@ -26,6 +26,7 @@ export const SnsPost = () => {
     setPostDetail(res.data.post)
  }
 
+
  const getComments = () => {
   axios({
     url: `https://mandarin.api.weniv.co.kr/post/${postId}/comments?limit=10`,
@@ -59,7 +60,8 @@ export const SnsPost = () => {
       {postDetail !== null && < MainSnsPost data={postDetail}/>} 
       <CommentBox postId={postId}
         comments={comments}
-        getComments={getComments}/>
+        getComments={getComments}
+        />
       </div>
     </SnsPostModalWrap>
   )

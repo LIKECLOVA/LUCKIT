@@ -7,7 +7,6 @@ function CommentBox({ postId, comments, getComments }) {
     console.log('아이딩',postId)
     console.log('댓글',comments)
 
-
     return (
     <>
       <CommentListBox>
