@@ -48,8 +48,6 @@ export const SnsPost = () => {
     getComments()
   },[])
 
-  console.log('뭐얌',comments)
-
   return (
     <SnsPostModalWrap>
       <div className='closeArt'>
