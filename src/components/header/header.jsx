@@ -27,6 +27,7 @@ export const HomepageHeader = () => {
   );
 };
 
+
 // 팔로잉 있을 때 홈페이지 스크롤 내릴 경우, SNS 피드 펭지
 export const FeedPageHeader = () => {
   return (

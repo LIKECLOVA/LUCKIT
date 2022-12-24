@@ -14,7 +14,8 @@ export const LogoutModal = ({onClickClose}) => {
   }
 
   const onClickLogout = () => {
-    localStorage.clear();
+    localStorage.removeItem("Account Name");
+    localStorage.removeItem("Access Token");
   }
 
   return(

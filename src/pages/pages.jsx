@@ -3,7 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import { Splash } from '../components/splash/splash.jsx';
 import { Login } from '../components/login/login';
 import { Join } from '../components/join/join';
-import Home from './home/home.jsx';
+import { Home } from './home/home.jsx';
 import JoinProfile from '../components/join/joinProfile';
 import { Search } from './search/search';
 import { MyProfile } from './profile/myProfile';
