@@ -1,15 +1,13 @@
 import React from 'react'
 // import { Link } from 'react-router-dom';
-import { Carousel } from '../../components/carousel/carousel'
-import { HomepageHeader } from '../../components/header/header'
-import { NavBar } from '../../components/navbar/navBar'
+// import { Carousel } from '../../components/carousel/carousel'
+// import { HomepageHeader } from '../../components/header/header'
+// import { NavBar } from '../../components/navbar/navBar'
 import { HomeSection, Hidden, HomeTitle, ListWrap, ListItem, CardWrap, CardImg, CardCont, CardTitle, CardTxt, CardUser,   } from './homestyle'
 
-const Home2 = () => {
+export const Home2 = () => {
   return (
     <main>
-        <HomepageHeader />
-        <Carousel />
         <HomeSection>
             <Hidden>Home 피드 페이지</Hidden>
             <HomeTitle>럿킷 메이트를 기다리고 있어요!✨</HomeTitle>
@@ -49,9 +47,6 @@ const Home2 = () => {
                 </ListItem>
             </ListWrap>
         </HomeSection>
-        <NavBar />
     </main>
   )
 };
-
-export default Home2;
