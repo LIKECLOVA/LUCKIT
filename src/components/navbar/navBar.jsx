@@ -20,7 +20,7 @@ export const NavBar = () => {
 	    <ul>
         <li>
           <StyleNavLink 
-            to={'/'}
+            to={'/home'}
             icon={homeIcon}
             hovericon={homeIconFill}
             className={({isActive}) => {

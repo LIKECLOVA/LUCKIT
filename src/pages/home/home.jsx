@@ -1,14 +1,13 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import { Carousel } from '../../components/carousel/carousel';
-import { HomepageHeader } from '../../components/header/header';
 import { NavBar } from '../../components/navbar/navBar';
-import { Home2 } from './Home2';
-import { HomeWrap, SearchBtn, HomeTxt } from './homestyle';
+import DefaultHome from './defaultHome';
+import { HomeWrap } from './homestyle';
+import { MarketFeedHome } from './MarketFeedHome';
 
 export const Home = () => {
   const [followingData, setFollowingData] = useState()
+  const [scrollTopData, setScrollTopData] = useState(0)
   const accountName = localStorage.getItem("Account Name");
   const token = localStorage.getItem("Access Token");
 
@@ -29,17 +28,16 @@ export const Home = () => {
             });
   }, [])
 
+  const onScroll = (event) => {
+    setScrollTopData(event.currentTarget.scrollTop)
+  }
+
   return (
-    <HomeWrap>
-      <HomepageHeader />
-      <Carousel />
+    <HomeWrap onScroll={onScroll}>
       {followingData && followingData.length > 0 ? <>
-      <Home2 />
+      <MarketFeedHome scrollTopData={scrollTopData}/>
       </> : <>
-      <HomeTxt>딱 맞는 취미 메이트를 찾고 싶다면?</HomeTxt>
-      <Link to='/search'>
-        <SearchBtn>검색하기</SearchBtn>
-      </Link>   
+      <DefaultHome />
       </>}
       <NavBar />
     </HomeWrap>
