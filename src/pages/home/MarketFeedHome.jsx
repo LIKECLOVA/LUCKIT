@@ -13,7 +13,7 @@ export const MarketFeedHome = ({scrollTopData}) => {
   const [datas, setDatas] = useState()
   const accountName = localStorage.getItem("Account Name");
   const token = localStorage.getItem("Access Token");
-  const [resultData, setResultData] = useState({})
+  const [confirmedValue, setConfirmedValues] = useState(JSON.parse(localStorage.getItem('stored')))
 
   useEffect(() => {
 
@@ -35,8 +35,6 @@ export const MarketFeedHome = ({scrollTopData}) => {
   const onClickApplyBtn = (e) => {
     const id = e.currentTarget.id;
 
-    console.log(id)
-
     Swal.fire({
       title: "<p style='font-size:20px; padding:20px;'>취미 메이트를 신청할까요?</p>",
       showCancelButton: true,
@@ -46,26 +44,21 @@ export const MarketFeedHome = ({scrollTopData}) => {
     }).then((result) => {
       if (result.isConfirmed) {
         Swal.fire("<p style='font-size:20px'>신청되었습니다.</p>", '', 'success');
-        localStorage.setItem("id", `${id}`);
-        localStorage.setItem("isConfirmed", result.isConfirmed)
-        const idData = localStorage.getItem("id")
-        const confirmedData = localStorage.getItem("isConfirmed");
-        const obj = {...resultData}
-
-        obj[idData] = obj[idData] ? confirmedData : result.isConfirmed;
-
-        setResultData(obj);
+        localStorage.setItem(`${id}`, result.isConfirmed);
+        const value = JSON.parse(localStorage.getItem(`${id}`));
+        const obj = {...confirmedValue};
+        
+        obj[id] = obj[id] ? value : result.isConfirmed;
+        localStorage.setItem('stored', JSON.stringify(obj))
+        setConfirmedValues(obj)
       }else {
-        localStorage.setItem("id", `${id}`);
-        localStorage.setItem("isConfirmed", result.isConfirmed)
-        const idData = localStorage.getItem("id")
-        const confirmedData = JSON.parse(localStorage.getItem("isConfirmed"));
+        localStorage.setItem(`${id}`, result.isConfirmed);
+        const value = JSON.parse(localStorage.getItem(`${id}`));
+        const obj = {...confirmedValue};
 
-        const obj = {...resultData}
-
-        obj[idData] = obj[idData] ? confirmedData : result.isConfirmed;
-
-        setResultData(obj);
+        obj[id] = obj[id] ? value : result.isConfirmed;
+        localStorage.setItem('stored', JSON.stringify(obj))
+        setConfirmedValues(obj)
       }
     })
 }
@@ -93,7 +86,7 @@ export const MarketFeedHome = ({scrollTopData}) => {
                           <CardTxt>같이 즐겁게 덕질하실 다이브 럭킷 찾아요! 같이 즐겁게 덕질하실 다이브 럭킷 찾아요! 같이 즐겁게 덕질하실 다이브 럭킷 찾아요! 같이 즐겁게 덕질하실 다이브 럭킷 찾아요!</CardTxt>
                           <CardUser>FROM. {data.author.username}</CardUser>
                           <button onClick={onClickApplyBtn} id={index}>
-                            {resultData && resultData[index] ? <>
+                            {confirmedValue && confirmedValue[index] ? <>
                             <img src={IconSnsClovaFill} alt='친구 신청'/>
                             </> : <>
                             <img src={IconSnsClova} alt='친구 신청'/>
