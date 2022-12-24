@@ -28,14 +28,15 @@ export const Home = () => {
             });
   }, [])
 
-  const onScroll = (event) => {
-    setScrollTopData(event.currentTarget.scrollTop)
+  const onScroll = (e) => {
+    setScrollTopData(e.currentTarget.scrollTop)
+    e.stopPropagation()
   }
 
   return (
     <HomeWrap onScroll={onScroll}>
       {followingData && followingData.length > 0 ? <>
-      <MarketFeedHome scrollTopData={scrollTopData}/>
+      <MarketFeedHome scrollTopData={scrollTopData} />
       </> : <>
       <DefaultHome />
       </>}

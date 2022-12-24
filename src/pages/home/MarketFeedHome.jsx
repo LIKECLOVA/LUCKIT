@@ -5,11 +5,15 @@ import { Carousel } from '../../components/carousel/carousel'
 import { HomepageHeader, FeedPageHeader } from '../../components/header/header'
 import { HomeSection, HomeTitle, ListWrap, ListItem, CardWrap, CardCont, CardTitle, CardTxt, CardUser,   } from './homestyle'
 import IconSnsClova from '../../assets/icon/sns용-클로바-disabled.png'
+import IconSnsClovaFill from '../../assets/icon/sns용-클로바.png'
 
 export const MarketFeedHome = ({scrollTopData}) => {
+  // 데이터는 임시로 넣은 것
+  // 추후 팔로잉한 유저들의 마켓글 데이터 가져올 예정
   const [datas, setDatas] = useState()
   const accountName = localStorage.getItem("Account Name");
   const token = localStorage.getItem("Access Token");
+  const [resultData, setResultData] = useState({})
 
   useEffect(() => {
 
@@ -28,7 +32,11 @@ export const MarketFeedHome = ({scrollTopData}) => {
             });
   }, [])
 
-  const onClickApplyBtn = () => {
+  const onClickApplyBtn = (e) => {
+    const id = e.currentTarget.id;
+
+    console.log(id)
+
     Swal.fire({
       title: "<p style='font-size:20px; padding:20px;'>취미 메이트를 신청할까요?</p>",
       showCancelButton: true,
@@ -37,11 +45,31 @@ export const MarketFeedHome = ({scrollTopData}) => {
       confirmButtonColor: "#66b607",
     }).then((result) => {
       if (result.isConfirmed) {
-        Swal.fire("<p style='font-size:20px'>신청되었습니다.</p>", '', 'success')
+        Swal.fire("<p style='font-size:20px'>신청되었습니다.</p>", '', 'success');
+        localStorage.setItem("id", `${id}`);
+        localStorage.setItem("isConfirmed", result.isConfirmed)
+        const idData = localStorage.getItem("id")
+        const confirmedData = localStorage.getItem("isConfirmed");
+        const obj = {...resultData}
+
+        obj[idData] = obj[idData] ? confirmedData : result.isConfirmed;
+
+        setResultData(obj);
+      }else {
+        localStorage.setItem("id", `${id}`);
+        localStorage.setItem("isConfirmed", result.isConfirmed)
+        const idData = localStorage.getItem("id")
+        const confirmedData = JSON.parse(localStorage.getItem("isConfirmed"));
+
+        const obj = {...resultData}
+
+        obj[idData] = obj[idData] ? confirmedData : result.isConfirmed;
+
+        setResultData(obj);
       }
-  })
+    })
 }
-  
+
   return (
     <>
       {scrollTopData > 500 ? <>
@@ -57,15 +85,19 @@ export const MarketFeedHome = ({scrollTopData}) => {
               <ListWrap>
                 {datas && datas.map((data, index) => {
                   return (
-                    <ListItem key={index}>
+                    <ListItem key={Math.random()}>
                       <CardWrap>
                       <img src={data.itemImage}/>
                       <CardCont>
                           <CardTitle>{data.itemName}</CardTitle>
                           <CardTxt>같이 즐겁게 덕질하실 다이브 럭킷 찾아요! 같이 즐겁게 덕질하실 다이브 럭킷 찾아요! 같이 즐겁게 덕질하실 다이브 럭킷 찾아요! 같이 즐겁게 덕질하실 다이브 럭킷 찾아요!</CardTxt>
                           <CardUser>FROM. {data.author.username}</CardUser>
-                          <button onClick={onClickApplyBtn}>
+                          <button onClick={onClickApplyBtn} id={index}>
+                            {resultData && resultData[index] ? <>
+                            <img src={IconSnsClovaFill} alt='친구 신청'/>
+                            </> : <>
                             <img src={IconSnsClova} alt='친구 신청'/>
+                            </>}
                           </button>
                       </CardCont>
                       </CardWrap>
