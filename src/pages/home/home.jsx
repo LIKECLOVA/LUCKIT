@@ -23,31 +23,16 @@ export const Home = () => {
         },
       }).then((res) => {
               setFollowingData(res.data);
-            })
-            .then((error) => {
+        })
+        .then((error) => {
               console.log(error);
-            });
+        });
   }, [])
-
-  console.log("followingData", followingData)
-
-
-  // if(followingData.length > 0) {followingData.map((list) => {
-  //   return(
-  //     accountNameArr.push(list.accountname)
-  //   )
-  // })}
-
-
-  // console.log("accountNameArr", accountNameArr)
-  
 
   const onScroll = (e) => {
     setScrollTopData(e.currentTarget.scrollTop)
     e.stopPropagation()
   }
-
-  // console.log(followingData)
 
   return (
     <HomeWrap onScroll={onScroll}>
