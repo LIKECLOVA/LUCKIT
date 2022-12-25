@@ -8,6 +8,7 @@ import { InputWrap, MarketForm } from '../marketUpload/marketinputstyle';
 import Error from '../../../pages/404-error/errorPage';
 
 export const MarketUpdate = () => {
+  const { productid } = useParams();
   // 데이터 전송에 필요한 유저 토큰
   const [userToken, setUserToken] = useState();
   const [itemName, setItemName] = useState('');
@@ -17,10 +18,7 @@ export const MarketUpdate = () => {
   const [itemImage, setItemImage] = useState('');
   const [view, setView] = useState('pending');
 
-  const params = useParams();
   const navigate = useNavigate();
-
-  const productid = params.productid;
 
   useEffect(() => {
     setUserToken(localStorage.getItem('Access Token'));
@@ -37,25 +35,25 @@ export const MarketUpdate = () => {
   });
 
   useEffect(() => {
-    async function getProduct() {
-      try {
-        const res = await axios.get(`https://mandarin.api.weniv.co.kr/product/detail/${productid}`, {
-          headers: {
-            Authorization: `Bearer ${userToken}`,
-            'Content-type': 'application/json',
-          },
-        });
+    getProduct(productid);
+  }, [productid]);
 
-        setItemImage(res.data.product.itemImage);
-        setItemName(res.data.product.itemName);
-        setItemDetail(res.data.product.itemDetail);
-      } catch (error) {
-        setView('rejected');
-      }
+  async function getProduct() {
+    try {
+      const res = await axios.get(`https://mandarin.api.weniv.co.kr/product/detail/${productid}`, {
+        headers: {
+          Authorization: `Bearer ${userToken}`,
+          'Content-type': 'application/json',
+        },
+      });
+
+      setItemImage(res.data.product.itemImage);
+      setItemName(res.data.product.itemName);
+      setItemDetail(res.data.product.itemDetail);
+    } catch (error) {
+      setView('rejected');
     }
-    getProduct();
-  }, []);
-
+  }
   const handleSubmit = async (event) => {
     event.preventDefault();
 
