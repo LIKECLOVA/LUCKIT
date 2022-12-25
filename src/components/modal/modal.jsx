@@ -91,6 +91,7 @@ export const SnsPostModal = ({onClickClose, accountName, accountname, postId}) =
   const deletePost =() =>{
     console.log('게시글아이디',`${postId}`)
 
+    
     axios({
       url: `https://mandarin.api.weniv.co.kr/post/${postId}`,
       method: 'DELETE',
@@ -162,7 +163,8 @@ export const ChatRoomModal = ({onClickClose}) => {
   )
 }
 
-export const CommentModal = ({onClickClose, accountname, accountName}) => {
+export const CommentModal = ({onClickClose, accountname, accountName,postId, commentId}) => {
+  const token = localStorage.getItem('Access Token');
   const [isOpenModal, setIsOpenModal] = useState(false)
 
   const onClickDeleteModal = () => {
@@ -172,6 +174,27 @@ export const CommentModal = ({onClickClose, accountname, accountName}) => {
   const onClickCancel = () => {
     setIsOpenModal(false)
   } 
+  const onClickCommentDelete =() =>{
+    console.log('게시글아이디',`${postId}`)
+
+    axios({
+      url: `https://mandarin.api.weniv.co.kr/post/${postId}/comments/${commentId}`,
+      method: 'DELETE',
+      headers: {
+        'Authorization': `Bearer ${token}`,
+        'Content-type': 'application/json'
+      },
+    })
+      .then(() => {
+        setIsOpenModal(false)
+        onClickClose(false)
+        console.log('댓글삭제완료')
+        location.reload()
+      })
+      .catch((error) => {
+        console.log('댓글이 존재하지 않습니다.');
+      }); 
+  }
 
   return (
     <PostModalWrap onClick={() => onClickClose(false)}>
@@ -179,7 +202,6 @@ export const CommentModal = ({onClickClose, accountname, accountName}) => {
             {accountName === accountname ? <>
             <PostModalBtnWrap>
               <button onClick={onClickDeleteModal}>삭제</button>
-              <NavLinkStyle to='#'>수정</NavLinkStyle>
             </PostModalBtnWrap>
             {isOpenModal && 
             <Div>
@@ -187,7 +209,7 @@ export const CommentModal = ({onClickClose, accountname, accountName}) => {
                 <strong>댓글을 삭제할까요?</strong>
                 <ModalBtnWrap>
                   <button onClick={onClickCancel}>취소</button>
-                  <button>삭제</button>
+                  <button onClick={onClickCommentDelete}>삭제</button>
                 </ModalBtnWrap>
               </ModalWrap>
             </Div>

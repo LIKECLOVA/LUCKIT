@@ -38,8 +38,8 @@ export function MoreBtn({postId, accountname}) {
     </>
   );
 }
-
-export function CommentMoreBtn({accountname}) {
+/* 댓글 더보기 버튼 */
+export function CommentMoreBtn({postId, commentId, accountname}) {
   const [isOpen, setIsOpen] = useState(false);
   const accountName = localStorage.getItem("Account Name");
 
@@ -54,7 +54,7 @@ export function CommentMoreBtn({accountname}) {
   return (
     <>
       <IconBtn onClick={onClick}icon={moreBtn}></IconBtn>
-      {isOpen && <CommentModal onClickClose={onClickClose} accountName={accountName} accountname={accountname}/>}
+      {isOpen && <CommentModal onClickClose={onClickClose} accountName={accountName} postId={postId} commentId={commentId} accountname={accountname}/>}
     </>
   );
 }
