@@ -4,13 +4,11 @@ import CommentInput from './commentinput/commentInput';
 import { CommentListBox } from './commentboxstyle';
 
 function CommentBox({ postId, comments, getComments }) {
-    console.log('아이딩',postId)
-    console.log('댓글',comments)
 
     return (
     <>
       <CommentListBox>
-        <CommentList comments={comments} />
+        <CommentList comments={comments} postId={postId}/>
       </CommentListBox>
       <CommentInput getComments={getComments} postId={postId} />
     </>
