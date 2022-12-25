@@ -1,7 +1,7 @@
 import React, {useEffect,useState} from 'react'
 import axios from 'axios';
 import { useNavigate, useParams } from 'react-router-dom';
-import {SnsPostModalWrap, CloseBtn} from './snspoststyle'
+import {SnsPostModalWrap, CloseBtn, PostDetailWrap} from './snspoststyle'
 import MainSnsPost from '../mainpost/mainSnsPost'
 import CommentBox from '../comment/commentBox'
 
@@ -50,6 +50,7 @@ export const SnsPost = () => {
   },[])
 
   return (
+    <PostDetailWrap>
     <SnsPostModalWrap>
       <div className='closeArt'>
       <CloseBtn onClick={()=>{navigate(-1)}}/>
@@ -62,5 +63,6 @@ export const SnsPost = () => {
         />
       </div>
     </SnsPostModalWrap>
+    </PostDetailWrap>
   )
 }
