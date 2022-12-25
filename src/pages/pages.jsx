@@ -6,7 +6,7 @@ import { Join } from '../components/join/join';
 import { Home } from './home/home.jsx';
 import JoinProfile from '../components/join/joinProfile';
 import { Search } from './search/search';
-import { MyProfile } from './profile/myProfile';
+import { Profile } from './profile/myProfile';
 import { EditProfile } from './profile/editProfile';
 
 import { YourFollow } from './follow/yourFollow';
@@ -97,7 +97,7 @@ const MainPages = () => {
         path='/profile/:id'
         element={
           <PrivateRoute>
-            <MyProfile />
+            <Profile />
           </PrivateRoute>
         }
       ></Route>

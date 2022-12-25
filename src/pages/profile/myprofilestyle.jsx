@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
-export const MyProfileWrap = styled.section`
+export const ProfileWrap = styled.section`
 
     padding: 0 15px;
     overflow: scroll;
@@ -30,8 +30,8 @@ export const SnsPostBtn = styled.div`
   
     button {
         display: block;
-        width: 32px;
-        height: 32px;
+        width: 30px;
+        height: 30px;
         border: none;
         padding: 0;
         margin-right: 15px;
@@ -48,7 +48,7 @@ export const SnsPostBtn = styled.div`
 
 export const ImgAlbumBox = styled.ul`
 
-    margin-top: 15px;
+    margin: 15px 0 80px;
     display: flex;
     align-items: center;
     flex-wrap: wrap;
