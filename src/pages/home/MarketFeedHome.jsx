@@ -52,19 +52,15 @@ export const MarketFeedHome = ({scrollTopData, followingData}) => {
     }).then((result) => {
       if (result.isConfirmed) {
         Swal.fire("<p style='font-size:20px'>신청되었습니다.</p>", '', 'success');
-        localStorage.setItem(`${id}`, result.isConfirmed);
-        const value = JSON.parse(localStorage.getItem(`${id}`));
         const obj = {...confirmedValue};
       
-        obj[id] = obj[id]? value : result.isConfirmed;
+        obj[id] = result.isConfirmed;
         localStorage.setItem('stored', JSON.stringify(obj))
         setConfirmedValue(obj)
       }else {
-        localStorage.setItem(`${id}`, result.isConfirmed);
-        const value = JSON.parse(localStorage.getItem(`${id}`));
         const obj = {...confirmedValue};
 
-        obj[id] = obj[id]? value : result.isConfirmed;
+        obj[id] = result.isConfirmed;
         localStorage.setItem('stored', JSON.stringify(obj))
         setConfirmedValue(obj)
       }
