@@ -7,30 +7,61 @@ import { HomeSection, HomeTitle, ListWrap, ListItem, CardWrap, CardCont, CardTit
 import IconSnsClova from '../../assets/icon/sns용-클로바-disabled.png'
 import IconSnsClovaFill from '../../assets/icon/sns용-클로바.png'
 
-export const MarketFeedHome = ({scrollTopData}) => {
-  // 데이터는 임시로 넣은 것
-  // 추후 팔로잉한 유저들의 마켓글 데이터 가져올 예정
-  const [datas, setDatas] = useState()
-  const accountName = localStorage.getItem("Account Name");
+export const MarketFeedHome = ({scrollTopData, followingData}) => {
+  const [confirmedValue, setConfirmedValue] = useState(JSON.parse(localStorage.getItem('stored')))
   const token = localStorage.getItem("Access Token");
-  const [confirmedValue, setConfirmedValues] = useState(JSON.parse(localStorage.getItem('stored')))
+  const productArr = [];
+  const [productData, setProductData] = useState([]);
+
+  console.log('잘 내려오는지', followingData);
 
   useEffect(() => {
 
-    axios({
-        method: 'get',
-        url: `https://mandarin.api.weniv.co.kr/product/${accountName}`,
-        headers: {
-          'Authorization': `Bearer ${token}`,
-          'Content-type': 'application/json',
-        },
-      }).then((res) => {
-        setDatas(res.data.product);
+    if(followingData)
+    followingData.map((list)=> {
+      return(
+        axios({
+            method: 'get',
+            url: `https://mandarin.api.weniv.co.kr/product/${list.accountname}`,
+            headers: {
+              'Authorization': `Bearer ${token}`,
+              'Content-type': 'application/json',
+            },
+          }).then((res) => {
+            console.log("data", res.data.product)
+
+            const data = res.data.product;
+
+            if(data.length > 0) {
+              localStorage.setItem(`${list.accountname}`, JSON.stringify(data))
+            }
             })
             .then((error) => {
               console.log(error);
-            });
+            })
+      )
+    })}   
+  , [])
+
+  // if(accountNameArr.length > 0)
+  // accountNameArr.map((accountname) => {
+  //   return (
+  //     localStorage.getItem(accountname) ? productArr.push(...JSON.parse(localStorage.getItem(accountname))) : undefined
+  //     )
+  // })
+
+  if(followingData)
+  followingData.map((list) => {
+    return (
+      localStorage.getItem(list.accountname) ? productArr.push(...JSON.parse(localStorage.getItem(list.accountname))) : undefined
+      )
+  })
+
+  useEffect(() => {
+    setProductData(productArr)
+    console.log(productData)
   }, [])
+  
 
   const onClickApplyBtn = (e) => {
     const id = e.currentTarget.id;
@@ -50,7 +81,7 @@ export const MarketFeedHome = ({scrollTopData}) => {
         
         obj[id] = obj[id] ? value : result.isConfirmed;
         localStorage.setItem('stored', JSON.stringify(obj))
-        setConfirmedValues(obj)
+        setConfirmedValue(obj)
       }else {
         localStorage.setItem(`${id}`, result.isConfirmed);
         const value = JSON.parse(localStorage.getItem(`${id}`));
@@ -58,7 +89,7 @@ export const MarketFeedHome = ({scrollTopData}) => {
 
         obj[id] = obj[id] ? value : result.isConfirmed;
         localStorage.setItem('stored', JSON.stringify(obj))
-        setConfirmedValues(obj)
+        setConfirmedValue(obj)
       }
     })
 }
@@ -76,14 +107,14 @@ export const MarketFeedHome = ({scrollTopData}) => {
               <h2>Home 피드 페이지</h2>
               <HomeTitle>럿킷 메이트를 기다리고 있어요!✨</HomeTitle>
               <ListWrap>
-                {datas && datas.map((data, index) => {
+                {productData.length > 0 && productData.map((data, index) => {
                   return (
                     <ListItem key={Math.random()}>
                       <CardWrap>
                       <img src={data.itemImage}/>
                       <CardCont>
                           <CardTitle>{data.itemName}</CardTitle>
-                          <CardTxt>같이 즐겁게 덕질하실 다이브 럭킷 찾아요! 같이 즐겁게 덕질하실 다이브 럭킷 찾아요! 같이 즐겁게 덕질하실 다이브 럭킷 찾아요! 같이 즐겁게 덕질하실 다이브 럭킷 찾아요!</CardTxt>
+                          <CardTxt>{data.link}</CardTxt>
                           <CardUser>FROM. {data.author.username}</CardUser>
                           <button onClick={onClickApplyBtn} id={index}>
                             {confirmedValue && confirmedValue[index] ? <>
