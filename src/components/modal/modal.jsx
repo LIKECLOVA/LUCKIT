@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import {
   ModalWrap,
   ModalBtnWrap,
@@ -22,9 +22,9 @@ export const LogoutModal = ({ onClickClose }) => {
   };
 
   const onClickLogout = () => {
-    localStorage.removeItem("Account Name");
-    localStorage.removeItem("Access Token");
-  }
+    localStorage.removeItem('Account Name');
+    localStorage.removeItem('Access Token');
+  };
 
   return (
     <PostModalWrap onClick={() => onClickClose(false)}>
@@ -108,60 +108,62 @@ export const MarketPreviewModal = ({ productid, onClickClose }) => {
 };
 
 /* Sns게시글 모달 */
-export const SnsPostModal = ({onClickClose, accountName, accountname, postId}) => {
+export const SnsPostModal = ({ onClickClose, accountName, accountname, postId }) => {
   const token = localStorage.getItem('Access Token');
-  const [isOpenModal, setIsOpenModal] = useState(false)
+  const [isOpenModal, setIsOpenModal] = useState(false);
 
   const onClickDeleteModal = () => {
     setIsOpenModal(true);
   };
 
   const onClickCancel = () => {
-    setIsOpenModal(false)
-  } 
-  const deletePost =() =>{
-    console.log('게시글아이디',`${postId}`)
+    setIsOpenModal(false);
+  };
+  const deletePost = () => {
+    console.log('게시글아이디', `${postId}`);
 
-    
     axios({
       url: `https://mandarin.api.weniv.co.kr/post/${postId}`,
       method: 'DELETE',
       headers: {
-        'Authorization': `Bearer ${token}`,
-        'Content-type': 'application/json'
+        Authorization: `Bearer ${token}`,
+        'Content-type': 'application/json',
       },
     })
       .then(() => {
-        setIsOpenModal(false)
-        onClickClose(false)
-        console.log('삭제완료')
-        location.reload()
+        setIsOpenModal(false);
+        onClickClose(false);
+        console.log('삭제완료');
+        location.reload();
       })
       .catch((error) => {
         console.log(error);
-      });  
-  }
+      });
+  };
 
   return (
     <PostModalWrap onClick={() => onClickClose(false)}>
-        <div className='test' onClick={(e) => e.stopPropagation()}>
-            {accountName === accountname ? <>
+      <div className='test' onClick={(e) => e.stopPropagation()}>
+        {accountName === accountname ? (
+          <>
             <PostModalBtnWrap>
               <button onClick={onClickDeleteModal}>삭제</button>
               <NavLinkStyle to='#'>수정</NavLinkStyle>
             </PostModalBtnWrap>
-            {isOpenModal && 
-            <Div>
-              <ModalWrap>
-                <strong>게시글을 삭제할까요?</strong>
-                <ModalBtnWrap>
-                  <button onClick={onClickCancel}>취소</button>
-                  <button onClick={deletePost}>삭제</button>
-                </ModalBtnWrap>
-              </ModalWrap>
-            </Div>
-            }
-            </> : <>
+            {isOpenModal && (
+              <Div>
+                <ModalWrap>
+                  <strong>게시글을 삭제할까요?</strong>
+                  <ModalBtnWrap>
+                    <button onClick={onClickCancel}>취소</button>
+                    <button onClick={deletePost}>삭제</button>
+                  </ModalBtnWrap>
+                </ModalWrap>
+              </Div>
+            )}
+          </>
+        ) : (
+          <>
             <PostModalBtnWrap>
               <button onClick={onClickDeleteModal}>신고하기</button>
             </PostModalBtnWrap>
@@ -177,7 +179,7 @@ export const SnsPostModal = ({onClickClose, accountName, accountname, postId}) =
               </Div>
             )}
           </>
-        }
+        )}
       </div>
     </PostModalWrap>
   );
@@ -195,58 +197,61 @@ export const ChatRoomModal = ({ onClickClose }) => {
   );
 };
 
-export const CommentModal = ({onClickClose, accountname, accountName,postId, commentId}) => {
+export const CommentModal = ({ onClickClose, accountname, accountName, postId, commentId }) => {
   const token = localStorage.getItem('Access Token');
-  const [isOpenModal, setIsOpenModal] = useState(false)
+  const [isOpenModal, setIsOpenModal] = useState(false);
 
   const onClickDeleteModal = () => {
     setIsOpenModal(true);
   };
 
   const onClickCancel = () => {
-    setIsOpenModal(false)
-  } 
-  const onClickCommentDelete =() =>{
-    console.log('게시글아이디',`${postId}`)
+    setIsOpenModal(false);
+  };
+  const onClickCommentDelete = () => {
+    console.log('게시글아이디', `${postId}`);
 
     axios({
       url: `https://mandarin.api.weniv.co.kr/post/${postId}/comments/${commentId}`,
       method: 'DELETE',
       headers: {
-        'Authorization': `Bearer ${token}`,
-        'Content-type': 'application/json'
+        Authorization: `Bearer ${token}`,
+        'Content-type': 'application/json',
       },
     })
       .then(() => {
-        setIsOpenModal(false)
-        onClickClose(false)
-        console.log('댓글삭제완료')
-        location.reload()
+        setIsOpenModal(false);
+        onClickClose(false);
+        console.log('댓글삭제완료');
+        location.reload();
       })
       .catch((error) => {
         console.log('댓글이 존재하지 않습니다.');
-      }); 
-  }
+      });
+  };
 
   return (
     <PostModalWrap onClick={() => onClickClose(false)}>
-        <div className='test' onClick={(e) => e.stopPropagation()}>
-            {accountName === accountname ? <>
+      <div className='test' onClick={(e) => e.stopPropagation()}>
+        {accountName === accountname ? (
+          <>
             <PostModalBtnWrap>
               <button onClick={onClickDeleteModal}>삭제</button>
             </PostModalBtnWrap>
-            {isOpenModal && 
-            <Div>
-              <ModalWrap>
-                <strong>댓글을 삭제할까요?</strong>
-                <ModalBtnWrap>
-                  <button onClick={onClickCancel}>취소</button>
-                  <button onClick={onClickCommentDelete}>삭제</button>
-                </ModalBtnWrap>
-              </ModalWrap>
-            </Div>
-            }
-            </> : <>
+            {isOpenModal && (
+              <Div>
+                <ModalWrap>
+                  <strong>댓글을 삭제할까요?</strong>
+                  <ModalBtnWrap>
+                    <button onClick={onClickCancel}>취소</button>
+                    <button onClick={onClickCommentDelete}>삭제</button>
+                  </ModalBtnWrap>
+                </ModalWrap>
+              </Div>
+            )}
+          </>
+        ) : (
+          <>
             <PostModalBtnWrap>
               <button onClick={onClickDeleteModal}>신고하기</button>
             </PostModalBtnWrap>
