@@ -1,6 +1,14 @@
 import styled from 'styled-components';
 import closeBtn from '../../assets/icon/x.svg'
 
+
+export const PostDetailWrap = styled.div`
+width: 100%;
+height: 100%;
+background-color: rgba(0, 0, 0, 0.3);
+`
+
+
 const SnsPostModalWrap= styled.div`
   align-items: left;
     box-sizing: border-box;
@@ -14,10 +22,11 @@ const SnsPostModalWrap= styled.div`
     display: flex;
     flex-direction: column;
     z-index: 20;
-    border: 1px solid black;
-    border-radius: 8px;
+    box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
     overflow: hidden;
     .SnsContentWrap{
+      margin-top: 2rem;
     overflow: scroll;
     ::-webkit-scrollbar{
       display: none;
@@ -60,13 +69,4 @@ export const CloseBtn= styled.button`
     padding: 0px;
     right: 10px;
     top: 10px;
-`;
-
-export const SnsContentWrap= styled.div`
-  display: flex;
-  flex-direction: column;
-  z-index: 90;
-
-  
-  border-radius: 8px;
 `;
