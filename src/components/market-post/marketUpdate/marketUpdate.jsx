@@ -5,24 +5,20 @@ import { PostUploadHeader } from '../../header/header';
 import { MarketImage } from '../marketUpload/marketImage';
 import { MarketInput } from '../marketUpload/marketInput';
 import { InputWrap, MarketForm } from '../marketUpload/marketinputstyle';
-import Error from '../../../pages/404-error/errorPage';
+// import Error from '../../../pages/404-error/errorPage';
 
 export const MarketUpdate = () => {
   const { productId } = useParams();
-  // 데이터 전송에 필요한 유저 토큰
-  const [userToken, setUserToken] = useState();
   const [itemName, setItemName] = useState('');
   const [itemDetail, setItemDetail] = useState('');
   const [isActive, setIsActive] = useState('');
   const [disabled, setIsDisabled] = useState('');
   const [itemImage, setItemImage] = useState('');
-  const [view, setView] = useState('pending');
+  // const [view, setView] = useState('pending');
+
+  const userToken = localStorage.getItem('Access Token');
 
   const navigate = useNavigate();
-
-  useEffect(() => {
-    setUserToken(localStorage.getItem('Access Token'));
-  }, []);
 
   useEffect(() => {
     if (itemName.length > 1 && itemDetail.length > 1) {
@@ -47,13 +43,14 @@ export const MarketUpdate = () => {
         },
       });
 
-      setItemImage(res.data.product.itemImage);
       setItemName(res.data.product.itemName);
-      setItemDetail(res.data.product.itemDetail);
+      setItemDetail(res.data.product.link);
+      setItemImage(res.data.product.itemImage);
     } catch (error) {
-      setView('rejected');
+      console.error(error);
     }
   }
+
   const handleSubmit = async (event) => {
     event.preventDefault();
 
@@ -84,39 +81,27 @@ export const MarketUpdate = () => {
           })();
         });
     } catch (error) {
-      setView('rejected');
+      console.error(error);
     }
   };
 
   return (
     <>
-      {view === 'fulfilled' && (
-        <MarketForm method='POST' encType='multipart/form-data' onSubmit={handleSubmit}>
-          <PostUploadHeader isActive={isActive} disabled={disabled} />
-          <h1 className='a11y-hieen'>럭킷 메이트 등록 페이지</h1>
-          <InputWrap>
-            <MarketImage itemImage={itemImage} setItemImage={setItemImage} />
-            <MarketInput
-              itemName={itemName}
-              setItemName={setItemName}
-              itemDetail={itemDetail}
-              setItemDetail={setItemDetail}
-              setIsActive={setIsActive}
-              setIsDisabled={setIsDisabled}
-            />
-          </InputWrap>
-        </MarketForm>
-      )}{' '}
-      {view === 'pending' && (
-        <>
-          <p>로딩중</p>
-        </>
-      )}
-      {view === 'rejected' && (
-        <>
-          <Error />
-        </>
-      )}
+      <MarketForm method='POST' encType='multipart/form-data' onSubmit={handleSubmit}>
+        <PostUploadHeader isActive={isActive} disabled={disabled} />
+        <h1 className='a11y-hieen'>럭킷 메이트 등록 페이지</h1>
+        <InputWrap>
+          <MarketImage itemImage={itemImage} setItemImage={setItemImage} />
+          <MarketInput
+            itemName={itemName}
+            setItemName={setItemName}
+            itemDetail={itemDetail}
+            setItemDetail={setItemDetail}
+            setIsActive={setIsActive}
+            setIsDisabled={setIsDisabled}
+          />
+        </InputWrap>
+      </MarketForm>
     </>
   );
 };
