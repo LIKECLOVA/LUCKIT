@@ -42,10 +42,10 @@ export function MarketPost() {
         <main>
           <ListWrap>
             {marketPostsData &&
-              marketPostsData.map((data, index) => {
+              marketPostsData.map((data) => {
                 return (
                   <ListItem key={Math.random()}>
-                    <MarketPostBox data={data} index={index} id={id} />
+                    <MarketPostBox data={data} accountname={id} />
                     <MarketPostMoreBtn productId={data.id} />
                   </ListItem>
                 );

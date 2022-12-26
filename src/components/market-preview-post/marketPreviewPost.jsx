@@ -1,5 +1,3 @@
-
-
 import React, { useEffect } from 'react'
 import { NavLink, useParams } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
@@ -8,30 +6,16 @@ import IconMarketPostUpload from '../../assets/icon/market-plus.png'
 import { AxiosProductList } from '../../reducers/getProductListSlice'
 import IconClova from '../../assets/icon/sns용-클로바-disabled.png'
 
-
-
-
-
-
-
 export const MarketPreviewPost = () => {
-
   const accountName = localStorage.getItem("Account Name");
   const {id} = useParams()
   const product = useSelector(state => state.productListSlice.productList);
   const dispatch = useDispatch();
   const URLProduct = `https://mandarin.api.weniv.co.kr/product/${id}`;
 
-  console.log('뿌려줄거!!!!', product);
-
-
-
-
   useEffect(()=>{
     dispatch(AxiosProductList(URLProduct));
   },[])
-
- 
 
   return (
     <MarketPreviewBoxWrap>
@@ -63,8 +47,7 @@ export const MarketPreviewPost = () => {
                   </li>
                 );
               })}
-          </ul>
-        
+          </ul> 
     </MarketPreviewBoxWrap>
   );
 };
