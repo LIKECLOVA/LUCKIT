@@ -57,6 +57,8 @@ export const HomeTitle = styled.p`
   border-radius: 30px;
   color: #457907;
   font-weight: 500;
+  margin-top: 50px;
+  margin-bottom: 90px;
 `;
 
 export const ListWrap = styled.ul`
