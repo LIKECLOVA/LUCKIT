@@ -33,7 +33,7 @@ const Allwrap = styled.div`
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  width: 75vmin;
+  width: 55vmin;
   height: 95vmin;
   overflow: hidden;
   outline: 10px solid #e5e5e5;
