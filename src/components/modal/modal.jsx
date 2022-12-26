@@ -51,7 +51,7 @@ export const LogoutModal = ({ onClickClose }) => {
   );
 };
 
-export const MarketPreviewModal = ({ productid, onClickClose }) => {
+export const MarketPreviewModal = ({ productId, onClickClose }) => {
   const userToken = localStorage.getItem('Access Token');
 
   const [isOpenModal, setIsOpenModal] = useState(false);
@@ -67,7 +67,7 @@ export const MarketPreviewModal = ({ productid, onClickClose }) => {
   const handleMarketDelete = async () => {
     try {
       await axios
-        .delete(`https://mandarin.api.weniv.co.kr/product/${productid}`, {
+        .delete(`https://mandarin.api.weniv.co.kr/product/${productId}`, {
           headers: {
             Authorization: `Bearer ${userToken}`,
             'Content-type': 'application/json',
