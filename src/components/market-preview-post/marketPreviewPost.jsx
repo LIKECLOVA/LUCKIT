@@ -1,24 +1,22 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { NavLink, useParams } from 'react-router-dom';
 import { MarketPreviewBoxWrap } from './marketpreviewboxstyle';
 import IconMarketPostUpload from '../../assets/icon/market-plus.png';
-import { MarketPreviewModal } from '../modal/modal';
+// import { MarketPreviewModal } from '../modal/modal';
 import IconClova from '../../assets/icon/sns용-클로바-disabled.png'
 
 export const MarketPreviewPost = ({ marketPostsData }) => {
-  const [isOpen, setIsOpen] = useState(false);
+  // const [isOpen, setIsOpen] = useState(false);
   const myAccountName = localStorage.getItem('Account Name');
   const { id } = useParams();
 
-  console.log()
+  // const onClick = () => {
+  //   setIsOpen(true);
+  // };
 
-  const onClick = () => {
-    setIsOpen(true);
-  };
-
-  const onClickClose = (value) => {
-    setIsOpen(value);
-  };
+  // const onClickClose = (value) => {
+  //   setIsOpen(value);
+  // };
 
   return (
     <MarketPreviewBoxWrap>
@@ -43,24 +41,19 @@ export const MarketPreviewPost = ({ marketPostsData }) => {
               marketPostsData.map((post) => {
                 return (
                   <li key={post.id}>
-                    {myAccountName === id ? (
-                      <>
-                        <button onClick={onClick}>
+                        {/* <button onClick={onClick}>
                           <p>{post.itemName}</p>
                           <img src={post.itemImage} />
-                        </button>
-                      </>
-                    ) : (
-                      <NavLink to='#'>
+                        </button> */}
+                      <NavLink to={`/marketpost/${id}`}>
                         <p>{post.itemName}</p>
                         <img src={post.itemImage} />
                       </NavLink>
-                    )}
                   </li>
                 );
               })}
           </ul>
-          {isOpen && <MarketPreviewModal onClickClose={onClickClose} />}
+          {/* {isOpen && <MarketPreviewModal onClickClose={onClickClose} />} */}
     </MarketPreviewBoxWrap>
   );
 };

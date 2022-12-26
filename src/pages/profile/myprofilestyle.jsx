@@ -114,41 +114,6 @@ export const AuthorNavLink = styled(NavLink)`
     
 `
 
-export const SnsContBox = styled.div`
-  
-  margin-top : 15px;
-  margin-left: auto;
-  width: 510px;
-
-  p {
-    margin-bottom: 10px;
-    font-size: 14px;
-    line-height: 20px;
-  }
-
-    .btnWrap {
-      margin-top: 20px;
-
-    button {
-      background-color: transparent;
-      padding: 0;
-      margin-right: 10px;
-
-      img {
-        width: 20px;
-        height: 20px;
-      }
-    }
-  }
-
-  .snsImgList {
-    display: flex;
-    gap: 10px;
-    flex-wrap: no-wrap;
-    overflow-x: auto;
-  }
-  `
-
   export const ImgListDiv = styled.div`
 
   img {

@@ -18,6 +18,7 @@ import { SnsUpload } from './sns/snsUpload';
 import { SnsPage } from './sns/snsPage';
 import { SnsPost } from '../components/sns-post/snsPost';
 
+import { MarketPost } from './market/marketPost.jsx';
 import { MarketUpload } from '../components/market-post/marketUpload/marketUpload';
 import { MarketUpdate } from '../components/market-post/marketUpdate/marketUpdate';
 import Error from './404-error/errorPage.jsx';
@@ -170,6 +171,14 @@ const MainPages = () => {
         element={
           <PrivateRoute>
             <MarketUpload />
+          </PrivateRoute>
+        }
+      ></Route>
+       <Route
+        path='/marketpost/:id'
+        element={
+          <PrivateRoute>
+            <MarketPost />
           </PrivateRoute>
         }
       ></Route>

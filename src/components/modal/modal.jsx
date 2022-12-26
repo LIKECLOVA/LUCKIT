@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useState } from 'react';
+import { useParams } from 'react-router-dom';
 import {
   ModalWrap,
   ModalBtnWrap,
@@ -52,9 +53,11 @@ export const LogoutModal = ({ onClickClose }) => {
 };
 
 export const MarketPreviewModal = ({ productid, onClickClose }) => {
-  const userToken = localStorage.getItem('Access Token');
-
   const [isOpenModal, setIsOpenModal] = useState(false);
+  const userToken = localStorage.getItem('Access Token');
+  const myAccountName = localStorage.getItem("Account Name");
+  const { id } = useParams();
+
 
   const onClickDeleteModal = () => {
     setIsOpenModal(true);
@@ -86,22 +89,40 @@ export const MarketPreviewModal = ({ productid, onClickClose }) => {
   return (
     <PostModalWrap onClick={() => onClickClose(false)}>
       <div className='test' onClick={(e) => e.stopPropagation()}>
-        <PostModalBtnWrap>
-          <button onClick={onClickDeleteModal}>삭제</button>
-          <NavLinkStyle to='#'>수정</NavLinkStyle>
-          <NavLinkStyle to='#'>상세 페이지로 가기</NavLinkStyle>
-        </PostModalBtnWrap>
-        {isOpenModal && (
-          <Div>
-            <ModalWrap>
-              <strong>매칭글을 삭제할까요?</strong>
-              <ModalBtnWrap>
-                <button onClick={onClickCancel}>취소</button>
-                <button onClick={handleMarketDelete}>삭제</button>
-              </ModalBtnWrap>
-            </ModalWrap>
-          </Div>
-        )}
+        {id === myAccountName ? 
+        <>
+          <PostModalBtnWrap>
+            <button onClick={onClickDeleteModal}>삭제</button>
+            <NavLinkStyle to='#'>수정</NavLinkStyle>
+          </PostModalBtnWrap>
+          {isOpenModal && (
+            <Div>
+              <ModalWrap>
+                <strong>매칭글을 삭제할까요?</strong>
+                <ModalBtnWrap>
+                  <button onClick={onClickCancel}>취소</button>
+                  <button onClick={handleMarketDelete}>삭제</button>
+                </ModalBtnWrap>
+              </ModalWrap>
+            </Div>
+          )}
+          </> : 
+          <>
+            <PostModalBtnWrap>
+              <button onClick={onClickDeleteModal}>신고하기</button>
+            </PostModalBtnWrap>
+            {isOpenModal && (
+              <Div>
+                <ModalWrap>
+                  <strong>신고할까요?</strong>
+                  <ModalBtnWrap>
+                    <button onClick={onClickCancel}>취소</button>
+                    <button>신고</button>
+                  </ModalBtnWrap>
+                </ModalWrap>
+              </Div>
+            )}
+          </>}
       </div>
     </PostModalWrap>
   );
