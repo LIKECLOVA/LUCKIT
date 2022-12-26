@@ -79,15 +79,13 @@ export const SnsPage = () => {
       <FeedPageHeader />
       <SnsPageArt>
         <ul>
-          {followList.map((story,index) => {
+          {followList.map((story, index) => {
             return (
-              <div key={index}>
-                <NavLink to={`/profile/${story.accountname}`}>
-                  <li>
-                    <SnsStoryImg src={story.image} onError={onErrorImg} />
-                  </li>
-                </NavLink>
-              </div>
+              <NavLink key={index} to={`/profile/${story.accountname}`}>
+                <li>
+                  <SnsStoryImg src={story.image} onError={onErrorImg} />
+                </li>
+              </NavLink>
             );
           })}
           {}
@@ -105,7 +103,7 @@ export const SnsPage = () => {
           <h1>럭킷들의 새로운 소식을 확인해보세요!</h1>
           <MainPostArea>
             {list.map((value) => {
-              return <MainSnsPost data={value} key={value._id} />;
+              return <MainSnsPost data={value} key={crypto.randomUUID()} />;
             })}
           </MainPostArea>
         </SnsPageSec>

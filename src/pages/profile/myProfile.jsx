@@ -14,42 +14,17 @@ import ProfilePost from './ProfilePost';
 
 
 export const MyProfile = () => {
-  /* eslint-disable */
-  // const [profileData, setProfileData] = useState('');
   const [marketPostsData, setMarketPostsData] = useState([])
   const [snsPostsData, setSnsPostsData] = useState([]);
   const [imgList, setImgList] = useState(true);
   const [imgAlbum, setImgAlbum] = useState(false);
   const { id } = useParams();
   const token = localStorage.getItem('Access Token');
-  // const Base_URL = `https://mandarin.api.weniv.co.kr/`
-  // const dispatch = useDispatch();
-  // const userInfoData = useSelector((state) => state.userInfoSlice.userData);
 
-  // console.log('프로필 박스', userInfoData);
 
   useEffect(() => {
 
-    // axios({
-    //     method: 'get',
-    //     url: `https://mandarin.api.weniv.co.kr/profile/${id}`,
-    //     headers: {
-    //       'Authorization': `Bearer ${token}`,
-    //       'Content-type': 'application/json',
-    //     },
-    //   }).then((res) => {
-    //           const resProfileData = res.data.profile;
 
-    //           setProfileData(resProfileData);
-   
-    //         })
-    //         .then((error) => {
-    //           console.log(error);
-    //         });
-
-    // dispatch(AxiosUserData(Base_URL+`profile/${id}`));
-  
-    // ///////////////////////////
     axios({
         method: 'get',
         url: `https://mandarin.api.weniv.co.kr/product/${id}/?limit=5`,

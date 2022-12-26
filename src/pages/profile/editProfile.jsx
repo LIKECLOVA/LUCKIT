@@ -3,7 +3,7 @@ import React, { useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { ProfileEditHeader } from '../../components/header/header';
-import { AxiosUserData, onChangeIntro, onChangeUserName, onChangeUserImg } from '../../reducers/getUserInfoSlice';
+import { AxiosUserData, onChangeIntro, onChangeUserName, AxiosImgUpload} from '../../reducers/getUserInfoSlice';
 import {
   EditProfilePageWrap,
   EditProfilePageUserInfo,
@@ -14,6 +14,8 @@ import {
   EditProfileImgInput,
 } from './editprofilestyle';
 
+
+
 export const EditProfile = () => {
   const fileInput = useRef();
   // 임시 데이터 /////
@@ -23,7 +25,6 @@ export const EditProfile = () => {
   const URL = `https://mandarin.api.weniv.co.kr/profile/${accountname}`;
   const dispatch = useDispatch();
   const userInfoData = useSelector((state) => state.userInfoSlice.userData); // 받아온 데이터
-
 
   // 내 프로필 정보 리덕스 store에 요청
   useEffect(() => {
@@ -39,22 +40,24 @@ export const EditProfile = () => {
     } else if (event.target.name === 'userInfo') {
       dispatch(onChangeIntro(event.target.value));
     } else if (event.target.name === 'userImg') {
-      const newImg = await editImg(event.target.files[0]);
-
-      dispatch(onChangeUserImg(newImg));
+      // const newImg = await editImg(event.target.files[0]);
+      // console.log('확인해봄ㅇㅇㅇ', editImg(event.target.files[0]) );
+       
+      // dispatch(onChangeUserImg(newImg));
+       dispatch(AxiosImgUpload(event.target.files[0]))
     }
   };
 
   // 이미지 변경 함수
-  const editImg = async (imgFile) => {
-    const formData = new FormData();
+  // const editImg = async (imgFile) => {
+  //   const formData = new FormData();
 
-    formData.append('image', imgFile);
+  //   formData.append('image', imgFile);
 
-    const res = await axios.post('https://mandarin.api.weniv.co.kr/image/uploadfile', formData);
+  //   const res = await axios.post('https://mandarin.api.weniv.co.kr/image/uploadfile', formData);
 
-    return `https://mandarin.api.weniv.co.kr/${res.data.filename}`;
-  };
+  //   return `https://mandarin.api.weniv.co.kr/${res.data.filename}`;
+  // };
 
   // 프로필 수정 함수
   const userData = {
@@ -68,7 +71,7 @@ export const EditProfile = () => {
 
   // 프로필수정
   async function profileSave() {
-    try {
+    try { 
       await axios.put('https://mandarin.api.weniv.co.kr/user', userData, {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -76,7 +79,7 @@ export const EditProfile = () => {
         }
       }).then( navigate(`/profile/${accountname}`) )
     } catch (error) {
-      console.log(error);
+      console.log('ㅇㅇ',error);
     }
   }
 
@@ -101,7 +104,7 @@ export const EditProfile = () => {
             <EditProFileUserLabel>
               <EditProfileUserInput
                 onChange={onEdit}
-                value={userInfoData.username}
+                value={userInfoData.username || ''}
                 type='text'
                 id='userName'
                 name='userName'
@@ -109,14 +112,14 @@ export const EditProfile = () => {
               />
             </EditProFileUserLabel>
             <EditProFileUserLabel>
-              <EditProfileUserInput readOnly value={userInfoData.accountname} type='text' id='userID' name='userID' />
+              <EditProfileUserInput readOnly value={userInfoData.accountname || '' } type='text' id='userID' name='userID' />
             </EditProFileUserLabel>
           </div>
         </EditProfilePageUserInfo>
         <EditProFileUserLabel>To. 나의 럭킷에게</EditProFileUserLabel>
         <EditProfileTextarea
           onChange={onEdit}
-          value={userInfoData.intro}
+          value={userInfoData.intro || '' }
           name='userInfo'
           style={{ resize: 'none' }}
         ></EditProfileTextarea>

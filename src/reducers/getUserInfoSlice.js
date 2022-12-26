@@ -19,6 +19,21 @@ export const AxiosUserData = createAsyncThunk('userdata/axiosUserData', async (U
   return res.data.profile;
 });
 
+// 이미지 업로드 함수
+export const AxiosImgUpload = createAsyncThunk(
+  'userImg/axiosUserData', async(imgFile) => {
+   
+    const formData = new FormData();
+
+    formData.append('image', imgFile);
+
+    const res = await axios.post('https://mandarin.api.weniv.co.kr/image/uploadfile', formData);
+
+    return `https://mandarin.api.weniv.co.kr/${res.data.filename}`;
+  }
+)
+
+
 export const userInfoSlice = createSlice({
   name: 'userInfo',
   initialState,
@@ -28,9 +43,6 @@ export const userInfoSlice = createSlice({
     },
     onChangeUserName(state, action) {
       state.userData.username = action.payload;
-    },
-    onChangeUserImg(state, action) {
-      state.userData.image = action.payload;
     },
     onChangeFollow(state, action) {
       state.userData.isfollow = action.payload;
@@ -47,8 +59,18 @@ export const userInfoSlice = createSlice({
       })
       .addCase(AxiosUserData.rejected, (state) => {
         state.status = 'fail';
-      });
+      })
+      .addCase(AxiosImgUpload.pending, (state) => {
+        state.status = 'loading';
+      })
+      .addCase(AxiosImgUpload.fulfilled, (state, action) => {
+        state.status = 'success';
+        state.userData.image = action.payload;
+      })
+      .addCase(AxiosImgUpload.rejected, (state) => {
+        state.status = 'fail';
+      })
   },
 });
 
-export const { onChangeIntro, onChangeUserName, onChangeUserImg, onChangeFollow } = userInfoSlice.actions;
+export const { onChangeIntro, onChangeUserName, onChangeFollow } = userInfoSlice.actions;

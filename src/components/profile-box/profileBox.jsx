@@ -18,7 +18,7 @@ export const ProfileBox = () => {
   const token = localStorage.getItem('Access Token');
 
   useEffect(() => {
-    dispatch(AxiosUserData(BaseURL)); // isFollow를 디펜던시 안줘서 갱신이 안되는 상황 1
+    dispatch(AxiosUserData(BaseURL)); 
   }, [isfollow]);
 
   const unfollow = async () => {
