@@ -45,6 +45,10 @@ const GlobalStyle = createGlobalStyle`
         font-weight: 500;
         color: ${palette.내부텍스트};
     }
+
+    p {
+        font-family: 'GmarketSans';
+    }
 `;
 
 export default GlobalStyle;
