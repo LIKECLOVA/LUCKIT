@@ -24,12 +24,14 @@ export const SnsUpload = () => {
 /* 이미지 업로드 함수 */
 async function ImgUpload(userImg) {
   const formData = new FormData()
-
+  const URL = 'https://mandarin.api.weniv.co.kr/';
+  
   formData.append('image', userImg)
   const res = await axios.post('https://mandarin.api.weniv.co.kr/image/uploadfile', formData)
+  
+  const Imgup= URL + res.data.filename;
 
-  console.log('이미지 파일 업로드',res);
-  return `${res.data.filename}`
+  return Imgup;
 }
 
   /* 이미지 띄워주는 함수 */
@@ -82,7 +84,10 @@ async function ImgUpload(userImg) {
     const snsImgList = [];
 
     for (let i = 0; i < postImg?.length; i++) {
-      snsImgList.push(ImgUpload(postImg[i]));
+      const img =ImgUpload(postImg[i]);
+ 
+      snsImgList.push(img);
+         
     }
     const test = await Promise.all(snsImgList)
 
