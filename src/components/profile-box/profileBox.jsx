@@ -29,8 +29,6 @@ export const ProfileBox = () => {
         'Content-type': 'application/json',
       },
     }).then((res) => {
-      // setFollowersCount(res.data.profile.followerCount);
-      // setIsFollow(res.data.profile.isfollow); <-- setState를 사용해서 store에 state가 갱신이 안되는 상황
       dispatch(onChangeFollow(res.data.profile.isfollow));
     });
   };

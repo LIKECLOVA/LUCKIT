@@ -14,30 +14,29 @@ import ProfilePost from './ProfilePost';
 
 
 export const MyProfile = () => {
-  const [marketPostsData, setMarketPostsData] = useState([])
+  // const [marketPostsData, setMarketPostsData] = useState([])
   const [snsPostsData, setSnsPostsData] = useState([]);
   const [imgList, setImgList] = useState(true);
   const [imgAlbum, setImgAlbum] = useState(false);
   const { id } = useParams();
   const token = localStorage.getItem('Access Token');
 
-
   useEffect(() => {
 
 
-    axios({
-        method: 'get',
-        url: `https://mandarin.api.weniv.co.kr/product/${id}/?limit=5`,
-        headers: {
-          'Authorization': `Bearer ${token}`,
-          'Content-type': 'application/json',
-        },
-      }).then((res) => {
-              setMarketPostsData(res.data.product);
-          })
-          .then((error) => {
-              console.log(error);
-          });
+    // axios({
+    //     method: 'get',
+    //     url: `https://mandarin.api.weniv.co.kr/product/${id}/?limit=5`,
+    //     headers: {
+    //       'Authorization': `Bearer ${token}`,
+    //       'Content-type': 'application/json',
+    //     },
+    //   }).then((res) => {
+    //           setMarketPostsData(res.data.product);
+    //       })
+    //       .then((error) => {
+    //           console.log(error);
+    //       });
     // ////////////////////////////
     axios({
         method: 'get',
@@ -70,7 +69,7 @@ export const MyProfile = () => {
       <ProfileAndChatHeader />
       <MyProfileWrap>
         <ProfileBox/>
-        <MarketPreviewPost marketPostsData={marketPostsData}/>
+        <MarketPreviewPost/>
         {snsPostsData.length !== 0 ? 
         <>
         <section>
