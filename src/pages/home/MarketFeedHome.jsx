@@ -52,10 +52,10 @@ console.log(productData)
           <HomeTitle>럿킷 메이트를 기다리고 있어요!✨</HomeTitle>
           <ListWrap>
             {productData.length > 0 &&
-              productData.map((data, index) => {
+              productData.map((data) => {
                 return (
                   <ListItem key={Math.random()}>
-                    <MarketPostBox data={data} index={index} />
+                    <MarketPostBox data={data} />
                     <MarketPostMoreBtn productId={data.id}/>
                   </ListItem>
                 );
