@@ -110,7 +110,7 @@ export const MarketFeedHome = ({ scrollTopData, followingData }) => {
                 return (
                   <ListItem key={Math.random()}>
                     <CardWrap>
-                      <img src={data.itemImage} />
+                      <img id='previewImg' src={data.itemImage} />
                       <CardCont>
                         <CardTitle>{data.itemName}</CardTitle>
                         <CardTxt>{data.link}</CardTxt>
