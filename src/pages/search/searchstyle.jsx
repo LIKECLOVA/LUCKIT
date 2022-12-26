@@ -58,7 +58,7 @@ export const Span = styled.span`
 `
 
 export const Div = styled.div`
-  display: flex;
+  display: inline;
 
   ${({ type }) => {
     return type === 'username'
@@ -72,5 +72,15 @@ export const Div = styled.div`
         `;
   }};
 
+  `
 
-`
+  export const SearchResult = styled.div`
+
+    dispaly: flex;
+
+    span {
+      margin-right: 2px;
+      font-size: 12px;
+    }
+    
+  `

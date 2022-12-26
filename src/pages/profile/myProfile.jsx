@@ -12,10 +12,7 @@ import IconPostAlbumOn from '../../assets/icon/icon-post-album-on.png';
 import IconPostAlbumOff from '../../assets/icon/icon-post-album-off.png';
 import MainSnsPost from '../../components/mainpost/mainSnsPost';
 
-
 export const Profile = () => {
- 
-
   const [snsPostsData, setSnsPostsData] = useState([]);
   const [imgList, setImgList] = useState(true);
   const [imgAlbum, setImgAlbum] = useState(false);
@@ -23,8 +20,6 @@ export const Profile = () => {
   const token = localStorage.getItem('Access Token');
 
   useEffect(() => {
-
-
 
     axios({
         method: 'get',
@@ -55,13 +50,10 @@ export const Profile = () => {
   return (
     <>
       <ProfileAndChatHeader />
-      
-
       <ProfileWrap>
           <ProfileBox/>
         <MarketPreviewPost/>
         {snsPostsData.length !== 0 ? 
-
         <section>
           <SnsPostBtn>
             <button onClick={onClickListBtn}>
