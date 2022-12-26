@@ -11,7 +11,7 @@ import {
 import IconSnsClova from '../../assets/icon/sns용-클로바-disabled.png';
 import IconSnsClovaFill from '../../assets/icon/sns용-클로바.png';
 
-export default function MarketPostBox({data, index, id}) {
+export default function MarketPostBox({data, accountname}) {
   const [confirmedValue, setConfirmedValue] = useState(JSON.parse(localStorage.getItem('stored')));
   const myAccountName = localStorage.getItem("Account Name");
 
@@ -71,9 +71,9 @@ export default function MarketPostBox({data, index, id}) {
           <CardTitle>{data.itemName}</CardTitle>
           <CardTxt>{data.link}</CardTxt>
           <CardUser>FROM. {data.author.username}</CardUser>
-          {id !== myAccountName ? <>
-          <button onClick={onClickApplyBtn} id={index}>
-            {confirmedValue && confirmedValue[index] ? <>
+          {accountname !== myAccountName ? <>
+          <button onClick={onClickApplyBtn} id={data.id}>
+            {confirmedValue && confirmedValue[data.id] ? <>
             <img src={IconSnsClovaFill} alt='취미 메이트 신청 버튼'/>
             </> : <>
             <img src={IconSnsClova} alt='취미 메이트 신청 버튼'/>

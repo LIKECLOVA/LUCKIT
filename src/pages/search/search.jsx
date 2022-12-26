@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { SearchHeader } from '../../components/header/header';
 import { NavBar } from '../../components/navbar/navBar';
-import { SearchMain, SearchListWrap, Span, Div, NoResultWrap } from './searchstyle'
+import { SearchMain, SearchListWrap, Span, Div, NoResultWrap, SearchResult } from './searchstyle'
 import { SnsProfileWrap, AuthorNavLink, AuthorImgNavLink } from '../profile/myprofilestyle';
 import DefaultUserImg from '../../assets/icon/basic-profile.png'
 
@@ -65,8 +65,11 @@ export const Search = () => {
                     <img src={user.image} onError={onErrorImg} alt="프로필이미지" />
                   </AuthorImgNavLink>
                   <AuthorNavLink to={`/profile/${user.accountname}`}>
-                    <KeywordColor user={user.username} word={keyword} type='username'>{user.username} </KeywordColor>
-                    <KeywordColor user={user.accountname} word={keyword} type='accountname'>@ {user.accountname}</KeywordColor>
+                    <KeywordColor user={user.username} word={keyword} type='username' />
+                    <SearchResult>
+                      <span>@</span>
+                      <KeywordColor user={user.accountname} word={keyword}type='accountname' />
+                  </SearchResult>
                   </AuthorNavLink>
                 </SnsProfileWrap>
               </li>
