@@ -19,7 +19,7 @@ export function ImgUploadBtn({ posi, click }) {
   return <IconBtn onClick={click} icon={imgBtn} posi={posi}></IconBtn>;
 }
 /* Sns게시글 더보기 버튼 */
-export function MoreBtn({postId, accountname}) {
+export function MoreBtn({postId, accountname, postContent, postImg}) {
   const [isOpen, setIsOpen] = useState(false);
   const accountName = localStorage.getItem("Account Name");
 
@@ -34,7 +34,7 @@ export function MoreBtn({postId, accountname}) {
   return (
     <>
       <IconBtn onClick={onClick}icon={moreBtn}></IconBtn>
-      {isOpen && <SnsPostModal onClickClose={onClickClose} accountName={accountName} postId={postId} accountname={accountname}/>}
+      {isOpen && <SnsPostModal onClickClose={onClickClose} accountName={accountName} postId={postId} accountname={accountname} postContent={postContent} postImg={postImg}/>}
     </>
   );
 }

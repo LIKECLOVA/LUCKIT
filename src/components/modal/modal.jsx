@@ -128,7 +128,7 @@ export const MarketPreviewModal = ({ onClickClose, productId }) => {
 };
 
 /* Sns게시글 모달 */
-export const SnsPostModal = ({ onClickClose, accountName, accountname, postId }) => {
+export const SnsPostModal = ({ onClickClose, accountName, accountname, postId, postContent, postImg}) => {
   const token = localStorage.getItem('Access Token');
   const [isOpenModal, setIsOpenModal] = useState(false);
 
@@ -139,6 +139,7 @@ export const SnsPostModal = ({ onClickClose, accountName, accountname, postId })
   const onClickCancel = () => {
     setIsOpenModal(false);
   };
+
   const deletePost = () => {
     console.log('게시글아이디', `${postId}`);
 
@@ -168,7 +169,12 @@ export const SnsPostModal = ({ onClickClose, accountName, accountname, postId })
           <>
             <PostModalBtnWrap>
               <button onClick={onClickDeleteModal}>삭제</button>
-              <NavLinkStyle to='#'>수정</NavLinkStyle>
+              <NavLinkStyle to={'/snsmodify'} state={{
+                    postId: postId,
+                    postContent: postContent,
+                    postImg:postImg
+                  }}
+              >수정</NavLinkStyle>
             </PostModalBtnWrap>
             {isOpenModal && (
               <Div>

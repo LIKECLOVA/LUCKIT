@@ -17,6 +17,7 @@ import { ChatRoom } from './chat/chatRoom';
 import { SnsUpload } from './sns/snsUpload';
 import { SnsPage } from './sns/snsPage';
 import { SnsPost } from '../components/sns-post/snsPost';
+import { SnsModify } from '../pages/sns/snsModify'
 
 import { MarketPost } from './market/marketPost.jsx';
 import { MarketUpload } from '../components/market-post/marketUpload/marketUpload';
@@ -155,6 +156,14 @@ const MainPages = () => {
         element={
           <PrivateRoute>
             <SnsUpload />
+          </PrivateRoute>
+        }
+      ></Route>
+      <Route
+        path='/snsmodify'
+        element={
+          <PrivateRoute>
+            <SnsModify />
           </PrivateRoute>
         }
       ></Route>
