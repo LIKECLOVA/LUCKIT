@@ -6,7 +6,7 @@ import { Join } from '../components/join/join';
 import { Home } from './home/home.jsx';
 import JoinProfile from '../components/join/joinProfile';
 import { Search } from './search/search';
-import { MyProfile } from './profile/myProfile';
+import { Profile } from './profile/myProfile';
 import { EditProfile } from './profile/editProfile';
 
 import { YourFollow } from './follow/yourFollow';
@@ -18,6 +18,7 @@ import { SnsUpload } from './sns/snsUpload';
 import { SnsPage } from './sns/snsPage';
 import { SnsPost } from '../components/sns-post/snsPost';
 
+import { MarketPost } from './market/marketPost.jsx';
 import { MarketUpload } from '../components/market-post/marketUpload/marketUpload';
 import { MarketUpdate } from '../components/market-post/marketUpdate/marketUpdate';
 import Error from './404-error/errorPage.jsx';
@@ -97,7 +98,7 @@ const MainPages = () => {
         path='/profile/:id'
         element={
           <PrivateRoute>
-            <MyProfile />
+            <Profile />
           </PrivateRoute>
         }
       ></Route>
@@ -170,6 +171,14 @@ const MainPages = () => {
         element={
           <PrivateRoute>
             <MarketUpload />
+          </PrivateRoute>
+        }
+      ></Route>
+       <Route
+        path='/marketpost/:id'
+        element={
+          <PrivateRoute>
+            <MarketPost />
           </PrivateRoute>
         }
       ></Route>

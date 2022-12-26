@@ -9,10 +9,9 @@ export const ProfileBox = ({ profileData }) => {
   const [isFollow, setIsFollow] = useState(isfollow);
   const [followersCount, setFollowersCount] = useState(followerCount)
   const { id } = useParams();
-
-
   const myAccountName = localStorage.getItem('Account Name')
   const token = localStorage.getItem('Access Token')
+
   const unfollow = async () => {
     await axios(`https://mandarin.api.weniv.co.kr/profile/${id}/unfollow`, {
       method: 'DELETE',
@@ -65,8 +64,8 @@ return (
             <div className='leftMyInfoBox'>
               <img src={profileData.image} onError={onErrorImg} alt='프로필사진'></img>
               <div className='profileCont'>
-                <h2>{profileData.accountname}</h2>
-                <p>@ {profileData.username}</p>
+                <h2>{profileData.username}</h2>
+                <p>@ {profileData.accountname}</p>
                 <div className='followerCont'>
                   <span>팔로워</span>
                   <FollowNavLink to={ CheckProfile ? `/myfollow` : `/yourfollow`} state={{ text: 'followers', accountname: accountname }}>
@@ -85,7 +84,7 @@ return (
                 <EditProfileNavLink to='/editprofile'>프로필 수정</EditProfileNavLink>
               </> : 
               <>
-                <IsFollowButton onClick={ onClick }>{isFollow ? '언팔로우': '팔로우'}</IsFollowButton>
+                <IsFollowButton onClick={ onClick } isFollow={isFollow}>{isFollow ? '언팔로우': '팔로우'}</IsFollowButton>
               </>}
             </div>
           </div>

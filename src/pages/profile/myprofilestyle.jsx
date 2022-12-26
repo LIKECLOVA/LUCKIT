@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
-export const MyProfileWrap = styled.section`
+export const ProfileWrap = styled.section`
 
     padding: 0 15px;
     overflow: scroll;
@@ -30,8 +30,8 @@ export const SnsPostBtn = styled.div`
   
     button {
         display: block;
-        width: 32px;
-        height: 32px;
+        width: 30px;
+        height: 30px;
         border: none;
         padding: 0;
         margin-right: 15px;
@@ -48,7 +48,7 @@ export const SnsPostBtn = styled.div`
 
 export const ImgAlbumBox = styled.ul`
 
-    margin-top: 15px;
+    margin: 15px 0 80px;
     display: flex;
     align-items: center;
     flex-wrap: wrap;
@@ -113,41 +113,6 @@ export const AuthorNavLink = styled(NavLink)`
     }
     
 `
-
-export const SnsContBox = styled.div`
-  
-  margin-top : 15px;
-  margin-left: auto;
-  width: 510px;
-
-  p {
-    margin-bottom: 10px;
-    font-size: 14px;
-    line-height: 20px;
-  }
-
-    .btnWrap {
-      margin-top: 20px;
-
-    button {
-      background-color: transparent;
-      padding: 0;
-      margin-right: 10px;
-
-      img {
-        width: 20px;
-        height: 20px;
-      }
-    }
-  }
-
-  .snsImgList {
-    display: flex;
-    gap: 10px;
-    flex-wrap: no-wrap;
-    overflow-x: auto;
-  }
-  `
 
   export const ImgListDiv = styled.div`
 

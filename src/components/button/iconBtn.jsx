@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 // import { useParams } from 'react-router-dom';
-import { IconBtn } from './iconBtnstyle';
+import { IconBtn, MarketMoreBtn } from './iconBtnstyle';
 // import addBtn from '../../assets/icon/addBtn.svg';
 import moreBtn from '../../assets/icon/s-icon-more-vertical.png';
 import imgBtn from '../../assets/icon/upload-file.png';
-import { CommentModal, SnsPostModal } from '../modal/modal';
+import { CommentModal, MarketPreviewModal, SnsPostModal } from '../modal/modal';
 
 
 // export function AddBtn({ posi }) {
@@ -57,4 +57,25 @@ export function CommentMoreBtn({postId, commentId, accountname}) {
       {isOpen && <CommentModal onClickClose={onClickClose} accountName={accountName} postId={postId} commentId={commentId} accountname={accountname}/>}
     </>
   );
+}
+
+export const MarketPostMoreBtn  = ({productId}) => {
+  const [isOpen, setIsOpen] = useState(false);
+  
+  const onClick = () => {
+    setIsOpen(true);
+  };
+
+  const onClickClose = (value) => {
+    setIsOpen(value);
+  };
+
+  return (
+    <>
+      <MarketMoreBtn onClick={onClick}>
+        <img src={moreBtn} alt='더보기 버튼'/>
+      </MarketMoreBtn>
+      {isOpen && <MarketPreviewModal onClickClose={onClickClose} productId={productId}/>}
+    </>
+  )
 }

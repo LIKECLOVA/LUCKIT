@@ -1,70 +1,59 @@
-import React, { useState } from 'react';
-import { Link, NavLink, useParams } from 'react-router-dom';
+import React from 'react';
+import { NavLink, useParams } from 'react-router-dom';
 import { MarketPreviewBoxWrap } from './marketpreviewboxstyle';
 import IconMarketPostUpload from '../../assets/icon/market-plus.png';
-import { MarketPreviewModal } from '../modal/modal';
+// import { MarketPreviewModal } from '../modal/modal';
+import IconClova from '../../assets/icon/sns용-클로바-disabled.png'
 
 export const MarketPreviewPost = ({ marketPostsData }) => {
-  const [isOpen, setIsOpen] = useState(false);
-  const accountName = localStorage.getItem('Account Name');
+  // const [isOpen, setIsOpen] = useState(false);
+  const myAccountName = localStorage.getItem('Account Name');
   const { id } = useParams();
 
-  const onClick = () => {
-    setIsOpen(true);
-  };
+  // const onClick = () => {
+  //   setIsOpen(true);
+  // };
 
-  const onClickClose = (value) => {
-    setIsOpen(value);
-  };
+  // const onClickClose = (value) => {
+  //   setIsOpen(value);
+  // };
 
   return (
     <MarketPreviewBoxWrap>
-      {marketPostsData.length !== 0 ? (
-        <>
           <div className='headingWrap'>
             <h2>
-              <strong>{accountName}</strong>님이 찾는 럭킷 메이트✨
+              <strong>{id}</strong>님이 찾는 럭킷 메이트✨
             </h2>
-            <Link to='#'>
+            {id === myAccountName ?
+            <NavLink to='/upload'>
               <img src={IconMarketPostUpload} alt='마켓 게시글 등록 버튼' />
-            </Link>
+            </NavLink>
+            : <></>}
           </div>
           <ul>
+            {marketPostsData.length === 0 &&
+            <div className='noPostBox'>
+              <img src={IconClova} alt=''/>
+              <p>게시물이 없습니다.</p>
+            </div>
+            }
             {marketPostsData &&
               marketPostsData.map((post) => {
                 return (
                   <li key={post.id}>
-                    {accountName === id ? (
-                      <>
-                        <button onClick={onClick}>
+                        {/* <button onClick={onClick}>
                           <p>{post.itemName}</p>
                           <img src={post.itemImage} />
-                        </button>
-                      </>
-                    ) : (
-                      <NavLink to='#'>
+                        </button> */}
+                      <NavLink to={`/marketpost/${id}`}>
                         <p>{post.itemName}</p>
                         <img src={post.itemImage} />
                       </NavLink>
-                    )}
                   </li>
                 );
               })}
           </ul>
-          {isOpen && <MarketPreviewModal onClickClose={onClickClose} />}
-        </>
-      ) : (
-        <>
-          <div className='headingWrap'>
-            <h2>
-              <strong>{accountName}</strong>님이 찾는 럭킷 메이트✨
-            </h2>
-            <Link to='#'>
-              <img src={IconMarketPostUpload} alt='마켓 게시글 등록 버튼' />
-            </Link>
-          </div>
-        </>
-      )}
+          {/* {isOpen && <MarketPreviewModal onClickClose={onClickClose} />} */}
     </MarketPreviewBoxWrap>
   );
 };
