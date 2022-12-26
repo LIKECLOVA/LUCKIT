@@ -1,22 +1,42 @@
-import React from 'react';
-import { NavLink, useParams } from 'react-router-dom';
-import { MarketPreviewBoxWrap } from './marketpreviewboxstyle';
-import IconMarketPostUpload from '../../assets/icon/market-plus.png';
-// import { MarketPreviewModal } from '../modal/modal';
+
+
+import React, { useEffect, useState } from 'react'
+import { NavLink, useParams } from 'react-router-dom'
+import { useSelector, useDispatch } from 'react-redux'
+import { MarketPreviewBoxWrap } from './marketpreviewboxstyle'
+import IconMarketPostUpload from '../../assets/icon/market-plus.png'
+import { MarketPreviewModal } from '../modal/modal'
+import { AxiosProductList } from '../../reducers/getProductListSlice'
 import IconClova from '../../assets/icon/sns용-클로바-disabled.png'
+
+
+
 
 export const MarketPreviewPost = ({ marketPostsData }) => {
   // const [isOpen, setIsOpen] = useState(false);
   const myAccountName = localStorage.getItem('Account Name');
   const { id } = useParams();
 
-  // const onClick = () => {
-  //   setIsOpen(true);
-  // };
 
-  // const onClickClose = (value) => {
-  //   setIsOpen(value);
-  // };
+
+export const MarketPreviewPost = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const accountName = localStorage.getItem("Account Name");
+  const {id} = useParams()
+  const product = useSelector(state => state.productListSlice.productList);
+  const dispatch = useDispatch();
+  const URLProduct = `https://mandarin.api.weniv.co.kr/product/${id}`;
+
+  console.log('뿌려줄거!!!!', product);
+
+
+
+
+  useEffect(()=>{
+    dispatch(AxiosProductList(URLProduct));
+  },[])
+
+ 
 
   return (
     <MarketPreviewBoxWrap>
@@ -41,10 +61,6 @@ export const MarketPreviewPost = ({ marketPostsData }) => {
               marketPostsData.map((post) => {
                 return (
                   <li key={post.id}>
-                        {/* <button onClick={onClick}>
-                          <p>{post.itemName}</p>
-                          <img src={post.itemImage} />
-                        </button> */}
                       <NavLink to={`/marketpost/${id}`}>
                         <p>{post.itemName}</p>
                         <img src={post.itemImage} />
@@ -53,7 +69,7 @@ export const MarketPreviewPost = ({ marketPostsData }) => {
                 );
               })}
           </ul>
-          {/* {isOpen && <MarketPreviewModal onClickClose={onClickClose} />} */}
+        
     </MarketPreviewBoxWrap>
   );
 };

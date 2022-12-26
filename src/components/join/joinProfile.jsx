@@ -13,9 +13,9 @@ import {
 } from './joinprofilestyle';
 
 const JoinProfile = () => {
-  const location = useLocation();
   const fileInput = useRef();
   const navigate = useNavigate();
+  const location = useLocation();
   const email = location.state.email;
   const password = location.state.password;
   const [intro, setIntro] = useState('');

@@ -12,9 +12,11 @@ import IconPostAlbumOn from '../../assets/icon/icon-post-album-on.png';
 import IconPostAlbumOff from '../../assets/icon/icon-post-album-off.png';
 import MainSnsPost from '../../components/mainpost/mainSnsPost';
 
+
 export const Profile = () => {
-  const [profileData, setProfileData] = useState();
+ 
   const [marketPostsData, setMarketPostsData] = useState()
+
   const [snsPostsData, setSnsPostsData] = useState([]);
   const [imgList, setImgList] = useState(true);
   const [imgAlbum, setImgAlbum] = useState(false);
@@ -23,37 +25,21 @@ export const Profile = () => {
 
   useEffect(() => {
 
-    axios({
-        method: 'get',
-        url: `https://mandarin.api.weniv.co.kr/profile/${id}`,
-        headers: {
-          'Authorization': `Bearer ${token}`,
-          'Content-type': 'application/json',
-        },
-    }).then((res) => {
-          const resProfileData = res.data.profile;
 
-          setProfileData(resProfileData);
-   
-      })
-        .then((error) => {
-            console.log(error);
-        });
-            
-    axios({
-        method: 'get',
-        url: `https://mandarin.api.weniv.co.kr/product/${id}/?limit=5`,
-        headers: {
-          'Authorization': `Bearer ${token}`,
-          'Content-type': 'application/json',
-        },
-    }).then((res) => {
-          setMarketPostsData(res.data.product);
-      })
-        .then((error) => {
-            console.log(error);
-        });
-
+    // axios({
+    //     method: 'get',
+    //     url: `https://mandarin.api.weniv.co.kr/product/${id}/?limit=5`,
+    //     headers: {
+    //       'Authorization': `Bearer ${token}`,
+    //       'Content-type': 'application/json',
+    //     },
+    //   }).then((res) => {
+    //           setMarketPostsData(res.data.product);
+    //       })
+    //       .then((error) => {
+    //           console.log(error);
+    //       });
+    // ////////////////////////////
     axios({
         method: 'get',
         url: `https://mandarin.api.weniv.co.kr/post/${id}/userpost/?limit=10`,
@@ -67,6 +53,7 @@ export const Profile = () => {
           .then((error) => {
               console.log(error);
           });
+
       }, [location, id])
 
   const onClickListBtn = () => {
@@ -82,11 +69,17 @@ export const Profile = () => {
   return (
     <>
       <ProfileAndChatHeader />
+      
+        <ProfileBox/>
+        <MarketPreviewPost/>
+        {snsPostsData.length !== 0 ? 
+        <>
+
       <ProfileWrap>
-        {profileData && 
-        <ProfileBox profileData={profileData} />} 
-        {marketPostsData && <MarketPreviewPost marketPostsData={marketPostsData}/>}
-        {snsPostsData.length > 0 ? 
+          <ProfileBox/>
+        <MarketPreviewPost/>
+        {snsPostsData.length !== 0 ? 
+
         <section>
           <SnsPostBtn>
             <button onClick={onClickListBtn}>

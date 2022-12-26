@@ -77,7 +77,7 @@ export const MarketPreviewBoxWrap = styled.div`
         p {
             text-align: center;
             padding: 8px;
-            dispaly: block;
+            display: block;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
