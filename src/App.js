@@ -1,12 +1,14 @@
 import Pages from './pages/pages';
-import { Allwrap } from './styles/global/Allwrap';
+import { Allwrap, Bg } from './styles/global/Allwrap';
 
 function App() {
   return (
     <>
-      <Allwrap>
-        <Pages/>
-      </Allwrap>
+      <Bg>
+        <Allwrap>
+          <Pages />
+        </Allwrap>
+      </Bg>
     </>
   );
 }

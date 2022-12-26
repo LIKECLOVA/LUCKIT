@@ -58,7 +58,6 @@ export const MarketPreviewModal = ({ onClickClose, productId }) => {
   const myAccountName = localStorage.getItem("Account Name");
   const { id } = useParams();
 
-
   const onClickDeleteModal = () => {
     setIsOpenModal(true);
   };

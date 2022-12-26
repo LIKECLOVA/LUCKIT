@@ -1,5 +1,20 @@
 import styled from 'styled-components';
 
+export const Bg = styled.div`
+  background: #dbdbdb;
+  /* background-image: url(''); */
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  padding: 30px;
+  width: 100%;
+  height: 100vh;
+  @media screen and (max-width: 768px) {
+    background: none;
+  }
+`;
+
 const Allwrap = styled.div`
   @font-face {
     font-family: 'GmarketSans';
@@ -15,16 +30,16 @@ const Allwrap = styled.div`
   }
   font-family: 'GmarketSans';
   position: absolute;
-  background-color: white;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  width: 100%;
-  height: 100%;
-  max-width: 600px;
-  max-height: 1180px;
+  width: 55vmin;
+  height: 95vmin;
   overflow: hidden;
+  outline: 10px solid #e5e5e5;
+  border-radius: 30px;
   box-shadow: rgba(152, 152, 152, 0.24) 0px 3px 8px;
+  background: #fff;
 `;
 
 export { Allwrap };
