@@ -5,17 +5,17 @@ const bannerData = [
   {
     id: 1,
     name: '광고1',
-    image: 'https://user-images.githubusercontent.com/102042383/209500468-490399a9-2066-42ac-b84a-e6c5b6c4db49.png',
+    image: 'https://user-images.githubusercontent.com/102042383/209569990-f3f1144f-5771-4dd9-b3bb-e377b6818977.png',
   },
   {
     id: 2,
     name: '광고2',
-    image: 'https://user-images.githubusercontent.com/102042383/209500473-79d5ead6-291b-4bf4-9127-1ed356f44e30.png',
+    image: 'https://user-images.githubusercontent.com/102042383/209569995-dee8b50c-13aa-47a1-a420-64e368151255.png',
   },
   {
     id: 3,
     name: '광고3',
-    image: 'https://user-images.githubusercontent.com/102042383/209503290-7169ccb2-84de-4d80-a808-5a9017a37e37.png',
+    image: 'https://user-images.githubusercontent.com/102042383/209570001-9ac9446d-0b69-4ebf-9ffb-cf0dde3d9448.png',
   },
 ];
 

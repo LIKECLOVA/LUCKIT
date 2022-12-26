@@ -52,22 +52,20 @@ export const HomeSection = styled.section`
 
 export const HomeTitle = styled.p`
   background-color: #edf8e1;
-  padding: 18px;
+  padding: 16px;
   text-align: center;
   border-radius: 30px;
   color: #457907;
   font-weight: 500;
-  margin-top: 50px;
-  margin-bottom: 90px;
+  margin-top: 5%;
+  margin-bottom: 20%;
 `;
 
 export const ListWrap = styled.ul`
-
   margin-top: 60px;
 `;
 
 export const ListItem = styled.li`
-
   position: relative;
   margin-bottom: 70px;
   border-radius: 30px;
