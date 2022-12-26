@@ -26,7 +26,9 @@ export const EditProfile = () => {
   const dispatch = useDispatch();
   const userInfoData = useSelector((state) => state.userInfoSlice.userData); // 받아온 데이터
 
+
   // 내 프로필 정보 리덕스 store에 요청
+
   useEffect(() => {
     // 비동기 액션 함수를 호출해서 slice안에 있는 데이터를 바꿔주는 것
     dispatch(AxiosUserData(URL));
@@ -71,7 +73,9 @@ export const EditProfile = () => {
 
   // 프로필수정
   async function profileSave() {
+
     try { 
+
       await axios.put('https://mandarin.api.weniv.co.kr/user', userData, {
         headers: {
           Authorization: `Bearer ${token}`,

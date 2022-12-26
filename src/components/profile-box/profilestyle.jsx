@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { palette } from '../../styles/global/globalColor'
 
 export const MyProfileInfoBox = styled.div`
@@ -32,7 +32,7 @@ export const MyProfileInfoBox = styled.div`
 
             display: flex;
             flex-direction: column;
-            padding: 20px;
+            padding: 10px 20px;
 
             h2{
                 font-size: 22px;
@@ -47,7 +47,7 @@ export const MyProfileInfoBox = styled.div`
         .followerCont {
             display: flex;
             align-items: center;
-            margin-top: 15px;
+            margin-top: 28px;
 
             span {
                 margin-right: 5px;
@@ -102,9 +102,19 @@ export const IsFollowButton = styled.button`
 
     width: 75px;
     height: 34px;
-    color: white;
-    background-color: ${palette.초록초록};
     border-radius: 30px;
     font-size: 14px;
+    ${({ isFollow }) => {
+        return isFollow
+          ? css`
+              background-color: white;
+              border: 1px solid #DBDBDB;
+              color: ${palette.내부텍스트};
+            `
+          : css`
+              background-color: ${palette.초록초록};
+              color: white;
+            `;
+      }};
 
 `

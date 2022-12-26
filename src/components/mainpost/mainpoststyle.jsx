@@ -4,13 +4,12 @@ const MainSnsPostWhap= styled.div`
     position: relative;
     align-items:top;
     box-sizing: border-box;
-    margin-top: 20px;
-    padding: 20px 0px 40px 0px;
+    padding: 1.6rem 0rem;
     width: 100%;
     background: rgb(255, 255, 255);
     display: flex;
-    border-top-right-radius:10px;
-    border-top-left-radius: 10px;
+    border-top-right-radius:15px;
+    border-top-left-radius: 15px;
     overflow: hidden;
     .snsImgList {
     width: 420px;
@@ -45,7 +44,7 @@ export { UserProfileImg }
 const SnsPostBox= styled.div`
     align-items: left;
     box-sizing: border-box;
-    width: 90%;
+    width: 420px;
     background: rgb(255, 255, 255);
     display: flex;
     flex-direction: column;
@@ -57,7 +56,8 @@ const SnsPostContent= styled.p`
       margin: 15px 0px;
       font-weight: 300;
     font-size: 18px;
-    line-height: 16px;
+    line-height: 26px;
+    white-space: initial;
 `;
 
 export { SnsPostContent }
@@ -97,7 +97,7 @@ const IconWrap= styled.div`
   font-weight: 400;
   font-size: 1.2rem;
   line-height: 1.2rem;
-  margin-bottom: 1.6rem;
+  margin: 0.8rem 0rem ;
   align-items: center;
   vertical-align:bottom;
   z-index: 10;

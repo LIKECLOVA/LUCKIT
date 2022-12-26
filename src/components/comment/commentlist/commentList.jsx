@@ -1,9 +1,10 @@
 import React from 'react';
 import { timeForToday } from '../../timeForToday'
 import * as S from './commentliststyle';
-import {MoreBtn} from '../../button/iconBtn'
+import {CommentMoreBtn} from '../../button/iconBtn'
 
-function CommentList({ comments }) {
+function CommentList({ comments,postId }) {
+
   return (
     <S.CommentListWrapper>
       <S.CommentListContainer>
@@ -17,9 +18,7 @@ function CommentList({ comments }) {
                   <small>{timeForToday(data.createdAt)}</small>
                 </S.InformationBox>
                 <S.ModalBtnBox>
-                  <MoreBtn>
-                    {/* <CommentModalContent /> */}
-                  </MoreBtn>
+                  <CommentMoreBtn accountname={data.author.accountname} postId={postId} commentId={data.id}/>
                 </S.ModalBtnBox>
                 <S.CommentText>{data.content}</S.CommentText>
               </S.CommentListLi>

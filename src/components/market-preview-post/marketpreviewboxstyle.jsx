@@ -34,14 +34,42 @@ export const MarketPreviewBoxWrap = styled.div`
         ul {
             display: flex;
             flex-wrap: nowrap;
-            overflow-x: scroll;
-            gap: 20px;
+            gap: 18px;
             margin-top: 20px;
+            overflow-x: auto;
+            ::-webkit-scrollbar {
+            height: 1.4rem;
+            }
+            ::-webkit-scrollbar-thumb {
+            background-color: rgb(237, 237, 237);
+            border-radius: 20px;
+            border: 0.5rem solid #fff;
+            }
+            ::-webkit-scrollbar-track {
+            }
+
+            .noPostBox {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                img {
+                    width: 120px;
+                    height: 120px;
+                    margin: 15px 0;
+                }
+
+                p {
+                    font-size: 14px;
+                    color: rgba(0, 0, 0, 0.5)
+                }
+            }
         }
     
         li {
             flex-shrink: 0;
-            width: 180px;
+            width: 178px;
             border: 2px solid #F1F1F1;
             border-radius: 10px;
             overflow: hidden;

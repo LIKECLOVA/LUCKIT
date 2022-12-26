@@ -7,14 +7,14 @@ const CommentInput = ({ getComments, postId }) => {
     const [comment, setComment] = useState('');
     const [isValid, setIsValid] = useState(false);
     const [authorImg, setAuthorImg] = useState('');
-    const token =
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzOTA5MzIwMTdhZTY2NjU4MWMwMzNlNyIsImV4cCI6MTY3NjQ0NDc2OSwiaWF0IjoxNjcxMjYwNzY5fQ.PcmkXNY7JTV8PlIYVh9XOCbYhiD789NfFYXrjOQ6_ik';
-   const accountName='clover3';
+    const token = localStorage.getItem('Access Token');
+    const accountname = localStorage.getItem('Account Name');
+    
 
     useEffect(() => {
-      if (accountName) {
+      if (accountname) {
         axios({
-          url: `https://mandarin.api.weniv.co.kr/profile/${accountName}`,
+          url: `https://mandarin.api.weniv.co.kr/profile/${accountname}`,
           method: 'GET',
           headers: {
             Authorization: `Bearer ${token}`,
@@ -28,7 +28,7 @@ const CommentInput = ({ getComments, postId }) => {
             console.log(error);
           });
       }
-    }, [accountName]);
+    }, [accountname]);
   
     const handleInput = (e) => {
       setComment(e.target.value);

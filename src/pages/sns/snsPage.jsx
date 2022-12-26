@@ -8,14 +8,19 @@ import DefaultUserImg from '../../assets/icon/basic-profile-img-.png';
 import { SerchBtn } from '../../components/button/button';
 
 export const SnsPage = () => {
-  const [list, setList] = useState([]);
-  const [followList, setFollowList] = useState([]);
+
+  const token = localStorage.getItem('Access Token');
+  const accountname = localStorage.getItem('Account Name');
+  const [list ,setList] = useState([]);
+  const [followList,setFollowList] = useState([]);
   const URL = `https://mandarin.api.weniv.co.kr`;
   const FEED_PATH = `/post/feed`;
-  const STORY_PATH = `/profile/fffffff/following`;
-  const USER_PATH = `/user/myinfo`;
-  const token =
-    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzOTA5MzIwMTdhZTY2NjU4MWMwMzNlNyIsImV4cCI6MTY3NjQ0NDc2OSwiaWF0IjoxNjcxMjYwNzY5fQ.PcmkXNY7JTV8PlIYVh9XOCbYhiD789NfFYXrjOQ6_ik';
+  const STORY_PATH=`/profile/${accountname}/following`;
+  const USER_PATH=`/user/myinfo`;
+  
+  // const token =
+  // 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzOTA5MzIwMTdhZTY2NjU4MWMwMzNlNyIsImV4cCI6MTY3NjQ0NDc2OSwiaWF0IjoxNjcxMjYwNzY5fQ.PcmkXNY7JTV8PlIYVh9XOCbYhiD789NfFYXrjOQ6_ik';
+
 
   // "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzYTFkOGFiMTdhZTY2NjU4MWQ4OTNkNyIsImV4cCI6MTY3NjczNTE2MCwiaWF0IjoxNjcxNTUxMTYwfQ.mZ65WvbPOHTMjCBes56OHWVcTBH-yPHsRrlQvorojEQ";
 
@@ -75,6 +80,7 @@ export const SnsPage = () => {
   };
 
   return (
+
     <>
       <FeedPageHeader />
       <SnsPageArt>

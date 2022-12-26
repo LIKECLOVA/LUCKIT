@@ -1,7 +1,7 @@
 import React, {useEffect,useState} from 'react'
 import axios from 'axios';
 import { useNavigate, useParams } from 'react-router-dom';
-import {SnsPostModalWrap, CloseBtn} from './snspoststyle'
+import {SnsPostModalWrap, CloseBtn, PostDetailWrap} from './snspoststyle'
 import MainSnsPost from '../mainpost/mainSnsPost'
 import CommentBox from '../comment/commentBox'
 
@@ -10,11 +10,9 @@ export const SnsPost = () => {
   const [postDetail ,setPostDetail] = useState(null);
   const [comments, setComments] = useState([]);
   const navigate=useNavigate();
-
+  const token = localStorage.getItem('Access Token');
   const URL = `https://mandarin.api.weniv.co.kr/post/${postId}`;
-  const token =
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzOTA5MzIwMTdhZTY2NjU4MWMwMzNlNyIsImV4cCI6MTY3NjQ0NDc2OSwiaWF0IjoxNjcxMjYwNzY5fQ.PcmkXNY7JTV8PlIYVh9XOCbYhiD789NfFYXrjOQ6_ik';
-
+  
 //   console.log(URL)
 //  console.log('뀨?',postId)
  const postDetailaxios = async () => {
@@ -27,6 +25,7 @@ export const SnsPost = () => {
 
     setPostDetail(res.data.post)
  }
+
 
  const getComments = () => {
   axios({
@@ -50,15 +49,20 @@ export const SnsPost = () => {
     getComments()
   },[])
 
-  console.log('뭐얌',comments)
-
   return (
+    <PostDetailWrap>
     <SnsPostModalWrap>
+      <div className='closeArt'>
       <CloseBtn onClick={()=>{navigate(-1)}}/>
+      </div>
+      <div className='SnsContentWrap'>
       {postDetail !== null && < MainSnsPost data={postDetail}/>} 
       <CommentBox postId={postId}
         comments={comments}
-        getComments={getComments}/>
+        getComments={getComments}
+        />
+      </div>
     </SnsPostModalWrap>
+    </PostDetailWrap>
   )
 }

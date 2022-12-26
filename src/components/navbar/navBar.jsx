@@ -12,15 +12,14 @@ import profileIconFill from '../../assets/icon/profile.png'
 
 export const NavBar = () => {
 
-  const id = 'clover2'
-  // 추후 localStorage.getItem('accountname')으로 가져올 예정
+const id = localStorage.getItem('Account Name')
   
   return (
     <NavWrap>
 	    <ul>
         <li>
           <StyleNavLink 
-            to={'/'}
+            to={'/home'}
             icon={homeIcon}
             hovericon={homeIconFill}
             className={({isActive}) => {

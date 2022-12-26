@@ -12,6 +12,7 @@ export const ProfileBox = () => {
     (state) => state.userInfoSlice.userData
   );
   const { id } = useParams();
+
   const dispatch = useDispatch();
   const BaseURL = `https://mandarin.api.weniv.co.kr/profile/${id}`;
   const myAccountName = localStorage.getItem('Account Name');
@@ -20,6 +21,7 @@ export const ProfileBox = () => {
   useEffect(() => {
     dispatch(AxiosUserData(BaseURL)); 
   }, [isfollow]);
+
 
   const unfollow = async () => {
     await axios(`https://mandarin.api.weniv.co.kr/profile/${id}/unfollow`, {
@@ -70,8 +72,10 @@ export const ProfileBox = () => {
             <div className='leftMyInfoBox'>
               <img src={image} onError={onErrorImg} alt='프로필사진'></img>
               <div className='profileCont'>
+
                 <h2>{accountname}</h2>
                 <p>@ {username}</p>
+
                 <div className='followerCont'>
                   <span>팔로워</span>
                   <FollowNavLink
@@ -91,15 +95,15 @@ export const ProfileBox = () => {
               </div>
             </div>
             <div>
-              {CheckProfile ? (
-                <>
-                  <EditProfileNavLink to='/editprofile'>프로필 수정</EditProfileNavLink>
-                </>
-              ) : (
-                <>
-                  <IsFollowButton onClick={onClick}>{isfollow ? '언팔로우' : '팔로우'}</IsFollowButton>
-                </>
-              )}
+
+              {CheckProfile ? 
+              <>
+                <EditProfileNavLink to='/editprofile'>프로필 수정</EditProfileNavLink>
+              </> : 
+              <>
+                <IsFollowButton onClick={ onClick } isFollow={isFollow}>{isFollow ? '언팔로우': '팔로우'}</IsFollowButton>
+              </>}
+
             </div>
           </div>
 
