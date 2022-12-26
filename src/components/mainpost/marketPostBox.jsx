@@ -16,31 +16,53 @@ export default function MarketPostBox({data, index, id}) {
   const myAccountName = localStorage.getItem("Account Name");
 
   const onClickApplyBtn = (e) => {
-    const tarketId = e.currentTarget.id;
-
+    const targetId = e.currentTarget.id;
+  
     Swal.fire({
-      title: "<p style='font-size:20px; padding:20px;'>취미 메이트를 신청할까요?</p>",
+      imageUrl:
+        'https://user-images.githubusercontent.com/102042383/209487151-26edc09f-d556-45f2-abaf-4b60c692d57d.gif',
+      imageWidth: 350,
+      imageHeight: 350,
+
       showCancelButton: true,
-      cancelButtonText: "취소",
-      confirmButtonText: '신청',
-      confirmButtonColor: "#66b607",
+      cancelButtonText: '럭킷 매칭 취소',
+      confirmButtonText: '럭킷 매칭 신청',
+      confirmButtonColor: '#66b607',
+      backdrop: `
+          rgba(0,0,0,.4)
+    url("https://img1.picmix.com/output/stamp/normal/6/4/9/3/2063946_9932b.gif")
+    center top
+    no-repeat
+  `,
     }).then((result) => {
       if (result.isConfirmed) {
-        Swal.fire("<p style='font-size:20px'>신청되었습니다.</p>", '', 'success');
-        const obj = {...confirmedValue};
-      
-        obj[tarketId] = result.isConfirmed;
-        localStorage.setItem('stored', JSON.stringify(obj))
-        setConfirmedValue(obj)
-      }else {
-        const obj = {...confirmedValue};
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: "<p style='font-size:20px; padding:20px;'>럭킷 매칭 신청이 완료되었습니다!</p>",
+          showConfirmButton: false,
+          timer: 1500,
+          backdrop: `
+          rgba(0,0,0,.4)
+    url("https://media1.giphy.com/media/J2UTOBXizlRujwpq0K/giphy.gif?cid=ecf05e47zsvvxoo2l97k557epdyn47z5x7ki7yl1x0k8vywu&rid=giphy.gif&ct=s")
+    center top
+    no-repeat
+  `,
+        });
+        const obj = { ...confirmedValue };
 
-        obj[tarketId] = result.isConfirmed;
-        localStorage.setItem('stored', JSON.stringify(obj))
-        setConfirmedValue(obj)
+        obj[targetId] = result.isConfirmed;
+        localStorage.setItem('stored', JSON.stringify(obj));
+        setConfirmedValue(obj);
+      } else {
+        const obj = { ...confirmedValue };
+
+        obj[targetId] = result.isConfirmed;
+        localStorage.setItem('stored', JSON.stringify(obj));
+        setConfirmedValue(obj);
       }
-    })
-}
+    });
+  };
 
   return (
     <CardWrap>
