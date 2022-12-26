@@ -52,7 +52,7 @@ export const LogoutModal = ({ onClickClose }) => {
   );
 };
 
-export const MarketPreviewModal = ({ productid, onClickClose }) => {
+export const MarketPreviewModal = ({ onClickClose, productId }) => {
   const [isOpenModal, setIsOpenModal] = useState(false);
   const userToken = localStorage.getItem('Access Token');
   const myAccountName = localStorage.getItem("Account Name");
@@ -70,7 +70,7 @@ export const MarketPreviewModal = ({ productid, onClickClose }) => {
   const handleMarketDelete = async () => {
     try {
       await axios
-        .delete(`https://mandarin.api.weniv.co.kr/product/${productid}`, {
+        .delete(`https://mandarin.api.weniv.co.kr/product/${productId}`, {
           headers: {
             Authorization: `Bearer ${userToken}`,
             'Content-type': 'application/json',
@@ -93,7 +93,7 @@ export const MarketPreviewModal = ({ productid, onClickClose }) => {
         <>
           <PostModalBtnWrap>
             <button onClick={onClickDeleteModal}>삭제</button>
-            <NavLinkStyle to='#'>수정</NavLinkStyle>
+            <NavLinkStyle to={`/update/${productId}`}>수정</NavLinkStyle>
           </PostModalBtnWrap>
           {isOpenModal && (
             <Div>

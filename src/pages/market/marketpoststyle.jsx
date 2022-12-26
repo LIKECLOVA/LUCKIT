@@ -51,32 +51,3 @@ export const ListItem = styled.li`
     border-radius: 30px;
     box-shadow: 1px 1px 7px #DBDBDB;
 `
-
-export const MarketMoreBtn = styled.button`
-
-    background-color: transparent;
-    width: 30px;
-    height: 30px;
-    position: absolute;
-    right: 8px;
-    top: 16px;
-    padding: 0;
-
-    img {
-         width: 24px;
-         height: 24px;
-     }
-
-`
-
-// position: absolute;
-//     background-color: pink;
-//     right: 6px;
-//     top: 15px;
-//     width: 24px;
-//     height: 24px;
-    
-//     img {
-//         width: 24px;
-//         height: 24px;
-//     }

@@ -8,7 +8,7 @@ import { InputWrap, MarketForm } from '../marketUpload/marketinputstyle';
 import Error from '../../../pages/404-error/errorPage';
 
 export const MarketUpdate = () => {
-  const { productid } = useParams();
+  const { productId } = useParams();
   // 데이터 전송에 필요한 유저 토큰
   const [userToken, setUserToken] = useState();
   const [itemName, setItemName] = useState('');
@@ -35,12 +35,12 @@ export const MarketUpdate = () => {
   });
 
   useEffect(() => {
-    getProduct(productid);
-  }, [productid]);
+    getProduct(productId);
+  }, [productId]);
 
   async function getProduct() {
     try {
-      const res = await axios.get(`https://mandarin.api.weniv.co.kr/product/detail/${productid}`, {
+      const res = await axios.get(`https://mandarin.api.weniv.co.kr/product/detail/${productId}`, {
         headers: {
           Authorization: `Bearer ${userToken}`,
           'Content-type': 'application/json',
@@ -60,7 +60,7 @@ export const MarketUpdate = () => {
     try {
       await axios
         .put(
-          `https://mandarin.api.weniv.co.kr/product/${productid}`,
+          `https://mandarin.api.weniv.co.kr/product/${productId}`,
           {
             product: {
               itemName: itemName,

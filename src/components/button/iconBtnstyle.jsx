@@ -44,3 +44,20 @@ export const IconBtn = styled.button`
     return setPosition(posi);
   }}
 `;
+
+export const MarketMoreBtn = styled.button`
+
+    background-color: transparent;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    right: 8px;
+    top: 16px;
+    padding: 0;
+
+    img {
+         width: 24px;
+         height: 24px;
+     }
+
+`
