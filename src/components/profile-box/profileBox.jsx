@@ -101,7 +101,7 @@ export const ProfileBox = () => {
                 <EditProfileNavLink to='/editprofile'>프로필 수정</EditProfileNavLink>
               </> : 
               <>
-                <IsFollowButton onClick={ onClick } isFollow={isFollow}>{isFollow ? '언팔로우': '팔로우'}</IsFollowButton>
+                <IsFollowButton onClick={ onClick } isFollow={isfollow}>{isfollow ? '언팔로우': '팔로우'}</IsFollowButton>
               </>}
 
             </div>

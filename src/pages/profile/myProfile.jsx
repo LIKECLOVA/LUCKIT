@@ -15,7 +15,6 @@ import MainSnsPost from '../../components/mainpost/mainSnsPost';
 
 export const Profile = () => {
  
-  const [marketPostsData, setMarketPostsData] = useState()
 
   const [snsPostsData, setSnsPostsData] = useState([]);
   const [imgList, setImgList] = useState(true);
@@ -26,20 +25,7 @@ export const Profile = () => {
   useEffect(() => {
 
 
-    // axios({
-    //     method: 'get',
-    //     url: `https://mandarin.api.weniv.co.kr/product/${id}/?limit=5`,
-    //     headers: {
-    //       'Authorization': `Bearer ${token}`,
-    //       'Content-type': 'application/json',
-    //     },
-    //   }).then((res) => {
-    //           setMarketPostsData(res.data.product);
-    //       })
-    //       .then((error) => {
-    //           console.log(error);
-    //       });
-    // ////////////////////////////
+
     axios({
         method: 'get',
         url: `https://mandarin.api.weniv.co.kr/post/${id}/userpost/?limit=10`,
@@ -70,10 +56,6 @@ export const Profile = () => {
     <>
       <ProfileAndChatHeader />
       
-        <ProfileBox/>
-        <MarketPreviewPost/>
-        {snsPostsData.length !== 0 ? 
-        <>
 
       <ProfileWrap>
           <ProfileBox/>
