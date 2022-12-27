@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-// import { useParams } from 'react-router-dom';
-import { IconBtn, MarketMoreBtn } from './iconBtnstyle';
+import { NavLink } from 'react-router-dom';
+import { AddBtn, IconBtn, MarketMoreBtn, PostUploadImg } from './iconBtnstyle';
 // import addBtn from '../../assets/icon/addBtn.svg';
 import moreBtn from '../../assets/icon/s-icon-more-vertical.png';
 import imgBtn from '../../assets/icon/upload-file.png';
 import { CommentModal, MarketPreviewModal, SnsPostModal } from '../modal/modal';
+import IconPostUpload from '../../assets/icon/market-plus.png'
 
 
 // export function AddBtn({ posi }) {
@@ -78,5 +79,25 @@ export const MarketPostMoreBtn  = ({productId}) => {
       </MarketMoreBtn>
       {isOpen && <MarketPreviewModal onClickClose={onClickClose} productId={productId}/>}
     </>
+  )
+}
+
+// 프로필 페이지 게시글 업로드 버튼
+
+export const ProfilePostUploadBtn = ({pathName}) => {
+  return (
+    <NavLink to={pathName}>
+      <PostUploadImg src={IconPostUpload} alt='게시글 등록 버튼' />
+    </NavLink>
+  )
+}
+
+// 홈페이지, sns 페이지 게시글 업로드 버튼
+
+export const PostUploadBtn = ({pathName}) => {
+  return (
+    <NavLink to={pathName}>
+        <AddBtn />
+    </NavLink>
   )
 }

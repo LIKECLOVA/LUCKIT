@@ -9,7 +9,7 @@ import {
   ListItem,
 } from './homestyle';
 import MarketPostBox from '../../components/mainpost/marketPostBox';
-import { MarketPostMoreBtn } from '../../components/button/iconBtn';
+import { MarketPostMoreBtn, PostUploadBtn } from '../../components/button/iconBtn';
 
 export const MarketFeedHome = ({ scrollTopData, followingData }) => {
   const token = localStorage.getItem('Access Token');
@@ -63,6 +63,7 @@ console.log(productData)
           </ListWrap>
         </HomeSection>
       </main>
+      <PostUploadBtn pathName='/upload' />
     </>
   );
 };

@@ -10,13 +10,16 @@ import IconPostListOn from '../../assets/icon/icon-post-list-on.png';
 import IconPostListOff from '../../assets/icon/icon-post-list-off.png';
 import IconPostAlbumOn from '../../assets/icon/icon-post-album-on.png';
 import IconPostAlbumOff from '../../assets/icon/icon-post-album-off.png';
+// import IconPostUpload from '../../assets/icon/market-plus.png'
 import MainSnsPost from '../../components/mainpost/mainSnsPost';
+import { ProfilePostUploadBtn } from '../../components/button/iconBtn';
 
 export const Profile = () => {
   const [snsPostsData, setSnsPostsData] = useState([]);
   const [imgList, setImgList] = useState(true);
   const [imgAlbum, setImgAlbum] = useState(false);
   const { id } = useParams();
+  const myAccountName = localStorage.getItem('Account Name');
   const token = localStorage.getItem('Access Token');
 
   useEffect(() => {
@@ -55,12 +58,17 @@ export const Profile = () => {
         {snsPostsData.length !== 0 ? (
           <section>
             <SnsPostBtn>
-              <button onClick={onClickListBtn}>
-                {imgList ? <img src={IconPostListOn} alt='리스트형' /> : <img src={IconPostListOff} alt='리스트형' />}
-              </button>
-              <button onClick={onClickAlbumBtn}>
-                {imgAlbum ? <img src={IconPostAlbumOn} alt='앨범형' /> : <img src={IconPostAlbumOff} alt='앨범형' />}
-              </button>
+              <div>
+                <button onClick={onClickListBtn}>
+                  {imgList ? <img src={IconPostListOn} alt='리스트형' /> : <img src={IconPostListOff} alt='리스트형' />}
+                </button>
+                <button onClick={onClickAlbumBtn}>
+                  {imgAlbum ? <img src={IconPostAlbumOn} alt='앨범형' /> : <img src={IconPostAlbumOff} alt='앨범형' />}
+                </button>
+              </div>
+              {id === myAccountName ?
+            <ProfilePostUploadBtn pathName='/snsupload' />
+            : <></>}
             </SnsPostBtn>
             <ul>
               {imgList &&

@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import MainSnsPost from '../../components/mainpost/mainSnsPost';
-import { SnsPageArt, SnsPageSec, MainPostArea, SnsStoryImg, AddBtn } from './snsstyle';
+import { SnsPageArt, SnsPageSec, MainPostArea, SnsStoryImg } from './snsstyle';
 import { FeedPageHeader } from '../../components/header/header';
 import { NavBar } from '../../components/navbar/navBar';
 import DefaultUserImg from '../../assets/icon/basic-profile-img-.png';
 import { SerchBtn } from '../../components/button/button';
+import { PostUploadBtn } from '../../components/button/iconBtn';
 
 export const SnsPage = () => {
 
@@ -114,10 +115,7 @@ export const SnsPage = () => {
           </MainPostArea>
         </SnsPageSec>
       )}
-
-      <NavLink to={'/snsupload'}>
-        <AddBtn />
-      </NavLink>
+      <PostUploadBtn pathName='/snsupload'/>
       <NavBar />
     </>
   );

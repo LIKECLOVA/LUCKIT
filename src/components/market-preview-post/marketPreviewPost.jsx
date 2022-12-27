@@ -2,9 +2,10 @@ import React, { useEffect } from 'react'
 import { NavLink, useParams } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { MarketPreviewBoxWrap } from './marketpreviewboxstyle'
-import IconMarketPostUpload from '../../assets/icon/market-plus.png'
+// import IconPostUpload from '../../assets/icon/market-plus.png'
 import { AxiosProductList } from '../../reducers/getProductListSlice'
 import IconClova from '../../assets/icon/sns용-클로바-disabled.png'
+import { ProfilePostUploadBtn } from '../button/iconBtn'
 
 export const MarketPreviewPost = () => {
   const accountName = localStorage.getItem("Account Name");
@@ -24,9 +25,7 @@ export const MarketPreviewPost = () => {
               <strong>{id}</strong>님이 찾는 럭킷 메이트✨
             </h2>
             {id === accountName ?
-            <NavLink to='/upload'>
-              <img src={IconMarketPostUpload} alt='마켓 게시글 등록 버튼' />
-            </NavLink>
+            <ProfilePostUploadBtn pathName='/upload' />
             : <></>}
           </div>
           <ul>

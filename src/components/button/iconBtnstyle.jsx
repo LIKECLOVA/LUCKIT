@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import addBtn from '../../assets/icon/addBtn.svg';
 
 
 const setPosition = (posi) => {
@@ -60,4 +61,30 @@ export const MarketMoreBtn = styled.button`
          height: 24px;
      }
 
+`
+
+export const PostUploadImg = styled.img`
+
+    width: 25px;
+    height: 25px;
+    padding: 7px;
+    border-radius: 50%;
+    background-color: #F5F3F3;
+    vertical-align: top;
+
+`
+
+export const AddBtn = styled.button`
+
+    cursor: pointer;
+    position:fixed;
+    right: 10px;
+    bottom:70px;
+    width: 70px;
+    height: 70px;
+    padding:0px;
+    background: url(${addBtn});
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 90;
 `
