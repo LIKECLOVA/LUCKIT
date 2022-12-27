@@ -8,6 +8,7 @@ import JoinProfile from '../components/join/joinProfile';
 import { Search } from './search/search';
 import { Profile } from './profile/myProfile';
 import { EditProfile } from './profile/editProfile';
+import { LoginScreen } from '../components/login/loginScreen.jsx';
 
 import { YourFollow } from './follow/yourFollow';
 import { MyFollow } from './follow/myFollow';
@@ -17,7 +18,7 @@ import { ChatRoom } from './chat/chatRoom';
 import { SnsUpload } from './sns/snsUpload';
 import { SnsPage } from './sns/snsPage';
 import { SnsPost } from '../components/sns-post/snsPost';
-import { SnsModify } from '../pages/sns/snsModify'
+import { SnsModify } from '../pages/sns/snsModify';
 
 import { MarketPost } from './market/marketPost.jsx';
 import { MarketUpload } from '../components/market-post/marketUpload/marketUpload';
@@ -50,6 +51,8 @@ const MainPages = () => {
     <Routes>
       <Route path='/upload' element={<MarketUpload />}></Route>
       <Route path='/update/:productId' element={<MarketUpdate />}></Route>
+      <Route path='/splash' element={<Splash />}></Route>
+      <Route path='/loginScreen' element={<LoginScreen />}></Route>
 
       {/* PublicRoute */}
       <Route path='/' element={<Start />}></Route>
@@ -183,7 +186,7 @@ const MainPages = () => {
           </PrivateRoute>
         }
       ></Route>
-       <Route
+      <Route
         path='/marketpost/:id'
         element={
           <PrivateRoute>
