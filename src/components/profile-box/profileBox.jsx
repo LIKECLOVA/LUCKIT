@@ -18,9 +18,14 @@ export const ProfileBox = () => {
   const myAccountName = localStorage.getItem('Account Name');
   const token = localStorage.getItem('Access Token');
 
+
+
+
   useEffect(() => {
     dispatch(AxiosUserData(BaseURL)); 
-  }, [isfollow]);
+  }, [isfollow,id]);
+
+ 
 
 
   const unfollow = async () => {

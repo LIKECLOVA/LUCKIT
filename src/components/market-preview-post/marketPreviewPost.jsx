@@ -16,7 +16,7 @@ export const MarketPreviewPost = () => {
 
   useEffect(()=>{
     dispatch(AxiosProductList(URLProduct));
-  },[])
+  },[id])
 
   return (
     <MarketPreviewBoxWrap>
