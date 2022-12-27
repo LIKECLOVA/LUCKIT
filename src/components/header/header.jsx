@@ -14,6 +14,7 @@ import IconLuckitLogo from '../../assets/icon/icon-luckit.png'
 import IconMoreVertical from '../../assets/icon/icon- more-vertical.png'
 import { StoreBtn, UploadBtn } from '../../components/button/button'
 import { ChatRoomModal, LogoutModal } from '../modal/modal'
+import { BackBtn } from '../button/iconBtn';
 
 
 // 팔로잉 없을 때 홈페이지, 팔로잉 있을 때 홈페이지(스크롤X)
@@ -42,17 +43,18 @@ export const FeedPageHeader = () => {
 
 // 검색 페이지
 export const SearchHeader = ({ value, onChange }) => {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   return (
     <SearchHeaderWrap>
-      <button
+      {/* <button
         onClick={() => {
           navigate(-1);
         }}
       >
         <img src={IconArrowLeft} alt='뒤로가기' />
-      </button>
+      </button> */}
+      <BackBtn/>
       <input type='search' placeholder='계정 검색' value={value} onChange={onChange} />
     </SearchHeaderWrap>
   );
