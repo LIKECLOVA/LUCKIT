@@ -1,5 +1,6 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
+import { PostUploadBtn } from '../../components/button/iconBtn'
 import { Carousel } from '../../components/carousel/carousel'
 import { HomepageHeader } from '../../components/header/header'
 import { HomeTxt, Main, SearchBtn } from './homestyle'
@@ -15,6 +16,7 @@ export default function DefaultHome() {
                 <SearchBtn>검색하기</SearchBtn>
             </NavLink> 
         </Main>
+        <PostUploadBtn pathName='/upload'/>
     </>
   )
 }
