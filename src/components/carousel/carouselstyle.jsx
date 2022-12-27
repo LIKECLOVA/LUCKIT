@@ -1,13 +1,13 @@
 import styled from 'styled-components';
 
 export const Article = styled.article`
-  width: 600px;
+  width: 100%;
   margin: 0 auto;
   position: relative;
 
   .bannerWrap {
     width: 100%;
-    height: 570px;
+    height: 57vh;
     display: flex;
     overflow: hidden;
   }
@@ -34,8 +34,8 @@ export const Article = styled.article`
   }
 
   img {
-    width: 600px;
-    height: 570px;
+    width: 100%;
+    height: 80%;
     object-fit: cover;
     object-position: center;
   }

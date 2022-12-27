@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Bg = styled.div`
   background: #dbdbdb;
-  /* background-image: url(''); */
+  background-image: url('https://user-images.githubusercontent.com/102042383/209568982-d79e1d2f-08f6-44e4-8394-c5f466390f26.png');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -36,7 +36,7 @@ const Allwrap = styled.div`
   width: 55vmin;
   height: 95vmin;
   overflow: hidden;
-  outline: 10px solid #e5e5e5;
+  outline: 10px solid #e6e6e6;
   border-radius: 30px;
   box-shadow: rgba(152, 152, 152, 0.24) 0px 3px 8px;
   background: #fff;
