@@ -10,15 +10,8 @@ import profileIcon from '../../assets/icon/profile-disabled.png';
 import profileIconFill from '../../assets/icon/profile.png';
 
 export const NavBar = () => {
-<<<<<<< Updated upstream
-
-const id = localStorage.getItem('Account Name')
-  
-=======
   const id = localStorage.getItem('Account Name');
-  // 추후 localStorage.getItem('accountname')으로 가져올 예정
 
->>>>>>> Stashed changes
   return (
     <NavWrap>
       <ul>
