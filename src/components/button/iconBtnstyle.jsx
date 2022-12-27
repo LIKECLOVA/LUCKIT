@@ -61,3 +61,14 @@ export const MarketMoreBtn = styled.button`
      }
 
 `
+
+export const PostUploadImg = styled.img`
+
+    width: 25px;
+    height: 25px;
+    padding: 7px;
+    border-radius: 50%;
+    background-color: #F5F3F3;
+    vertical-align: top;
+
+`

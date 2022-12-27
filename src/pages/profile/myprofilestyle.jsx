@@ -17,7 +17,7 @@ export const SnsPostBtn = styled.div`
 
     position: relative;
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
     margin-left: -14px;
     margin-right: -14px;
@@ -26,20 +26,26 @@ export const SnsPostBtn = styled.div`
     border-top-right-radius: 30px;
     box-shadow: 0px -15px 0 0px #F5F4F4;
     border-bottom: 0.5px solid #DBDBDB;
-    text-align: center;
+    padding: 0 15px;
+
+    div {
+      display: flex;
+      align-items: center;
+    }
   
     button {
-        display: block;
-        width: 30px;
-        height: 30px;
+        width: 1.7rem;
+        height: 1.7rem;
         border: none;
         padding: 0;
-        margin-right: 15px;
         background-color: transparent;
-
     }
 
-    img {
+    button + button {
+      margin-left: 10px;
+    }
+
+    button > img {
       width: 100%;
       height: 100%;
     }
