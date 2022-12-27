@@ -7,10 +7,10 @@ import { MarketFeedHome } from './MarketFeedHome';
 
 export const Home = () => {
   const [followingData, setFollowingData] = useState([])
-  const [scrollTopData, setScrollTopData] = useState(0)
+  const [scrollTopData, setScrollTopData] = useState(false)
+  // const [scrollTopState, setScrollTopState] = useState(false);
   const accountName = localStorage.getItem("Account Name");
   const token = localStorage.getItem("Access Token");
-  // const accountNameArr = [];
 
   useEffect(() => {
 
@@ -30,14 +30,19 @@ export const Home = () => {
   }, [])
 
   const onScroll = (e) => {
-    setScrollTopData(e.currentTarget.scrollTop)
-    e.stopPropagation()
+    if(e.currentTarget.scrollTop >= 300) {
+      setScrollTopData(true)
+    }else if(e.currentTarget.scrollTop < 300) {
+      setScrollTopData(false)
+    }
   }
+
+  console.log(scrollTopData)
 
   return (
     <HomeWrap onScroll={onScroll}>
       { followingData && followingData.length > 0 ? <>
-      <MarketFeedHome scrollTopData={scrollTopData} followingData={followingData}/>
+      <MarketFeedHome scrollTopData={scrollTopData} followingData={followingData} />
       </> : <>
       <DefaultHome />
       </>}

@@ -32,11 +32,9 @@ export const MarketFeedHome = ({ scrollTopData, followingData }) => {
     });
   }, []);
 
-console.log(productData)
-
   return (
     <>
-      {scrollTopData > 500 ? (
+      {scrollTopData ? (
         <>
           <FeedPageHeader />
         </>
