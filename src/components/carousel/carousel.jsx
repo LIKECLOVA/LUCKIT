@@ -5,7 +5,7 @@ const bannerData = [
   {
     id: 1,
     name: '광고1',
-    image: 'https://user-images.githubusercontent.com/102042383/209569990-f3f1144f-5771-4dd9-b3bb-e377b6818977.png',
+    image: 'https://user-images.githubusercontent.com/102042383/209595769-1fa34571-ac5a-4a1c-9ba6-9bfa6cf6ec4b.png',
   },
   {
     id: 2,
