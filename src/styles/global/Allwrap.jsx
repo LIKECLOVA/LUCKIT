@@ -40,19 +40,22 @@ const Allwrap = styled.div`
   border-radius: 30px;
   box-shadow: rgba(152, 152, 152, 0.24) 0px 3px 8px;
   background: #fff;
-  /* @media screen and (max-width: 1020px) {
-    width: 45%;
-    height: 95%;
-    padding: none;
-    margin: none;
-  }
 
-  @media screen and (max-width: 768px) {
-    width: 85%;
-    height: 95%;
-    padding: none;
-    margin: none;
-  } */
+
+  // @media screen and (max-width: 1020px) {
+  //   width: 45%;
+  //   height: 95%;
+  //   padding: none;
+  //   margin: none;
+  // }
+
+  // @media screen and (max-width: 768px) {
+  //   width: 85%;
+  //   height: 95%;
+  //   padding: none;
+  //   margin: none;
+  // }
+
 `;
 
 export { Allwrap };

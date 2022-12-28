@@ -10,6 +10,7 @@ import {
 } from './marketpostboxstyle';
 import IconSnsClova from '../../assets/icon/sns용-클로바-disabled.png';
 import IconSnsClovaFill from '../../assets/icon/sns용-클로바.png';
+import { MarketPostMoreBtn } from '../button/iconBtn';
 
 export default function MarketPostBox({data, accountname}) {
   const [confirmedValue, setConfirmedValue] = useState(JSON.parse(localStorage.getItem('stored')));
@@ -81,6 +82,7 @@ export default function MarketPostBox({data, accountname}) {
           </button>
           </> : <></>}
       </CardCont>
+      <MarketPostMoreBtn productId={data.id} />
     </CardWrap>
   )
 }

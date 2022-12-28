@@ -15,6 +15,8 @@ export const MarketFeedHome = ({ scrollTopData, followingData }) => {
   const token = localStorage.getItem('Access Token');
   const [productData, setProductData] = useState([]);
 
+  // getProductList 사용
+  
   useEffect(() => {
     followingData.map((list) => {
       return axios({
