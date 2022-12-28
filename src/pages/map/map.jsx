@@ -1,9 +1,8 @@
-/* eslint-disable */
-import { ProfileAndChatHeader } from '../../components/header/header';
-import { positions } from './markPosition';
 import { Map } from 'react-kakao-maps-sdk';
 import React, { useState } from 'react';
-import EventMarkerContainer from './\beventMarker';
+import { ProfileAndChatHeader } from '../../components/header/header';
+import { positions } from './markPosition';
+import EventMarkerContainer from './eventMarker';
 
 const RecommendMap = () => {
   const [selectedMarker, setSeleteMarker] = useState();

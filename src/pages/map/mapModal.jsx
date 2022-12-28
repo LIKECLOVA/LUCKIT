@@ -1,5 +1,4 @@
-/* eslint-disable */
-import React, { useState } from 'react';
+import React from 'react';
 import { MapDiv } from './stylemap';
 
 

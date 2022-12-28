@@ -1,8 +1,7 @@
-/* eslint-disable */
 import { MapMarker, CustomOverlayMap } from 'react-kakao-maps-sdk';
 import { MapModal } from './mapModal';
 import markImg from '../../assets/icon/mapMarker.png';
-import { useState } from 'react';
+
 
 const EventMarkerContainer = ({modalClose ,position, onClick, isClicked,title,location ,img, page }) => {
 
