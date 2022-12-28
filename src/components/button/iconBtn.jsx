@@ -66,7 +66,6 @@ export const MarketPostMoreBtn  = ({productId}) => {
   
   const onClick = () => {
     setIsOpen(true);
-    console.log(productId)
   };
 
   const onClickClose = (value) => {
