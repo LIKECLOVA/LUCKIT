@@ -7,7 +7,7 @@ export const ChatRoom = () => {
     return (
       <LeftChatTxT>
         <div className='imgwrap'>
-          <img src='https://mandarin.api.weniv.co.kr/Ellipse.png' alt='' />
+          <img src='https://mandarin.api.weniv.co.kr/Ellipse.png' alt='유저이미지' />
         </div>
         <div className='txtwrap'>{chatTxT}</div>
       </LeftChatTxT>

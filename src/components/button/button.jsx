@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, FollowButton, UploadButton } from './buttonstyle';
+import { Button, FollowButton } from './buttonstyle';
 
 export const NextBtn = ({ size, onClick, disabled }) => {
   return (
@@ -28,16 +28,14 @@ export const StoreBtn = ({ size, onClick }) => {
 export const UploadBtn = (props) => {
 
   return (
-    <UploadButton
-      size={props.size}
-      form={props.form}
-      disabled={props.disabled}
-      className={props.isActive}
+    <Button
       onClick={props.handlePostSns}
-    >
+      size={props.size}
+      disabled={props.disabled}>
       {props.text}
-    </UploadButton>
+    </Button>
   );
+
 };
 
 export const SerchBtn = ({ size, onClick }) => {

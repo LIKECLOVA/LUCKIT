@@ -1,14 +1,14 @@
 import React from 'react';
 import { ChatInfoWrap, ChatUserLi } from './chatuserstyle';
 
-const ChatUser = () => {
+const ChatUser = ({chat, id}) => {
   return (
     <ChatUserLi>
       <ChatInfoWrap>
         <img src='https://mandarin.api.weniv.co.kr/Ellipse.png' alt='프로필사진' />
         <div>
-          <p>아이디</p>
-          <p>채팅 미리보기</p>
+          <p className='userId'>{id}</p>
+          <p className='userChat'>{chat}</p>
         </div>
       </ChatInfoWrap>
 
