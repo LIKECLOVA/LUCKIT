@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { MapDiv } from './stylemap';
 
 
-export const MapModal = ({isClicked,title,location , img}) => {
+export const MapModal = ({isClicked,title,location ,img,page}) => {
 
 
   const check = () => {
@@ -33,7 +33,7 @@ const [cccc, setcccc] = useState(isClicked);
               <div className='ellipsis'>새로운 인연들이 기다리고 있어요!</div>
               <div className='jibun ellipsis'>{location}</div>
               <div>
-                <a href='https://www.kakaocorp.com/main' target='_blank' className='link' rel='noreferrer'>
+                <a href={page} target='blank' className='link' rel='noreferrer'>
                   홈페이지
                 </a>
               </div>

@@ -7,10 +7,11 @@ import 맛집 from '../../assets/icon/맛집.jpeg';
 export const positions = [
   {
     id: 0,
-    location: '한강뚝섬공원',
+    location: '뚝섬한강공원',
     title: '집꾸미기모임',
     latlng: { lat: 37.52959469435547, lng: 127.0690571645309 },
     img: 집꾸미기,
+    page: 'https://place.map.kakao.com/8136085'
   },
   {
     id: 1,
@@ -18,6 +19,7 @@ export const positions = [
     title: '애완산책모임',
     latlng: { lat: 37.54448440422746, lng: 127.03763594573742 },
     img: 산책,
+    page: 'https://place.map.kakao.com/11331488'
   },
   {
     id: 2,
@@ -25,6 +27,7 @@ export const positions = [
     title: '맛집탐방',
     latlng: { lat: 37.49857184927207, lng: 127.02854327651806 },
     img: 맛집,
+    page: 'https://place.map.kakao.com/22906012'
   },
   {
     id: 3,
@@ -32,5 +35,6 @@ export const positions = [
     title: '몰랑이모임',
     latlng: { lat: 37.51158067259524, lng: 127.0739720326137 },
     img: 몰랑,
+    page: 'https://place.map.kakao.com/21160812'
   },
 ];

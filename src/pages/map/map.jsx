@@ -36,6 +36,7 @@ const RecommendMap = () => {
                 title ={v.title}
                 location ={v.location}
                 img ={v.img}
+                page={v.page}
               />
 
               {/* <MapMarker position={v.latlng} onClick={test} />
