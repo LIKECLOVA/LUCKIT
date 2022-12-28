@@ -23,6 +23,7 @@ import { SnsModify } from '../pages/sns/snsModify';
 import { MarketPost } from './market/marketPost.jsx';
 import { MarketUpload } from '../components/market-post/marketUpload/marketUpload';
 import { MarketUpdate } from '../components/market-post/marketUpdate/marketUpdate';
+import RecommendMap from './map/map.jsx';
 import Error from './404-error/errorPage.jsx';
 import { PrivateRoute, PublicRoute } from '../Route';
 import Start from './start/start.jsx';
@@ -191,6 +192,14 @@ const MainPages = () => {
         element={
           <PrivateRoute>
             <MarketPost />
+          </PrivateRoute>
+        }
+      ></Route>
+       <Route
+        path='/map'
+        element={
+          <PrivateRoute>
+            <RecommendMap/>
           </PrivateRoute>
         }
       ></Route>
