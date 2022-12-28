@@ -11,6 +11,15 @@ export const ProfileInfoWrap = styled.section`
     box-shadow: 0px -12px 0 0px #F0FAE4;
     border-radius: 25px;
     border: 1px solid #F2F2F2;
+
+    h2 {
+        position: absolute;
+        clip: rect(0 0 0 0);
+        width: 1px;
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+      }
 `
 
 export const TopInfoBox = styled.div`
@@ -38,8 +47,8 @@ export const ProfileInfoCont = styled.div`
     justify-content: center;
     padding: 10px 15px;
 
-    h2{
-        font-weight: 500;
+    h3{
+        font-weight: 600;
     }
 
     p{
@@ -54,13 +63,13 @@ export const FollowerCont = styled.div`
     margin-top: 20px;
 
     span {
-        margin-right: 5px;
+        margin-right: 4px;
         font-size: 12px;
         font-weight: 400;
     }
 
     .followingTxt {
-        margin-left: 14px;
+        margin-left: 13px;
     }
 }
 `

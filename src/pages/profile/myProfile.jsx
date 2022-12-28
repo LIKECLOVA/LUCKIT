@@ -4,7 +4,7 @@ import axios from 'axios';
 import { ProfileAndChatHeader } from '../../components/header/header';
 import { MarketPreviewPost } from '../../components/market-preview-post/marketPreviewPost';
 import { ProfileBox } from '../../components/profile-box/profileBox';
-import { ProfileWrap, SnsPostBtn, NavLinkStyle, ImgAlbumBox, ImgAlbumList, SnsPostWrap } from './myprofilestyle';
+import { ProfileWrap, SnsPostBtn, NavLinkStyle, ImgAlbumBox, ImgAlbumList, SnsPostWrap, SnsPostBox } from './myprofilestyle';
 import { NavBar } from '../../components/navbar/navBar';
 import IconPostListOn from '../../assets/icon/icon-post-list-on.png';
 import IconPostListOff from '../../assets/icon/icon-post-list-off.png';
@@ -55,9 +55,10 @@ export const Profile = () => {
         <ProfileBox />
         <MarketPreviewPost />
         {snsPostsData.length !== 0 ? (
-          <section>
+          <SnsPostBox>
+            <h2>sns 게시글 피드</h2>
             <SnsPostBtn>
-              <div className='sns-post-wrap'>
+              <div className='snsBtnWrap'>
                 <button onClick={onClickListBtn}>
                   {imgList ? <img src={IconPostListOn} alt='리스트형' /> : <img src={IconPostListOff} alt='리스트형' />}
                 </button>
@@ -105,7 +106,7 @@ export const Profile = () => {
                   );
                 })}
             </ImgAlbumBox>
-          </section>
+          </SnsPostBox>
         ) : (
           <></>
         )}

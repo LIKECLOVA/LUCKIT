@@ -64,11 +64,12 @@ export const ProfileBox = () => {
 
   return (
     <ProfileInfoWrap>
+      <h2>사용자 프로필 정보</h2>
       <TopInfoBox>
         <ProfileInfoBox>
           <img src={image} onError={onErrorImg} alt='프로필사진'></img>
           <ProfileInfoCont>
-            <h2>{username}</h2>
+            <h3>{username}</h3>
             <p>@ {accountname}</p>
             <FollowerCont>
               <FollowNavLink
