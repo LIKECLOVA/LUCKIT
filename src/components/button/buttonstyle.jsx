@@ -38,25 +38,25 @@ export const Button = styled.button`
   box-shadow: 0 1px 5px 0 #b9d795;
 
   color: white;
+  
 
-  /* color: ${(props) => {
-    return props.disabled === 'disabled' ? '#a4c16e' : '#fff';
-  }}; */
-
+  
   background-color: ${(props) => {
-    return props.disabled === 'disabled' ? '#b9d795' : '#78d00c';
+    console.log('배경색', props);
+    //  
+    return props.disabled === 'disabled' ? '#b9d795' : '#78d00c' ;
   }};
-
+  
   cursor: ${(props) => {
     return props.disabled === 'disabled' ? 'not-allowed' : 'pointer';
   }};
 
-  &:hover {
-    background-color: ${(props) => {
-      return props.disabled !== 'disabled' ? '#47a902' : '#b9d795;';
-    }};
+&:hover {
+  background-color: ${(props) => {
+    return props.disabled !== 'disabled' ? '#47a902' : '#b9d795;';
+  }};
   }
-
+  
   /* 사이즈 설정 */
   ${({ size }) => {
     return setSize(size);

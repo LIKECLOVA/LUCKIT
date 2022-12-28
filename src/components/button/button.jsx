@@ -26,30 +26,16 @@ export const StoreBtn = ({ size, onClick }) => {
 };
 
 export const UploadBtn = (props) => {
-if(props.disabled==='false'){
-  console.log('비활성',props)
+
   return (
     <Button
+      onClick={props.handlePostSns}
       size={props.size}
-      disabled='disabled'>
+      disabled={props.disabled}>
       {props.text}
     </Button>
   );
-}
-else{
-  console.log('활성',props)
-  return(
-    <Button
-    size={props.size}
-    form={props.form}
-    disabled={props.disabled}
-    className={props.isActive}
-    onClick={props.handlePostSns}
-  >
-    {props.text}
-  </Button>
-  );
-}
+
 };
 
 export const SerchBtn = ({ size, onClick }) => {
