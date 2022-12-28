@@ -21,11 +21,6 @@ export const YourFollow = () => {
   const [followerList, setFollowerList] = useState([]);
   const [followingList, setFollowingList] = useState([]);
 
-
-  console.log('팔로워', followerList);
-  console.log('팔로잉잉', followingList);
-
-
   async function getFollowerList() {
     await fetch(URL, {
       method: 'GET',
@@ -55,7 +50,7 @@ export const YourFollow = () => {
       <FollowerHeader />
       <FollowPageWrap>
         <FollowPageUl>
-         {/* 여기안 부터 조건에 따라 달라지게 Follow에 내려주는 프롭스값도 달라지고 랜더링도 달라짐 */}
+         {/* 조건부 렌더링. Follow에 내려주는 프롭스 값이 다름 */}
          {target === 'followers' ? 
             followerList.map((user) => {
                 return <Follow user={user} key={user._id} />;
