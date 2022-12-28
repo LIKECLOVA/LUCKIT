@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, FollowButton, UploadButton } from './buttonstyle';
+import { Button, FollowButton } from './buttonstyle';
 
 export const NextBtn = ({ size, onClick, disabled }) => {
   return (
@@ -26,18 +26,30 @@ export const StoreBtn = ({ size, onClick }) => {
 };
 
 export const UploadBtn = (props) => {
-
+if(props.disabled==='false'){
+  console.log('비활성',props)
   return (
-    <UploadButton
+    <Button
       size={props.size}
-      form={props.form}
-      disabled={props.disabled}
-      className={props.isActive}
-      onClick={props.handlePostSns}
-    >
+      disabled='disabled'>
       {props.text}
-    </UploadButton>
+    </Button>
   );
+}
+else{
+  console.log('활성',props)
+  return(
+    <Button
+    size={props.size}
+    form={props.form}
+    disabled={props.disabled}
+    className={props.isActive}
+    onClick={props.handlePostSns}
+  >
+    {props.text}
+  </Button>
+  );
+}
 };
 
 export const SerchBtn = ({ size, onClick }) => {

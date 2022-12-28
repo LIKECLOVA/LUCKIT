@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react'
+import React, { useState, useRef ,useEffect} from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom';
 import { SnsUploadSec, SnsUploadImg, SnsTextLable, SnsTextInput, FileUploader,FileInput, SingleImg, DeleteBtn, Img } from './snsstyle';
@@ -12,6 +12,7 @@ export const SnsUpload = () => {
   const fileInput = useRef(null);
   const [showImg, setShowImg] = useState([]);
   const [postImg, setPostImg] = useState([]);
+  const [uploadBtn, SetuploadBtn] = useState(false);
   const navigate = useNavigate(); 
 
   const data = {
@@ -109,9 +110,22 @@ async function ImgUpload(userImg) {
     }
   }
 
+  useEffect(() => {
+    if (content.length >0 && postImg.length >0) {
+      SetuploadBtn(false);  
+      
+      console.log('댕',uploadBtn);
+    }
+    else {
+      SetuploadBtn(true);
+      console.log('안댕!!',uploadBtn);
+      
+    }
+  }, [content, postImg])
+
   return (
     <>
-    <PostUploadHeader handlePostSns={handlePostSns}/>
+    <PostUploadHeader handlePostSns={handlePostSns} disabled={uploadBtn}/>
 
     <SnsUploadSec>
     <SnsTextLable htmlFor='snspost' />
@@ -120,7 +134,8 @@ async function ImgUpload(userImg) {
           id='snspost' 
           placeholder='게시글 입력하기 ...' 
           value={content} 
-          onChange={(e) => { setContent(e.target.value) }} />
+          onChange={(e) => { setContent(e.target.value) 
+          }} />
       <SnsUploadImg>
       {
         showImg.length === 1 ?
