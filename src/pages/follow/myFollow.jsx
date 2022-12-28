@@ -47,7 +47,7 @@ export const MyFollow = () => {
 
   return (
     <>
-      <FollowerHeader />
+      <FollowerHeader target={target}/>
       <FollowPageWrap>
         <FollowPageUl>
           {/* 여기안 부터 조건에 따라 달라지게 Follow에 내려주는 프롭스값도 달라지고 랜더링도 달라짐 */}

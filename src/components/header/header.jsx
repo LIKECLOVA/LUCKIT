@@ -40,6 +40,7 @@ export const FeedPageHeader = () => {
   );
 };
 
+
 // 검색 페이지
 export const SearchHeader = ({ value, onChange }) => {
 
@@ -50,6 +51,7 @@ export const SearchHeader = ({ value, onChange }) => {
     </SearchHeaderWrap>
   );
 };
+
 
 // 프로필, 채팅 페이지
 export const ProfileAndChatHeader = () => {
@@ -78,29 +80,19 @@ export const ProfileAndChatHeader = () => {
 }
 
 
-// 내 팔로우 페이지 헤더
-export const FollowerHeader = () => {
+// 팔로우 페이지
+export const FollowerHeader = ({target}) => {
 
   return (
     <FollowHeaderWrap>
       <BackBtn/>
-      <strong>followers</strong>
+      <strong>{target}</strong>
     </FollowHeaderWrap>
   );
 };
 
-// 상대방 팔로우 페이지 헤더
-export const FollowingHeader = () => {
 
-  return (
-    <FollowHeaderWrap>
-      <BackBtn/>
-      <strong>followings</strong>
-    </FollowHeaderWrap>
-  );
-};
-
-// 프로필 수정 페이지 헤더
+// 프로필 수정 페이지
 export const ProfileEditHeader = ({ onClick }) => {
 
   return (
@@ -111,7 +103,8 @@ export const ProfileEditHeader = ({ onClick }) => {
   );
 };
 
-// 게시글 업로드 헤더
+
+// 게시글 업로드
 export const PostUploadHeader = ({ isActive, handlePostSns, disabled }) => {
 
   return (
@@ -121,6 +114,7 @@ export const PostUploadHeader = ({ isActive, handlePostSns, disabled }) => {
     </EditAndUploadHeaderWrap>
   );
 };
+
 
 // 채팅방 페이지
 export const ChatRoomHeader = () => {
