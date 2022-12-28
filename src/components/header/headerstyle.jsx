@@ -11,6 +11,8 @@ export const BasicHeader = styled.header`
   top: 0;
   height: 48px;
   z-index: 99;
+  background-color: white;
+  border-bottom: 1px solid #dbdbdb;
 
   img {
     width: 24px;
@@ -27,11 +29,12 @@ export const BasicHeader = styled.header`
 export const HomeHeaderWrap = styled(BasicHeader)`
   justify-content: flex-end;
   padding: 12px 16px;
+  background-color: transparent;
+  border-bottom: none;
 `;
 
 export const SearchHeaderWrap = styled(BasicHeader)`
   padding: 8px 16px 8px 16px;
-  border-bottom: 1px solid #dbdbdb;
 
   input {
     width: 92%;
@@ -50,8 +53,6 @@ export const SearchHeaderWrap = styled(BasicHeader)`
 
 export const FeedHeaderWrap = styled(BasicHeader)`
   padding: 12px 16px;
-  background-color: white;
-  border-bottom: 1px solid #dbdbdb;
 
   .logoImg {
     width: 100px;
@@ -61,15 +62,11 @@ export const FeedHeaderWrap = styled(BasicHeader)`
 
 export const ProfileHeaderWrap = styled(BasicHeader)`
   padding: 12px 14px 12px 16px;
-  background-color: white;
-  border-bottom: 1px solid #dbdbdb;
 `;
 
 export const FollowHeaderWrap = styled(BasicHeader)`
   justify-content: flex-start;
   padding: 12px 16px;
-  background-color: white;
-  border-bottom: 1px solid #dbdbdb;
 
   strong {
     display: block;
@@ -81,22 +78,15 @@ export const FollowHeaderWrap = styled(BasicHeader)`
 
 export const EditAndUploadHeaderWrap = styled(BasicHeader)`
   padding: 12px 14px 12px 16px;
-  background-color: white;
-  border-bottom: 1px solid #dbdbdb;
 
-  button {
+  button + button {
     background-color: ${palette.마이너스초록};
   }
 
-  .backBtn {
-    background-color: transparent;
-  }
 `;
 
 export const ChatHeaderWrap = styled(BasicHeader)`
   padding: 12px 14px 12px 16px;
-  background-color: white;
-  border-bottom: 1px solid #dbdbdb;
 
   strong {
     width: 33.3%;
