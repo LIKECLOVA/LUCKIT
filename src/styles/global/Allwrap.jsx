@@ -33,26 +33,26 @@ const Allwrap = styled.div`
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  width: 55vmin;
-  height: 95vmin;
+  width: 390px;
+  height: 770px;
   overflow: hidden;
   outline: 10px solid #e6e6e6;
   border-radius: 30px;
   box-shadow: rgba(152, 152, 152, 0.24) 0px 3px 8px;
   background: #fff;
-  @media screen and (max-width: 1020px) {
-    width: 45%;
-    height: 95%;
-    padding: none;
-    margin: none;
-  }
+  // @media screen and (max-width: 1020px) {
+  //   width: 45%;
+  //   height: 95%;
+  //   padding: none;
+  //   margin: none;
+  // }
 
-  @media screen and (max-width: 768px) {
-    width: 85%;
-    height: 95%;
-    padding: none;
-    margin: none;
-  }
+  // @media screen and (max-width: 768px) {
+  //   width: 85%;
+  //   height: 95%;
+  //   padding: none;
+  //   margin: none;
+  // }
 `;
 
 export { Allwrap };

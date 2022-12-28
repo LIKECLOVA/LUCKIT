@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { NavLink, useParams } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
-import { MarketPreviewBoxWrap } from './marketpreviewboxstyle'
+import { MarketPreviewBoxWrap } from './marketpreviewpoststyle'
 // import IconPostUpload from '../../assets/icon/market-plus.png'
 import { AxiosProductList } from '../../reducers/getProductListSlice'
 import IconClova from '../../assets/icon/sns용-클로바-disabled.png'
