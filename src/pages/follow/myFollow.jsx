@@ -6,8 +6,7 @@ import { Follow } from '../../components/follow/follow';
 
 export const MyFollow = () => {
   /* 내 프로필 페이지의 팔로잉 팔로워 누르면 이동하는 페이지 */
-  // 조건부 랜더링을 시켜주나? myfollowimg을 눌렀을때는 내 팔로워만 보여줌.
-  // 팔로잉을 눌렀을때는 내 팔로잉만 보여줌.
+
   useEffect(() => {
     getFollowerList();
     getFollowingList();
