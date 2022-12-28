@@ -4,11 +4,7 @@ import { MapModal } from './mapModal';
 import markImg from '../../assets/icon/mapMarker.png';
 import { useState } from 'react';
 
-const EventMarkerContainer = ({ position, onClick, isClicked,title,location ,img, page }) => {
-
-   const [isOver, setIsOver] = useState(false);
-
-
+const EventMarkerContainer = ({modalClose ,position, onClick, isClicked,title,location ,img, page }) => {
 
   return (
     <>
@@ -23,27 +19,9 @@ const EventMarkerContainer = ({ position, onClick, isClicked,title,location ,img
             height: 30,
           },
         }}
-        // image={{
-        //   src: SPRITE_MARKER_URL,
-        //   size: {
-        //     width: MARKER_WIDTH,
-        //     height: MARKER_HEIGHT,
-        //   },
-        //   options: {
-        //     offset: {
-        //       x: OFFSET_X,
-        //       y: OFFSET_Y,
-        //     },
-        //     spriteSize: {
-        //       width: SPRITE_WIDTH,
-        //       height: SPRITE_HEIGHT,
-        //     },
-        //     spriteOrigin: spriteOrigin,
-        //   },
-        // }}
       ></MapMarker>
       <CustomOverlayMap position={position}>
-        <MapModal img={img} title={title} location={location} isClicked={isClicked} page={page} />
+        <MapModal modalClose={modalClose} img={img} title={title} location={location} isClicked={isClicked} page={page} />
       </CustomOverlayMap>
     </>
   );

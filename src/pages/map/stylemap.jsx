@@ -6,13 +6,14 @@ export const MapDiv = styled.div`
     left: 0;
     bottom: 40px;
     width: 288px;
-    height: 132px;
+    height: 150px;
     margin-left: -144px;
     text-align: left;
     overflow: hidden;
     font-size: 12px;
     font-family: 'Malgun Gothic', dotum, '돋움', sans-serif;
     line-height: 1.5;
+    border-radius: 20px;
   }
   .wrap * {
     padding: 0;
@@ -20,13 +21,10 @@ export const MapDiv = styled.div`
   }
   .wrap .info {
     position:relative;
-    z-index: 100;
     width: 286px;
-    height: 120px;
-    border-radius: 5px;
+    height: 150px;
     border-bottom: 2px solid #ccc;
     border-right: 1px solid #ccc;
-    overflow: hidden;
     background: #fff;
   }
   .wrap .info:nth-child(1) {
@@ -34,17 +32,18 @@ export const MapDiv = styled.div`
     box-shadow: 0px 1px 2px #888;
   }
   .info .title {
-    padding: 5px 0 0 10px;
-    height: 30px;
+    padding: 8px 0 0px 10px;
+    height: 40px;
     background: #eee;
+    margin-bottom:5px;
     border-bottom: 1px solid #ddd;
     font-size: 18px;
     font-weight: bold;
   }
   .info .close {
     position: absolute;
-    top: 7px;
-    right: 10px;
+    top: 10px;
+    right: 12px;
     color: #888;
     width: 17px;
     height: 17px;
@@ -59,7 +58,7 @@ export const MapDiv = styled.div`
   }
   .info .desc {
     position: relative;
-    margin: 13px 0 0 90px;
+    margin: 13px 0 0 100px;
     height: 75px;
   }
   .desc .ellipsis {
@@ -75,7 +74,7 @@ export const MapDiv = styled.div`
   .info .img {
     position: absolute;
     top: 6px;
-    left: 5px;
+    left: 8px;
     width: 73px;
     height: 71px;
     border: 1px solid #ddd;

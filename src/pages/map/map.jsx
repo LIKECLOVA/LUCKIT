@@ -3,7 +3,6 @@ import { ProfileAndChatHeader } from '../../components/header/header';
 import { positions } from './markPosition';
 import { Map } from 'react-kakao-maps-sdk';
 import React, { useState } from 'react';
-// import { MapModal } from './mapModal';
 import EventMarkerContainer from './\beventMarker';
 
 const RecommendMap = () => {
@@ -26,24 +25,19 @@ const RecommendMap = () => {
         }}
         level={8} // 지도의 확대 레벨
       >
-        {positions.map((v, index) => {
+        {positions.map((v,index) => {
           return (
-            <React.Fragment key={crypto.randomUUID()}>
               <EventMarkerContainer
-                onClick={() => setSeleteMarker(index)}
+                key={crypto.randomUUID()}
+                onClick={ ()=> {setSeleteMarker(v.id) } }
                 isClicked={selectedMarker === index}
                 position={v.latlng}
                 title ={v.title}
                 location ={v.location}
                 img ={v.img}
                 page={v.page}
+                modalClose={()=>{setSeleteMarker(false)}}
               />
-
-              {/* <MapMarker position={v.latlng} onClick={test} />
-              <CustomOverlayMap position={v.latlng}>
-                <MapModal 연결={연결} setIsOpen={setIsOpen} isOpen={isOpen} />
-              </CustomOverlayMap> */}
-            </React.Fragment>
           );
         })}
       </Map>

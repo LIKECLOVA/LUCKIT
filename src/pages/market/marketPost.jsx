@@ -12,6 +12,8 @@ export function MarketPost() {
   const { id } = useParams();
   const token = localStorage.getItem('Access Token');
 
+// getProductList 리덕스
+
   useEffect(() => {
     axios({
       method: 'get',
