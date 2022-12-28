@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
- import { Follow } from '../../components/follow/follow'
+import { Follow } from '../../components/follow/follow'
 import { FollowPageWrap, FollowPageUl } from './followstyle';
 import { FollowerHeader } from '../../components/header/header';
 
@@ -52,7 +52,7 @@ export const YourFollow = () => {
 
   return (
     <>
-      <FollowerHeader />
+      <FollowerHeader target={target}/>
       <FollowPageWrap>
         <FollowPageUl>
          {/* 여기안 부터 조건에 따라 달라지게 Follow에 내려주는 프롭스값도 달라지고 랜더링도 달라짐 */}
