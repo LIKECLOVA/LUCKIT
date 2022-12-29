@@ -81,6 +81,6 @@ export const NavLinkStyle = styled(NavLink)`
 `
 
 export const SnsPostWrap = styled.li`
-  margin: 15px 0 35px;
+  margin: 15px 0 0px;
   position: relative;
 `
