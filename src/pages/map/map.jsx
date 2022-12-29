@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { ProfileAndChatHeader } from '../../components/header/header';
 import { positions } from './markPosition';
 import EventMarkerContainer from './eventMarker';
+import { NavBar } from '../../components/navbar/navBar';
 
 const RecommendMap = () => {
   const [selectedMarker, setSeleteMarker] = useState();
@@ -40,6 +41,7 @@ const RecommendMap = () => {
           );
         })}
       </Map>
+      <NavBar/>
     </>
   );
 };
