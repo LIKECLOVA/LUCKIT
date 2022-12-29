@@ -6,7 +6,7 @@ export const ChatRoomWrap = styled.div`
   height: 100%;
   flex-direction: column;
   justify-content: flex-end;
-  background-color: #d5efd5;
+  background-color: white;
 `;
 
 export const RightChatTxT = styled.div`
