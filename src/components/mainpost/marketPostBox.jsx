@@ -1,31 +1,24 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import Swal from 'sweetalert2';
-import {
-  CardWrap,
-  CardCont,
-  CardTitle,
-  CardTxt,
-  CardUser,
-  CardImg,
-} from './marketpostboxstyle';
+import { CardWrap, CardCont, CardTitle, CardTxt, CardUser, CardImg } from './marketpostboxstyle';
 import IconSnsClova from '../../assets/icon/sns용-클로바-disabled.png';
 import IconSnsClovaFill from '../../assets/icon/sns용-클로바.png';
 import { MarketPostMoreBtn } from '../button/iconBtn';
 import DefaultUserImg from '../../assets/icon/basic-profile.png'
 
-export default function MarketPostBox({data, accountname}) {
+export default function MarketPostBox({ data, accountname }) {
   const [confirmedValue, setConfirmedValue] = useState(JSON.parse(localStorage.getItem('stored')));
-  const myAccountName = localStorage.getItem("Account Name");
+  const myAccountName = localStorage.getItem('Account Name');
 
   const onClickApplyBtn = (e) => {
     const targetId = e.currentTarget.id;
-  
+
     Swal.fire({
       imageUrl:
         'https://user-images.githubusercontent.com/102042383/209487151-26edc09f-d556-45f2-abaf-4b60c692d57d.gif',
-      imageWidth: 350,
-      imageHeight: 350,
-
+      width: 340,
+      imageWidth: 200,
+      imageHeight: 200,
       showCancelButton: true,
       cancelButtonText: '럭킷 매칭 취소',
       confirmButtonText: '럭킷 매칭 신청',
@@ -39,9 +32,10 @@ export default function MarketPostBox({data, accountname}) {
     }).then((result) => {
       if (result.isConfirmed) {
         Swal.fire({
+          width: 340,
           position: 'center',
           icon: 'success',
-          title: "<p style='font-size:20px; padding:20px;'>럭킷 매칭 신청이 완료되었습니다!</p>",
+          title: "<p style='font-size:20px; padding:20px; '>신청이 완료되었습니다!</p>",
           showConfirmButton: false,
           timer: 1500,
           backdrop: `
@@ -74,20 +68,28 @@ export default function MarketPostBox({data, accountname}) {
     <CardWrap>
       <CardImg src={data.itemImage} onError={onErrorImg}/>
       <CardCont>
-          <CardTitle>{data.itemName}</CardTitle>
-          <CardTxt>{data.link}</CardTxt>
-          <CardUser>FROM. {data.author.username}</CardUser>
-          {accountname !== myAccountName ? <>
-          <button onClick={onClickApplyBtn} id={data.id}>
-            {confirmedValue && confirmedValue[data.id] ? <>
-            <img src={IconSnsClovaFill} alt='취미 메이트 신청 버튼'/>
-            </> : <>
-            <img src={IconSnsClova} alt='취미 메이트 신청 버튼'/>
-            </>}
-          </button>
-          </> : <></>}
+        <CardTitle>{data.itemName}</CardTitle>
+        <CardTxt>{data.link}</CardTxt>
+        <CardUser>FROM. {data.author.username}</CardUser>
+        {accountname !== myAccountName ? (
+          <>
+            <button onClick={onClickApplyBtn} id={data.id}>
+              {confirmedValue && confirmedValue[data.id] ? (
+                <>
+                  <img src={IconSnsClovaFill} alt='취미 메이트 신청 버튼' />
+                </>
+              ) : (
+                <>
+                  <img src={IconSnsClova} alt='취미 메이트 신청 버튼' />
+                </>
+              )}
+            </button>
+          </>
+        ) : (
+          <></>
+        )}
       </CardCont>
       <MarketPostMoreBtn productId={data.id} />
     </CardWrap>
-  )
+  );
 }
