@@ -2,8 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { SearchHeader } from '../../components/header/header';
 import { NavBar } from '../../components/navbar/navBar';
-import { SearchMain, SearchListWrap, Span, Div, NoResultWrap, SearchResult } from './searchstyle'
-import { SnsProfileWrap, AuthorNavLink, AuthorImgNavLink } from '../profile/myprofilestyle';
+import { SearchListWrap, Span, Div, SearchResult, H2, SnsProfileWrap, AuthorNavLink, AuthorImgNavLink, NoResultTxt, DefaultWrap, SearchMain } from './searchstyle'
 import DefaultUserImg from '../../assets/icon/basic-profile.png'
 
 export const Search = () => {
@@ -54,50 +53,51 @@ export const Search = () => {
   return (
     <>
       <SearchHeader value={keyword} onChange={onChange}/>
-      {keyword && searchUserData ? 
-        <SearchListWrap>
-          <ul>
-          {searchUserData && searchUserData.map((user, index) => {
-            return (
-              <li key={index}>
-                <SnsProfileWrap>
-                  <AuthorImgNavLink to={`/profile/${user.accountname}`}>
-                    <img src={user.image} onError={onErrorImg} alt="프로필이미지" />
-                  </AuthorImgNavLink>
-                  <AuthorNavLink to={`/profile/${user.accountname}`}>
-                    <KeywordColor user={user.username} word={keyword} type='username' />
-                    <SearchResult>
-                      <span>@</span>
-                      <KeywordColor user={user.accountname} word={keyword}type='accountname' />
-                  </SearchResult>
-                  </AuthorNavLink>
-                </SnsProfileWrap>
-              </li>
-            )
-          })}
-          </ul>
-        </SearchListWrap> : 
-        <SearchMain>
-          <span>검색 TIP</span><p>취미 키워드를 넣어서 검색해 보세요.</p>
-          <ul className='searchKeyword'>
-            <li>인테리어</li>
-            <li>다이어리 꾸미기</li>
-            <li>운동</li>
-            <li>게임</li>
-            <li>독서</li>
-            <li>콘서트</li>
-            <li>아이돌</li>
-            <li>댄스</li>
-            <li>전시회</li>
-            <li>미술</li>
-            <li>etc..</li>
-          </ul>
-        </SearchMain>
+      <H2>검색 페이지</H2>
+      <SearchMain>
+        { searchUserData && keyword ? 
+            <SearchListWrap>
+            {searchUserData && searchUserData.map((user, index) => {
+              return (
+                <li key={index}>
+                  <SnsProfileWrap>
+                    <AuthorImgNavLink to={`/profile/${user.accountname}`}>
+                      <img src={user.image} onError={onErrorImg} alt="프로필이미지" />
+                    </AuthorImgNavLink>
+                    <AuthorNavLink to={`/profile/${user.accountname}`}>
+                      <KeywordColor user={user.username} word={keyword} type='username' />
+                      <SearchResult>
+                        <span>@</span>
+                        <KeywordColor user={user.accountname} word={keyword}type='accountname' />
+                    </SearchResult>
+                    </AuthorNavLink>
+                  </SnsProfileWrap>
+                </li>
+              )
+            })}
+            </SearchListWrap>
+           : 
+            <DefaultWrap>
+              <span>검색 TIP</span><p>취미 키워드를 넣어서 검색해 보세요.</p>
+              <ul className='searchKeyword'>
+                <li>인테리어</li>
+                <li>운동</li>
+                <li>게임</li>
+                <li>독서</li>
+                <li>다이어리 꾸미기</li>
+                <li>콘서트</li>
+                <li>아이돌</li>
+                <li>댄스</li>
+                <li>전시회</li>
+                <li>미술</li>
+                <li>etc..</li>
+              </ul>
+            </DefaultWrap>
+          }
+        { searchUserData.length === 0 && keyword.length >= 1 &&
+            <NoResultTxt>검색 결과가 없습니다.</NoResultTxt>
         }
-      { searchUserData.length === 0 && keyword.length >= 1 &&
-        <NoResultWrap>
-          <p>검색 결과가 없습니다.</p>
-        </NoResultWrap>}
+      </SearchMain>
       <NavBar />
     </>
   );

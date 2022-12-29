@@ -37,8 +37,6 @@ export const Home = () => {
     }
   }
 
-  console.log(scrollTopData)
-
   return (
     <HomeWrap onScroll={onScroll}>
       { followingData && followingData.length > 0 ? <>
