@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FollowBtn } from '../button/button';
 import { FollowInfoWrap, FollowLi } from './followstyle';
+import DefaultUserImg from '../../assets/icon/basic-profile-img-.png'
 
 export const Follow = ({ user }) => {
 
@@ -49,13 +50,17 @@ export const Follow = ({ user }) => {
     navigate(`/profile/${user.accountname}`)
   }
 
+  const onErrorImg = (e) => {
+    e.target.src = DefaultUserImg;
+  };
+
   return (
     <FollowLi>
       <FollowInfoWrap onClick={goYourProfile}>
-        <img src={user.image} alt='프로필사진' />
+        <img onError={onErrorImg} src={user.image} alt='프로필사진' />
         <div>
-          <p>{user.accountname}</p>
-          <p>{user.intro}</p>
+          <p className='userAccount'>{user.accountname}</p>
+          <p className='userIntro'>{user.intro}</p>
         </div>
       </FollowInfoWrap>
       {user.accountname !== myAccountName ? 
