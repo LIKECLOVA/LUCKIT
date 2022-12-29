@@ -15,6 +15,12 @@ const setPosition = (posi) => {
         position: fixed;
         z-index: 40;
       `;
+    case 'profileIn':
+      return css`
+        position : absolute;
+        bottom: 10px;
+        right: 10px;
+      `
     default:
       return null;
   }
@@ -25,8 +31,8 @@ export const IconBtn = styled.button`
   right: 10px;
   bottom: 70px;
   z-index: 30;
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
   margin: 0px;
   padding: 0px;
   background-color: #ffffff;

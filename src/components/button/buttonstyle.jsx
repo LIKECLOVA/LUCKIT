@@ -6,8 +6,8 @@ const setSize = (size) => {
     case 'large':
       return css`
         width: 100%;
-        padding: 19px 0;
-        font-size: 24px;
+        padding: 12px 0;
+        font-size: 20px;
         line-height: 30px;
       `;
     case 'middle':
