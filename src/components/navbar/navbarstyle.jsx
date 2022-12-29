@@ -1,29 +1,27 @@
 import { NavLink } from 'react-router-dom';
-import styled, { css } from "styled-components";
-import {palette} from '../../styles/global/globalColor'
+import styled, { css } from 'styled-components';
+import { palette } from '../../styles/global/globalColor';
 
 export const NavWrap = styled.nav`
+  background-color: white;
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+  height: 58px;
+  border-top: 1px solid #dbdbdb;
+  padding: 10px 0 8px;
+  z-index: 50;
 
-    background-color: white;
-    position: fixed;
-    bottom: 0px;
-    width: 100%;
-    height: 60px;
-    border-top: 1px solid #DBDBDB;
-    padding: 12px 0 8px;
-    z-index: 50;
+  ul {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
 
-    ul {
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-    }
-
-    li {
-        cursor: pointer;
-    }
-
-`
+  li {
+    cursor: pointer;
+  }
+`;
 
 export const StyleNavLink = styled(NavLink)`
 
@@ -35,19 +33,22 @@ export const StyleNavLink = styled(NavLink)`
     font-size: 10px;
     font-weight: 500;
     gap: 5px;
+            color: #bdbcbc;
 
     ::before {
         content: '';
         display: block;
-        width: 24px;
-        height: 24px;
+        width: 22px;
+        height: 22px;
+
         
         ${(props) => {
-        return css`
-        background-image: url(${props.icon});
-        background-size: 24px 24px;
-        background-position: center;
-        `}}
+          return css`
+            background-image: url(${props.icon});
+            background-size: 22px 22px;
+            background-position: center;
+          `;
+        }}
         }
 
     &.active {
@@ -55,9 +56,10 @@ export const StyleNavLink = styled(NavLink)`
 
         ::before{
             ${(props) => {
-            return css`
-              background-image: url(${props.hovericon});
-            `}}
+              return css`
+                background-image: url(${props.hovericon});
+              `;
+            }}
           }}
     }
 
@@ -66,10 +68,11 @@ export const StyleNavLink = styled(NavLink)`
 
         ::before {
             ${(props) => {
-            return  css`
-            background-image: url(${props.hovericon})
-            `}}
+              return css`
+                background-image: url(${props.hovericon});
+              `;
+            }}
         }
 }
 
-`
+`;

@@ -8,6 +8,8 @@ import chatIcon from '../../assets/icon/chat-disabled.png';
 import chatIconFill from '../../assets/icon/chat.png';
 import profileIcon from '../../assets/icon/profile-disabled.png';
 import profileIconFill from '../../assets/icon/profile.png';
+import locator from '../../assets/icon/locator-disabled.png';
+import locatorFill from '../../assets/icon/locator.png';
 
 export const NavBar = () => {
   const id = localStorage.getItem('Account Name');
@@ -41,6 +43,21 @@ export const NavBar = () => {
         </li>
         <li>
           <StyleNavLink
+<<<<<<< Updated upstream
+=======
+            to={'/map'}
+            icon={locator}
+            hovericon={locatorFill}
+            className={({ isActive }) => {
+              return isActive ? 'active' : null;
+            }}
+          >
+            모임장소
+          </StyleNavLink>
+        </li>
+        <li>
+          <StyleNavLink
+>>>>>>> Stashed changes
             to={'/chatpage'}
             icon={chatIcon}
             hovericon={chatIconFill}
