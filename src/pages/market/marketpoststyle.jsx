@@ -42,7 +42,7 @@ export const ListWrap = styled.ul`
 
 export const ListItem = styled.li`
     position: relative;
-    margin-bottom: 50px;
-    border-radius: 30px;
+    margin-bottom: 55px;
+    border-radius: 25px;
     box-shadow: 1px 1px 7px #DBDBDB;
 `

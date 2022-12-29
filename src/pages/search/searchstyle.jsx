@@ -12,7 +12,7 @@ export const H2 = styled.h2`
 `
 
 export const SearchMain = styled.main`
-  margin-top: 50px;
+  margin-top: 55px;
   padding: 15px 15px 100px;
   height: 100%;
   overflow: auto;
