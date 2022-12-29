@@ -19,14 +19,26 @@ export const Envelope = styled.main`
     }
   }
 
+  
   .envbox {
     display: inline-block;
     position: absolute;
     bottom: 100px;
     width: 98%;
     left: 1%;
-    animation: tada;
-    animation-delay: 1s;
+
+    animation: vertical-wait2 1.45s ease infinite;
+}
+@keyframes vertical-wait2 {
+  0% { transform:translate(0,-3px) }
+  3.27869% { transform:translate(0,3px) }
+  6.55738% { transform:translate(0,-3px) }
+  9.83606% { transform:translate(0,3px) }
+  13.11475% { transform:translate(0,-3px) }
+  16.39344% { transform:translate(0,3px) }
+  18.03279% { transform:translate(0,0) }
+  100% { transform:translate(0,0) }
+}
   }
   .env {
     animation: envelope 2s;
@@ -105,10 +117,11 @@ export const Logo = styled.div`
   margin-top: 30%;
   margin-left: 13%;
   width: 100%;
-  height: 50%;
+  height: 45%;
   background: url(${splashLogo}) no-repeat;
   background-size: contain;
   z-index: 1000;
+  animation-delay: 0.5s;
   animation: bounce 1.5s infinite;
 
   @keyframes bounce {
