@@ -69,7 +69,7 @@ export const ProfileAndChatHeader = () => {
     <>
       <ProfileHeaderWrap>
         <BackBtn/>
-        <button onClick={onClick}>
+        <button className='setBtn' onClick={onClick}>
           <img src={IconMoreVertical} alt='설정 및 로그아웃 버튼' />
         </button>
       </ProfileHeaderWrap>
