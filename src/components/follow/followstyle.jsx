@@ -1,30 +1,42 @@
-import styled from "styled-components"
+import styled from 'styled-components';
 
 export const FollowLi = styled.li`
-    display:flex;
-    justify-content: space-between;
-    align-items: center;
-    button{
-        width:71px;
-        flex-shrink:0;
-    }
-    
-`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  button {
+    width: 71px;
+    flex-shrink: 0;
+  }
+`;
 
 export const FollowInfoWrap = styled.div`
-    display:flex;
-    align-items: center;
-    cursor: pointer;
-    img{
-        width:110px;
-        height:110px;
-        object-fit: cover;
-        border-radius:50%;
-    }
-    div p{
-        margin-left:10px;
-        margin-bottom:10px;
-    }
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  flex-grow:1;
+  img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+  div{
+    flex-grow:1;
+    width:160px;
+  }
+  div p {
+    margin-left: 10px;
+  }
 
-  
-`
+  .userAccount {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  .userIntro {
+    font-size: 12px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+`;
