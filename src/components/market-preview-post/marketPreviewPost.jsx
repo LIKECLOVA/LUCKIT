@@ -5,6 +5,7 @@ import { HeadingWrap, MarketPostList, MarketPostWrap, MarketPreviewBoxWrap } fro
 import { AxiosProductList } from '../../reducers/getProductListSlice'
 import IconClova from '../../assets/icon/sns용-클로바-disabled.png'
 import { ProfilePostUploadBtn } from '../button/iconBtn'
+import DefaultUserImg from '../../assets/icon/basic-profile.png'
 
 export const MarketPreviewPost = () => {
   const accountName = localStorage.getItem("Account Name");
@@ -17,6 +18,10 @@ export const MarketPreviewPost = () => {
   useEffect(()=>{
     dispatch(AxiosProductList(URLProduct));
   },[id])
+
+  const onErrorImg = (e) => {
+    e.target.src = DefaultUserImg;
+  }
   
   return (
     <MarketPreviewBoxWrap>
@@ -42,7 +47,7 @@ export const MarketPreviewPost = () => {
               <MarketPostList key={post.id}>
                 <NavLink to={`/marketpost/${id}`}>
                   <p>{post.itemName}</p>
-                  <img src={post.itemImage} />
+                  <img src={post.itemImage} onError={onErrorImg}/>
                 </NavLink>
               </MarketPostList>
             );

@@ -48,7 +48,7 @@ export const MarketFeedHome = ({ scrollTopData, followingData }) => {
       <Carousel />
       <main>
         <HomeSection>
-          <h2>Home 피드 페이지</h2>
+          <h2>홈 마켓글 피드 페이지</h2>
           <HomeTitle>럿킷 메이트를 기다리고 있어요!✨</HomeTitle>
           <ListWrap>
             {productData.length > 0 &&

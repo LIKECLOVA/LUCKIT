@@ -24,11 +24,10 @@ export const NavWrap = styled.nav`
 `;
 
 export const StyleNavLink = styled(NavLink)`
-
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-contnet: center;
+    justify-content: center;
     text-align: center;
     font-size: 10px;
     font-weight: 500;
@@ -41,7 +40,6 @@ export const StyleNavLink = styled(NavLink)`
         display: block;
         width: 22px;
         height: 22px;
-
         
         ${(props) => {
           return css`
@@ -74,6 +72,5 @@ export const StyleNavLink = styled(NavLink)`
               `;
             }}
         }
-}
 
 `;

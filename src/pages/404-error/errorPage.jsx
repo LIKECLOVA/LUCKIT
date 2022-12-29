@@ -2,6 +2,17 @@ import React from 'react';
 import styled from 'styled-components';
 import notFound from '../../assets/notFound.png';
 import { ProfileAndChatHeader } from '../../components/header/header';
+import { NavBar } from '../../components/navbar/navBar';
+
+export const Error = () => {
+  return (
+    <>
+      <ProfileAndChatHeader />
+      <NotFound />;
+      <NavBar />;
+    </>
+  );
+};
 
 export const NotFound = styled.div`
   width: 90%;
@@ -29,14 +40,4 @@ export const NotFound = styled.div`
     }
   }
 `;
-
-export const Error = () => {
-  return (
-    <>
-      <ProfileAndChatHeader />
-      <NotFound />;
-    </>
-  );
-};
-
 export default Error;
