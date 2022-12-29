@@ -1,19 +1,82 @@
+import { NavLink } from 'react-router-dom';
 import styled, {css} from 'styled-components';
 import { palette } from '../../styles/global/globalColor';
 
-export const SearchListWrap = styled.div`
+export const H2 = styled.h2`
+  position: absolute;
+  clip: rect(0 0 0 0)
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+`
 
-  margin-top: 50px;
+export const SearchListWrap = styled.main`
+  margin-top: 40px;
   padding: 15px;
+  overflow: scroll;
+      -ms-overflow-style: none;
+      ::-webkit-scrollbar{
+        display: none;
+      }
 
   li {
     margin: 20px 0;
   }
 `
 
-export const SearchMain = styled.main`
+export const SnsProfileWrap = styled.div`
+  display: flex;
+`
 
-  margin-top: 80px;
+export const AuthorImgNavLink = styled(NavLink)`
+  img {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+    border-radius: 50%;
+    vertical-align: top;
+    border: 0.5px solid #DBDBDB;
+  }
+`
+
+export const AuthorNavLink = styled(NavLink)`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+`
+
+export const SearchResult = styled.div`
+  dispaly: flex;
+  
+  span {
+  margin-right: 2px;
+  font-size: 12px;
+} 
+`
+
+export const Div = styled.div`
+  display: inline;
+
+  ${({ type }) => {
+    return type === 'username'
+      ? css`
+          font-size: 14px;
+          margin-bottom: 4px;
+          font-weight: 500;
+        `
+      : css`
+          font-size: 12px;
+        `;
+  }};
+  `
+
+  export const Span = styled.span`
+  color: ${palette.텍스트초록};
+`
+
+export const SearchMain = styled.main`
+  margin-top: 70px;
   font-weight: 500;
   padding: 15px;
 
@@ -21,9 +84,11 @@ export const SearchMain = styled.main`
     display: inline-block;
     color: #838383;
     margin-left: 5px;
+    font-size: 14px;
   }
   
   span {
+    font-size: 14px;
     background-color: #E5F3D3;
     padding: 10px 20px;
     border-radius: 20px;
@@ -34,53 +99,20 @@ export const SearchMain = styled.main`
     margin-top: 40px;
     display: flex;
     flex-wrap: wrap;
-    gap: 15px 20px;
+    gap: 15px 18px;
     
     li {
      color: #838383;
      background-color: #F1F1F1;
-     padding: 8px 18px;
-     font-size: 14px;
+     padding: 8px 15px;
+     font-size: 12px;
      border-radius: 20px;
    }
   }
 `
 
-export const NoResultWrap = styled.div`
-  
+export const NoResultWrap = styled.main`
   padding: 15px;
   color: #838383;
-
+  font-size: 14px;
 `
-
-export const Span = styled.span`
-  color: ${palette.텍스트초록};
-`
-
-export const Div = styled.div`
-  display: inline;
-
-  ${({ type }) => {
-    return type === 'username'
-      ? css`
-          font-size: 14px;
-          margin-bottom: 6px;
-          font-weight: 500;
-        `
-      : css`
-          font-size: 12px;
-        `;
-  }};
-
-  `
-
-  export const SearchResult = styled.div`
-
-    dispaly: flex;
-
-    span {
-      margin-right: 2px;
-      font-size: 12px;
-    }
-    
-  `

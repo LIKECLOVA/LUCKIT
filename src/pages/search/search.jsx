@@ -2,8 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { SearchHeader } from '../../components/header/header';
 import { NavBar } from '../../components/navbar/navBar';
-import { SearchMain, SearchListWrap, Span, Div, NoResultWrap, SearchResult } from './searchstyle'
-import { SnsProfileWrap, AuthorNavLink, AuthorImgNavLink } from '../profile/myprofilestyle';
+import { SearchMain, SearchListWrap, Span, Div, NoResultWrap, SearchResult, H2, SnsProfileWrap, AuthorNavLink, AuthorImgNavLink } from './searchstyle'
 import DefaultUserImg from '../../assets/icon/basic-profile.png'
 
 export const Search = () => {
@@ -54,6 +53,7 @@ export const Search = () => {
   return (
     <>
       <SearchHeader value={keyword} onChange={onChange}/>
+      <H2>검색 페이지</H2>
       {keyword && searchUserData ? 
         <SearchListWrap>
           <ul>

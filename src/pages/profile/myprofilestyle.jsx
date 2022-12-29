@@ -80,58 +80,7 @@ export const NavLinkStyle = styled(NavLink)`
   display: flex;
 `
 
-/* sns 게시글 design*/
-
 export const SnsPostWrap = styled.li`
   margin: 15px 0 35px;
   position: relative;
   `
-
-export const SnsProfileWrap = styled.div`
-  display: flex;
-`
-
-export const AuthorImgNavLink = styled(NavLink)`
-      img {
-      width: 50px;
-      height: 50px;
-      margin-right: 10px;
-      border-radius: 50%;
-      vertical-align: top;
-      border: 0.5px solid #DBDBDB;
-    }
-  `
-
-export const AuthorNavLink = styled(NavLink)`
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-
-    strong {
-      font-size: 14px;
-      font-weight: 500;
-    }
-
-    p {
-      margin-top: 5px;
-      font-size: 12px;
-    }
-`
-
-export const ImgListDiv = styled.div`
-  img {
-    width: 510px;
-    height: 400px;
-    object-fit: cover;
-    object-position: center;
-    border-radius: 20px;
-    border: 1px solid #DBDBDB;
-    vertical-align: top;
-  }
-`
-
-export const MoreBtnWrap = styled.div`
-  position: absolute;
-  right: 0;
-  top: 11px;
-`
