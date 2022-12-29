@@ -4,7 +4,7 @@ const MainSnsPostWhap= styled.div`
     position: relative;
     align-items:top;
     box-sizing: border-box;
-    padding: 1.6rem 0rem;
+    padding: 1rem 0rem;
     width: 100%;
     background: rgb(255, 255, 255);
     display: flex;
@@ -12,9 +12,8 @@ const MainSnsPostWhap= styled.div`
     border-top-left-radius: 15px;
     overflow: hidden;
     .snsImgList {
-    width: 420px;
+    width: 100%;
     display: flex;
-    gap: 10px;
     flex-wrap: no-wrap;
     overflow-x: auto;
     ::-webkit-scrollbar {
@@ -33,10 +32,10 @@ const MainSnsPostWhap= styled.div`
 export { MainSnsPostWhap }
 
 const UserProfileImg= styled.img`
-      margin: 0 20px;
+      margin: 0px 5px;
       border-radius: 50%;
-      width: 80px;
-      height: 80px;
+      width: 50px;
+      height: 50px;
 `;
 
 export { UserProfileImg }
@@ -44,7 +43,7 @@ export { UserProfileImg }
 const SnsPostBox= styled.div`
     align-items: left;
     box-sizing: border-box;
-    width: 420px;
+    width: 280px;
     background: rgb(255, 255, 255);
     display: flex;
     flex-direction: column;
@@ -54,9 +53,9 @@ export { SnsPostBox }
 
 const SnsPostContent= styled.p`
       margin: 15px 0px;
-      font-weight: 300;
-    font-size: 18px;
-    line-height: 26px;
+      font-weight: 400;
+    font-size: 14px;
+    line-height: 24px;
     white-space: initial;
 `;
 
@@ -79,13 +78,15 @@ const SnsIdWhap= styled.div`
     justify-items:center;
     align-items: baseline;
     > strong{
+    cursor: pointer;
     margin-right:5px;
-    font-size: 16px;
-    line-height: 14px;
+    font-size: 14px;
+    line-height: 20px;
     font-weight: 600;
 }
 > p{
-    font-size: 12px;
+    cursor: pointer;
+    font-size: 10px;
     line-height: 11px;
 }
 `;
@@ -95,7 +96,7 @@ export { SnsIdWhap }
 const IconWrap= styled.div`
     display: flex;
   font-weight: 400;
-  font-size: 1.2rem;
+  font-size: 0.8rem;
   line-height: 1.2rem;
   margin: 0.8rem 0rem ;
   align-items: center;
@@ -122,18 +123,18 @@ export const CommentBtnWrap= styled.div`
     flex-grow: 1;
     z-index: 10;
     span{
-        font-size:1rem;
+        font-size:0.9rem;
     }
 `;
 
 export const ImgListDiv = styled.div`
 
   img {
-    width: 420px;
-    height: 320px;
+    width: 280px;
+    height: 200px;
     object-fit: cover;
     object-position: center;
-    border-radius: 20px;
+    border-radius: 15px;
     border: 1px solid #DBDBDB;
     vertical-align: top;
   }
