@@ -156,7 +156,7 @@ const JoinProfile = () => {
               }}
             />
             <ProfileImgInput onChange={postImg} ref={fileInput} type='file' id='joinProfileImg' />
-            <ImgUploadBtn click={changeImg} posi='in' />
+            <ImgUploadBtn click={changeImg} posi='profileIn' />
           </ProfileImgLabel>
           <div>
             <ProfileLabel>
