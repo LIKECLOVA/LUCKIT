@@ -6,6 +6,7 @@ import ChatUser from './chatUser';
 import molang from '../../assets/icon/몰랑이.png'
 import kuromi from '../../assets/icon/쿠로미.png'
 import dalmuti from '../../assets/icon/달무티.jpeg'
+import { NavBar } from '../../components/navbar/navBar';
 
 
 // 이미지 추가 작업
@@ -25,6 +26,7 @@ export const ChatPage = () => {
           <ChatUser id={'만년농노'} chat={'달무티에 관심 있으세요?'} img={dalmuti} time={'2022-12-16'}/>
         </ChatPageUl>
       </ChatPageWrap>
+      <NavBar/>
     </>
   );
 };
