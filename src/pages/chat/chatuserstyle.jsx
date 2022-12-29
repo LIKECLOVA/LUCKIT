@@ -15,6 +15,7 @@ export const ChatUserLi = styled.li`
 export const ChatInfoWrap = styled.div`
   display: flex;
   align-items: center;
+
   flex-grow:1;
   img {
     width: 60px;
@@ -29,6 +30,7 @@ export const ChatInfoWrap = styled.div`
   div p {
     padding-left:10px;
     padding-bottom: 5px;
+
     overflow: hidden; 
     text-overflow: ellipsis; 
     white-space: nowrap;
@@ -36,9 +38,11 @@ export const ChatInfoWrap = styled.div`
   }
 
   .userId{
+
     font-size:16px;
   }
   .userChat{
     font-size:14px;
+    margin-top:8px;
   }
 `;

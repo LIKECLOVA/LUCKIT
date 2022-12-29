@@ -8,6 +8,8 @@ import kuromi from '../../assets/icon/쿠로미.png'
 import dalmuti from '../../assets/icon/달무티.jpeg'
 
 
+// 이미지 추가 작업
+
 
 
 export const ChatPage = () => {

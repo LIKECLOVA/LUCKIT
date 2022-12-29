@@ -4,17 +4,17 @@ import { Article } from './carouselstyle';
 const bannerData = [
   {
     id: 1,
-    name: '광고1',
+    name: '럭킷 출시 기념, 설문 조사 참여만 해도 키링 100% 증정',
     image: 'https://user-images.githubusercontent.com/102042383/209595769-1fa34571-ac5a-4a1c-9ba6-9bfa6cf6ec4b.png',
   },
   {
     id: 2,
-    name: '광고2',
+    name: '럭킷 취미 추천, 취향을 잇는 집 꾸미기',
     image: 'https://user-images.githubusercontent.com/102042383/209569995-dee8b50c-13aa-47a1-a420-64e368151255.png',
   },
   {
     id: 3,
-    name: '광고3',
+    name: '럭킷 일본 가자, 오사카 여행 단독 특가 오픈',
     image: 'https://user-images.githubusercontent.com/102042383/209570001-9ac9446d-0b69-4ebf-9ffb-cf0dde3d9448.png',
   },
 ];

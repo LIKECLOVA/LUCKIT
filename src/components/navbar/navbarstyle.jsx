@@ -3,14 +3,13 @@ import styled, { css } from "styled-components";
 import {palette} from '../../styles/global/globalColor'
 
 export const NavWrap = styled.nav`
-
     background-color: white;
     position: fixed;
     bottom: 0px;
     width: 100%;
-    height: 60px;
+    height: 58px;
     border-top: 1px solid #DBDBDB;
-    padding: 12px 0 8px;
+    padding: 10px 0 8px;
     z-index: 50;
 
     ul {
@@ -22,11 +21,9 @@ export const NavWrap = styled.nav`
     li {
         cursor: pointer;
     }
-
 `
 
 export const StyleNavLink = styled(NavLink)`
-
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -39,13 +36,13 @@ export const StyleNavLink = styled(NavLink)`
     ::before {
         content: '';
         display: block;
-        width: 24px;
-        height: 24px;
+        width: 22px;
+        height: 22px;
         
         ${(props) => {
         return css`
         background-image: url(${props.icon});
-        background-size: 24px 24px;
+        background-size: 22px 22px;
         background-position: center;
         `}}
         }

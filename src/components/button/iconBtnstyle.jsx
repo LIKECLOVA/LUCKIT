@@ -47,22 +47,22 @@ export const IconBtn = styled.button`
 
 export const MarketMoreBtn = styled.button`
   background-color: transparent;
-  width: 30px;
-  height: 30px;
+  width: 20px;
+  height: 20px;
   position: absolute;
   right: 8px;
   top: 16px;
   padding: 0;
 
   img {
-    width: 24px;
-    height: 24px;
+    width: 20px;
+    height: 20px;
   }
 `;
 
 export const PostUploadImg = styled.img`
-  width: 25px;
-  height: 25px;
+  width: 22px;
+  height: 22px;
   padding: 7px;
   border-radius: 50%;
   background-color: #f5f3f3;
@@ -90,4 +90,5 @@ export const BackArrowBtn = styled.button`
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+  background-color: transparent;
 `;

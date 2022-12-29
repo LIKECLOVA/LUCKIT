@@ -19,41 +19,56 @@ export const Envelope = styled.main`
     }
   }
 
+  
   .envbox {
     display: inline-block;
     position: absolute;
     bottom: 100px;
-    right: 50px;
-    animation: tada;
-    animation-delay: 1s;
+    width: 98%;
+    left: 1%;
+
+    animation: vertical-wait2 1.45s ease infinite;
+}
+@keyframes vertical-wait2 {
+  0% { transform:translate(0,-3px) }
+  3.27869% { transform:translate(0,3px) }
+  6.55738% { transform:translate(0,-3px) }
+  9.83606% { transform:translate(0,3px) }
+  13.11475% { transform:translate(0,-3px) }
+  16.39344% { transform:translate(0,3px) }
+  18.03279% { transform:translate(0,0) }
+  100% { transform:translate(0,0) }
+}
   }
   .env {
     animation: envelope 2s;
     margin: 200px auto 0;
     background: #b7da8f;
-    width: 500px;
+    width: 100%;
     perspective: 3000px;
     perspective-origin: 50% 0;
     transform-style: preserve-3d;
     border-radius: 10px;
+    position: relative;
   }
   .openEnv .rest {
-    width: 500px;
+    width: 100%;
     height: 0;
     margin: 0 auto;
-    border: 200px solid #c8e9a1;
+    border: 188px solid #c8e9a1;
     border-bottom: 150px solid #bede99;
     border-top: 150px solid transparent;
     margin-top: -300px;
     border-radius: 10px;
+    position: relative;
   }
   .env .content {
-    width: 400px;
+    width: 95%;
     margin-bottom: 500px;
     padding: 10px 20px;
-    height: 250px;
-    left: 25px;
-    top: 5px;
+    height: 90vmax;
+    right: 10px;
+    top: 45px;
     background: #f3fbe9;
     border: 1px solid #d7f4b4;
     box-shadow: 0px 1px 2px 0px #d7f4b4;
@@ -79,7 +94,7 @@ export const Envelope = styled.main`
       color: #1e9c21;
     }
   }
-  .env .top {
+  /* .env .top {
     display: block;
     width: 0;
     height: 0;
@@ -94,18 +109,19 @@ export const Envelope = styled.main`
     transform-origin: 50% 0;
     position: relative;
     border-radius: 10px;
-  }
+  } */
 `;
 
 export const Logo = styled.div`
-  position: relative;
-  margin-top: 120px;
-  margin-left: 140px;
+  position: absolute;
+  margin-top: 30%;
+  margin-left: 13%;
   width: 100%;
-  height: 370px;
+  height: 45%;
   background: url(${splashLogo}) no-repeat;
   background-size: contain;
   z-index: 1000;
+  animation-delay: 0.5s;
   animation: bounce 1.5s infinite;
 
   @keyframes bounce {

@@ -12,7 +12,6 @@ export const ChatRoom = () => {
           <img src={molang} alt='유저이미지' />
         </div>
         <div className='txtwrap'>{chatTxT}</div>
-
       </RightChatTxT>
     );
   };

@@ -1,7 +1,9 @@
 import React from 'react';
 import { ChatInfoWrap, ChatUserLi } from './chatuserstyle';
 
+
 const ChatUser = ({chat, id, img, time}) => {
+
   return (
     <ChatUserLi>
       <ChatInfoWrap>

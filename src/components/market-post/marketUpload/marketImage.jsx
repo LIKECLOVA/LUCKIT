@@ -47,7 +47,14 @@ export const MarketImage = ({ itemImage, setItemImage }) => {
   return (
     <ImgPreviewContainer ref={previewImage} style={imgStyle}>
       <UploadLabel htmlFor='uploadImg' />
-      <ImgInput type='file' name='marketImg' id='uploadImg' accept='image/*' onChange={handleOnChange} />
+      <ImgInput
+        className='a11yHidden'
+        type='file'
+        name='marketImg'
+        id='uploadImg'
+        accept='image/*'
+        onChange={handleOnChange}
+      />
     </ImgPreviewContainer>
   );
 };

@@ -1,12 +1,21 @@
 import styled from 'styled-components';
 
 export const HomeWrap = styled.div`
+  height: 100%;
   overflow: scroll;
   -ms-overflow-style: none;
   ::-webkit-scrollbar {
     display: none;
   }
-  height: 100%;
+
+  h2 {
+    position: absolute;
+    clip: rect(0 0 0 0);
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+  }
 `;
 
 export const Main = styled.main`
@@ -16,26 +25,24 @@ export const Main = styled.main`
 `;
 
 export const SearchBtn = styled.button`
-  width: 160px;
-  padding: 24px 18px;
+  width: 130px;
+  padding: 16px;
   background-color: #85ce2d;
-  border-radius: 40px;
+  border-radius: 30px;
   color: white;
-  margin: 26px 0 120px;
+  margin-top: 26px;
   font-size: 16px;
 `;
 
 export const HomeTxt = styled.p`
-  margin-top: 40px;
+  margin-top: 12px;
   font-weight: 500;
-  font-size: 16px;
-  line-height: 14px;
   text-align: center;
 `;
 // 게시글 있을 시
 
 export const HomeSection = styled.section`
-  padding: 0 15px 20px;
+  padding: 0 15px 60px;
 
   h2 {
     position: absolute;
@@ -51,23 +58,22 @@ export const HomeSection = styled.section`
 `;
 
 export const HomeTitle = styled.p`
-  background-color: #edf8e1;
-  padding: 16px;
-  text-align: center;
-  border-radius: 30px;
-  color: #457907;
+  font-size: 14px;
   font-weight: 500;
-  margin-top: 5%;
-  margin-bottom: 20%;
+  text-align: center;
+  color: #457907;
+  background-color: #edf8e1;
+  border-radius: 30px;
+  padding: 16px;
 `;
 
 export const ListWrap = styled.ul`
-  margin-top: 60px;
+  margin-top: 50px;
 `;
 
 export const ListItem = styled.li`
   position: relative;
-  margin-bottom: 70px;
-  border-radius: 30px;
+  margin-bottom: 55px;
+  border-radius: 25px;
   box-shadow: 1px 1px 4px #dbdbdb;
 `;

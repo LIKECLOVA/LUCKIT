@@ -4,13 +4,12 @@ import axios from 'axios';
 import { ProfileAndChatHeader } from '../../components/header/header';
 import { MarketPreviewPost } from '../../components/market-preview-post/marketPreviewPost';
 import { ProfileBox } from '../../components/profile-box/profileBox';
-import { ProfileWrap, SnsPostBtn, NavLinkStyle, ImgAlbumBox, ImgAlbumList, SnsPostWrap } from './myprofilestyle';
+import { ProfileWrap, SnsPostBtn, NavLinkStyle, ImgAlbumBox, ImgAlbumList, SnsPostWrap, SnsPostBox } from './myprofilestyle';
 import { NavBar } from '../../components/navbar/navBar';
 import IconPostListOn from '../../assets/icon/icon-post-list-on.png';
 import IconPostListOff from '../../assets/icon/icon-post-list-off.png';
 import IconPostAlbumOn from '../../assets/icon/icon-post-album-on.png';
 import IconPostAlbumOff from '../../assets/icon/icon-post-album-off.png';
-// import IconPostUpload from '../../assets/icon/market-plus.png'
 import MainSnsPost from '../../components/mainpost/mainSnsPost';
 import { ProfilePostUploadBtn } from '../../components/button/iconBtn';
 
@@ -18,9 +17,9 @@ export const Profile = () => {
   const [snsPostsData, setSnsPostsData] = useState([]);
   const [imgList, setImgList] = useState(true);
   const [imgAlbum, setImgAlbum] = useState(false);
-  const { id } = useParams();
   const myAccountName = localStorage.getItem('Account Name');
   const token = localStorage.getItem('Access Token');
+  const { id } = useParams();
 
   useEffect(() => {
     axios({
@@ -56,9 +55,10 @@ export const Profile = () => {
         <ProfileBox />
         <MarketPreviewPost />
         {snsPostsData.length !== 0 ? (
-          <section>
+          <SnsPostBox>
+            <h2>sns 게시글 피드</h2>
             <SnsPostBtn>
-              <div>
+              <div className='snsBtnWrap'>
                 <button onClick={onClickListBtn}>
                   {imgList ? <img src={IconPostListOn} alt='리스트형' /> : <img src={IconPostListOff} alt='리스트형' />}
                 </button>
@@ -86,19 +86,17 @@ export const Profile = () => {
                   return (
                     <>
                       {post.image ? (
-                        <>
-                          <ImgAlbumList key={post.id}>
-                            <NavLinkStyle to='/snsPost'>
-                              <img
-                                src={post.image.split(',')[0]}
-                                onError={(e) => {
-                                  e.target.style.display = 'none';
-                                }}
-                                alt='게시글이미지'
-                              />
-                            </NavLinkStyle>
-                          </ImgAlbumList>
-                        </>
+                        <ImgAlbumList key={post.id}>
+                          <NavLinkStyle to='/snsPost'>
+                            <img
+                              src={post.image.split(',')[0]}
+                              onError={(e) => {
+                                e.target.style.display = 'none';
+                              }}
+                              alt='게시글이미지'
+                            />
+                          </NavLinkStyle>
+                        </ImgAlbumList>
                       ) : (
                         <></>
                       )}
@@ -106,7 +104,7 @@ export const Profile = () => {
                   );
                 })}
             </ImgAlbumBox>
-          </section>
+          </SnsPostBox>
         ) : (
           <></>
         )}

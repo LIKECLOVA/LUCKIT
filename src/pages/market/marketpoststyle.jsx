@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
-export const MarketPostWrap = styled.div`
-
+export const MarketPostWrap = styled.section`
     margin: 70px 0;
     overflow: scroll;
     -ms-overflow-style: none;
@@ -13,41 +12,37 @@ export const MarketPostWrap = styled.div`
 
     h2 {
         position: absolute;
-        left: -10000px;
+        clip: rect(0 0 0 0);
         width: 1px;
         height: 1px;
+        margin: -1px;
         overflow: hidden;
     }
-
 `
 
 export const MarketPostTitle = styled.p`
-
     background-color: #EDF8E1;
     color: #457907;
     font-weight: 500;
-    line-height: 22px;
-    padding: 18px 25px 16px;
-    border-radius: 30px;
-    margin-bottom: 60px;
-
+    line-height: 20px;
+    padding: 15px 20px 13px;
+    border-radius: 25px;
+    font-size: 14px;
 
     strong {
-    font-size: 18px;
-    color: #457907;
-    font-weight: 600;
+        font-size: 16px;
+        color: #457907;
+        font-weight: 600;
     }
 `
 
 export const ListWrap = styled.ul`
-
-    margin-top: 60px;
+    margin-top: 50px;
 `
 
 export const ListItem = styled.li`
-
     position: relative;
-    margin-bottom: 70px;
-    border-radius: 30px;
+    margin-bottom: 55px;
+    border-radius: 25px;
     box-shadow: 1px 1px 7px #DBDBDB;
 `
