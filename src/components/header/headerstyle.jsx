@@ -22,7 +22,7 @@ export const BasicHeader = styled.header`
 
   button {
     padding: 0;
-    // background-color: transparent;
+    background-color: transparent;
   }
 `;
 
@@ -62,9 +62,6 @@ export const FeedHeaderWrap = styled(BasicHeader)`
 
 export const ProfileHeaderWrap = styled(BasicHeader)`
   padding: 12px 14px 12px 16px;
-  .setBtn{
-    background-color: transparent;
-  }
 `;
 
 export const FollowHeaderWrap = styled(BasicHeader)`
@@ -82,9 +79,9 @@ export const FollowHeaderWrap = styled(BasicHeader)`
 export const EditAndUploadHeaderWrap = styled(BasicHeader)`
   padding: 12px 14px 12px 16px;
 
-  /* button + button {
+  button + button {
     background-color: ${palette.마이너스초록};
-  } */
+  }
 
 `;
 
