@@ -34,10 +34,6 @@ export const LoginScreen = () => {
             <label className='top'></label>
             <div className='content'>
               <Logo />
-              <p>
-                널 만난 건 <span>행운</span>이야!
-              </p>
-
               <Gogo
                 bg='#fff'
                 onClick={() => {

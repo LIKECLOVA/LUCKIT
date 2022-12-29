@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Bg = styled.div`
   background: #dbdbdb;
-  background-image: url('https://user-images.githubusercontent.com/102042383/209568982-d79e1d2f-08f6-44e4-8394-c5f466390f26.png');
+  background-image: url('https://user-images.githubusercontent.com/102042383/209568548-356801f4-a2b6-4e04-a445-54b2bbff93c2.png');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -40,22 +40,19 @@ const Allwrap = styled.div`
   border-radius: 30px;
   box-shadow: rgba(152, 152, 152, 0.24) 0px 3px 8px;
   background: #fff;
+  /* @media screen and (max-width: 1020px) {
+    width: 45%;
+    height: 95%;
+    padding: none;
+    margin: none;
+  } */
 
-
-  // @media screen and (max-width: 1020px) {
-  //   width: 45%;
-  //   height: 95%;
-  //   padding: none;
-  //   margin: none;
-  // }
-
-  // @media screen and (max-width: 768px) {
-  //   width: 85%;
-  //   height: 95%;
-  //   padding: none;
-  //   margin: none;
-  // }
-
+  /* @media screen and (max-width: 500px) {
+    width: 85%;
+    height: 95%;
+    padding: none;
+    margin: none;
+  } */
 `;
 
 export { Allwrap };
