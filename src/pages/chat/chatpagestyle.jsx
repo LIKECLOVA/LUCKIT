@@ -7,6 +7,8 @@ export const ChatPageWrap = styled.section`
 export const ChatPageUl = styled.ul`
   li {
     margin-bottom: 20px;
+  }
+  li:first-child{
     cursor: pointer;
   }
 `;
