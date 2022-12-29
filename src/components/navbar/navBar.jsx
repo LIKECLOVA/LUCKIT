@@ -43,8 +43,6 @@ export const NavBar = () => {
         </li>
         <li>
           <StyleNavLink
-<<<<<<< Updated upstream
-=======
             to={'/map'}
             icon={locator}
             hovericon={locatorFill}
@@ -57,7 +55,6 @@ export const NavBar = () => {
         </li>
         <li>
           <StyleNavLink
->>>>>>> Stashed changes
             to={'/chatpage'}
             icon={chatIcon}
             hovericon={chatIconFill}
