@@ -11,17 +11,20 @@ export const H2 = styled.h2`
   overflow: hidden;
 `
 
-export const SearchListWrap = styled.main`
-  margin-top: 40px;
-  padding: 15px;
-  overflow: scroll;
-      -ms-overflow-style: none;
-      ::-webkit-scrollbar{
-        display: none;
-      }
+export const SearchMain = styled.main`
+  margin-top: 50px;
+  padding: 15px 15px 100px;
+  height: 100%;
+  overflow: auto;
+    -ms-overflow-style: none;
+    ::-webkit-scrollbar{
+      display: none;
+    }
+`
 
+export const SearchListWrap = styled.ul`
   li {
-    margin: 20px 0;
+    margin-bottom: 20px;
   }
 `
 
@@ -71,14 +74,13 @@ export const Div = styled.div`
   }};
   `
 
-  export const Span = styled.span`
+export const Span = styled.span`
   color: ${palette.텍스트초록};
 `
 
-export const SearchMain = styled.main`
-  margin-top: 70px;
+export const DefaultWrap = styled.div`
+  padding-top: 10px;
   font-weight: 500;
-  padding: 15px;
 
   p {
     display: inline-block;
@@ -86,7 +88,7 @@ export const SearchMain = styled.main`
     margin-left: 5px;
     font-size: 14px;
   }
-  
+
   span {
     font-size: 14px;
     background-color: #E5F3D3;
@@ -99,20 +101,20 @@ export const SearchMain = styled.main`
     margin-top: 40px;
     display: flex;
     flex-wrap: wrap;
-    gap: 15px 18px;
-    
+    gap: 16px 18px;
+
     li {
-     color: #838383;
-     background-color: #F1F1F1;
-     padding: 8px 15px;
-     font-size: 12px;
-     border-radius: 20px;
-   }
+      color: #838383;
+      background-color: #F1F1F1;
+      padding: 8px 15px;
+      font-size: 12px;
+      border-radius: 20px;
+    }
   }
 `
 
-export const NoResultWrap = styled.main`
-  padding: 15px;
+export const NoResultTxt = styled.p`
+  padding-top: 10px;
   color: #838383;
   font-size: 14px;
 `
