@@ -131,8 +131,8 @@ export const ChatRoomHeader = () => {
   return (
     <ProfileHeaderWrap>
       <BackBtn/>
-      <strong>유저 네임 data 또는 그냥 지정</strong>
-      <button onClick={onClick}>
+      <strong>몰랑이</strong>
+      <button className='setBtn' onClick={onClick}>
         <img src={IconMoreVertical} alt='채팅방 나가기 버튼' />
       </button>
       {isOpen && <ChatRoomModal onClickClose={onClickClose}/>}
