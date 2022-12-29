@@ -34,24 +34,25 @@ export const ImgUploadWrapper = styled.div`
 `;
 
 export const ImgPreviewContainer = styled.div`
-  height: 300px;
+  width: 290px;
+  height: 260px;
   background: #dbdbdb;
   border-radius: 10px;
   position: relative;
   margin-bottom: 70px;
-  object-fit: cover;
+  background-size: cover;
 `;
 
 export const PreviewImg = styled.img`
-  width: 500px;
-  height: 300px;
+  width: 290px;
+  height: 260px;
   border-radius: 10px;
   object-fit: cover;
 `;
 
 export const UploadImg = styled.img`
-  width: 500px;
-  height: 300px;
+  width: 290px;
+  height: 260px;
   border-radius: 10px;
   object-fit: cover;
 `;
