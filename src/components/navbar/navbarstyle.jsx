@@ -33,6 +33,7 @@ export const StyleNavLink = styled(NavLink)`
     font-size: 10px;
     font-weight: 500;
     gap: 5px;
+    
     color: #bdbcbc;
 
     ::before {
