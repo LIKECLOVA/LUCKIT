@@ -10,6 +10,7 @@ export const Follow = ({ user }) => {
   const unfollowURL = `https://mandarin.api.weniv.co.kr/profile/${user.accountname}/unfollow`;
   const followURL = `https://mandarin.api.weniv.co.kr/profile/${user.accountname}/follow`;
   const token = localStorage.getItem('Access Token');
+  const myAccountName = localStorage.getItem('Account Name');
   const navigate = useNavigate();
 
   const unfollow = async () => {
@@ -57,7 +58,10 @@ export const Follow = ({ user }) => {
           <p>{user.intro}</p>
         </div>
       </FollowInfoWrap>
-      <FollowBtn isFollow={isFollow} onClick={followToggle} size='middle' />
+      {user.accountname !== myAccountName ? 
+      <FollowBtn isFollow={isFollow} onClick={followToggle} size='middle' /> : 
+      null }
+      
     </FollowLi>
   );
 };

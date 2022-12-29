@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import imgBtn from '../../assets/icon/img-button.png';
 import deleteBtn from '../../assets/icon/x.png'
-import addBtn from '../../assets/icon/addBtn.svg';
 
 /* SnsUpload 페이지 */
 const SnsUploadArt = styled.article`
@@ -208,17 +207,3 @@ const MainPostArea= styled.div`
 `;
 
 export { MainPostArea }
-
-export const AddBtn = styled.button`
-  cursor: pointer;
-  position:fixed;
-  right: 10px;
-  bottom:70px;
-  width: 80px;
-  height: 80px;
-  padding:0px;
-  background: url(${addBtn});
-  background-repeat: no-repeat;
-  background-size: cover;
-  z-index: 90;
-`

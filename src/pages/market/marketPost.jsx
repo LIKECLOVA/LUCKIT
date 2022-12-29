@@ -3,7 +3,6 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { ProfileAndChatHeader } from '../../components/header/header';
 import MarketPostBox from '../../components/mainpost/marketPostBox';
-import { MarketPostMoreBtn } from '../../components/button/iconBtn';
 import { NavBar } from '../../components/navbar/navBar';
 import { ListItem, ListWrap, MarketPostTitle, MarketPostWrap } from './marketpoststyle';
 
@@ -11,6 +10,8 @@ export function MarketPost() {
   const [marketPostsData, setMarketPostsData] = useState();
   const { id } = useParams();
   const token = localStorage.getItem('Access Token');
+
+// getProductList 리덕스
 
   useEffect(() => {
     axios({
@@ -39,19 +40,18 @@ export function MarketPost() {
           <br />
           네잎클로버를 눌러 매칭을 신청해 보세요!✨
         </MarketPostTitle>
-        <main>
+        <div>
           <ListWrap>
             {marketPostsData &&
               marketPostsData.map((data) => {
                 return (
                   <ListItem key={Math.random()}>
                     <MarketPostBox data={data} accountname={id} />
-                    <MarketPostMoreBtn productId={data.id} />
                   </ListItem>
                 );
               })}
           </ListWrap>
-        </main>
+        </div>
       </MarketPostWrap>
       <NavBar />
     </>

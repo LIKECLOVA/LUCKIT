@@ -2,12 +2,11 @@ import React, { useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { MyProfileInfoBox, FollowNavLink, EditProfileNavLink, IsFollowButton } from './profilestyle';
+import { FollowNavLink, EditProfileNavLink, IsFollowButton, FollowerCont, ProfileInfoWrap, ProfileInfoCont,  BottomInfoBox, TopInfoBox, ProfileInfoBox } from './profileboxstyle';
 import DefaultUserImg from '../../assets/icon/basic-profile-img-.png';
 import { AxiosUserData, onChangeFollow } from '../../reducers/getUserInfoSlice';
 
 export const ProfileBox = () => {
-
   const { isfollow, followerCount, accountname, followingCount, image, username, intro } = useSelector(
     (state) => state.userInfoSlice.userData
   );
@@ -20,8 +19,7 @@ export const ProfileBox = () => {
 
   useEffect(() => {
     dispatch(AxiosUserData(BaseURL)); 
-  }, [isfollow]);
-
+  }, [isfollow,id]);
 
   const unfollow = async () => {
     await axios(`https://mandarin.api.weniv.co.kr/profile/${id}/unfollow`, {
@@ -65,54 +63,44 @@ export const ProfileBox = () => {
   const CheckProfile = Boolean(myAccountName === accountname);
 
   return (
-    <MyProfileInfoBox>
-      
-        <>
-          <div className='topmyInfoBox'>
-            <div className='leftMyInfoBox'>
-              <img src={image} onError={onErrorImg} alt='프로필사진'></img>
-              <div className='profileCont'>
-
-                <h2>{accountname}</h2>
-                <p>@ {username}</p>
-
-                <div className='followerCont'>
-                  <span>팔로워</span>
-                  <FollowNavLink
-                    to={CheckProfile ? `/myfollow` : `/yourfollow`}
-                    state={{ text: 'followers', accountname: accountname }}
-                  >
-                    {followerCount}
-                  </FollowNavLink>
-                  <span className='followingTxt'>팔로잉</span>
-                  <FollowNavLink
-                    to={CheckProfile ? `/myfollow` : `/yourfollow`}
-                    state={{ text: 'followings', accountname: accountname }}
-                  >
-                    {followingCount}
-                  </FollowNavLink>
-                </div>
-              </div>
-            </div>
-            <div>
-
-              {CheckProfile ? 
-              <>
-                <EditProfileNavLink to='/editprofile'>프로필 수정</EditProfileNavLink>
-              </> : 
-              <>
-                <IsFollowButton onClick={ onClick } isFollow={isfollow}>{isfollow ? '언팔로우': '팔로우'}</IsFollowButton>
-              </>}
-
-            </div>
-          </div>
-
-          <div className='bottomInfoBox'>
-            <p>To. 마이럭킷</p>
-            <p className='btInfoTxt'>{intro}</p>
-          </div>
-        </>
-      
-    </MyProfileInfoBox>
+    <ProfileInfoWrap>
+      <h2>사용자 프로필 정보</h2>
+      <TopInfoBox>
+        <ProfileInfoBox>
+          <img src={image} onError={onErrorImg} alt='프로필사진'></img>
+          <ProfileInfoCont>
+            <h3>{username}</h3>
+            <p>@ {accountname}</p>
+            <FollowerCont>
+              <FollowNavLink
+                to={CheckProfile ? `/myfollow` : `/yourfollow`}
+                state={{ text: 'followers', accountname: accountname }}
+                >
+                <span>팔로워</span>
+                {followerCount}
+              </FollowNavLink>
+              <FollowNavLink
+                to={CheckProfile ? `/myfollow` : `/yourfollow`}
+                state={{ text: 'followings', accountname: accountname }}
+              >
+              <span className='followingTxt'>팔로잉</span>
+                {followingCount}
+              </FollowNavLink>
+            </FollowerCont>
+          </ProfileInfoCont>
+        </ProfileInfoBox>
+        <div>
+          {CheckProfile ? 
+            <EditProfileNavLink to='/editprofile'>프로필 수정</EditProfileNavLink>
+            : 
+            <IsFollowButton onClick={ onClick } isFollow={isfollow}>{isfollow ? '언팔로우': '팔로우'}</IsFollowButton>
+          }
+        </div>
+      </TopInfoBox>
+      <BottomInfoBox>
+        <p>To. 마이럭킷</p>
+        <p className='btInfoTxt'>{intro}</p>
+      </BottomInfoBox>
+    </ProfileInfoWrap>
   );
 };

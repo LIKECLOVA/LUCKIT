@@ -9,12 +9,14 @@ import {
   ListItem,
 } from './homestyle';
 import MarketPostBox from '../../components/mainpost/marketPostBox';
-import { MarketPostMoreBtn } from '../../components/button/iconBtn';
+import { MarketPostMoreBtn, PostUploadBtn } from '../../components/button/iconBtn';
 
 export const MarketFeedHome = ({ scrollTopData, followingData }) => {
   const token = localStorage.getItem('Access Token');
   const [productData, setProductData] = useState([]);
 
+  // getProductList 사용
+  
   useEffect(() => {
     followingData.map((list) => {
       return axios({
@@ -32,11 +34,9 @@ export const MarketFeedHome = ({ scrollTopData, followingData }) => {
     });
   }, []);
 
-console.log(productData)
-
   return (
     <>
-      {scrollTopData > 500 ? (
+      {scrollTopData ? (
         <>
           <FeedPageHeader />
         </>
@@ -63,6 +63,7 @@ console.log(productData)
           </ListWrap>
         </HomeSection>
       </main>
+      <PostUploadBtn pathName='/upload' />
     </>
   );
 };
