@@ -29,7 +29,7 @@ export const LogoutModal = ({ onClickClose }) => {
 
   return (
     <PostModalWrap onClick={() => onClickClose(false)}>
-      <div className='test' onClick={(e) => e.stopPropagation()}>
+      <div className='postModalList' onClick={(e) => e.stopPropagation()}>
         <PostModalBtnWrap>
           <NavLinkStyle to='/editprofile'>설정 및 개인 정보</NavLinkStyle>
           <button onClick={onClickLogoutModal}>로그아웃</button>
@@ -87,7 +87,7 @@ export const MarketPreviewModal = ({ onClickClose, productId }) => {
 
   return (
     <PostModalWrap onClick={() => onClickClose(false)}>
-      <div className='test' onClick={(e) => e.stopPropagation()}>
+      <div className='postModalList' onClick={(e) => e.stopPropagation()}>
         {id === myAccountName ? 
         <>
           <PostModalBtnWrap>
@@ -164,7 +164,7 @@ export const SnsPostModal = ({ onClickClose, accountName, accountname, postId, p
 
   return (
     <PostModalWrap onClick={() => onClickClose(false)}>
-      <div className='test' onClick={(e) => e.stopPropagation()}>
+      <div className='postModalList' onClick={(e) => e.stopPropagation()}>
         {accountName === accountname ? (
           <>
             <PostModalBtnWrap>
@@ -214,7 +214,7 @@ export const SnsPostModal = ({ onClickClose, accountName, accountname, postId, p
 export const ChatRoomModal = ({ onClickClose }) => {
   return (
     <PostModalWrap onClick={() => onClickClose(false)}>
-      <div className='test' onClick={(e) => e.stopPropagation()}>
+      <div className='postModalList' onClick={(e) => e.stopPropagation()}>
         <PostModalBtnWrap>
           <NavLinkStyle to='/chatpage'>채팅방 나가기</NavLinkStyle>
         </PostModalBtnWrap>
@@ -258,7 +258,7 @@ export const CommentModal = ({ onClickClose, accountname, accountName, postId, c
 
   return (
     <PostModalWrap onClick={() => onClickClose(false)}>
-      <div className='test' onClick={(e) => e.stopPropagation()}>
+      <div className='postModalList' onClick={(e) => e.stopPropagation()}>
         {accountName === accountname ? (
           <>
             <PostModalBtnWrap>

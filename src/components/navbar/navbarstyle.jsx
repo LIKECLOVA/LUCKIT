@@ -3,7 +3,6 @@ import styled, { css } from "styled-components";
 import {palette} from '../../styles/global/globalColor'
 
 export const NavWrap = styled.nav`
-
     background-color: white;
     position: fixed;
     bottom: 0px;
@@ -22,11 +21,9 @@ export const NavWrap = styled.nav`
     li {
         cursor: pointer;
     }
-
 `
 
 export const StyleNavLink = styled(NavLink)`
-
     display: flex;
     flex-direction: column;
     align-items: center;
