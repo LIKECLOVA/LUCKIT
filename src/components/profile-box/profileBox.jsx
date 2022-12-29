@@ -19,7 +19,7 @@ export const ProfileBox = () => {
 
   useEffect(() => {
     dispatch(AxiosUserData(BaseURL)); 
-  }, [isfollow,id]);
+  }, [isfollow,id,username]);
 
   const unfollow = async () => {
     await axios(`https://mandarin.api.weniv.co.kr/profile/${id}/unfollow`, {
