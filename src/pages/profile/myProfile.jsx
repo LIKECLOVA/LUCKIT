@@ -86,19 +86,17 @@ export const Profile = () => {
                   return (
                     <>
                       {post.image ? (
-                        <>
-                          <ImgAlbumList key={post.id}>
-                            <NavLinkStyle to='/snsPost'>
-                              <img
-                                src={post.image.split(',')[0]}
-                                onError={(e) => {
-                                  e.target.style.display = 'none';
-                                }}
-                                alt='게시글이미지'
-                              />
-                            </NavLinkStyle>
-                          </ImgAlbumList>
-                        </>
+                        <ImgAlbumList key={post.id}>
+                          <NavLinkStyle to='/snsPost'>
+                            <img
+                              src={post.image.split(',')[0]}
+                              onError={(e) => {
+                                e.target.style.display = 'none';
+                              }}
+                              alt='게시글이미지'
+                            />
+                          </NavLinkStyle>
+                        </ImgAlbumList>
                       ) : (
                         <></>
                       )}

@@ -41,6 +41,18 @@ export const NavBar = () => {
         </li>
         <li>
           <StyleNavLink
+            to={'/map'}
+            icon={snsIcon}
+            hovericon={snsIconFill}
+            className={({ isActive }) => {
+              return isActive ? 'active' : null;
+            }}
+          >
+            모임장소
+          </StyleNavLink>
+        </li>
+        <li>
+          <StyleNavLink
             to={'/chatpage'}
             icon={chatIcon}
             hovericon={chatIconFill}

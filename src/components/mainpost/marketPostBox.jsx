@@ -4,6 +4,7 @@ import { CardWrap, CardCont, CardTitle, CardTxt, CardUser, CardImg } from './mar
 import IconSnsClova from '../../assets/icon/sns용-클로바-disabled.png';
 import IconSnsClovaFill from '../../assets/icon/sns용-클로바.png';
 import { MarketPostMoreBtn } from '../button/iconBtn';
+import DefaultUserImg from '../../assets/icon/basic-profile.png'
 
 export default function MarketPostBox({ data, accountname }) {
   const [confirmedValue, setConfirmedValue] = useState(JSON.parse(localStorage.getItem('stored')));
@@ -59,9 +60,13 @@ export default function MarketPostBox({ data, accountname }) {
     });
   };
 
+  const onErrorImg = (e) => {
+    e.target.src = DefaultUserImg;
+  }
+
   return (
     <CardWrap>
-      <CardImg src={data.itemImage} />
+      <CardImg src={data.itemImage} onError={onErrorImg}/>
       <CardCont>
         <CardTitle>{data.itemName}</CardTitle>
         <CardTxt>{data.link}</CardTxt>

@@ -7,7 +7,7 @@ export const Article = styled.article`
 
   .bannerWrap {
     width: 100%;
-    height: 57vh;
+    height: 420px;
     display: flex;
     overflow: hidden;
   }
