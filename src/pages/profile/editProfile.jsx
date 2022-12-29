@@ -113,6 +113,7 @@ export const EditProfile = () => {
                 id='userName'
                 name='userName'
                 placeholder='닉네임'
+                maxLength={10}
               />
             </EditProFileUserLabel>
             <EditProFileUserLabel>
