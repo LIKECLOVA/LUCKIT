@@ -1,31 +1,39 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom'
 import { timeForToday } from '../../timeForToday'
-import * as S from './commentliststyle';
+// import * as S from './commentliststyle';
+import { CommentListWrapper, CommentListContainer, CommentListLi, ProfileImg, InformationBox, ModalBtnBox, CommentText } from '../commentlist/commentliststyle';
 import {CommentMoreBtn} from '../../button/iconBtn'
 
 function CommentList({ comments,postId }) {
 
+console.log('댓글',comments);
+
   return (
-    <S.CommentListWrapper>
-      <S.CommentListContainer>
+    <CommentListWrapper>
+      <CommentListContainer>
         {comments &&
           comments.map((data) => {
             return (
-              <S.CommentListLi key={data.id}>
-                <S.ProfileImg src={data.author.image} />
-                <S.InformationBox>
+              <CommentListLi key={data.id}>
+                <NavLink to={`/profile/${data.author.accountname}`}>
+                <ProfileImg src={data.author.image} />
+                </NavLink>
+                <InformationBox>
+                <NavLink to={`/profile/${data.author.accountname}`}>
                   <span>{data.author.username}</span>
+                </NavLink>
                   <small>{timeForToday(data.createdAt)}</small>
-                </S.InformationBox>
-                <S.ModalBtnBox>
+                </InformationBox>
+                <ModalBtnBox>
                   <CommentMoreBtn accountname={data.author.accountname} postId={postId} commentId={data.id}/>
-                </S.ModalBtnBox>
-                <S.CommentText>{data.content}</S.CommentText>
-              </S.CommentListLi>
+                </ModalBtnBox>
+                <CommentText>{data.content}</CommentText>
+              </CommentListLi>
             );
           })}
-      </S.CommentListContainer>
-    </S.CommentListWrapper>
+      </CommentListContainer>
+    </CommentListWrapper>
   );
 }
 

@@ -57,10 +57,12 @@ export const SnsPost = () => {
       </div>
       <div className='SnsContentWrap'>
       {postDetail !== null && < MainSnsPost data={postDetail}/>} 
+      <div className='SnsCommentWrap'>
       <CommentBox postId={postId}
         comments={comments}
         getComments={getComments}
         />
+        </div>
       </div>
     </SnsPostModalWrap>
     </PostDetailWrap>

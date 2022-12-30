@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
-import { AddBtn, BackArrowBtn, IconBtn, MarketMoreBtn, PostUploadImg, SnsMoreBtn } from './iconBtnstyle';
+import { AddBtn, BackArrowBtn, IconBtn, MarketMoreBtn, PostUploadImg, SnsMoreBtn,CommentBtn } from './iconBtnstyle';
 // import addBtn from '../../assets/icon/addBtn.svg';
 import moreBtn from '../../assets/icon/s-icon-more-vertical.png';
 import imgBtn from '../../assets/icon/upload-file.png';
@@ -55,7 +55,7 @@ export function CommentMoreBtn({postId, commentId, accountname}) {
 
   return (
     <>
-      <IconBtn onClick={onClick}icon={moreBtn}></IconBtn>
+      <CommentBtn onClick={onClick}icon={moreBtn}></CommentBtn>
       {isOpen && <CommentModal onClickClose={onClickClose} accountName={accountName} postId={postId} commentId={commentId} accountname={accountname}/>}
     </>
   );

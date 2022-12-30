@@ -56,7 +56,17 @@ export const SnsMoreBtn = styled.button`
   background-size:cover;
   width: 20px;
   height: 20px;
-  position: relative;
+  position: absolute;
+  right: 10px;
+  padding: 0;
+`
+export const CommentBtn = styled.button`
+  background: url(${moreBtn});
+  background-size:cover;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  right: 10px;
   padding: 0;
 `
 

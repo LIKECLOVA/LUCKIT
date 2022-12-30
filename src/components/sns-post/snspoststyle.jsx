@@ -18,7 +18,7 @@ const SnsPostModalWrap= styled.div`
     top:50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: #E2F2CE;
+    background: #fff;
     display: flex;
     flex-direction: column;
     z-index: 20;
@@ -26,6 +26,8 @@ const SnsPostModalWrap= styled.div`
     border-radius: 15px;
     overflow: hidden;
     .SnsContentWrap{
+      box-shadow: 0px -15px 0 0px  #E2F2CE;
+      border-radius:15px;
       margin-top: 2rem;
     overflow: scroll;
     ::-webkit-scrollbar{
