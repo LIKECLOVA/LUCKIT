@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
-import { AddBtn, BackArrowBtn, IconBtn, MarketMoreBtn, PostUploadImg } from './iconBtnstyle';
+import { AddBtn, BackArrowBtn, IconBtn, MarketMoreBtn, PostUploadImg, SnsMoreBtn } from './iconBtnstyle';
 // import addBtn from '../../assets/icon/addBtn.svg';
 import moreBtn from '../../assets/icon/s-icon-more-vertical.png';
 import imgBtn from '../../assets/icon/upload-file.png';
@@ -35,7 +35,7 @@ export function MoreBtn({postId, accountname, postContent, postImg}) {
 
   return (
     <>
-      <IconBtn onClick={onClick}icon={moreBtn}></IconBtn>
+      <SnsMoreBtn onClick={onClick}></SnsMoreBtn>
       {isOpen && <SnsPostModal onClickClose={onClickClose} accountName={accountName} postId={postId} accountname={accountname} postContent={postContent} postImg={postImg}/>}
     </>
   );

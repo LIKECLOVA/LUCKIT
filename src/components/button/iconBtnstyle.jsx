@@ -1,6 +1,7 @@
 import styled, { css } from 'styled-components';
 import addBtn from '../../assets/icon/addBtn.svg';
 import IconArrow from '../../assets/icon/icon-arrow-left.png';
+import moreBtn from '../../assets/icon/s-icon-more-vertical.png';
 
 const setPosition = (posi) => {
   switch (posi) {
@@ -38,7 +39,6 @@ export const IconBtn = styled.button`
   background-color: #ffffff;
   border-radius: 50%;
   cursor: pointer;
-
   ${(props) => {
     return css`
       background: url(${props.icon}) no-repeat center/cover;
@@ -50,6 +50,15 @@ export const IconBtn = styled.button`
     return setPosition(posi);
   }}
 `;
+
+export const SnsMoreBtn = styled.button`
+  background: url(${moreBtn});
+  background-size:cover;
+  width: 20px;
+  height: 20px;
+  position: relative;
+  padding: 0;
+`
 
 export const MarketMoreBtn = styled.button`
   background-color: transparent;
@@ -80,8 +89,8 @@ export const AddBtn = styled.button`
   position: fixed;
   right: 10px;
   bottom: 70px;
-  width: 70px;
-  height: 70px;
+  width: 65px;
+  height: 65px;
   padding: 0px;
   background: url(${addBtn});
   background-repeat: no-repeat;

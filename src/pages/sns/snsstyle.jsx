@@ -124,11 +124,10 @@ export const Img = styled.img`
 
 const SnsPageArt = styled.article`
   align-items: center;
-  border-bottom: 1px solid rgb(219, 219, 219);
     box-sizing: border-box;
     width: 95%;
     height: 110px;
-    margin: 65px 15px 15px 15px;
+    margin: 55px 15px 0px 15px;
     top: 0px;
     background: rgb(255, 255, 255);
     display: flex;
@@ -137,28 +136,36 @@ const SnsPageArt = styled.article`
       display: flex;
       list-style: none;
       white-space:nowrap;
-      overflow: scroll;
+      overflow-x: scroll;
+      overflow-y:hidden;
       -ms-overflow-style: none;
-      ::-webkit-scrollbar{
-        display: none;
-      }
+      ::-webkit-scrollbar {
+    height: 1.4rem;
+    }
+    ::-webkit-scrollbar-thumb {
+    background-color: rgb(237, 237, 237);
+    border-radius: 20px;
+    border: 0.5rem solid #fff;
+    }
+    ::-webkit-scrollbar-track {
+    }
     }
    li{
         margin-right:15px;
-        width: 80px;
-        height: 80px;
+        width: 60px;
+        height:60px;
     }
 `;
 
 export { SnsPageArt }
 
 const SnsStoryImg =styled.img`
-      box-sizing: inherit;
+      box-sizing: border-box;
       object-fit: cover;
       border: 3px solid #85CE2D;
       border-radius: 50%;
-      width: 100%;
-      height:100%;
+      width: 60px;
+      height:60px;
 `;
 
 export { SnsStoryImg }
@@ -166,8 +173,8 @@ export { SnsStoryImg }
 const SnsPageSec= styled.section`
   align-items: center;
     box-sizing: border-box;
-    width: 95%;
-    margin: 15px;
+    width: 100%;
+    margin-bottom: 10px;
     height: 79%;
     top: 0px;
     background: rgb(255, 255, 255);
@@ -181,8 +188,8 @@ const SnsPageSec= styled.section`
         display: none;
       }
 h1{
-  margin: 35px 15px;
-  padding:14px 144px;
+  margin: 0px 15px 30px 15px;
+  padding:14px 70px;
   background-color: #EDF8E1;
   color: #457907;
   border-radius: 20px;
@@ -195,12 +202,14 @@ h1{
 
 export { SnsPageSec }
 
-
 const MainPostArea= styled.div`
   align-items: left;
     box-sizing: border-box;
     width: 100%;
     top: 0px;
+    box-shadow: 0px -7px 0 0px rgb(237, 237, 237);
+    border-radius: 20px;
+    border: 1px solid #F5F4F4;
     background: rgb(255, 255, 255);
     display: flex;
     flex-direction: column;
