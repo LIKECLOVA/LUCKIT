@@ -24,7 +24,7 @@ import { MarketPost } from './market/marketPost.jsx';
 import { MarketUpload } from '../components/market-post/marketUpload/marketUpload';
 import { MarketUpdate } from '../components/market-post/marketUpdate/marketUpdate';
 import RecommendMap from './map/map.jsx';
-import Error from './404-error/errorPage.jsx';
+import {Error} from './404-error/errorPage.jsx';
 import { PrivateRoute, PublicRoute } from '../Route';
 import Start from './start/start.jsx';
 
