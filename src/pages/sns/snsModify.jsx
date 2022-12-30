@@ -12,6 +12,7 @@ export const SnsModify = () => {
   const fileInput = useRef(null);
   const [showImgs, setShowImg] = useState([]);
   const [postImg, setPostImg] = useState([]);
+  const [uploadBtn, SetuploadBtn] = useState(true);
   const navigate = useNavigate(); 
   const location = useLocation();
   const postId =location.state.postId;
@@ -142,9 +143,22 @@ function sliceImg(oripostImgs) {
     }
   }
 
+ useEffect(() => {
+    if (content.length === 0 && postImg.length === 0) {
+      SetuploadBtn(false);  
+      
+      console.log('안돼');
+    }
+    else {
+      SetuploadBtn(true);
+      console.log('돼!!');
+      
+    }
+  }, [content, postImg])
+
   return (
     <>
-    <PostUploadHeader handlePostSns={handlePostSns}/>
+    <PostUploadHeader handlePostSns={handlePostSns} disabled={uploadBtn ? null : 'disabled'}/>
 
     <SnsUploadSec>
     <SnsTextLable htmlFor='snspost' />
