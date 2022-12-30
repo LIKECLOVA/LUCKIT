@@ -15,13 +15,15 @@ export const MarketFeedHome = ({ scrollTopData, followingData }) => {
   const token = localStorage.getItem('Access Token');
   const [productData, setProductData] = useState([]);
 
-  // getProductList 사용
+  // getProductList 사용 시간순 정렬
+  // console.log('상품정렬', productData);
+  
   
   useEffect(() => {
     followingData.map((list) => {
       return axios({
         method: 'get',
-        url: `https://mandarin.api.weniv.co.kr/product/${list.accountname}`,
+        url: `https://mandarin.api.weniv.co.kr/product/${list.accountname}/?limit=10`,
         headers: {
           Authorization: `Bearer ${token}`,
           'Content-type': 'application/json',
