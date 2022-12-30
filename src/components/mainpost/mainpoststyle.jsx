@@ -11,6 +11,7 @@ const MainSnsPostWhap= styled.div`
     border-top-right-radius:15px;
     border-top-left-radius: 15px;
     overflow: hidden;
+    color: #000;
     .snsImgList {
     width: 100%;
     display: flex;
@@ -32,7 +33,8 @@ const MainSnsPostWhap= styled.div`
 export { MainSnsPostWhap }
 
 const UserProfileImg= styled.img`
-      margin: 0px 5px;
+      object-fit: cover;
+      margin: 0px 8px;
       border-radius: 50%;
       width: 50px;
       height: 50px;
@@ -43,7 +45,7 @@ export { UserProfileImg }
 const SnsPostBox= styled.div`
     align-items: left;
     box-sizing: border-box;
-    width: 280px;
+    width: 290px;
     background: rgb(255, 255, 255);
     display: flex;
     flex-direction: column;
@@ -52,22 +54,15 @@ const SnsPostBox= styled.div`
 export { SnsPostBox }
 
 const SnsPostContent= styled.p`
-      margin: 15px 0px;
-      font-weight: 400;
+      margin: 20px 0px 15px 0px;
+      font-weight: 300;
+      color: #000;
     font-size: 14px;
     line-height: 24px;
     white-space: initial;
 `;
 
 export { SnsPostContent }
-
-// const SnsPostImg= styled.img`
-//       border-radius: 10px;
-//       width: 355px;
-//       height: 264px;
-// `;
-
-// export { SnsPostImg }
 
 const SnsIdWhap= styled.div`
     left:0;
@@ -83,11 +78,13 @@ const SnsIdWhap= styled.div`
     font-size: 14px;
     line-height: 20px;
     font-weight: 600;
+    color: #000;
 }
 > p{
     cursor: pointer;
     font-size: 10px;
     line-height: 11px;
+    color: #000;
 }
 `;
 
