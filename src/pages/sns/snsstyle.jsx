@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import imgBtn from '../../assets/icon/img-button.png';
+import imgBtn from '../../assets/icon/upload-file.png';
 import deleteBtn from '../../assets/icon/x.png'
 
 /* SnsUpload 페이지 */
@@ -28,7 +28,7 @@ export { SnsUploadArt }
 
 const SnsUploadSec = styled.section`
 top:4%;
-  padding : 30px 34px;
+  padding : 30px 15px;
   justify-content: center;
   width: 100%;
   height: 90%;
@@ -46,8 +46,9 @@ export { SnsTextLable }
 
 const SnsTextInput = styled.textarea`
   width: 100%;
-  height: 40vh;
-  padding: 32px 0;
+  height: 45%;
+  padding: 35px 0;
+  font-size: 14px;
   box-sizing:border-box;
   border:none;
   outline:0px none transparent;
@@ -64,9 +65,8 @@ const SnsUploadImg = styled.div`
   left : 0;
   right:0;
   display:flex;
-  flex-wrap:wrap;
-  justify-content:space-evenly;
-  margin-top: 25px; 
+  flex-direction: column;
+  align-items: center;
   `;
 
 export { SnsUploadImg }
@@ -77,8 +77,8 @@ export const FileUploader = styled.label`
   background-size: cover;
   position: fixed;
   cursor: pointer;
-  width: 36px;
-  height: 36px;
+  width: 45px;
+  height: 45px;
   bottom: 20px;
   right : 20px;
   z-index: 90;
@@ -89,8 +89,8 @@ export const FileInput = styled.input`
 `
 
 export const SingleImg = styled.img`
-  width: 400px;
-  height:300px;
+  width: 300px;
+  height:200px;
   border-radius:10px;
   object-fit: cover;
   @media screen and (max-width:380px){
@@ -110,7 +110,7 @@ export const DeleteBtn = styled.button`
 export const Img = styled.img`
   object-fit: cover;
   position: relative;
-  margin:5px;
+  margin:5px 5px 5px 5px;
   width:200px;
   height:130px;
   border-radius:10px;
@@ -121,7 +121,6 @@ export const Img = styled.img`
 `
 
 /* sns 페이지 */
-
 const SnsPageArt = styled.article`
   align-items: center;
     box-sizing: border-box;
