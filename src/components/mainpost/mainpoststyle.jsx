@@ -34,7 +34,7 @@ export { MainSnsPostWhap }
 
 const UserProfileImg= styled.img`
       object-fit: cover;
-      margin: 0px 8px;
+      margin: 0px 10px;
       border-radius: 50%;
       width: 50px;
       height: 50px;

@@ -2,11 +2,10 @@ import styled from 'styled-components';
 
 export const CommentListWrapper = styled.section`
   width: 100%;
-  padding: 2rem 1.6rem;
+  padding: 20px 10px 15px 10px;
   border-top: 1px solid #ddd;
   background-color: #ffffff;
   height: 100%;
-  padding-bottom: 80px;
 `;
 
 export const CommentListContainer = styled.ul`
@@ -24,9 +23,9 @@ export const CommentListLi = styled.li`
 export const ProfileImg = styled.img.attrs({
   alt: '프로필 이미지',
 })`
-  margin-right: 1.2rem;
-  width: 3.6rem;
-  height: 3.6rem;
+  margin-right: 15px;
+  width: 50px;
+  height: 50px;
   object-fit: cover;
   border-radius: 50%;
 `;
@@ -35,28 +34,29 @@ export const InformationBox = styled.div`
   display: inline-block;
   position: absolute;
   top: 6px;
-
   span {
+    color: #000;
     font-weight: 600;
-    font-size: 1.1rem;
-    line-height: 1.7rem;
+    font-size: 14px;
+    line-height: 30px;
     margin-right: 0.6rem;
   }
 
   small {
     font-weight: 400;
-    font-size: 0.8rem;
-    line-height: 1.2rem;
+    font-size: 10px;
+    line-height: 10px;
     color: #767676;
   }
 `;
 
 export const CommentText = styled.span`
+color: #000;
   display: block;
   font-weight: 300;
-  font-size: 1.1rem;
-  line-height: 1.5rem;
-  margin: 0 0 0 4.8rem;
+  font-size: 14px;
+  line-height: 14px;
+  margin-left: 65px;
 `;
 
 export const ModalBtnBox = styled.div`

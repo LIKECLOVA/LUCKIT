@@ -7,10 +7,9 @@ export const CommentInpWrap= styled.div`
   position: fixed;
   bottom: 0;
   width: 100%;
-  min-width: 3.9rem;
   border-top: 0.5px solid #ddd;
   background-color: #fff;
-  padding: 1.2rem 1.6rem;    
+  padding: 15px;    
 `;
 
 export const CommentInpform = styled.form`
@@ -19,32 +18,33 @@ export const CommentInpform = styled.form`
 `;
 
 export const CommentUserImgBox = styled.div`
-  width: 3.6rem;
-  height: 3.6rem;
-  margin-right: 1.8rem;
+  width: 50px;
+  height: 50px;
+  margin-right: 15px;
 `;
 
 export const CommentUserImg = styled.img.attrs((props) => ({
   src: props.authorImg || basicProfile,
   alt: '프로필 이미지',
 }))`
-  width: 3.6rem;
-  height: 3.6rem;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   object-fit: cover;
 `;
 
 export const CommentTextInput = styled.input`
   width: 100%;
-  font-size: 1.1rem;
+  font-size: 14px;
   font-weight: 400;
   border: none;
+  :focus {outline: none;}
 `;
 
 export const CommentSubmitBtn = styled.button`
-  width: 7rem;
-  font-weight: 400;
-  font-size: 1.1rem;
+  width: 60px;
+  font-weight: 600;
+  font-size: 14px;
   background-color: #fff;
   color: #457907;
   &:disabled {
