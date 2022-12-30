@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import {
   ModalWrap,
   ModalBtnWrap,
@@ -131,6 +131,7 @@ export const MarketPreviewModal = ({ onClickClose, productId }) => {
 export const SnsPostModal = ({ onClickClose, accountName, accountname, postId, postContent, postImg}) => {
   const token = localStorage.getItem('Access Token');
   const [isOpenModal, setIsOpenModal] = useState(false);
+  const navigate = useNavigate(); 
 
   const onClickDeleteModal = () => {
     setIsOpenModal(true);
@@ -155,7 +156,7 @@ export const SnsPostModal = ({ onClickClose, accountName, accountname, postId, p
         setIsOpenModal(false);
         onClickClose(false);
         console.log('삭제완료');
-        location.reload();
+        navigate(`/profile/${accountname}`);
       })
       .catch((error) => {
         console.log(error);
