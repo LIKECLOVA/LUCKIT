@@ -1,34 +1,22 @@
-import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+// import axios from 'axios';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { ProfileAndChatHeader } from '../../components/header/header';
 import MarketPostBox from '../../components/mainpost/marketPostBox';
 import { NavBar } from '../../components/navbar/navBar';
 import { ListItem, ListWrap, MarketPostTitle, MarketPostWrap } from './marketpoststyle';
+import { AxiosProductList } from '../../reducers/getProductListSlice';
 
 export function MarketPost() {
-  const [marketPostsData, setMarketPostsData] = useState();
   const { id } = useParams();
-  const token = localStorage.getItem('Access Token');
-
-// getProductList 리덕스
+  const marketPostData = useSelector((state) => state.productListSlice.productList);
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    axios({
-      method: 'get',
-      url: `https://mandarin.api.weniv.co.kr/product/${id}/?limit=20`,
-      headers: {
-        Authorization: `Bearer ${token}`,
-        'Content-type': 'application/json',
-      },
-    })
-      .then((res) => {
-        setMarketPostsData(res.data.product);
-      })
-      .then((error) => {
-        console.log(error);
-      });
+    dispatch(AxiosProductList(`https://mandarin.api.weniv.co.kr/product/${id}/?limit=20`));
   }, []);
+
 
   return (
     <>
@@ -36,20 +24,19 @@ export function MarketPost() {
       <MarketPostWrap>
         <h2>마켓 게시글 페이지</h2>
         <MarketPostTitle>
-          <strong>{marketPostsData && marketPostsData[0].author.username}</strong> 님이 찾는 럭킷 메이트
+          <strong>{marketPostData[0]?.author.username}</strong> 님이 찾는 럭킷 메이트
           <br />
           네잎클로버를 눌러 매칭을 신청해 보세요!✨
         </MarketPostTitle>
         <div>
           <ListWrap>
-            {marketPostsData &&
-              marketPostsData.map((data) => {
-                return (
-                  <ListItem key={Math.random()}>
-                    <MarketPostBox data={data} accountname={id} />
-                  </ListItem>
-                );
-              })}
+            {marketPostData.map((data) => {
+              return (
+                <ListItem key={Math.random()}>
+                  <MarketPostBox data={data} accountname={id} />
+                </ListItem>
+              );
+            })}
           </ListWrap>
         </div>
       </MarketPostWrap>
