@@ -72,7 +72,8 @@ export const CommentBtn = styled.button`
 `;
 
 export const MarketMoreBtn = styled.button`
-  background-color: transparent;
+  background: url(${moreBtn});
+  background-size: cover;
   width: 15px;
   height: 15px;
   position: absolute;

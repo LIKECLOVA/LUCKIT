@@ -4,7 +4,7 @@ import closeBtn from '../../assets/icon/x.svg';
 export const PostDetailWrap = styled.div`
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: #dbdbdb;
 `;
 
 const SnsPostModalWrap = styled.div`
