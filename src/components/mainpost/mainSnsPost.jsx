@@ -23,24 +23,16 @@ const MainSnsPost = ({ data }) => {
   const userToken = localStorage.getItem('Access Token');
 
   return (
-
     <MainSnsPostWrap>
-       <NavLink to={`/profile/${data.author.accountname}`} style={{height:'fit-content'}}>
-      <UserProfileImg src={data.author.image} onError={onErrorImg} />
+      <NavLink to={`/profile/${data.author.accountname}`} style={{ height: 'fit-content' }}>
+        <UserProfileImg src={data.author.image} onError={onErrorImg} />
       </NavLink>
       <SnsPostBox>
-      <NavLink to={`/profile/${data.author.accountname}`} style={{width:'fit-content'}}>
-      <SnsIdWrap>
-      <strong>{data.author.username}</strong>
-      <p>@{`${data.author.accountname}`}</p>
-      </SnsIdWrap>
-      </NavLink>
-      <SnsPostBox>
-        <NavLink to={`/profile/${data.author.accountname}`}>
-          <SnsIdWhap>
+        <NavLink to={`/profile/${data.author.accountname}`} style={{ width: 'fit-content' }}>
+          <SnsIdWrap>
             <strong>{data.author.username}</strong>
             <p>@{`${data.author.accountname}`}</p>
-          </SnsIdWhap>
+          </SnsIdWrap>
         </NavLink>
         <NavLink to={`/snspost/${data.id}`}>
           <SnsPostContent>{data.content}</SnsPostContent>
@@ -68,13 +60,13 @@ const MainSnsPost = ({ data }) => {
           <HeartBtn userToken={userToken} hearted={data.hearted} postId={data.id} heartCount={data.heartCount} />
           <NavLink to={`/snspost/${data.id}`}>
             <CommentBtnWrap>
-              <img src={CommentIcon} alt='' style={{ marginRight: '3px' }} />
+              <img src={CommentIcon} alt='' style={{ marginRight: '4px' }} />
               <span>{data.comments.length}</span>
             </CommentBtnWrap>
           </NavLink>
         </IconWrap>
       </SnsPostBox>
-      <MoreBtn postId={data.id} accountName={data.author.accountname} postContent={data.content} postImg={data.image}/>
+      <MoreBtn postId={data.id} accountName={data.author.accountname} postContent={data.content} postImg={data.image} />
     </MainSnsPostWrap>
   );
 };
