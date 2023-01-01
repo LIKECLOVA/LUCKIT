@@ -6,7 +6,7 @@ import { CommentListWrapper, CommentListContainer, CommentListLi, ProfileImg, In
 import {CommentMoreBtn} from '../../button/iconBtn'
 
 
-function CommentList({ comments,postId }) {
+function CommentList({ comments, postId }) {
 
   return (
     <CommentListWrapper>
@@ -15,17 +15,17 @@ function CommentList({ comments,postId }) {
           comments.map((data) => {
             return (
               <CommentListLi key={data.id}>
-                <NavLink to={`/profile/${data.author.accountName}`}>
+                <NavLink to={`/profile/${data.author.accountname}`}>
                 <ProfileImg src={data.author.image} />
                 </NavLink>
                 <InformationBox>
-                <NavLink to={`/profile/${data.author.accountName}`}>
+                <NavLink to={`/profile/${data.author.accountname}`}>
                   <span>{data.author.username}</span>
                 </NavLink>
                   <small>{timeForToday(data.createdAt)}</small>
                 </InformationBox>
                 <ModalBtnBox>
-                  <CommentMoreBtn accountName={data.author.accountName} postId={postId} commentId={data.id}/>
+                  <CommentMoreBtn accountName={data.author.accountname} postId={postId} commentId={data.id}/>
                 </ModalBtnBox>
                 <CommentText>{data.content}</CommentText>
               </CommentListLi>

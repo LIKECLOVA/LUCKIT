@@ -8,7 +8,7 @@ import { ProfilePostUploadBtn } from '../button/iconBtn'
 import DefaultUserImg from '../../assets/icon/basic-profile.png'
 
 export const MarketPreviewPost = () => {
-  const accountName = localStorage.getItem("Account Name");
+  const myAccountName = localStorage.getItem("Account Name");
   const {id} = useParams()
   const product = useSelector(state => state.productListSlice.productList);
   const { username } = useSelector((state) => state.userInfoSlice.userData);
@@ -30,7 +30,7 @@ export const MarketPreviewPost = () => {
         <h3>
           <strong>{username}</strong>님이 찾는 럭킷 메이트✨
         </h3>
-        {id === accountName ?
+        {id === myAccountName ?
         <ProfilePostUploadBtn pathName='/upload' />
         : <></>}
       </HeadingWrap>

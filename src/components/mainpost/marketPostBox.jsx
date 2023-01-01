@@ -4,7 +4,7 @@ import { CardWrap, CardCont, CardTitle, CardTxt, CardUser, CardImg } from './mar
 import IconSnsClova from '../../assets/icon/sns용-클로바-disabled.png';
 import IconSnsClovaFill from '../../assets/icon/sns용-클로바.png';
 import { MarketPostMoreBtn } from '../button/iconBtn';
-import DefaultUserImg from '../../assets/icon/basic-profile.png'
+import DefaultUserImg from '../../assets/icon/basic-profile.png';
 
 export default function MarketPostBox({ data, accountname }) {
   const [confirmedValue, setConfirmedValue] = useState(JSON.parse(localStorage.getItem('stored')));
@@ -15,16 +15,17 @@ export default function MarketPostBox({ data, accountname }) {
 
     Swal.fire({
       imageUrl:
-        'https://user-images.githubusercontent.com/102042383/209487151-26edc09f-d556-45f2-abaf-4b60c692d57d.gif',
-      width: 340,
-      imageWidth: 200,
-      imageHeight: 200,
+        'https://user-images.githubusercontent.com/102042383/210169119-cd6360aa-d675-4766-94b6-dcb76b05c632.gif',
+      width: 390,
+      imageWidth: 380,
+      imageHeight: 330,
       showCancelButton: true,
       cancelButtonText: '럭킷 매칭 취소',
       confirmButtonText: '럭킷 매칭 신청',
       confirmButtonColor: '#66b607',
+      background: 'none',
       backdrop: `
-          rgba(0,0,0,.4)
+       #ffffff92
     url("https://img1.picmix.com/output/stamp/normal/6/4/9/3/2063946_9932b.gif")
     center top
     no-repeat
@@ -62,11 +63,11 @@ export default function MarketPostBox({ data, accountname }) {
 
   const onErrorImg = (e) => {
     e.target.src = DefaultUserImg;
-  }
+  };
 
   return (
     <CardWrap>
-      <CardImg src={data.itemImage} onError={onErrorImg}/>
+      <CardImg src={data.itemImage} onError={onErrorImg} />
       <CardCont>
         <CardTitle>{data.itemName}</CardTitle>
         <CardTxt>{data.link}</CardTxt>

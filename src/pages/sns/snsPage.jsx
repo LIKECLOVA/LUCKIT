@@ -13,7 +13,8 @@ import { AxiosFollow } from '../../reducers/getFollowSlice';
 import { AxiosUserData } from '../../reducers/getUserInfoSlice';
 
 export const SnsPage = () => {
-  const token = localStorage.getItem('Access Token');
+
+  const userToken = localStorage.getItem('Access Token');
   const myAccountName = localStorage.getItem('Account Name');
   const [list, setList] = useState([]);
   const URL = `https://mandarin.api.weniv.co.kr`;
@@ -25,13 +26,14 @@ export const SnsPage = () => {
   const followList = useSelector((state) => state.followInfoSlice.followData);
   const myInfo = useSelector((state) => state.userInfoSlice.userData);
 
+
   /* 팔로잉한 유저의 게시글 정보 불러오는 axios */
   const getFeedPostData = () => {
     axios({
       url: `${URL}${FEED_PATH}`,
       method: 'get',
       headers: {
-        Authorization: `Bearer ${token}`,
+        Authorization: `Bearer ${userToken}`,
         'Content-type': 'application/json',
       },
     })
@@ -42,6 +44,7 @@ export const SnsPage = () => {
         console.log(error);
       });
   };
+
 
 
   useEffect(() => {

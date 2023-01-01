@@ -13,10 +13,10 @@ export const Home = () => {
   const followingData = useSelector(state => state.followInfoSlice.followData);
   const followimgURL = `https://mandarin.api.weniv.co.kr/profile/${accountName}/following?limit=100`
 
-
   useEffect(()=>{
     dispatch(AxiosFollow(followimgURL))
   },[])
+
 
   const onScroll = (e) => {
     if(e.currentTarget.scrollTop >= 300) {

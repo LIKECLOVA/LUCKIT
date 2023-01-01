@@ -128,9 +128,9 @@ export const MarketPreviewModal = ({ onClickClose, productId }) => {
 };
 
 /* Sns게시글 모달 */
-export const SnsPostModal = ({ onClickClose, accountName, accountname, postId, postContent, postImg}) => {
-  const token = localStorage.getItem('Access Token');
+export const SnsPostModal = ({ onClickClose, accountName, myAccountName, postId, postContent, postImg}) => {
   const [isOpenModal, setIsOpenModal] = useState(false);
+  const token = localStorage.getItem('Access Token');
   const navigate = useNavigate(); 
 
   const onClickDeleteModal = () => {
@@ -142,7 +142,6 @@ export const SnsPostModal = ({ onClickClose, accountName, accountname, postId, p
   };
 
   const deletePost = () => {
-    console.log('게시글아이디', `${postId}`);
 
     axios({
       url: `https://mandarin.api.weniv.co.kr/post/${postId}`,
@@ -155,8 +154,8 @@ export const SnsPostModal = ({ onClickClose, accountName, accountname, postId, p
       .then(() => {
         setIsOpenModal(false);
         onClickClose(false);
-        console.log('삭제완료');
-        navigate(`/profile/${accountname}`);
+        navigate(`/profile/${accountName}`);
+        location.reload();
       })
       .catch((error) => {
         console.log(error);
@@ -166,7 +165,7 @@ export const SnsPostModal = ({ onClickClose, accountName, accountname, postId, p
   return (
     <PostModalWrap onClick={() => onClickClose(false)}>
       <div className='postModalList' onClick={(e) => e.stopPropagation()}>
-        {accountName === accountname ? (
+        {myAccountName === accountName ? (
           <>
             <PostModalBtnWrap>
               <button onClick={onClickDeleteModal}>삭제</button>
@@ -224,8 +223,8 @@ export const ChatRoomModal = ({ onClickClose }) => {
   );
 };
 
-export const CommentModal = ({ onClickClose, accountname, accountName, postId, commentId }) => {
-  const token = localStorage.getItem('Access Token');
+export const CommentModal = ({ onClickClose, myAccountName, accountName, postId, commentId }) => {
+  const userToken = localStorage.getItem('Access Token');
   const [isOpenModal, setIsOpenModal] = useState(false);
 
   const onClickDeleteModal = () => {
@@ -236,20 +235,18 @@ export const CommentModal = ({ onClickClose, accountname, accountName, postId, c
     setIsOpenModal(false);
   };
   const onClickCommentDelete = () => {
-    console.log('게시글아이디', `${postId}`);
 
     axios({
       url: `https://mandarin.api.weniv.co.kr/post/${postId}/comments/${commentId}`,
       method: 'DELETE',
       headers: {
-        Authorization: `Bearer ${token}`,
+        Authorization: `Bearer ${userToken}`,
         'Content-type': 'application/json',
       },
     })
       .then(() => {
         setIsOpenModal(false);
         onClickClose(false);
-        console.log('댓글삭제완료');
         location.reload();
       })
       .catch((error) => {
@@ -260,7 +257,7 @@ export const CommentModal = ({ onClickClose, accountname, accountName, postId, c
   return (
     <PostModalWrap onClick={() => onClickClose(false)}>
       <div className='postModalList' onClick={(e) => e.stopPropagation()}>
-        {accountName === accountname ? (
+        {myAccountName === accountName ? (
           <>
             <PostModalBtnWrap>
               <button onClick={onClickDeleteModal}>삭제</button>

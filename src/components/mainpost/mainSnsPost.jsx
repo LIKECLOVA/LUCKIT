@@ -1,29 +1,39 @@
-import React from 'react'
-import { NavLink } from 'react-router-dom'
-import {MainSnsPostWhap,IconWrap, SnsIdWhap, SnsPostBox,UserProfileImg, ImgListDiv, SnsPostContent,CommentBtnWrap} from './mainpoststyle'
-import { MoreBtn } from "../button/iconBtn";
-import DefaultUserImg from '../../assets/icon/basic-profile-img-.png'
-import CommentIcon from "../../assets/icon/icon-message-circle.svg"
-import HeartBtn from "../button/heart/heartBtn"
+import React from 'react';
+import { NavLink } from 'react-router-dom';
+import {
+  MainSnsPostWrap,
+  IconWrap,
+  SnsIdWrap,
+  SnsPostBox,
+  UserProfileImg,
+  ImgListDiv,
+  SnsPostContent,
+  CommentBtnWrap,
+} from './mainpoststyle';
+import { MoreBtn } from '../button/iconBtn';
+import DefaultUserImg from '../../assets/icon/basic-profile-img-.png';
+import CommentIcon from '../../assets/icon/icon-message-circle.svg';
+import HeartBtn from '../button/heart/heartBtn';
 
 const onErrorImg = (e) => {
   e.target.src = DefaultUserImg;
-}
+};
+
 
 const MainSnsPost = ({data}) => {
-  const token = localStorage.getItem('Access Token');
+  const userToken = localStorage.getItem('Access Token');
 
   return (
-    <MainSnsPostWhap>
-       <NavLink to={`/profile/${data.author.accountName}`}>
+    <MainSnsPostWrap>
+       <NavLink to={`/profile/${data.author.accountname}`} style={{height:'fit-content'}}>
       <UserProfileImg src={data.author.image} onError={onErrorImg} />
       </NavLink>
       <SnsPostBox>
-      <NavLink to={`/profile/${data.author.accountName}`}>
-      <SnsIdWhap>
+      <NavLink to={`/profile/${data.author.accountname}`} style={{width:'fit-content'}}>
+      <SnsIdWrap>
       <strong>{data.author.username}</strong>
-      <p>@{`${data.author.accountName}`}</p>
-      </SnsIdWhap>
+      <p>@{`${data.author.accountname}`}</p>
+      </SnsIdWrap>
       </NavLink>
       <NavLink to={`/snspost/${data.id}`}>
       <SnsPostContent>{data.content}</SnsPostContent>
@@ -41,7 +51,7 @@ const MainSnsPost = ({data}) => {
       </NavLink>
       <IconWrap>
       <HeartBtn
-          userToken={token}
+          userToken={userToken}
           hearted={data.hearted}
           postId={data.id}
           heartCount={data.heartCount}
@@ -54,9 +64,9 @@ const MainSnsPost = ({data}) => {
       </NavLink>
       </IconWrap>
       </SnsPostBox>
-      <MoreBtn postId={data.id} accountName={data.author.accountName} postContent={data.content} postImg={data.image}/>
-    </MainSnsPostWhap>
-  )
-}
+      <MoreBtn postId={data.id} accountName={data.author.accountname} postContent={data.content} postImg={data.image}/>
+    </MainSnsPostWrap>
+  );
+};
 
-export default MainSnsPost
+export default MainSnsPost;

@@ -12,7 +12,7 @@ import locator from '../../assets/icon/locator-disabled.png';
 import locatorFill from '../../assets/icon/locator.png';
 
 export const NavBar = () => {
-  const id = localStorage.getItem('Account Name');
+  const myAccountName = localStorage.getItem('Account Name');
 
   return (
     <NavWrap>
@@ -67,7 +67,7 @@ export const NavBar = () => {
         </li>
         <li>
           <StyleNavLink
-            to={`/profile/${id}`}
+            to={`/profile/${myAccountName}`}
             icon={profileIcon}
             hovericon={profileIconFill}
             className={({ isActive }) => {

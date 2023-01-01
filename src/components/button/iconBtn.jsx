@@ -1,29 +1,18 @@
 import React, { useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { AddBtn, BackArrowBtn, IconBtn, MarketMoreBtn, PostUploadImg, SnsMoreBtn,CommentBtn } from './iconBtnstyle';
-// import addBtn from '../../assets/icon/addBtn.svg';
 import moreBtn from '../../assets/icon/s-icon-more-vertical.png';
 import imgBtn from '../../assets/icon/upload-file.png';
 import { CommentModal, MarketPreviewModal, SnsPostModal } from '../modal/modal';
 import IconPostUpload from '../../assets/icon/market-plus.png'
 
-
-
-// export function AddBtn({ posi }) {
-//   return (
-//     <IconBtn>
-//       <img src={addBtn} posi={posi} alt='게시글 작성하기 버튼' />
-//     </IconBtn>
-//   );
-// }
-
 export function ImgUploadBtn({ posi, click }) {
   return <IconBtn onClick={click} icon={imgBtn} posi={posi}></IconBtn>;
 }
 /* Sns게시글 더보기 버튼 */
-export function MoreBtn({postId, accountname, postContent, postImg}) {
+export function MoreBtn({postId, accountName, postContent, postImg}) {
   const [isOpen, setIsOpen] = useState(false);
-  const accountName = localStorage.getItem("Account Name");
+  const myAccountName = localStorage.getItem("Account Name");
 
   const onClick = () => {
     setIsOpen(true);
@@ -36,14 +25,14 @@ export function MoreBtn({postId, accountname, postContent, postImg}) {
   return (
     <>
       <SnsMoreBtn onClick={onClick}></SnsMoreBtn>
-      {isOpen && <SnsPostModal onClickClose={onClickClose} accountName={accountName} postId={postId} accountname={accountname} postContent={postContent} postImg={postImg}/>}
+      {isOpen && <SnsPostModal onClickClose={onClickClose} myAccountName={myAccountName} postId={postId} accountName={accountName} postContent={postContent} postImg={postImg}/>}
     </>
   );
 }
 /* 댓글 더보기 버튼 */
-export function CommentMoreBtn({postId, commentId, accountname}) {
+export function CommentMoreBtn({postId, commentId, accountName}) {
   const [isOpen, setIsOpen] = useState(false);
-  const accountName = localStorage.getItem("Account Name");
+  const myAccountName = localStorage.getItem("Account Name");
 
   const onClick = () => {
     setIsOpen(true);
@@ -56,7 +45,7 @@ export function CommentMoreBtn({postId, commentId, accountname}) {
   return (
     <>
       <CommentBtn onClick={onClick}icon={moreBtn}></CommentBtn>
-      {isOpen && <CommentModal onClickClose={onClickClose} accountName={accountName} postId={postId} commentId={commentId} accountname={accountname}/>}
+      {isOpen && <CommentModal onClickClose={onClickClose} accountName={accountName} postId={postId} commentId={commentId} myAccountName={myAccountName}/>}
     </>
   );
 }

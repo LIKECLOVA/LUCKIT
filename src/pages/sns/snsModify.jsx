@@ -15,8 +15,8 @@ export const SnsModify = () => {
   const navigate = useNavigate(); 
   const location = useLocation();
   const postId =location.state.postId;
-const oripostContent= location.state.postContent;
-const oripostImg =location.state.postImg;
+  const oripostContent= location.state.postContent;
+  const oripostImg =location.state.postImg;
 
   const data = {
     'post': {
@@ -131,7 +131,7 @@ function sliceImg(oripostImgs) {
           'Content-type': 'application/json'
         },
       })
-      .then(navigate('/snspage'))
+      .then(navigate(-1))
     }
     catch (error) {
       console.log(error);

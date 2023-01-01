@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-
 import { ProfileAndChatHeader } from '../../components/header/header';
 import { MarketPreviewPost } from '../../components/market-preview-post/marketPreviewPost';
 import { ProfileBox } from '../../components/profile-box/profileBox';
@@ -32,9 +31,8 @@ export const Profile = () => {
   const dispatch = useDispatch();
   const snsPostURL = `https://mandarin.api.weniv.co.kr/post/${id}/userpost/?limit=number`;
 
- 
-
   useEffect(() => {
+
     dispatch(AxiosSnsPost(snsPostURL));
   }, []);
 
@@ -54,7 +52,6 @@ export const Profile = () => {
       <ProfileWrap>
         <ProfileBox />
         <MarketPreviewPost />
-        {snsPostData.length !== 0 ? (
           <SnsPostBox>
             <h2>sns 게시글 피드</h2>
             <SnsPostBtn>
@@ -68,6 +65,8 @@ export const Profile = () => {
               </div>
               {id === myAccountName ? <ProfilePostUploadBtn pathName='/snsupload' /> : <></>}
             </SnsPostBtn>
+        {snsPostData.length !== 0 ? (
+          <>
             <ul>
               {imgList &&
                 snsPostData.map((post) => {
@@ -102,8 +101,9 @@ export const Profile = () => {
                   );
                 })}
             </ImgAlbumBox>
-          </SnsPostBox>
+          </>
         ) : null}
+          </SnsPostBox>
       </ProfileWrap>
       <NavBar />
     </>
