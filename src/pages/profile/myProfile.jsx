@@ -1,10 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import axios from 'axios';
+import { useSelector, useDispatch } from 'react-redux';
+
 import { ProfileAndChatHeader } from '../../components/header/header';
 import { MarketPreviewPost } from '../../components/market-preview-post/marketPreviewPost';
 import { ProfileBox } from '../../components/profile-box/profileBox';
-import { ProfileWrap, SnsPostBtn, NavLinkStyle, ImgAlbumBox, ImgAlbumList, SnsPostWrap, SnsPostBox } from './myprofilestyle';
+import {
+  ProfileWrap,
+  SnsPostBtn,
+  NavLinkStyle,
+  ImgAlbumBox,
+  ImgAlbumList,
+  SnsPostWrap,
+  SnsPostBox,
+} from './myprofilestyle';
 import { NavBar } from '../../components/navbar/navBar';
 import IconPostListOn from '../../assets/icon/icon-post-list-on.png';
 import IconPostListOff from '../../assets/icon/icon-post-list-off.png';
@@ -12,31 +21,22 @@ import IconPostAlbumOn from '../../assets/icon/icon-post-album-on.png';
 import IconPostAlbumOff from '../../assets/icon/icon-post-album-off.png';
 import MainSnsPost from '../../components/mainpost/mainSnsPost';
 import { ProfilePostUploadBtn } from '../../components/button/iconBtn';
+import { AxiosSnsPost } from '../../reducers/getSnsPostSlice';
 
 export const Profile = () => {
-  const [snsPostsData, setSnsPostsData] = useState([]);
   const [imgList, setImgList] = useState(true);
   const [imgAlbum, setImgAlbum] = useState(false);
   const myAccountName = localStorage.getItem('Account Name');
-  const token = localStorage.getItem('Access Token');
   const { id } = useParams();
+  const snsPostData = useSelector((state) => state.snsPostSlice.snspost);
+  const dispatch = useDispatch();
+  const snsPostURL = `https://mandarin.api.weniv.co.kr/post/${id}/userpost/?limit=number`;
+
+ 
 
   useEffect(() => {
-    axios({
-      method: 'get',
-      url: `https://mandarin.api.weniv.co.kr/post/${id}/userpost/?limit=10`,
-      headers: {
-        Authorization: `Bearer ${token}`,
-        'Content-type': 'application/json',
-      },
-    })
-      .then((res) => {
-        setSnsPostsData(res.data.post);
-      })
-      .then((error) => {
-        console.log(error);
-      });
-  }, [location, id]);
+    dispatch(AxiosSnsPost(snsPostURL));
+  }, []);
 
   const onClickListBtn = () => {
     setImgList(true);
@@ -54,7 +54,7 @@ export const Profile = () => {
       <ProfileWrap>
         <ProfileBox />
         <MarketPreviewPost />
-        {snsPostsData.length !== 0 ? (
+        {snsPostData.length !== 0 ? (
           <SnsPostBox>
             <h2>sns 게시글 피드</h2>
             <SnsPostBtn>
@@ -66,13 +66,11 @@ export const Profile = () => {
                   {imgAlbum ? <img src={IconPostAlbumOn} alt='앨범형' /> : <img src={IconPostAlbumOff} alt='앨범형' />}
                 </button>
               </div>
-              {id === myAccountName ?
-            <ProfilePostUploadBtn pathName='/snsupload' />
-            : <></>}
+              {id === myAccountName ? <ProfilePostUploadBtn pathName='/snsupload' /> : <></>}
             </SnsPostBtn>
             <ul>
               {imgList &&
-                snsPostsData.map((post) => {
+                snsPostData.map((post) => {
                   return (
                     <SnsPostWrap key={post.id}>
                       <MainSnsPost data={post} />
@@ -82,7 +80,7 @@ export const Profile = () => {
             </ul>
             <ImgAlbumBox>
               {imgAlbum &&
-                snsPostsData.map((post) => {
+                snsPostData.map((post) => {
                   return (
                     <>
                       {post.image ? (
@@ -105,9 +103,7 @@ export const Profile = () => {
                 })}
             </ImgAlbumBox>
           </SnsPostBox>
-        ) : (
-          <></>
-        )}
+        ) : null}
       </ProfileWrap>
       <NavBar />
     </>

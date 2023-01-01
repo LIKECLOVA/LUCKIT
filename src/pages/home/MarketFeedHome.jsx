@@ -2,12 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Carousel } from '../../components/carousel/carousel';
 import { HomepageHeader, FeedPageHeader } from '../../components/header/header';
-import {
-  HomeSection,
-  HomeTitle,
-  ListWrap,
-  ListItem,
-} from './homestyle';
+import { HomeSection, HomeTitle, ListWrap, ListItem } from './homestyle';
 import MarketPostBox from '../../components/mainpost/marketPostBox';
 import { MarketPostMoreBtn, PostUploadBtn } from '../../components/button/iconBtn';
 
@@ -15,24 +10,39 @@ export const MarketFeedHome = ({ scrollTopData, followingData }) => {
   const token = localStorage.getItem('Access Token');
   const [productData, setProductData] = useState([]);
 
-  // getProductList 사용
-  
-  useEffect(() => {
-    followingData.map((list) => {
-      return axios({
-        method: 'get',
-        url: `https://mandarin.api.weniv.co.kr/product/${list.accountname}`,
-        headers: {
-          Authorization: `Bearer ${token}`,
-          'Content-type': 'application/json',
-        },
-      }).then((res) => {
-        for (const product of res.data.product) {
-          setProductData((e) => [...e, product]);
-        }
-      });
-    });
-  }, []);
+  useEffect(()=>{
+    function postSort(a, b) {
+      if (a.createdAt < b.createdAt) {
+        return 1;
+      }
+      if (a.createdAt > b.createdAt) {
+        return -1;
+      }
+      return 0;
+    }
+    
+   ProductList().then(res => setProductData( res.flat(1).sort(postSort) ))
+
+  },[])
+
+const ProductList = async () => {
+
+  const followProductList = await followingData.map((list) => {
+
+   return axios({
+      method: 'get',
+      url: `https://mandarin.api.weniv.co.kr/product/${list.accountname}/?limit=3`,
+      headers: {
+        Authorization: `Bearer ${token}`,
+        'Content-type': 'application/json',
+      },
+    }).then(res => res.data.product)
+
+  })
+
+ return Promise.all(followProductList)
+
+};
 
   return (
     <>
@@ -56,7 +66,7 @@ export const MarketFeedHome = ({ scrollTopData, followingData }) => {
                 return (
                   <ListItem key={Math.random()}>
                     <MarketPostBox data={data} />
-                    <MarketPostMoreBtn productId={data.id}/>
+                    <MarketPostMoreBtn productId={data.id} />
                   </ListItem>
                 );
               })}
