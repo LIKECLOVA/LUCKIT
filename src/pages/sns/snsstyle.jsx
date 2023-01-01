@@ -188,7 +188,7 @@ const SnsPageSec = styled.section`
     display: none;
   }
   h1 {
-    margin: 0px 15px 30px 15px;
+    margin: 10px 15px 30px 15px;
     padding: 14px 70px;
     background-color: #edf8e1;
     color: #457907;

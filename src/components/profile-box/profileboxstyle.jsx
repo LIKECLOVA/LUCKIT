@@ -105,7 +105,7 @@ export const IsFollowButton = styled.button`
     return isFollow
       ? css`
           background-color: white;
-          border: 1px solid #dbdbdb;
+          border: 0.5px solid #dbdbdb;
           color: ${palette.내부텍스트};
         `
       : css`
