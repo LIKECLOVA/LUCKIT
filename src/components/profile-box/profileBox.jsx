@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
 import axios from 'axios';
+import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { FollowNavLink, EditProfileNavLink, IsFollowButton, FollowerCont, ProfileInfoWrap, ProfileInfoCont,  BottomInfoBox, TopInfoBox, ProfileInfoBox } from './profileboxstyle';
@@ -11,21 +11,20 @@ export const ProfileBox = () => {
     (state) => state.userInfoSlice.userData
   );
   const { id } = useParams();
-
   const dispatch = useDispatch();
   const BaseURL = `https://mandarin.api.weniv.co.kr/profile/${id}`;
   const myAccountName = localStorage.getItem('Account Name');
-  const token = localStorage.getItem('Access Token');
+  const userToken = localStorage.getItem('Access Token');
 
   useEffect(() => {
     dispatch(AxiosUserData(BaseURL)); 
-  }, [isfollow,id,username,intro]);
+  }, [isfollow, id, username, intro]);
 
   const unfollow = async () => {
     await axios(`https://mandarin.api.weniv.co.kr/profile/${id}/unfollow`, {
       method: 'DELETE',
       headers: {
-        Authorization: `Bearer ${token}`,
+        Authorization: `Bearer ${userToken}`,
         'Content-type': 'application/json',
       },
     }).then((res) => {
@@ -37,7 +36,7 @@ export const ProfileBox = () => {
     await axios(`https://mandarin.api.weniv.co.kr/profile/${id}/follow`, {
       method: 'POST',
       headers: {
-        Authorization: `Bearer ${token}`,
+        Authorization: `Bearer ${userToken}`,
         'Content-type': 'application/json',
       },
     }).then((res) => {

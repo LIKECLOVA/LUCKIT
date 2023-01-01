@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-
 import { ProfileAndChatHeader } from '../../components/header/header';
 import { MarketPreviewPost } from '../../components/market-preview-post/marketPreviewPost';
 import { ProfileBox } from '../../components/profile-box/profileBox';
@@ -32,9 +31,8 @@ export const Profile = () => {
   const dispatch = useDispatch();
   const snsPostURL = `https://mandarin.api.weniv.co.kr/post/${id}/userpost/?limit=number`;
 
- 
-
   useEffect(() => {
+
     dispatch(AxiosSnsPost(snsPostURL));
   }, []);
 

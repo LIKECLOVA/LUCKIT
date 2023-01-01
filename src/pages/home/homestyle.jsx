@@ -24,18 +24,8 @@ export const Main = styled.main`
   align-items: center;
 `;
 
-export const SearchBtn = styled.button`
-  width: 130px;
-  padding: 16px;
-  background-color: #85ce2d;
-  border-radius: 30px;
-  color: white;
-  margin-top: 26px;
-  font-size: 16px;
-`;
-
 export const HomeTxt = styled.p`
-  margin-top: 12px;
+  margin: 12px 0 26px;
   font-weight: 500;
   text-align: center;
 `;
