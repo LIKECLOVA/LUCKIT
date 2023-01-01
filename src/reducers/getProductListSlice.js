@@ -23,6 +23,8 @@ export const AxiosProductList = createAsyncThunk(
     }
   )
 
+
+
   export const productListSlice = createSlice({
     name : 'getProductList',
     initialState,

@@ -1,10 +1,8 @@
 import { MapMarker, CustomOverlayMap } from 'react-kakao-maps-sdk';
 import { MapModal } from './mapModal';
-import markImg from '../../assets/icon/mapMarker.png';
+import markImg from '../../assets/icon/marker-클로바-임시 복사.png';
 
-
-const EventMarkerContainer = ({modalClose ,position, onClick, isClicked,title,location ,img, page }) => {
-
+const EventMarkerContainer = ({ modalClose, position, onClick, isClicked, title, location, img, page }) => {
   return (
     <>
       <MapMarker
@@ -14,13 +12,20 @@ const EventMarkerContainer = ({modalClose ,position, onClick, isClicked,title,lo
         image={{
           src: markImg,
           size: {
-            width: 30,
-            height: 30,
+            width: 65,
+            height: 65,
           },
         }}
       ></MapMarker>
       <CustomOverlayMap position={position}>
-        <MapModal modalClose={modalClose} img={img} title={title} location={location} isClicked={isClicked} page={page} />
+        <MapModal
+          modalClose={modalClose}
+          img={img}
+          title={title}
+          location={location}
+          isClicked={isClicked}
+          page={page}
+        />
       </CustomOverlayMap>
     </>
   );

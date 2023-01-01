@@ -1,32 +1,26 @@
-import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import { useSelector,useDispatch } from 'react-redux';
 import { NavBar } from '../../components/navbar/navBar';
+import { AxiosFollow } from '../../reducers/getFollowSlice';
 import DefaultHome from './defaultHome';
 import { HomeWrap } from './homestyle';
 import { MarketFeedHome } from './MarketFeedHome';
 
 export const Home = () => {
-  const [followingData, setFollowingData] = useState([])
   const [scrollTopData, setScrollTopData] = useState(false)
-  const myAccountName = localStorage.getItem("Account Name");
-  const userToken = localStorage.getItem("Access Token");
 
-  useEffect(() => {
+  const accountName = localStorage.getItem("Account Name");
+  const dispatch = useDispatch();
+  const followingData = useSelector(state => state.followInfoSlice.followData);
+  const followimgURL = `https://mandarin.api.weniv.co.kr/profile/${accountName}/following?limit=Number`
 
-    axios({
-        method: 'get',
-        url: `https://mandarin.api.weniv.co.kr/profile/${myAccountName}/following`,
-        headers: {
-          'Authorization': `Bearer ${userToken}`,
-          'Content-type': 'application/json',
-        },
-      }).then((res) => {
-              setFollowingData(res.data);
-        })
-        .then((error) => {
-              console.log(error);
-        });
-  }, [])
+
+
+
+  useEffect(()=>{
+    dispatch(AxiosFollow(followimgURL))
+  },[])
+
 
   const onScroll = (e) => {
     if(e.currentTarget.scrollTop >= 300) {

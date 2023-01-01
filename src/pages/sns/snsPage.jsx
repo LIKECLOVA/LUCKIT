@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import { NavLink } from 'react-router-dom';
 import MainSnsPost from '../../components/mainpost/mainSnsPost';
 import { SnsPageArt, SnsPageSec, MainPostArea, SnsStoryImg } from './snsstyle';
@@ -10,7 +11,9 @@ import { PostUploadBtn } from '../../components/button/iconBtn';
 
 export const SnsPage = () => {
 
-  const userToken = localStorage.getItem('Access Token');
+
+  const token = localStorage.getItem('Access Token');
+
   const myAccountName = localStorage.getItem('Account Name');
   const [list ,setList] = useState([]);
   const [followList,setFollowList] = useState([]);
@@ -19,20 +22,26 @@ export const SnsPage = () => {
   const STORY_PATH=`/profile/${myAccountName}/following`;
   const USER_PATH=`/user/myinfo`;
 
-  // 팔로잉한 유저의 게시글 정보 불러오는 fetch
-  async function fetchFeedPostData() {
-    await fetch(URL + FEED_PATH, {
-      method: 'GET',
-      headers: {
-        Authorization: `Bearer ${userToken}`,
-        'Content-type': 'application/json',
-      },
+
+ /* 팔로잉한 유저의 게시글 정보 불러오는 axios*/
+const getFeedPostData = () => {
+  axios({
+    url: `${URL}${FEED_PATH}`,
+    method: 'get',
+    headers: {
+      Authorization: `Bearer ${token}`,
+      'Content-type': 'application/json',
+    },
+  })
+    .then((response) => {
+      setList(response.data.posts);
+
     })
-      .then((data) => data.json())
-      .then((data) => {
-        setList(data.posts);
-      });
-  }
+    .catch((error) => {
+      console.log(error);
+    });
+};
+
   // 팔로잉한 유저 프로필 정보 불러오는 fetch
   async function fetchUserStoryData() {
     await fetch(URL + STORY_PATH, {
@@ -66,7 +75,7 @@ export const SnsPage = () => {
   }
 
   useEffect(() => {
-    fetchFeedPostData();
+    getFeedPostData();
     fetchUserStoryData();
   }, []);
 

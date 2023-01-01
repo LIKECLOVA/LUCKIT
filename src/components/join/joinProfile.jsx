@@ -110,7 +110,6 @@ const JoinProfile = () => {
     },
   };
 
-  console.log(data);
 
   /* 버튼 활성화 기능 */
   const possibleJoin = checkValidatedId && checkValidatedUserName;

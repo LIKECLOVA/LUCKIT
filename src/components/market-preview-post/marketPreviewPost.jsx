@@ -47,7 +47,7 @@ export const MarketPreviewPost = () => {
               <MarketPostList key={post.id}>
                 <NavLink to={`/marketpost/${id}`}>
                   <p>{post.itemName}</p>
-                  <img src={post.itemImage} onError={onErrorImg}/>
+                  <img src={post.itemImage} onError={onErrorImg} alt='상품이미지'/>
                 </NavLink>
               </MarketPostList>
             );
