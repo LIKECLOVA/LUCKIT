@@ -22,12 +22,11 @@ const HeartBtn = ({ userToken, postId, hearted, heartCount }) => {
           setIsHearted(res.data.post.hearted);
           setCount(res.data.post.heartCount);
         });
-      } 
-      catch (error) {
+      } catch (error) {
         console.log(error);
       }
     }
-    
+
     /* 하트를 이미 누른 게시물일 때 */
     if (isHearted) {
       try {
@@ -42,8 +41,7 @@ const HeartBtn = ({ userToken, postId, hearted, heartCount }) => {
           setIsHearted(res.data.post.hearted);
           setCount(res.data.post.heartCount);
         });
-      } 
-      catch (error) {
+      } catch (error) {
         console.log(error);
       }
     }
@@ -52,8 +50,8 @@ const HeartBtn = ({ userToken, postId, hearted, heartCount }) => {
   return (
     <S.PostIconBtn onClick={handleLike}>
       <HeartIcon
-        fill={isHearted ? '#F3033D' : '#FFFFFF'}
-        stroke={isHearted ? '#F3033D' : '#767676'}
+        fill={isHearted ? '#F3033D' : '#dbdbdb'}
+        stroke={isHearted ? '#F3033D' : '#dbdbdb'}
         style={{ marginRight: '6px' }}
       />
       <span>{count}</span>
