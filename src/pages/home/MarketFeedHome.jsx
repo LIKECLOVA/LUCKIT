@@ -31,7 +31,7 @@ const ProductList = async () => {
 
    return axios({
       method: 'get',
-      url: `https://mandarin.api.weniv.co.kr/product/${list.accountname}/?limit=3`,
+      url: `https://mandarin.api.weniv.co.kr/product/${list.accountname}/?limit=100`,
       headers: {
         Authorization: `Bearer ${token}`,
         'Content-type': 'application/json',

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { NavLink } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
 import MainSnsPost from '../../components/mainpost/mainSnsPost';
 import { SnsPageArt, SnsPageSec, MainPostArea, SnsStoryImg } from './snsstyle';
 import { FeedPageHeader } from '../../components/header/header';
@@ -8,71 +9,45 @@ import { NavBar } from '../../components/navbar/navBar';
 import DefaultUserImg from '../../assets/icon/basic-profile-img-.png';
 import { SearchBtn } from '../../components/button/button';
 import { PostUploadBtn } from '../../components/button/iconBtn';
+import { AxiosFollow } from '../../reducers/getFollowSlice';
+import { AxiosUserData } from '../../reducers/getUserInfoSlice';
 
 export const SnsPage = () => {
-
   const token = localStorage.getItem('Access Token');
   const myAccountName = localStorage.getItem('Account Name');
-  const [list ,setList] = useState([]);
-  const [followList,setFollowList] = useState([]);
+  const [list, setList] = useState([]);
   const URL = `https://mandarin.api.weniv.co.kr`;
   const FEED_PATH = `/post/feed`;
-  const STORY_PATH=`/profile/${myAccountName}/following`;
-  const USER_PATH=`/user/myinfo`;
+  const STORY_PATH = `/profile/${myAccountName}/following?limit=0`;
+  const USER_PATH = `/profile/${myAccountName}`;
 
- /* 팔로잉한 유저의 게시글 정보 불러오는 axios*/
-const getFeedPostData = () => {
-  axios({
-    url: `${URL}${FEED_PATH}`,
-    method: 'get',
-    headers: {
-      Authorization: `Bearer ${token}`,
-      'Content-type': 'application/json',
-    },
-  })
-    .then((response) => {
-      setList(response.data.posts);
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-};
+  const dispatch = useDispatch();
+  const followList = useSelector((state) => state.followInfoSlice.followData);
+  const myInfo = useSelector((state) => state.userInfoSlice.userData);
 
-  // 팔로잉한 유저 프로필 정보 불러오는 fetch
-  async function fetchUserStoryData() {
-    await fetch(URL + STORY_PATH, {
-      method: 'GET',
+  /* 팔로잉한 유저의 게시글 정보 불러오는 axios */
+  const getFeedPostData = () => {
+    axios({
+      url: `${URL}${FEED_PATH}`,
+      method: 'get',
       headers: {
         Authorization: `Bearer ${token}`,
         'Content-type': 'application/json',
       },
     })
-      .then((data) => data.json())
-      .then((data) => {
-        setFollowList([...data]);
+      .then((response) => {
+        setList(response.data.posts);
+      })
+      .catch((error) => {
+        console.log(error);
       });
-    // 내 프로필 정보 불러오는 fetch
-    await fetch(URL + USER_PATH, {
-      method: 'GET',
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    })
-      .then((data) => data.json())
-      .then((data) => {
-        const myStoryImg = {
-          image: data.user.image,
-          accountname: data.user.accountname,
-          following: data.user.following,
-        };
+  };
 
-        setFollowList((value) => [myStoryImg, ...value]);
-      });
-  }
 
   useEffect(() => {
     getFeedPostData();
-    fetchUserStoryData();
+    dispatch(AxiosFollow(URL + STORY_PATH));
+    dispatch(AxiosUserData(URL + USER_PATH));
   }, []);
 
   const onErrorImg = (e) => {
@@ -84,6 +59,11 @@ const getFeedPostData = () => {
       <FeedPageHeader />
       <SnsPageArt>
         <ul>
+          <NavLink to={`/profile/${myAccountName}`}>
+            <li>
+              <SnsStoryImg src={myInfo.image} onError={onErrorImg} />
+            </li>
+          </NavLink>
           {followList.map((story, index) => {
             return (
               <NavLink key={index} to={`/profile/${story.accountname}`}>
@@ -100,7 +80,7 @@ const getFeedPostData = () => {
         <SnsPageSec className='SnsDefalutPage'>
           <h1>새로운 럭킷을 찾아보세요!</h1>
           <NavLink to='/search'>
-            <SearchBtn size='middle'/>
+            <SearchBtn size='middle' />
           </NavLink>
         </SnsPageSec>
       ) : (
@@ -113,7 +93,7 @@ const getFeedPostData = () => {
           </MainPostArea>
         </SnsPageSec>
       )}
-      <PostUploadBtn pathName='/snsupload'/>
+      <PostUploadBtn pathName='/snsupload' />
       <NavBar />
     </>
   );
