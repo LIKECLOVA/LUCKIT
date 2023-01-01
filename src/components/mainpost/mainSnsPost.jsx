@@ -15,14 +15,14 @@ const MainSnsPost = ({data}) => {
 
   return (
     <MainSnsPostWhap>
-       <NavLink to={`/profile/${data.author.accountname}`}>
+       <NavLink to={`/profile/${data.author.accountName}`}>
       <UserProfileImg src={data.author.image} onError={onErrorImg} />
       </NavLink>
       <SnsPostBox>
-      <NavLink to={`/profile/${data.author.accountname}`}>
+      <NavLink to={`/profile/${data.author.accountName}`}>
       <SnsIdWhap>
       <strong>{data.author.username}</strong>
-      <p>@{`${data.author.accountname}`}</p>
+      <p>@{`${data.author.accountName}`}</p>
       </SnsIdWhap>
       </NavLink>
       <NavLink to={`/snspost/${data.id}`}>
@@ -38,7 +38,6 @@ const MainSnsPost = ({data}) => {
                 : 
                 <></>}
                 </div>
-      {/* <SnsPostImg src={data.image} onError = {e =>{e.target.style.display = 'none'}}/> */}
       </NavLink>
       <IconWrap>
       <HeartBtn
@@ -55,7 +54,7 @@ const MainSnsPost = ({data}) => {
       </NavLink>
       </IconWrap>
       </SnsPostBox>
-      <MoreBtn postId={data.id} accountname={data.author.accountname} postContent={data.content} postImg={data.image}/>
+      <MoreBtn postId={data.id} accountName={data.author.accountName} postContent={data.content} postImg={data.image}/>
     </MainSnsPostWhap>
   )
 }

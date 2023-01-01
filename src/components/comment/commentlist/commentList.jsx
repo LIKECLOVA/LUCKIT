@@ -5,9 +5,8 @@ import { timeForToday } from '../../timeForToday'
 import { CommentListWrapper, CommentListContainer, CommentListLi, ProfileImg, InformationBox, ModalBtnBox, CommentText } from '../commentlist/commentliststyle';
 import {CommentMoreBtn} from '../../button/iconBtn'
 
-function CommentList({ comments,postId }) {
 
-console.log('댓글',comments);
+function CommentList({ comments,postId }) {
 
   return (
     <CommentListWrapper>
@@ -16,17 +15,17 @@ console.log('댓글',comments);
           comments.map((data) => {
             return (
               <CommentListLi key={data.id}>
-                <NavLink to={`/profile/${data.author.accountname}`}>
+                <NavLink to={`/profile/${data.author.accountName}`}>
                 <ProfileImg src={data.author.image} />
                 </NavLink>
                 <InformationBox>
-                <NavLink to={`/profile/${data.author.accountname}`}>
+                <NavLink to={`/profile/${data.author.accountName}`}>
                   <span>{data.author.username}</span>
                 </NavLink>
                   <small>{timeForToday(data.createdAt)}</small>
                 </InformationBox>
                 <ModalBtnBox>
-                  <CommentMoreBtn accountname={data.author.accountname} postId={postId} commentId={data.id}/>
+                  <CommentMoreBtn accountName={data.author.accountName} postId={postId} commentId={data.id}/>
                 </ModalBtnBox>
                 <CommentText>{data.content}</CommentText>
               </CommentListLi>

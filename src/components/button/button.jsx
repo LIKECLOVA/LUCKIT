@@ -38,6 +38,6 @@ export const UploadBtn = (props) => {
 
 };
 
-export const SerchBtn = ({ size, onClick }) => {
-  return <Button onClick={onClick} size={size}>검색하기</Button>;
+export const SearchBtn = ({ size }) => {
+  return <Button size={size}>검색하기</Button>;
 };

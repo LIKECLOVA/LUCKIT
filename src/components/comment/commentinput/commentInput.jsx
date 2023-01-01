@@ -8,13 +8,13 @@ const CommentInput = ({ getComments, postId }) => {
     const [isValid, setIsValid] = useState(false);
     const [authorImg, setAuthorImg] = useState('');
     const token = localStorage.getItem('Access Token');
-    const accountname = localStorage.getItem('Account Name');
+    const accountName = localStorage.getItem('Account Name');
     
 
     useEffect(() => {
-      if (accountname) {
+      if (accountName) {
         axios({
-          url: `https://mandarin.api.weniv.co.kr/profile/${accountname}`,
+          url: `https://mandarin.api.weniv.co.kr/profile/${accountName}`,
           method: 'GET',
           headers: {
             Authorization: `Bearer ${token}`,
@@ -28,7 +28,7 @@ const CommentInput = ({ getComments, postId }) => {
             console.log(error);
           });
       }
-    }, [accountname]);
+    }, [accountName]);
   
     const handleInput = (e) => {
       setComment(e.target.value);
@@ -54,7 +54,6 @@ const CommentInput = ({ getComments, postId }) => {
         },
       })
         .then((response) => {
-          console.log(response.data.result);
           setComment('');
           setIsValid(false);
           getComments();
