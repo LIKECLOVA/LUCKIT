@@ -1,14 +1,24 @@
-import React from 'react'
-import { NavLink } from 'react-router-dom'
-import {MainSnsPostWhap,IconWrap, SnsIdWhap, SnsPostBox,UserProfileImg, ImgListDiv, SnsPostContent,CommentBtnWrap} from './mainpoststyle'
-import { MoreBtn } from "../button/iconBtn";
-import DefaultUserImg from '../../assets/icon/basic-profile-img-.png'
-import CommentIcon from "../../assets/icon/icon-message-circle.svg"
-import HeartBtn from "../button/heart/heartBtn"
+import React from 'react';
+import { NavLink } from 'react-router-dom';
+import {
+  MainSnsPostWhap,
+  IconWrap,
+  SnsIdWhap,
+  SnsPostBox,
+  UserProfileImg,
+  ImgListDiv,
+  SnsPostContent,
+  CommentBtnWrap,
+} from './mainpoststyle';
+import { MoreBtn } from '../button/iconBtn';
+import DefaultUserImg from '../../assets/icon/basic-profile-img-.png';
+import CommentIcon from '../../assets/icon/icon-message-circle.svg';
+import HeartBtn from '../button/heart/heartBtn';
 
 const onErrorImg = (e) => {
   e.target.src = DefaultUserImg;
-}
+};
+
 
 const MainSnsPost = ({data}) => {
   const userToken = localStorage.getItem('Access Token');
@@ -56,7 +66,7 @@ const MainSnsPost = ({data}) => {
       </SnsPostBox>
       <MoreBtn postId={data.id} accountName={data.author.accountname} postContent={data.content} postImg={data.image}/>
     </MainSnsPostWhap>
-  )
-}
+  );
+};
 
-export default MainSnsPost
+export default MainSnsPost;
