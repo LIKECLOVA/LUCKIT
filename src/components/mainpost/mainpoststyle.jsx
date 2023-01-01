@@ -4,8 +4,8 @@ const MainSnsPostWrap = styled.div`
   position: relative;
   align-items: top;
   box-sizing: border-box;
-  padding: 1rem 0.5rem;
-  width: 100%;
+  margin: 16px 10px;
+  width: 95%;
   background: rgb(255, 255, 255);
   display: flex;
   border-top-right-radius: 15px;
