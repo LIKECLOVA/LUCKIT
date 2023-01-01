@@ -101,7 +101,7 @@ async function ImgUpload(userImg) {
           'Content-type': 'application/json'
         },
       })
-      .then(navigate('/snspage'))
+      .then(navigate(-1))
     }
     catch (error) {
       console.log(error);

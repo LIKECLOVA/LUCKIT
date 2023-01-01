@@ -11,7 +11,9 @@ import { PostUploadBtn } from '../../components/button/iconBtn';
 
 export const SnsPage = () => {
 
+
   const token = localStorage.getItem('Access Token');
+
   const myAccountName = localStorage.getItem('Account Name');
   const [list ,setList] = useState([]);
   const [followList,setFollowList] = useState([]);
@@ -19,6 +21,7 @@ export const SnsPage = () => {
   const FEED_PATH = `/post/feed`;
   const STORY_PATH=`/profile/${myAccountName}/following`;
   const USER_PATH=`/user/myinfo`;
+
 
  /* 팔로잉한 유저의 게시글 정보 불러오는 axios*/
 const getFeedPostData = () => {
@@ -32,6 +35,7 @@ const getFeedPostData = () => {
   })
     .then((response) => {
       setList(response.data.posts);
+
     })
     .catch((error) => {
       console.log(error);
@@ -43,7 +47,7 @@ const getFeedPostData = () => {
     await fetch(URL + STORY_PATH, {
       method: 'GET',
       headers: {
-        Authorization: `Bearer ${token}`,
+        Authorization: `Bearer ${userToken}`,
         'Content-type': 'application/json',
       },
     })
@@ -55,7 +59,7 @@ const getFeedPostData = () => {
     await fetch(URL + USER_PATH, {
       method: 'GET',
       headers: {
-        Authorization: `Bearer ${token}`,
+        Authorization: `Bearer ${userToken}`,
       },
     })
       .then((data) => data.json())

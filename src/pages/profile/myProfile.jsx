@@ -27,6 +27,8 @@ export const Profile = () => {
   const [imgList, setImgList] = useState(true);
   const [imgAlbum, setImgAlbum] = useState(false);
   const myAccountName = localStorage.getItem('Account Name');
+
+
   const { id } = useParams();
   const snsPostData = useSelector((state) => state.snsPostSlice.snspost);
   const dispatch = useDispatch();
@@ -35,8 +37,10 @@ export const Profile = () => {
  
 
   useEffect(() => {
+
     dispatch(AxiosSnsPost(snsPostURL));
   }, []);
+
 
   const onClickListBtn = () => {
     setImgList(true);

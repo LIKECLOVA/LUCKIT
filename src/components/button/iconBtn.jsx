@@ -21,9 +21,9 @@ export function ImgUploadBtn({ posi, click }) {
   return <IconBtn onClick={click} icon={imgBtn} posi={posi}></IconBtn>;
 }
 /* Sns게시글 더보기 버튼 */
-export function MoreBtn({postId, accountname, postContent, postImg}) {
+export function MoreBtn({postId, accountName, postContent, postImg}) {
   const [isOpen, setIsOpen] = useState(false);
-  const accountName = localStorage.getItem("Account Name");
+  const myAccountName = localStorage.getItem("Account Name");
 
   const onClick = () => {
     setIsOpen(true);
@@ -36,14 +36,14 @@ export function MoreBtn({postId, accountname, postContent, postImg}) {
   return (
     <>
       <SnsMoreBtn onClick={onClick}></SnsMoreBtn>
-      {isOpen && <SnsPostModal onClickClose={onClickClose} accountName={accountName} postId={postId} accountname={accountname} postContent={postContent} postImg={postImg}/>}
+      {isOpen && <SnsPostModal onClickClose={onClickClose} myAccountName={myAccountName} postId={postId} accountName={accountName} postContent={postContent} postImg={postImg}/>}
     </>
   );
 }
 /* 댓글 더보기 버튼 */
-export function CommentMoreBtn({postId, commentId, accountname}) {
+export function CommentMoreBtn({postId, commentId, accountName}) {
   const [isOpen, setIsOpen] = useState(false);
-  const accountName = localStorage.getItem("Account Name");
+  const myAccountName = localStorage.getItem("Account Name");
 
   const onClick = () => {
     setIsOpen(true);
@@ -56,7 +56,7 @@ export function CommentMoreBtn({postId, commentId, accountname}) {
   return (
     <>
       <CommentBtn onClick={onClick}icon={moreBtn}></CommentBtn>
-      {isOpen && <CommentModal onClickClose={onClickClose} accountName={accountName} postId={postId} commentId={commentId} accountname={accountname}/>}
+      {isOpen && <CommentModal onClickClose={onClickClose} accountName={accountName} postId={postId} commentId={commentId} myAccountName={myAccountName}/>}
     </>
   );
 }

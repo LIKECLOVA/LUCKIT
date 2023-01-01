@@ -7,8 +7,9 @@ import MarketPostBox from '../../components/mainpost/marketPostBox';
 import { MarketPostMoreBtn, PostUploadBtn } from '../../components/button/iconBtn';
 
 export const MarketFeedHome = ({ scrollTopData, followingData }) => {
-  const token = localStorage.getItem('Access Token');
+  const userToken = localStorage.getItem('Access Token');
   const [productData, setProductData] = useState([]);
+
 
   useEffect(()=>{
     function postSort(a, b) {
@@ -43,6 +44,7 @@ const ProductList = async () => {
  return Promise.all(followProductList)
 
 };
+
 
   return (
     <>

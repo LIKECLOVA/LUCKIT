@@ -11,18 +11,18 @@ const onErrorImg = (e) => {
 }
 
 const MainSnsPost = ({data}) => {
-  const token = localStorage.getItem('Access Token');
+  const userToken = localStorage.getItem('Access Token');
 
   return (
     <MainSnsPostWhap>
-       <NavLink to={`/profile/${data.author.accountName}`}>
+       <NavLink to={`/profile/${data.author.accountname}`}>
       <UserProfileImg src={data.author.image} onError={onErrorImg} />
       </NavLink>
       <SnsPostBox>
-      <NavLink to={`/profile/${data.author.accountName}`}>
+      <NavLink to={`/profile/${data.author.accountname}`}>
       <SnsIdWhap>
       <strong>{data.author.username}</strong>
-      <p>@{`${data.author.accountName}`}</p>
+      <p>@{`${data.author.accountname}`}</p>
       </SnsIdWhap>
       </NavLink>
       <NavLink to={`/snspost/${data.id}`}>
@@ -41,7 +41,7 @@ const MainSnsPost = ({data}) => {
       </NavLink>
       <IconWrap>
       <HeartBtn
-          userToken={token}
+          userToken={userToken}
           hearted={data.hearted}
           postId={data.id}
           heartCount={data.heartCount}
@@ -54,7 +54,7 @@ const MainSnsPost = ({data}) => {
       </NavLink>
       </IconWrap>
       </SnsPostBox>
-      <MoreBtn postId={data.id} accountName={data.author.accountName} postContent={data.content} postImg={data.image}/>
+      <MoreBtn postId={data.id} accountName={data.author.accountname} postContent={data.content} postImg={data.image}/>
     </MainSnsPostWhap>
   )
 }

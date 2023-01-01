@@ -9,11 +9,13 @@ import { AxiosProductList } from '../../reducers/getProductListSlice';
 
 export function MarketPost() {
   const { id } = useParams();
+
   const marketPostData = useSelector((state) => state.productListSlice.productList);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(AxiosProductList(`https://mandarin.api.weniv.co.kr/product/${id}/?limit=20`));
+
   }, []);
 
 
