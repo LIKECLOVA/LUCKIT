@@ -93,6 +93,7 @@ export const EditProfileNavLink = styled(NavLink)`
 `;
 
 export const IsFollowButton = styled.button`
+  margin-top: 7px;
   width: 68px;
   height: 30px;
   border-radius: 30px;
