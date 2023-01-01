@@ -52,7 +52,15 @@ export const SearchHeaderWrap = styled(BasicHeader)`
 
 export const FeedHeaderWrap = styled(BasicHeader)`
   padding: 12px 16px;
+  .logoImg {
+    width: 100px;
+    height: 22px;
+  }
+`;
 
+export const SnsFeedHeaderWrap = styled(BasicHeader)`
+  padding: 12px 16px;
+  border: none;
   .logoImg {
     width: 100px;
     height: 22px;

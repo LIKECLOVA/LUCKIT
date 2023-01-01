@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import MainSnsPost from '../../components/mainpost/mainSnsPost';
 import { SnsPageArt, SnsPageSec, MainPostArea, SnsStoryImg } from './snsstyle';
-import { FeedPageHeader } from '../../components/header/header';
+import { SnsFeedPageHeader } from '../../components/header/header';
 import { NavBar } from '../../components/navbar/navBar';
 import DefaultUserImg from '../../assets/icon/basic-profile-img-.png';
 import { SearchBtn } from '../../components/button/button';
@@ -13,7 +13,6 @@ import { AxiosFollow } from '../../reducers/getFollowSlice';
 import { AxiosUserData } from '../../reducers/getUserInfoSlice';
 
 export const SnsPage = () => {
-
   const userToken = localStorage.getItem('Access Token');
   const myAccountName = localStorage.getItem('Account Name');
   const [list, setList] = useState([]);
@@ -25,7 +24,6 @@ export const SnsPage = () => {
   const dispatch = useDispatch();
   const followList = useSelector((state) => state.followInfoSlice.followData);
   const myInfo = useSelector((state) => state.userInfoSlice.userData);
-
 
   /* 팔로잉한 유저의 게시글 정보 불러오는 axios */
   const getFeedPostData = () => {
@@ -45,8 +43,6 @@ export const SnsPage = () => {
       });
   };
 
-
-
   useEffect(() => {
     getFeedPostData();
     dispatch(AxiosFollow(URL + STORY_PATH));
@@ -59,7 +55,7 @@ export const SnsPage = () => {
 
   return (
     <>
-      <FeedPageHeader />
+      <SnsFeedPageHeader />
       <SnsPageArt>
         <ul>
           <NavLink to={`/profile/${myAccountName}`}>
