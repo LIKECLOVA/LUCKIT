@@ -1,4 +1,3 @@
-/* eslint-disable */
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Carousel } from '../../components/carousel/carousel';
@@ -11,40 +10,39 @@ export const MarketFeedHome = ({ scrollTopData, followingData }) => {
   const token = localStorage.getItem('Access Token');
   const [productData, setProductData] = useState([]);
 
-  // getProductList 사용 시간순 정렬해야함
-
-  const aaa = async () => {
-    const test = [];
-
-     followingData.forEach(async(list) => {
-
-       await axios({
-        method: 'get',
-        url: `https://mandarin.api.weniv.co.kr/product/${list.accountname}/?limit=3`,
-        headers: {
-          Authorization: `Bearer ${token}`,
-          'Content-type': 'application/json',
-        },
-      }).then((res) => {
-        for (const product of res.data.product) {
-          test.push(product);
-          // console.log('하나하나의 데이터',product);
-          // setProductData((e) => [...e, product]);
-        }
-      });
-
+  useEffect(()=>{
+    function postSort(a, b) {
+      if (a.createdAt < b.createdAt) {
+        return 1;
+      }
+      if (a.createdAt > b.createdAt) {
+        return -1;
+      }
+      return 0;
     }
-    );
+    
+   ProductList().then(res => setProductData( res.flat(1).sort(postSort) ))
 
-    return test;
-  };
+  },[])
 
-  // followimgData는 프롭스로 받아온 내가 팔로잉 한 사람들 리스트
-  useEffect(() => {
-    aaa().then((res) => console.log('이거 확인', res) );
+const ProductList = async () => {
 
-    console.log('productData', productData);
-  }, []);
+  const followProductList = await followingData.map((list) => {
+
+   return axios({
+      method: 'get',
+      url: `https://mandarin.api.weniv.co.kr/product/${list.accountname}/?limit=3`,
+      headers: {
+        Authorization: `Bearer ${token}`,
+        'Content-type': 'application/json',
+      },
+    }).then(res => res.data.product)
+
+  })
+
+ return Promise.all(followProductList)
+
+};
 
   return (
     <>

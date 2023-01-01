@@ -11,11 +11,8 @@ export const Home = () => {
   const accountName = localStorage.getItem("Account Name");
   const dispatch = useDispatch();
   const followingData = useSelector(state => state.followInfoSlice.followData);
-  const followimgURL = `https://mandarin.api.weniv.co.kr/profile/${accountName}/following?limit=30`
+  const followimgURL = `https://mandarin.api.weniv.co.kr/profile/${accountName}/following?limit=Number`
 
-// console.log('팔로잉 리스트',followingData);
-
-  // 팔로잉 목록을 불러온다 불러와서 피드 홈으로 내려준다.
 
   useEffect(()=>{
     dispatch(AxiosFollow(followimgURL))
