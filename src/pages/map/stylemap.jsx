@@ -1,11 +1,21 @@
 import styled from 'styled-components';
 
-export const MapDiv = styled.div`
+export const MapModalWrap = styled.div`
+  position: absolute;
+`;
+
+export const MapSection = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  height: 300px;
+
   .wrap {
-    backdrop-filter: blur(2px);
-    position: absolute;
-    left: 0;
-    bottom: 40px;
+    position: fixed;
+    left: 360px;
+    bottom: -300px;
     width: 260px;
     height: 155px;
     margin-left: -144px;
@@ -14,7 +24,8 @@ export const MapDiv = styled.div`
     font-size: 12px;
     line-height: 1.5;
     border-radius: 20px;
-    box-shadow: 0px 1px 5px #dbdbdb;
+    outline: 500px solid #a5a5a5ac;
+    z-index: 5;
   }
   .wrap * {
     padding: 0;
@@ -44,11 +55,11 @@ export const MapDiv = styled.div`
   }
   .info .close {
     position: absolute;
-    top: 14px;
+    top: 12px;
     left: 235px;
-    width: 10px;
-    height: 10px;
-    background: url('https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/overlay_close.png');
+    width: 15px;
+    height: 15px;
+    background: url('https://user-images.githubusercontent.com/102042383/210167055-2535026a-38d7-497a-9952-d934827afaef.png');
     background-size: cover;
   }
   .info .close:hover {

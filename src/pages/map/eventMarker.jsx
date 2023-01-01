@@ -12,8 +12,8 @@ const EventMarkerContainer = ({ modalClose, position, onClick, isClicked, title,
         image={{
           src: markImg,
           size: {
-            width: 30,
-            height: 30,
+            width: 65,
+            height: 65,
           },
         }}
       ></MapMarker>
