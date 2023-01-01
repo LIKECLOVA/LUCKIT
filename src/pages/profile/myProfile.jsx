@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-
 import { ProfileAndChatHeader } from '../../components/header/header';
 import { MarketPreviewPost } from '../../components/market-preview-post/marketPreviewPost';
 import { ProfileBox } from '../../components/profile-box/profileBox';
@@ -27,20 +26,15 @@ export const Profile = () => {
   const [imgList, setImgList] = useState(true);
   const [imgAlbum, setImgAlbum] = useState(false);
   const myAccountName = localStorage.getItem('Account Name');
-
-
   const { id } = useParams();
   const snsPostData = useSelector((state) => state.snsPostSlice.snspost);
   const dispatch = useDispatch();
   const snsPostURL = `https://mandarin.api.weniv.co.kr/post/${id}/userpost/?limit=number`;
 
- 
-
   useEffect(() => {
 
     dispatch(AxiosSnsPost(snsPostURL));
   }, []);
-
 
   const onClickListBtn = () => {
     setImgList(true);

@@ -10,7 +10,6 @@ export const MarketFeedHome = ({ scrollTopData, followingData }) => {
   const userToken = localStorage.getItem('Access Token');
   const [productData, setProductData] = useState([]);
 
-
   useEffect(()=>{
     function postSort(a, b) {
       if (a.createdAt < b.createdAt) {
@@ -34,7 +33,7 @@ const ProductList = async () => {
       method: 'get',
       url: `https://mandarin.api.weniv.co.kr/product/${list.accountname}/?limit=3`,
       headers: {
-        Authorization: `Bearer ${token}`,
+        Authorization: `Bearer ${userToken}`,
         'Content-type': 'application/json',
       },
     }).then(res => res.data.product)
@@ -44,7 +43,6 @@ const ProductList = async () => {
  return Promise.all(followProductList)
 
 };
-
 
   return (
     <>
@@ -61,7 +59,7 @@ const ProductList = async () => {
       <main>
         <HomeSection>
           <h2>홈 마켓글 피드 페이지</h2>
-          <HomeTitle>럿킷 메이트를 기다리고 있어요!✨</HomeTitle>
+          <HomeTitle>럭킷 메이트를 기다리고 있어요!✨</HomeTitle>
           <ListWrap>
             {productData.length > 0 &&
               productData.map((data) => {

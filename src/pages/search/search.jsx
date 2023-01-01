@@ -80,7 +80,7 @@ export const Search = () => {
             <DefaultWrap>
               <span>검색 TIP</span><p>취미 키워드를 넣어서 검색해 보세요.</p>
               <ul className='searchKeyword'>
-                <li>인테리어</li>
+                <li>집꾸미기</li>
                 <li>여행</li>
                 <li>베이킹</li>
                 <li>사진</li>

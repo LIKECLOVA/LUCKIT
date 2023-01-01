@@ -8,14 +8,10 @@ import { MarketFeedHome } from './MarketFeedHome';
 
 export const Home = () => {
   const [scrollTopData, setScrollTopData] = useState(false)
-
   const accountName = localStorage.getItem("Account Name");
   const dispatch = useDispatch();
   const followingData = useSelector(state => state.followInfoSlice.followData);
   const followimgURL = `https://mandarin.api.weniv.co.kr/profile/${accountName}/following?limit=Number`
-
-
-
 
   useEffect(()=>{
     dispatch(AxiosFollow(followimgURL))
