@@ -1,7 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom'
 import { timeForToday } from '../../timeForToday'
-// import * as S from './commentliststyle';
 import { CommentListWrapper, CommentListContainer, CommentListLi, ProfileImg, InformationBox, ModalBtnBox, CommentText } from '../commentlist/commentliststyle';
 import {CommentMoreBtn} from '../../button/iconBtn'
 
