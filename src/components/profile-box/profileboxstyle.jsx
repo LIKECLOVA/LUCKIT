@@ -71,7 +71,7 @@ export const FollowerCont = styled.div`
     .followingTxt {
         margin-left: 13px;
     }
-}
+
 `
 
 export const FollowNavLink = styled(NavLink)`
