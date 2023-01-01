@@ -194,7 +194,7 @@ h1{
   border-radius: 20px;
   font-size:14px;
 }
-.test1{
+.SnsDefalutPage{
   align-items: center;
 }
 `;

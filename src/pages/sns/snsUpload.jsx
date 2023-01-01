@@ -5,7 +5,6 @@ import { SnsUploadSec, SnsUploadImg, SnsTextLable, SnsTextInput, FileUploader,Fi
 import {PostUploadHeader} from '../../components/header/header'
 
 
-
 export const SnsUpload = () => {
   const token = localStorage.getItem('Access Token');
   const [content, setContent] = useState('');
@@ -90,14 +89,13 @@ async function ImgUpload(userImg) {
       snsImgList.push(img);
          
     }
-    const test = await Promise.all(snsImgList)
+    const SnsImgs = await Promise.all(snsImgList)
 
-    data.post.image = test.join(',');
+    data.post.image = SnsImgs.join(',');
     data.post.content = content;
 
     try {
       await axios.post(URL + REQ_PATH, data, {
-        /* 토큰들어갈 자리 */
         headers: {
           'Authorization': `Bearer ${token}`,
           'Content-type': 'application/json'
@@ -113,13 +111,9 @@ async function ImgUpload(userImg) {
   useEffect(() => {
     if (content.length === 0 && postImg.length === 0) {
       SetuploadBtn(false);  
-      
-      console.log('안돼');
     }
     else {
       SetuploadBtn(true);
-      console.log('돼!!');
-      
     }
   }, [content, postImg])
 

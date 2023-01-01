@@ -5,22 +5,22 @@ const setSize = (size) => {
   switch (size) {
     case 'large':
       return css`
-        width: 100%;
+        width: 280px;
         padding: 12px 0;
-        font-size: 20px;
-        line-height: 30px;
+        font-size: 14px;
+        line-height: 18px;
       `;
     case 'middle':
       return css`
-        width: 15%;
-        height: 40px;
-        padding: 10px;
+        width: 120px;
+        height: 48px;
+        padding: 12px;
         font-size: 14px;
-        line-height: 12px;
+        line-height: 14px;
       `;
     case 'middle-sm':
       return css`
-        width: 16%;
+        width: 72px;
         height: 32px;
         font-size: 14px;
         padding: 0;
@@ -42,8 +42,6 @@ export const Button = styled.button`
 
   
   background-color: ${(props) => {
-    console.log('배경색', props);
-    //  
     return props.disabled === 'disabled' ? '#b9d795' : '#78d00c' ;
   }};
   

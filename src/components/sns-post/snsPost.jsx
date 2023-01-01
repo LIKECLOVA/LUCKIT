@@ -5,6 +5,7 @@ import {SnsPostModalWrap, CloseBtn, PostDetailWrap} from './snspoststyle'
 import MainSnsPost from '../mainpost/mainSnsPost'
 import CommentBox from '../comment/commentBox'
 
+
 export const SnsPost = () => {
   const {postId}=useParams()
   const [postDetail ,setPostDetail] = useState(null);
@@ -13,10 +14,8 @@ export const SnsPost = () => {
   const token = localStorage.getItem('Access Token');
   const URL = `https://mandarin.api.weniv.co.kr/post/${postId}`;
   
-//   console.log(URL)
-//  console.log('뀨?',postId)
  const postDetailaxios = async () => {
-     const res= await axios.get(URL,{   // 
+     const res= await axios.get(URL,{
       headers: {
         Authorization: `Bearer ${token}`,
         "Content-type": "application/json",
@@ -25,7 +24,6 @@ export const SnsPost = () => {
 
     setPostDetail(res.data.post)
  }
-
 
  const getComments = () => {
   axios({

@@ -5,7 +5,6 @@ import { SnsUploadSec, SnsUploadImg, SnsTextLable, SnsTextInput, FileUploader,Fi
 import {PostUploadHeader} from '../../components/header/header'
 
 
-
 export const SnsModify = () => {
   const token = localStorage.getItem('Access Token');
   const [content, setContent] = useState('');
@@ -49,8 +48,6 @@ function sliceImg(oripostImgs) {
   useEffect(() => {
 
      setShowImg(() => sliceImg(oripostImg))
-
-     console.log('이미지이잉',oripostImg);
   }, [])
 
   /* 이미지 띄워주는 함수 */
@@ -77,7 +74,6 @@ function sliceImg(oripostImgs) {
     setPostImg(files);
     setShowImg(fileURLs);
   }
-
 
 /* 이미지 삭제함수 */
   const handleDeleteImg = (id) => {
@@ -115,14 +111,14 @@ function sliceImg(oripostImgs) {
 
       snsImgList.push(img);
     }
-    const test = await Promise.all(snsImgList)
+    const SnsImgs = await Promise.all(snsImgList)
 
    
     if (snsImgList.length > 3) {
         snsImgList.slice(0, 3);
       }
 
-    data.post.image = test.join(',');
+    data.post.image = SnsImgs.join(',');
     data.post.content = content?.length === 0 ? oripostContent : content;;
 
     try {
@@ -130,7 +126,6 @@ function sliceImg(oripostImgs) {
     const REQ_PATH = '/post/';
 
       await axios.put(URL + REQ_PATH+ postId, data, {
-        /* 토큰들어갈 자리 */
         headers: {
           'Authorization': `Bearer ${token}`,
           'Content-type': 'application/json'
@@ -146,13 +141,9 @@ function sliceImg(oripostImgs) {
  useEffect(() => {
     if (content.length === 0 && postImg.length === 0) {
       SetuploadBtn(false);  
-      
-      console.log('안돼');
     }
     else {
       SetuploadBtn(true);
-      console.log('돼!!');
-      
     }
   }, [content, postImg])
 
