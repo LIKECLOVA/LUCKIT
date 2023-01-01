@@ -8,17 +8,16 @@ import { MarketFeedHome } from './MarketFeedHome';
 export const Home = () => {
   const [followingData, setFollowingData] = useState([])
   const [scrollTopData, setScrollTopData] = useState(false)
-  // const [scrollTopState, setScrollTopState] = useState(false);
-  const accountName = localStorage.getItem("Account Name");
-  const token = localStorage.getItem("Access Token");
+  const myAccountName = localStorage.getItem("Account Name");
+  const userToken = localStorage.getItem("Access Token");
 
   useEffect(() => {
 
     axios({
         method: 'get',
-        url: `https://mandarin.api.weniv.co.kr/profile/${accountName}/following`,
+        url: `https://mandarin.api.weniv.co.kr/profile/${myAccountName}/following`,
         headers: {
-          'Authorization': `Bearer ${token}`,
+          'Authorization': `Bearer ${userToken}`,
           'Content-type': 'application/json',
         },
       }).then((res) => {

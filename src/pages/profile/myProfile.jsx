@@ -18,7 +18,7 @@ export const Profile = () => {
   const [imgList, setImgList] = useState(true);
   const [imgAlbum, setImgAlbum] = useState(false);
   const myAccountName = localStorage.getItem('Account Name');
-  const token = localStorage.getItem('Access Token');
+  const userToken = localStorage.getItem('Access Token');
   const { id } = useParams();
 
   useEffect(() => {
@@ -26,7 +26,7 @@ export const Profile = () => {
       method: 'get',
       url: `https://mandarin.api.weniv.co.kr/post/${id}/userpost/?limit=10`,
       headers: {
-        Authorization: `Bearer ${token}`,
+        Authorization: `Bearer ${userToken}`,
         'Content-type': 'application/json',
       },
     })
@@ -36,7 +36,7 @@ export const Profile = () => {
       .then((error) => {
         console.log(error);
       });
-  }, [location, id]);
+  }, [id]);
 
   const onClickListBtn = () => {
     setImgList(true);

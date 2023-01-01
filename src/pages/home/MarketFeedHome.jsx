@@ -12,7 +12,7 @@ import MarketPostBox from '../../components/mainpost/marketPostBox';
 import { MarketPostMoreBtn, PostUploadBtn } from '../../components/button/iconBtn';
 
 export const MarketFeedHome = ({ scrollTopData, followingData }) => {
-  const token = localStorage.getItem('Access Token');
+  const userToken = localStorage.getItem('Access Token');
   const [productData, setProductData] = useState([]);
 
   // getProductList 사용
@@ -23,7 +23,7 @@ export const MarketFeedHome = ({ scrollTopData, followingData }) => {
         method: 'get',
         url: `https://mandarin.api.weniv.co.kr/product/${list.accountname}`,
         headers: {
-          Authorization: `Bearer ${token}`,
+          Authorization: `Bearer ${userToken}`,
           'Content-type': 'application/json',
         },
       }).then((res) => {

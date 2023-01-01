@@ -10,13 +10,13 @@ import { PostUploadBtn } from '../../components/button/iconBtn';
 
 export const SnsPage = () => {
 
-  const token = localStorage.getItem('Access Token');
-  const accountName = localStorage.getItem('Account Name');
+  const userToken = localStorage.getItem('Access Token');
+  const myAccountName = localStorage.getItem('Account Name');
   const [list ,setList] = useState([]);
   const [followList,setFollowList] = useState([]);
   const URL = `https://mandarin.api.weniv.co.kr`;
   const FEED_PATH = `/post/feed`;
-  const STORY_PATH=`/profile/${accountName}/following`;
+  const STORY_PATH=`/profile/${myAccountName}/following`;
   const USER_PATH=`/user/myinfo`;
 
   // 팔로잉한 유저의 게시글 정보 불러오는 fetch
@@ -24,7 +24,7 @@ export const SnsPage = () => {
     await fetch(URL + FEED_PATH, {
       method: 'GET',
       headers: {
-        Authorization: `Bearer ${token}`,
+        Authorization: `Bearer ${userToken}`,
         'Content-type': 'application/json',
       },
     })
@@ -38,7 +38,7 @@ export const SnsPage = () => {
     await fetch(URL + STORY_PATH, {
       method: 'GET',
       headers: {
-        Authorization: `Bearer ${token}`,
+        Authorization: `Bearer ${userToken}`,
         'Content-type': 'application/json',
       },
     })
@@ -50,14 +50,14 @@ export const SnsPage = () => {
     await fetch(URL + USER_PATH, {
       method: 'GET',
       headers: {
-        Authorization: `Bearer ${token}`,
+        Authorization: `Bearer ${userToken}`,
       },
     })
       .then((data) => data.json())
       .then((data) => {
         const myStoryImg = {
           image: data.user.image,
-          accountName: data.user.accountName,
+          accountname: data.user.accountname,
           following: data.user.following,
         };
 
@@ -81,7 +81,7 @@ export const SnsPage = () => {
         <ul>
           {followList.map((story, index) => {
             return (
-              <NavLink key={index} to={`/profile/${story.accountName}`}>
+              <NavLink key={index} to={`/profile/${story.accountname}`}>
                 <li>
                   <SnsStoryImg src={story.image} onError={onErrorImg} />
                 </li>

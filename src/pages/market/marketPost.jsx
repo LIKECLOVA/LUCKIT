@@ -9,7 +9,7 @@ import { ListItem, ListWrap, MarketPostTitle, MarketPostWrap } from './marketpos
 export function MarketPost() {
   const [marketPostsData, setMarketPostsData] = useState();
   const { id } = useParams();
-  const token = localStorage.getItem('Access Token');
+  const userToken = localStorage.getItem('Access Token');
 
 // getProductList 리덕스
 
@@ -18,7 +18,7 @@ export function MarketPost() {
       method: 'get',
       url: `https://mandarin.api.weniv.co.kr/product/${id}/?limit=20`,
       headers: {
-        Authorization: `Bearer ${token}`,
+        Authorization: `Bearer ${userToken}`,
         'Content-type': 'application/json',
       },
     })

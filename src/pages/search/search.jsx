@@ -8,7 +8,7 @@ import DefaultUserImg from '../../assets/icon/basic-profile.png'
 export const Search = () => {
   const [keyword, setKeyword] = useState("");
   const [searchUserData, setSearchUserData] = useState([]);
-  const token = localStorage.getItem("Access Token");
+  const userToken = localStorage.getItem("Access Token");
 
   useEffect(() => {
 
@@ -17,7 +17,7 @@ export const Search = () => {
         method: 'get',
         url: `https://mandarin.api.weniv.co.kr/user/searchuser/?keyword=${keyword}`,
         headers: {
-          'Authorization': `Bearer ${token}`,
+          'Authorization': `Bearer ${userToken}`,
           'Content-type': 'application/json',
         },
       })
@@ -81,9 +81,9 @@ export const Search = () => {
               <span>검색 TIP</span><p>취미 키워드를 넣어서 검색해 보세요.</p>
               <ul className='searchKeyword'>
                 <li>인테리어</li>
-                <li>운동</li>
-                <li>게임</li>
-                <li>독서</li>
+                <li>여행</li>
+                <li>베이킹</li>
+                <li>사진</li>
                 <li>다이어리 꾸미기</li>
                 <li>콘서트</li>
                 <li>아이돌</li>
