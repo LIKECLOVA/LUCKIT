@@ -72,8 +72,10 @@ export const FollowerCont = styled.div`
         margin-left: 13px;
         font-weight: 300;
     }
-}
-`;
+
+
+`
+
 
 export const FollowNavLink = styled(NavLink)`
   display: flex;
