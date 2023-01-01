@@ -52,7 +52,7 @@ const HeartBtn = ({ userToken, postId, hearted, heartCount }) => {
       <HeartIcon
         fill={isHearted ? '#F3033D' : '#dbdbdb'}
         stroke={isHearted ? '#F3033D' : '#dbdbdb'}
-        style={{ marginRight: '6px' }}
+        style={{ marginRight: '4px' }}
       />
       <span>{count}</span>
     </S.PostIconBtn>

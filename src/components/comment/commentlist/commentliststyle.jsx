@@ -35,7 +35,6 @@ export const InformationBox = styled.div`
   position: absolute;
   top: 6px;
   span {
-    color: #000;
     font-weight: 600;
     font-size: 14px;
     line-height: 30px;
@@ -51,7 +50,6 @@ export const InformationBox = styled.div`
 `;
 
 export const CommentText = styled.span`
-color: #000;
   display: block;
   font-weight: 300;
   font-size: 14px;

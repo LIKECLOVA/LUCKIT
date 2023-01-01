@@ -6,7 +6,8 @@ export const PostIconBtn = styled.button`
   margin-right: 1rem;
   padding: 0px;
   background-color: #fff;
- span{
-    font-size:1rem;
- }
+  span {
+    font-size: 13px;
+    color: #a3a3a3;
+  }
 `;
