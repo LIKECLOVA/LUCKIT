@@ -59,6 +59,7 @@ export const CardTxt = styled.p`
   width: 145px;
   height: 46px;
   font-size: 12px;
+  font-weight: 300;
   line-height: 16px;
   margin-top: 10px;
   overflow: hidden;
