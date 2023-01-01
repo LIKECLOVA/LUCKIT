@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
+import IconLayers from '../../assets/icon/iccon-img-layers.png'
 
 export const ProfileWrap = styled.main`
   padding: 0 15px;
@@ -73,6 +74,25 @@ export const ImgAlbumList = styled.li`
     height: 113px;
     object-fit: cover;
     object-position: center;
+  }
+`
+
+export const MultiNavLinkStyle = styled(NavLink)`
+  display: flex;
+  position: relative;
+
+  &::before {
+    content: " ";
+    display: block;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 20px;
+    height: 20px;
+    background-image: url(${IconLayers});
+    background-size: cover;
+    background-repeat: no-repeat;
+    z-index: 99;
   }
 `
 

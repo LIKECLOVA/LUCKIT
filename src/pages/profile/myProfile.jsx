@@ -12,6 +12,7 @@ import {
   ImgAlbumList,
   SnsPostWrap,
   SnsPostBox,
+  MultiNavLinkStyle,
 } from './myprofilestyle';
 import { NavBar } from '../../components/navbar/navBar';
 import IconPostListOn from '../../assets/icon/icon-post-list-on.png';
@@ -34,7 +35,7 @@ export const Profile = () => {
   useEffect(() => {
 
     dispatch(AxiosSnsPost(snsPostURL));
-  }, []);
+  }, [id]);
 
   const onClickListBtn = () => {
     setImgList(true);
@@ -80,19 +81,32 @@ export const Profile = () => {
             <ImgAlbumBox>
               {imgAlbum &&
                 snsPostData.map((post) => {
+                  const imgArr = post.image !== "" ? post.image.split(',') : []
+
                   return (
                     <>
                       {post.image ? (
                         <ImgAlbumList key={post.id}>
-                          <NavLinkStyle to='/snsPost'>
-                            <img
+                            {imgArr.length > 1 ?
+                            <MultiNavLinkStyle to={`/snspost/${post.id}`}>
+                              <img
                               src={post.image.split(',')[0]}
                               onError={(e) => {
                                 e.target.style.display = 'none';
                               }}
                               alt='게시글이미지'
                             />
-                          </NavLinkStyle>
+                            </MultiNavLinkStyle>
+                            :
+                            <NavLinkStyle to={`/snspost/${post.id}`}>
+                            <img
+                              src={post.image.split(',')[0]}
+                              onError={(e) => {
+                                e.target.style.display = 'none';
+                              }}
+                              alt='게시글이미지'
+                              />
+                              </NavLinkStyle>}
                         </ImgAlbumList>
                       ) : (
                         <></>
