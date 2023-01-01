@@ -1,53 +1,66 @@
 import styled from 'styled-components';
 
-export const MapDiv = styled.div`
+export const MapModalWrap = styled.div`
+  position: absolute;
+`;
+
+export const MapSection = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  height: 300px;
+
   .wrap {
-    position: absolute;
-    left: 0;
-    bottom: 40px;
-    width: 288px;
-    height: 150px;
+    position: fixed;
+    left: 360px;
+    bottom: -300px;
+    width: 260px;
+    height: 155px;
     margin-left: -144px;
     text-align: left;
     overflow: hidden;
     font-size: 12px;
-    font-family: 'Malgun Gothic', dotum, '돋움', sans-serif;
     line-height: 1.5;
     border-radius: 20px;
+    outline: 500px solid #a5a5a5ac;
+    z-index: 5;
   }
   .wrap * {
     padding: 0;
     margin: 0;
   }
   .wrap .info {
-    position:relative;
-    width: 286px;
-    height: 150px;
-    border-bottom: 2px solid #ccc;
-    border-right: 1px solid #ccc;
+    position: relative;
+    width: 100%;
+    height: 155px;
     background: #fff;
+    border-radius: 20px;
   }
   .wrap .info:nth-child(1) {
     border: 0;
     box-shadow: 0px 1px 2px #888;
   }
   .info .title {
-    padding: 8px 0 0px 10px;
+    padding: 10px 0 0px 15px;
     height: 40px;
-    background: #eee;
-    margin-bottom:5px;
-    border-bottom: 1px solid #ddd;
-    font-size: 18px;
+    background: #a1d85f;
+    margin-bottom: 5px;
+    font-size: 14px;
     font-weight: bold;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    color: #fff;
   }
   .info .close {
     position: absolute;
-    top: 10px;
-    right: 12px;
-    color: #888;
-    width: 17px;
-    height: 17px;
-    background: url('https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/overlay_close.png');
+    top: 12px;
+    left: 235px;
+    width: 15px;
+    height: 15px;
+    background: url('https://user-images.githubusercontent.com/102042383/210167055-2535026a-38d7-497a-9952-d934827afaef.png');
+    background-size: cover;
   }
   .info .close:hover {
     cursor: pointer;
@@ -58,40 +71,40 @@ export const MapDiv = styled.div`
   }
   .info .desc {
     position: relative;
-    margin: 13px 0 0 100px;
+    margin: 20px 0 0 145px;
     height: 75px;
   }
   .desc .ellipsis {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    font-weight: bold;
+    font-size: 14px;
+    color: #64b603;
   }
   .desc .jibun {
     font-size: 11px;
     color: #888;
-    margin-top: -2px;
+    margin-top: 10px;
   }
   .info .img {
     position: absolute;
-    top: 6px;
-    left: 8px;
-    width: 73px;
-    height: 71px;
-    border: 1px solid #ddd;
-    color: #888;
+    top: 15px;
+    left: 15px;
+    width: 110px;
+    height: 75px;
+    border-radius: 10px;
+    box-shadow: 0px 1px 3px #dbdbdb;
     overflow: hidden;
+    background-size: cover;
   }
-  .info:after {
-    content: '';
-    position: absolute;
-    margin-left: -12px;
-    left: 50%;
-    bottom: 0;
-    width: 22px;
-    height: 12px;
-    background: url('https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white.png');
+
+  .info .img .preview {
+    object-fit: cover;
   }
+
   .info .link {
-    color: #5085bb;
+    color: #eb7db0 !important;
+    font-size: 9px;
   }
 `;

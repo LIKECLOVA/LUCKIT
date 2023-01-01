@@ -17,7 +17,11 @@ export const Envelope = styled.main`
     display: inline-block;
     position: absolute;
     bottom: 1px;
+<<<<<<< Updated upstream
     width: 100%;
+=======
+    right: 30px;
+>>>>>>> Stashed changes
   }
   .env {
     animation: envelope 2s;
