@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const CommentListWrapper = styled.section`
   width: 100%;
-  padding: 20px 10px 15px 10px;
+  padding: 15px;
   border-top: 1px solid #ddd;
   background-color: #ffffff;
   height: 100%;
@@ -11,13 +11,13 @@ export const CommentListWrapper = styled.section`
 export const CommentListContainer = styled.ul`
   display: flex;
   flex-direction: column-reverse;
-  max-width: 39rem;
+  max-width: 100%;
   margin: 0 auto;
 `;
 
 export const CommentListLi = styled.li`
   position: relative;
-  margin-bottom: 1.8rem;
+  margin-bottom: 32px;
 `;
 
 export const ProfileImg = styled.img.attrs({
@@ -38,7 +38,7 @@ export const InformationBox = styled.div`
   span {
     font-weight: 600;
     font-size: 14px;
-    margin-right: 0.6rem;
+    margin-right: 6px;
   }
 
   small {
@@ -61,5 +61,5 @@ export const ModalBtnBox = styled.div`
   position: absolute;
   top: 5px;
   right: 0;
-  width: 2rem;
+  width: 20px;
 `;
