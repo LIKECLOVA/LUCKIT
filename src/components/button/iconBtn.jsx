@@ -1,21 +1,10 @@
 import React, { useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { AddBtn, BackArrowBtn, IconBtn, MarketMoreBtn, PostUploadImg, SnsMoreBtn,CommentBtn } from './iconBtnstyle';
-// import addBtn from '../../assets/icon/addBtn.svg';
 import moreBtn from '../../assets/icon/s-icon-more-vertical.png';
 import imgBtn from '../../assets/icon/upload-file.png';
 import { CommentModal, MarketPreviewModal, SnsPostModal } from '../modal/modal';
 import IconPostUpload from '../../assets/icon/market-plus.png'
-
-
-
-// export function AddBtn({ posi }) {
-//   return (
-//     <IconBtn>
-//       <img src={addBtn} posi={posi} alt='게시글 작성하기 버튼' />
-//     </IconBtn>
-//   );
-// }
 
 export function ImgUploadBtn({ posi, click }) {
   return <IconBtn onClick={click} icon={imgBtn} posi={posi}></IconBtn>;

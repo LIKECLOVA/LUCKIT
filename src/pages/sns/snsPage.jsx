@@ -10,10 +10,7 @@ import { SearchBtn } from '../../components/button/button';
 import { PostUploadBtn } from '../../components/button/iconBtn';
 
 export const SnsPage = () => {
-
-
-  const token = localStorage.getItem('Access Token');
-
+  const userToken = localStorage.getItem('Access Token');
   const myAccountName = localStorage.getItem('Account Name');
   const [list ,setList] = useState([]);
   const [followList,setFollowList] = useState([]);
@@ -29,7 +26,7 @@ const getFeedPostData = () => {
     url: `${URL}${FEED_PATH}`,
     method: 'get',
     headers: {
-      Authorization: `Bearer ${token}`,
+      Authorization: `Bearer ${userToken}`,
       'Content-type': 'application/json',
     },
   })
