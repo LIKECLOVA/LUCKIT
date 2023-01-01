@@ -2,7 +2,17 @@ import axios from 'axios';
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { FollowNavLink, EditProfileNavLink, IsFollowButton, FollowerCont, ProfileInfoWrap, ProfileInfoCont,  BottomInfoBox, TopInfoBox, ProfileInfoBox } from './profileboxstyle';
+import {
+  FollowNavLink,
+  EditProfileNavLink,
+  IsFollowButton,
+  FollowerCont,
+  ProfileInfoWrap,
+  ProfileInfoCont,
+  BottomInfoBox,
+  TopInfoBox,
+  ProfileInfoBox,
+} from './profileboxstyle';
 import DefaultUserImg from '../../assets/icon/basic-profile-img-.png';
 import { AxiosUserData, onChangeFollow } from '../../reducers/getUserInfoSlice';
 
@@ -17,7 +27,7 @@ export const ProfileBox = () => {
   const userToken = localStorage.getItem('Access Token');
 
   useEffect(() => {
-    dispatch(AxiosUserData(BaseURL)); 
+    dispatch(AxiosUserData(BaseURL));
   }, [isfollow, id, username, intro]);
 
   const unfollow = async () => {
@@ -47,8 +57,7 @@ export const ProfileBox = () => {
   const onClick = () => {
     if (isfollow) {
       unfollow();
-    } 
-    else {
+    } else {
       follow();
     }
   };
@@ -69,12 +78,12 @@ export const ProfileBox = () => {
           <img src={image} onError={onErrorImg} alt='프로필사진'></img>
           <ProfileInfoCont>
             <h3>{username}</h3>
-            <p>@ {accountname}</p>
+            <p>@{accountname}</p>
             <FollowerCont>
               <FollowNavLink
                 to={CheckProfile ? `/myfollow` : `/yourfollow`}
                 state={{ text: 'followers', accountname: accountname }}
-                >
+              >
                 <span>팔로워</span>
                 {followerCount}
               </FollowNavLink>
@@ -82,18 +91,20 @@ export const ProfileBox = () => {
                 to={CheckProfile ? `/myfollow` : `/yourfollow`}
                 state={{ text: 'followings', accountname: accountname }}
               >
-              <span className='followingTxt'>팔로잉</span>
+                <span className='followingTxt'>팔로잉</span>
                 {followingCount}
               </FollowNavLink>
             </FollowerCont>
           </ProfileInfoCont>
         </ProfileInfoBox>
         <div>
-          {CheckProfile ? 
+          {CheckProfile ? (
             <EditProfileNavLink to='/editprofile'>프로필 수정</EditProfileNavLink>
-            : 
-            <IsFollowButton onClick={ onClick } isFollow={isfollow}>{isfollow ? '언팔로우': '팔로우'}</IsFollowButton>
-          }
+          ) : (
+            <IsFollowButton onClick={onClick} isFollow={isfollow}>
+              {isfollow ? '언팔로우' : '팔로우'}
+            </IsFollowButton>
+          )}
         </div>
       </TopInfoBox>
       <BottomInfoBox>

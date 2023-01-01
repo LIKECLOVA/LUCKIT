@@ -4,7 +4,7 @@ import closeBtn from '../../assets/icon/x.svg';
 export const PostDetailWrap = styled.div`
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: #dbdbdb;
 `;
 
 const SnsPostModalWrap = styled.div`
@@ -20,7 +20,7 @@ const SnsPostModalWrap = styled.div`
   display: flex;
   flex-direction: column;
   z-index: 20;
-  box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 1px 5px #c5c5c5;
   border-radius: 15px;
   overflow: hidden;
   .SnsContentWrap {
@@ -63,9 +63,9 @@ export const CloseBtn = styled.button`
   background: url(${closeBtn});
   background-size: cover;
   position: absolute;
-  width: 1rem;
-  height: 1rem;
+  width: 12px;
+  height: 12px;
   padding: 0px;
-  right: 10px;
+  right: 14px;
   top: 10px;
 `;

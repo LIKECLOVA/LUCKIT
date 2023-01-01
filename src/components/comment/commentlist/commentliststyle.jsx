@@ -28,24 +28,23 @@ export const ProfileImg = styled.img.attrs({
   height: 50px;
   object-fit: cover;
   border-radius: 50%;
-  border: 0.5px solid #ddd;
+  border: 0.5px solid #eaeaea;
 `;
 
 export const InformationBox = styled.div`
   display: inline-block;
   position: absolute;
-  top: 6px;
+  top: 4px;
   span {
     font-weight: 600;
     font-size: 14px;
-    line-height: 15px;
     margin-right: 0.6rem;
   }
 
   small {
     font-weight: 300;
     font-size: 10px;
-    line-height: 10px;
+    line-height: 5px;
     color: #767676;
   }
 `;
@@ -54,9 +53,8 @@ export const CommentText = styled.span`
   display: block;
   font-weight: 300;
   font-size: 14px;
-  line-height: 10px;
   margin-left: 65px;
-  margin-top: -15px;
+  margin-top: -20px;
 `;
 
 export const ModalBtnBox = styled.div`
