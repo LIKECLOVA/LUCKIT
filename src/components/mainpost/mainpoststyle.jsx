@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const MainSnsPostWhap = styled.div`
+const MainSnsPostWrap = styled.div`
   position: relative;
   align-items: top;
   box-sizing: border-box;
@@ -29,7 +29,7 @@ const MainSnsPostWhap = styled.div`
   }
 `;
 
-export { MainSnsPostWhap };
+export { MainSnsPostWrap };
 
 const UserProfileImg = styled.img`
   object-fit: cover;
@@ -43,7 +43,6 @@ const UserProfileImg = styled.img`
 export { UserProfileImg };
 
 const SnsPostBox = styled.div`
-  align-items: left;
   box-sizing: border-box;
   width: 290px;
   background: rgb(255, 255, 255);
@@ -63,7 +62,7 @@ const SnsPostContent = styled.p`
 
 export { SnsPostContent };
 
-const SnsIdWhap = styled.div`
+const SnsIdWrap = styled.div`
   left: 0;
   box-sizing: border-box;
   height: 14px;
@@ -85,7 +84,7 @@ const SnsIdWhap = styled.div`
   }
 `;
 
-export { SnsIdWhap };
+export { SnsIdWrap };
 
 const IconWrap = styled.div`
   display: flex;
@@ -125,6 +124,7 @@ export const ImgListDiv = styled.div`
   img {
     width: 280px;
     height: 200px;
+    margin: 4px;
     object-fit: cover;
     object-position: center;
     border-radius: 15px;

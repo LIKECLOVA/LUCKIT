@@ -1,9 +1,9 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import {
-  MainSnsPostWhap,
+  MainSnsPostWrap,
   IconWrap,
-  SnsIdWhap,
+  SnsIdWrap,
   SnsPostBox,
   UserProfileImg,
   ImgListDiv,
@@ -23,9 +23,17 @@ const MainSnsPost = ({ data }) => {
   const userToken = localStorage.getItem('Access Token');
 
   return (
-    <MainSnsPostWhap>
-      <NavLink to={`/profile/${data.author.accountname}`}>
-        <UserProfileImg src={data.author.image} onError={onErrorImg} />
+
+    <MainSnsPostWrap>
+       <NavLink to={`/profile/${data.author.accountname}`} style={{height:'fit-content'}}>
+      <UserProfileImg src={data.author.image} onError={onErrorImg} />
+      </NavLink>
+      <SnsPostBox>
+      <NavLink to={`/profile/${data.author.accountname}`} style={{width:'fit-content'}}>
+      <SnsIdWrap>
+      <strong>{data.author.username}</strong>
+      <p>@{`${data.author.accountname}`}</p>
+      </SnsIdWrap>
       </NavLink>
       <SnsPostBox>
         <NavLink to={`/profile/${data.author.accountname}`}>
@@ -66,8 +74,8 @@ const MainSnsPost = ({ data }) => {
           </NavLink>
         </IconWrap>
       </SnsPostBox>
-      <MoreBtn postId={data.id} accountName={data.author.accountname} postContent={data.content} postImg={data.image} />
-    </MainSnsPostWhap>
+      <MoreBtn postId={data.id} accountName={data.author.accountname} postContent={data.content} postImg={data.image}/>
+    </MainSnsPostWrap>
   );
 };
 
