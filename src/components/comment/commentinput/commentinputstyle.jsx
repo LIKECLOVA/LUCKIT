@@ -1,15 +1,15 @@
 import styled from 'styled-components';
-import basicProfile from '../../../assets/icon/basic-profile.png'
+import basicProfile from '../../../assets/icon/basic-profile.png';
 
-export const CommentInpWrap= styled.div`
-    display: flex;
+export const CommentInpWrap = styled.div`
+  display: flex;
   align-items: center;
   position: fixed;
   bottom: 0;
   width: 100%;
   border-top: 0.5px solid #ddd;
   background-color: #fff;
-  padding: 15px;    
+  padding: 15px;
 `;
 
 export const CommentInpform = styled.form`
@@ -31,6 +31,7 @@ export const CommentUserImg = styled.img.attrs((props) => ({
   height: 50px;
   border-radius: 50%;
   object-fit: cover;
+  border: 0.5px solid #dbdbdb;
 `;
 
 export const CommentTextInput = styled.input`
@@ -38,7 +39,9 @@ export const CommentTextInput = styled.input`
   font-size: 14px;
   font-weight: 400;
   border: none;
-  :focus {outline: none;}
+  :focus {
+    outline: none;
+  }
 `;
 
 export const CommentSubmitBtn = styled.button`

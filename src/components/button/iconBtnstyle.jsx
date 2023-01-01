@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import addBtn from '../../assets/icon/addBtn.svg';
+import addBtn from '../../assets/icon/addBtn.png';
 import IconArrow from '../../assets/icon/icon-arrow-left.png';
 import moreBtn from '../../assets/icon/s-icon-more-vertical.png';
 

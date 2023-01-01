@@ -5,7 +5,7 @@ import { useInView } from 'react-intersection-observer';
 import { useSelector, useDispatch } from 'react-redux';
 import MainSnsPost from '../../components/mainpost/mainSnsPost';
 import { SnsPageArt, SnsPageSec, MainPostArea, SnsStoryImg } from './snsstyle';
-import { FeedPageHeader } from '../../components/header/header';
+import { SnsFeedPageHeader } from '../../components/header/header';
 import { NavBar } from '../../components/navbar/navBar';
 import DefaultUserImg from '../../assets/icon/basic-profile-img-.png';
 import { SearchBtn } from '../../components/button/button';
@@ -15,7 +15,6 @@ import { AxiosUserData } from '../../reducers/getUserInfoSlice';
 import {Loading} from '../../components/loading/loading';
 
 export const SnsPage = () => {
-
   const userToken = localStorage.getItem('Access Token');
   const myAccountName = localStorage.getItem('Account Name');
   const [list, setList] = useState([]);
@@ -31,6 +30,7 @@ export const SnsPage = () => {
  const [loading, setLoading] = useState(false);
  const [done, setDone] = useState(false);
  const [ref, inView] = useInView();
+
 
  // 피드 데이터 받아오는 함수
  const getFeedPostData = useCallback(async () => {
@@ -69,6 +69,7 @@ export const SnsPage = () => {
 
  useEffect(() => {
    if (!done) {
+
     getFeedPostData();
    }
  }, [numFeed]);
