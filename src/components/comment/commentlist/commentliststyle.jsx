@@ -17,7 +17,7 @@ export const CommentListContainer = styled.ul`
 
 export const CommentListLi = styled.li`
   position: relative;
-  margin-bottom: 1.6rem;
+  margin-bottom: 1.8rem;
 `;
 
 export const ProfileImg = styled.img.attrs({
@@ -28,6 +28,7 @@ export const ProfileImg = styled.img.attrs({
   height: 50px;
   object-fit: cover;
   border-radius: 50%;
+  border: 0.5px solid #ddd;
 `;
 
 export const InformationBox = styled.div`
@@ -37,12 +38,12 @@ export const InformationBox = styled.div`
   span {
     font-weight: 600;
     font-size: 14px;
-    line-height: 30px;
+    line-height: 15px;
     margin-right: 0.6rem;
   }
 
   small {
-    font-weight: 400;
+    font-weight: 300;
     font-size: 10px;
     line-height: 10px;
     color: #767676;
@@ -53,8 +54,9 @@ export const CommentText = styled.span`
   display: block;
   font-weight: 300;
   font-size: 14px;
-  line-height: 14px;
+  line-height: 10px;
   margin-left: 65px;
+  margin-top: -15px;
 `;
 
 export const ModalBtnBox = styled.div`

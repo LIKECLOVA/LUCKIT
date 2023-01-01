@@ -18,10 +18,10 @@ const setPosition = (posi) => {
       `;
     case 'profileIn':
       return css`
-        position : absolute;
+        position: absolute;
         bottom: 10px;
         right: 10px;
-      `
+      `;
     default:
       return null;
   }
@@ -53,36 +53,32 @@ export const IconBtn = styled.button`
 
 export const SnsMoreBtn = styled.button`
   background: url(${moreBtn});
-  background-size:cover;
-  width: 20px;
-  height: 20px;
+  background-size: cover;
+  width: 15px;
+  height: 15px;
   position: absolute;
+  margin-top: 2px;
   right: 10px;
   padding: 0;
-`
+`;
 export const CommentBtn = styled.button`
   background: url(${moreBtn});
-  background-size:cover;
-  width: 20px;
-  height: 20px;
+  background-size: cover;
+  width: 15px;
+  height: 15px;
   position: absolute;
-  right: 10px;
+  right: 0px;
   padding: 0;
-`
+`;
 
 export const MarketMoreBtn = styled.button`
   background-color: transparent;
-  width: 20px;
-  height: 20px;
+  width: 15px;
+  height: 15px;
   position: absolute;
   right: 8px;
   top: 16px;
   padding: 0;
-
-  img {
-    width: 20px;
-    height: 20px;
-  }
 `;
 
 export const PostUploadImg = styled.img`
@@ -109,8 +105,9 @@ export const AddBtn = styled.button`
 `;
 
 export const BackArrowBtn = styled.button`
-  width:24px;
-  height:24px;
+  width: 15px;
+  height: 15px;
+  vertical-align: top;
   background-image: url(${IconArrow});
   background-repeat: no-repeat;
   background-position: center;

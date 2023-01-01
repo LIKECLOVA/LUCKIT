@@ -4,7 +4,7 @@ const MainSnsPostWrap = styled.div`
   position: relative;
   align-items: top;
   box-sizing: border-box;
-  padding: 1rem 0rem;
+  padding: 1rem 0.5rem;
   width: 100%;
   background: rgb(255, 255, 255);
   display: flex;
@@ -33,10 +33,11 @@ export { MainSnsPostWrap };
 
 const UserProfileImg = styled.img`
   object-fit: cover;
-  margin: 0px 10px;
+  margin-right: 10px;
   border-radius: 50%;
   width: 50px;
   height: 50px;
+  border: 0.5px solid #eaeaea;
 `;
 
 export { UserProfileImg };
@@ -52,7 +53,7 @@ const SnsPostBox = styled.div`
 export { SnsPostBox };
 
 const SnsPostContent = styled.p`
-  margin: 13px 0px 15px 0px;
+  margin: 14px 0px 15px 0px;
   font-weight: 300;
   font-size: 14px;
   line-height: 24px;

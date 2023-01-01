@@ -12,11 +12,11 @@ export const BasicHeader = styled.header`
   height: 48px;
   z-index: 99;
   background-color: white;
-  border-bottom: 1px solid #dbdbdb;
+  border-bottom: 0.5px solid #dbdbdb;
 
   img {
-    width: 24px;
-    height: 24px;
+    width: 18px;
+    height: 18px;
     vertical-align: top;
   }
 
@@ -62,8 +62,13 @@ export const FeedHeaderWrap = styled(BasicHeader)`
 export const ProfileHeaderWrap = styled(BasicHeader)`
   padding: 12px 14px 12px 16px;
 
-  .setBtn{
+  .setBtn {
     background-color: transparent;
+  }
+
+  img {
+    width: 18px;
+    height: 18px;
   }
 `;
 
