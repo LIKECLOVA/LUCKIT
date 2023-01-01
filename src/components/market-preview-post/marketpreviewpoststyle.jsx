@@ -36,8 +36,8 @@ export const MarketPostWrap = styled.ul`
     flex-wrap: nowrap;
     gap: 10px;
     margin-top: 15px;
-    overflow-y: hidden;
-    overflow-x: auto;
+    /* overflow-y: hidden;
+    overflow-x: auto; */
     ::-webkit-scrollbar {
     height: 1.4rem;
     }
@@ -72,7 +72,8 @@ export const MarketPostWrap = styled.ul`
 export const MarketPostList = styled.li`
   flex-shrink: 0;
   width: 140px;
-  border: 2px solid #f1f1f1;
+  border: 1px solid #f2f2f2;
+  box-shadow: 0 1px 5px #e8e8e8;
   border-radius: 10px;
   overflow: hidden;
 

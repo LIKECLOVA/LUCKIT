@@ -54,8 +54,8 @@ export const IconBtn = styled.button`
 export const SnsMoreBtn = styled.button`
   background: url(${moreBtn});
   background-size: cover;
-  width: 20px;
-  height: 20px;
+  width: 15px;
+  height: 15px;
   position: absolute;
   right: 10px;
   padding: 0;
@@ -63,8 +63,8 @@ export const SnsMoreBtn = styled.button`
 export const CommentBtn = styled.button`
   background: url(${moreBtn});
   background-size: cover;
-  width: 20px;
-  height: 20px;
+  width: 15px;
+  height: 15px;
   position: absolute;
   right: 10px;
   padding: 0;
@@ -72,17 +72,12 @@ export const CommentBtn = styled.button`
 
 export const MarketMoreBtn = styled.button`
   background-color: transparent;
-  width: 20px;
-  height: 20px;
+  width: 15px;
+  height: 15px;
   position: absolute;
   right: 8px;
   top: 16px;
   padding: 0;
-
-  img {
-    width: 20px;
-    height: 20px;
-  }
 `;
 
 export const PostUploadImg = styled.img`
