@@ -128,7 +128,7 @@ export const ImgListDiv = styled.div`
     object-fit: cover;
     object-position: center;
     border-radius: 15px;
-    border: 1px solid #dbdbdb;
+    border: 0.5px solid #dbdbdb;
     vertical-align: top;
   }
 `;
