@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback} from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import axios from 'axios';
 import { NavLink } from 'react-router-dom';
 import { useInView } from 'react-intersection-observer';
@@ -12,7 +12,7 @@ import { SearchBtn } from '../../components/button/button';
 import { PostUploadBtn } from '../../components/button/iconBtn';
 import { AxiosFollow } from '../../reducers/getFollowSlice';
 import { AxiosUserData } from '../../reducers/getUserInfoSlice';
-import {Loading} from '../../components/loading/loading';
+import { Loading } from '../../components/loading/loading';
 
 export const SnsPage = () => {
   const userToken = localStorage.getItem('Access Token');
@@ -26,60 +26,58 @@ export const SnsPage = () => {
   const dispatch = useDispatch();
   const followList = useSelector((state) => state.followInfoSlice.followData);
   const myInfo = useSelector((state) => state.userInfoSlice.userData);
- const [numFeed, setNumFeed] = useState(0);
- const [loading, setLoading] = useState(false);
- const [done, setDone] = useState(false);
- const [ref, inView] = useInView();
+  const [numFeed, setNumFeed] = useState(0);
+  const [loading, setLoading] = useState(false);
+  const [done, setDone] = useState(false);
+  const [ref, inView] = useInView();
 
+  // 피드 데이터 받아오는 함수
+  const getFeedPostData = useCallback(async () => {
+    const option = {
+      url: `${URL}${FEED_PATH}?limit=10&skip=${numFeed}`,
+      method: 'GET',
+      headers: {
+        Authorization: `Bearer ${userToken}`,
+        'Content-type': 'application/json',
+      },
+    };
 
- // 피드 데이터 받아오는 함수
- const getFeedPostData = useCallback(async () => {
-   const option = {
-     url: `${URL}${FEED_PATH}?limit=10&skip=${numFeed}`,
-     method: 'GET',
-     headers: {
-       Authorization: `Bearer ${userToken}`,
-       'Content-type': 'application/json',
-     },
-   };
+    setLoading(true);
 
-   setLoading(true);
+    await axios(option)
+      .then((res) => {
+        // 원래list에 새list 붙이기
+        setList(list.concat(res.data.posts));
+        setLoading(false);
+        setIsLoading(false);
+        if (res.data.posts.length < 10) {
+          setDone(true);
+        }
+      })
+      .catch((err) => {
+        setIsLoading(false);
+        console.error(err);
+      });
+  }, [numFeed]);
 
-   await axios(option)
-     .then((res) => {
-       // 원래list에 새list 붙이기
-       setList(list.concat(res.data.posts));
-       setLoading(false);
-       setIsLoading(false);
-       if (res.data.posts.length < 10) {
-         setDone(true);
-       }
-     })
-     .catch((err) => {
-      setIsLoading(false);
-       console.error(err);
-     });
- }, [numFeed]);
-
- useEffect(() => {
-  getFeedPostData();
-  dispatch(AxiosFollow(URL + STORY_PATH));
-  dispatch(AxiosUserData(URL + USER_PATH));
-}, []);
-
- useEffect(() => {
-   if (!done) {
-
+  useEffect(() => {
     getFeedPostData();
-   }
- }, [numFeed]);
+    dispatch(AxiosFollow(URL + STORY_PATH));
+    dispatch(AxiosUserData(URL + USER_PATH));
+  }, []);
 
- useEffect(() => {
-  //  inview===true 이고 로딩중이 아닐 때 
-   if (inView && !loading) {
-     setNumFeed((current) => current + 10);
-   }
- }, [inView, loading]);
+  useEffect(() => {
+    if (!done) {
+      getFeedPostData();
+    }
+  }, [numFeed]);
+
+  useEffect(() => {
+    //  inview===true 이고 로딩중이 아닐 때
+    if (inView && !loading) {
+      setNumFeed((current) => current + 10);
+    }
+  }, [inView, loading]);
 
   const onErrorImg = (e) => {
     e.target.src = DefaultUserImg;
@@ -87,43 +85,42 @@ export const SnsPage = () => {
 
   return (
     <>
-    {isLoading ? (
-          <Loading />
+      {isLoading ? (
+        <Loading />
       ) : (
-    <>
-      <FeedPageHeader />
-      <SnsPageArt>
-        <ul>
-          <NavLink to={`/profile/${myAccountName}`}>
-            <li>
-              <SnsStoryImg src={myInfo.image} onError={onErrorImg} />
-            </li>
-          </NavLink>
-          {followList.map((story, index) => {
-            return (
-              <NavLink key={index} to={`/profile/${story.accountname}`}>
+        <>
+          <SnsFeedPageHeader />
+          <SnsPageArt>
+            <ul>
+              <NavLink to={`/profile/${myAccountName}`}>
                 <li>
-                  <SnsStoryImg src={story.image} onError={onErrorImg} />
+                  <SnsStoryImg src={myInfo.image} onError={onErrorImg} />
                 </li>
               </NavLink>
-            );
-          })}
-          {}
-        </ul>
-      </SnsPageArt>
-      {followList.length === 1 ? (
-        <SnsPageSec className='SnsDefalutPage'>
-          <h1>새로운 럭킷을 찾아보세요!</h1>
-          <NavLink to='/search'>
-            <SearchBtn size='middle' />
-          </NavLink>
-        </SnsPageSec>
-      ) : (
-        <SnsPageSec>
-          <h1>럭킷들의 새로운 소식을 확인해보세요!</h1>
-          <MainPostArea>
-
-            {list.map((post, i) =>
+              {followList.map((story, index) => {
+                return (
+                  <NavLink key={index} to={`/profile/${story.accountname}`}>
+                    <li>
+                      <SnsStoryImg src={story.image} onError={onErrorImg} />
+                    </li>
+                  </NavLink>
+                );
+              })}
+              {}
+            </ul>
+          </SnsPageArt>
+          {followList.length === 1 ? (
+            <SnsPageSec className='SnsDefalutPage'>
+              <h1>새로운 럭킷을 찾아보세요!</h1>
+              <NavLink to='/search'>
+                <SearchBtn size='middle' />
+              </NavLink>
+            </SnsPageSec>
+          ) : (
+            <SnsPageSec>
+              <h1>럭킷들의 새로운 소식을 확인해보세요!</h1>
+              <MainPostArea>
+                {list.map((post, i) =>
                   // 마지막 요소에 ref추가 (ref보이면 이벤트실행)
                   list.length - 2 === i ? (
                     <div key={post.id} ref={ref} />
@@ -131,16 +128,15 @@ export const SnsPage = () => {
                     <div key={post.id}>
                       <MainSnsPost data={post} />
                     </div>
-                  ),
+                  )
                 )}
-            
-          </MainPostArea>
-        </SnsPageSec>
+              </MainPostArea>
+            </SnsPageSec>
+          )}
+          <PostUploadBtn pathName='/snsupload' />
+          <NavBar />
+        </>
       )}
-      <PostUploadBtn pathName='/snsupload' />
-      <NavBar />
     </>
-      )}
-      </>
   );
 };
