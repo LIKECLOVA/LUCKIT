@@ -28,6 +28,7 @@ export const ProfileImg = styled.img.attrs({
   height: 50px;
   object-fit: cover;
   border-radius: 50%;
+  border: 0.5px solid #ddd;
 `;
 
 export const InformationBox = styled.div`

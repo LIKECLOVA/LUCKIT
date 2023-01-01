@@ -58,7 +58,7 @@ export const SnsMoreBtn = styled.button`
   height: 15px;
   position: absolute;
   margin-top: 2px;
-  right: 0px;
+  right: 10px;
   padding: 0;
 `;
 export const CommentBtn = styled.button`
@@ -67,7 +67,7 @@ export const CommentBtn = styled.button`
   width: 15px;
   height: 15px;
   position: absolute;
-  right: 10px;
+  right: 0px;
   padding: 0;
 `;
 

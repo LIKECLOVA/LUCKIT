@@ -4,7 +4,7 @@ const MainSnsPostWhap = styled.div`
   position: relative;
   align-items: top;
   box-sizing: border-box;
-  padding: 1rem 0rem;
+  padding: 1rem 0.5rem;
   width: 100%;
   background: rgb(255, 255, 255);
   display: flex;
@@ -37,6 +37,7 @@ const UserProfileImg = styled.img`
   border-radius: 50%;
   width: 50px;
   height: 50px;
+  border: 0.5px solid #eaeaea;
 `;
 
 export { UserProfileImg };
