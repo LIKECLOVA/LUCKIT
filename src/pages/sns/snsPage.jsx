@@ -76,7 +76,6 @@ export const SnsPage = () => {
  useEffect(() => {
   //  inview===true 이고 로딩중이 아닐 때 
    if (inView && !loading) {
-    // 
      setNumFeed((current) => current + 10);
    }
  }, [inView, loading]);
