@@ -53,7 +53,7 @@ const SnsPostBox = styled.div`
 export { SnsPostBox };
 
 const SnsPostContent = styled.p`
-  margin: 13px 0px 15px 0px;
+  margin: 14px 0px 15px 0px;
   font-weight: 300;
   font-size: 14px;
   line-height: 24px;
