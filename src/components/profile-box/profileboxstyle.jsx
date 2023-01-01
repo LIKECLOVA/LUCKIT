@@ -37,6 +37,7 @@ export const ProfileInfoBox = styled.div`
     border-radius: 50%;
     object-fit: cover;
     object-position: center;
+    box-shadow: 0 1px 10px #eaeaea;
   }
 `;
 
@@ -47,12 +48,13 @@ export const ProfileInfoCont = styled.div`
   padding: 10px 15px;
 
   h3 {
-    font-weight: 600;
+    font-weight: 400;
   }
 
   p {
-    font-size: 12px;
+    font-size: 10px;
     margin-top: 6px;
+    font-weight: 300;
   }
 `;
 
@@ -63,11 +65,12 @@ export const FollowerCont = styled.div`
     span {
         margin-right: 4px;
         font-size: 12px;
-        font-weight: 400;
+        font-weight: 300;
     }
 
     .followingTxt {
         margin-left: 13px;
+        font-weight: 300;
     }
 }
 `;
@@ -75,8 +78,8 @@ export const FollowerCont = styled.div`
 export const FollowNavLink = styled(NavLink)`
   display: flex;
   align-items: center;
-  font-size: 14px;
-  font-weight: 500;
+  font-size: 13px;
+  font-weight: 400;
 `;
 
 export const EditProfileNavLink = styled(NavLink)`
@@ -115,9 +118,11 @@ export const IsFollowButton = styled.button`
 export const BottomInfoBox = styled.div`
   margin-top: 20px;
   font-size: 12px;
+  margin-left: 5px;
   font-weight: 500;
 
   .btInfoTxt {
+    font-weight: 300;
     margin-top: 6px;
     padding-top: 3px;
     font-size: 14px;

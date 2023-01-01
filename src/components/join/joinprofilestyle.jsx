@@ -21,19 +21,20 @@ export const JoinProfileWrap = styled.div`
   .profileMidWrap {
     margin-top: 60px;
     display: flex;
-    height:140px;
+    height: 140px;
     img {
       width: 120px;
       height: 120px;
       margin-right: 10px;
       object-fit: cover;
       border-radius: 50%;
+      box-shadow: 0 1px 10px #dbdbdb;
     }
     div {
       display: flex;
       flex-wrap: wrap;
       justify-content: space-evenly;
-      align-items: flex-start
+      align-items: flex-start;
     }
   }
   .buttonFlexBox {
