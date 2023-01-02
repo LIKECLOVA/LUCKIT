@@ -36,28 +36,6 @@ export const SnsPostBtn = styled.div`
   box-shadow: 0px -12px 0 0px #F5F4F4;
   border-bottom: 0.5px solid #DBDBDB;
   padding: 0 15px;
-
-  .snsBtnWrap {
-    display: flex;
-    align-items: center;
-  }
-
-  button {
-    width: 24px;
-    height: 24px;
-    border: none;
-    padding: 0;
-    background-color: transparent;
-  }
-
-  button + button {
-    margin-left: 8px;
-  }
-
-  button > img {
-    width: 100%;
-    height: 100%;
-  }
 `
 
 export const ImgAlbumBox = styled.ul`
@@ -77,9 +55,7 @@ export const ImgAlbumList = styled.li`
   }
 `
 
-export const MultiNavLinkStyle = styled(NavLink)`
-  display: flex;
-  position: relative;
+export const MultiImgLayers = styled.div`
 
   &::before {
     content: " ";
@@ -87,8 +63,8 @@ export const MultiNavLinkStyle = styled(NavLink)`
     position: absolute;
     top: 5px;
     right: 5px;
-    width: 20px;
-    height: 20px;
+    width: 22px;
+    height: 22px;
     background-image: url(${IconLayers});
     background-size: cover;
     background-repeat: no-repeat;
@@ -98,6 +74,7 @@ export const MultiNavLinkStyle = styled(NavLink)`
 
 export const NavLinkStyle = styled(NavLink)`
   display: flex;
+  position: relative;
 `
 
 export const SnsPostWrap = styled.li`
