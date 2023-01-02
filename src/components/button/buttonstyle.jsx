@@ -110,3 +110,25 @@ export const UploadButton = styled.button`
     return setSize(size);
   }}
 `;
+
+export const SnsBtnWrap = styled.div`
+  display: flex;
+  align-items: center;
+
+  button {
+    width: 24px;
+    height: 24px;
+    border: none;
+    padding: 0;
+    background-color: transparent;
+  }
+  
+  button + button {
+    margin-left: 8px;
+  }
+  
+  button > img {
+    width: 100%;
+    height: 100%;
+  }
+`

@@ -1,5 +1,9 @@
 import React from 'react';
-import { Button, FollowButton } from './buttonstyle';
+import { Button, FollowButton, SnsBtnWrap } from './buttonstyle';
+import IconPostListOn from '../../assets/icon/icon-post-list-on.png';
+import IconPostListOff from '../../assets/icon/icon-post-list-off.png';
+import IconPostAlbumOn from '../../assets/icon/icon-post-album-on.png';
+import IconPostAlbumOff from '../../assets/icon/icon-post-album-off.png';
 
 export const NextBtn = ({ size, onClick, disabled }) => {
   return (
@@ -35,9 +39,22 @@ export const UploadBtn = (props) => {
       {props.text}
     </Button>
   );
-
 };
 
 export const SearchBtn = ({ size }) => {
   return <Button size={size}>검색하기</Button>;
 };
+
+export const ListAndAlbumBtn = ({onClickListBtn, onClickAlbumBtn, imgList, imgAlbum}) => {
+
+  return (
+    <SnsBtnWrap>
+      <button onClick={onClickListBtn}>
+        {imgList ? <img src={IconPostListOn} alt='리스트형' /> : <img src={IconPostListOff} alt='리스트형' />}
+      </button>
+      <button onClick={onClickAlbumBtn}>
+        {imgAlbum ? <img src={IconPostAlbumOn} alt='앨범형' /> : <img src={IconPostAlbumOff} alt='앨범형' />}
+      </button>
+    </SnsBtnWrap>
+  )
+}
