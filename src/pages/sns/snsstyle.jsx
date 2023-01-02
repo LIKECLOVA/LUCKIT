@@ -1,12 +1,13 @@
 import styled from 'styled-components';
 import imgBtn from '../../assets/icon/upload-file.png';
 import deleteBtn from '../../assets/icon/x.png';
+import { palette } from '../../styles/global/globalColor';
 
 /* SnsUpload 페이지 */
 const SnsUploadArt = styled.article`
   display: flex;
   align-items: center;
-  border-bottom: 1px solid rgb(219, 219, 219);
+  border-bottom: 1px solid #ddd;
   box-sizing: border-box;
   width: 100%;
   height: 48px;
@@ -14,7 +15,7 @@ const SnsUploadArt = styled.article`
   margin: 0px auto;
   position: fixed;
   top: 0px;
-  background: #edf8e1;
+  background: #fff;
   display: flex;
   z-index: 10;
   button {
@@ -129,7 +130,7 @@ const SnsPageArt = styled.article`
   height: 90px;
   margin: 55px 15px 0px 15px;
   top: 0px;
-  background: rgb(255, 255, 255);
+  background: #fff;
   display: flex;
   z-index: 10;
   ul {
@@ -140,12 +141,12 @@ const SnsPageArt = styled.article`
     overflow-y: hidden;
     -ms-overflow-style: none;
     ::-webkit-scrollbar {
-      height: 1.4rem;
+      height: 24px;
     }
     ::-webkit-scrollbar-thumb {
-      background-color: rgb(237, 237, 237);
+      background-color: ${palette.연한회색};
       border-radius: 20px;
-      border: 0.5rem solid #fff;
+      border: 8px solid #fff;
     }
     ::-webkit-scrollbar-track {
     }
@@ -162,7 +163,7 @@ export { SnsPageArt };
 const SnsStoryImg = styled.img`
   box-sizing: border-box;
   object-fit: cover;
-  border: 3px solid #85ce2d;
+  border: 3px solid ${palette.초록초록};;
   border-radius: 50%;
   width: 60px;
   height: 60px;
@@ -177,7 +178,7 @@ const SnsPageSec = styled.section`
   margin-bottom: 10px;
   height: 79%;
   top: 0px;
-  background: rgb(255, 255, 255);
+  background: #fff;
   display: flex;
   flex-direction: column;
   z-index: 10;
@@ -207,10 +208,10 @@ const MainPostArea = styled.div`
   box-sizing: border-box;
   width: 100%;
   top: 0px;
-  box-shadow: 0px -7px 0 0px rgb(237, 237, 237);
+  box-shadow: 0px -8px 0 0px ${palette.연한회색};;
   border-radius: 20px;
   border: 1px solid #f5f4f4;
-  background: rgb(255, 255, 255);
+  background: #fff;
   display: flex;
   flex-direction: column;
 `;

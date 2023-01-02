@@ -1,10 +1,11 @@
 import styled from 'styled-components';
 import closeBtn from '../../assets/icon/x.svg';
+import { palette } from '../../styles/global/globalColor';
 
 export const PostDetailWrap = styled.div`
   width: 100%;
   height: 100%;
-  background-color: #dbdbdb;
+  background-color: ${palette.연중회색};
 `;
 
 const SnsPostModalWrap = styled.div`
@@ -24,9 +25,9 @@ const SnsPostModalWrap = styled.div`
   border-radius: 15px;
   overflow: hidden;
   .SnsContentWrap {
-    box-shadow: 0px -15px 0 0px #e2f2ce;
+    box-shadow: 0px -15px 0 0px ${palette.연두색};
     border-radius: 15px;
-    margin-top: 2rem;
+    margin-top: 28px;
     overflow: scroll;
     ::-webkit-scrollbar {
       display: none;
@@ -36,8 +37,8 @@ const SnsPostModalWrap = styled.div`
     position: absolute;
     z-index: 30;
     width: 100%;
-    height: 1.9rem;
-    background-color: #e2f2ce;
+    height: 24px;
+    background-color: ${palette.연두색};
   }
 `;
 
@@ -49,10 +50,10 @@ const CommentInp = styled.input`
   width: 100%;
   height: 10%;
   padding-top: 11px;
-  background: #e2f2ce;
+  background: ${palette.연두색};
   z-index: 10;
   border: none;
-  border-top: 1px solid #dbdbdb;
+  border-top: 1px solid ${palette.연중회색};
 `;
 
 export { CommentInp };
