@@ -57,7 +57,7 @@ export const Envelope = styled.main`
     position: absolute;
     z-index: -5;
     margin-left: 25px;
-    transform: translate(0, -500px);
+    transform: translate(0, -560px);
     .title {
       font-size: 20px;
       color: #559705;
@@ -107,7 +107,7 @@ export const Envelope = styled.main`
 
   @keyframes out {
     100% {
-      transform: translate(0px, -500px);
+      transform: translate(0px, -560px);
       height: 650px;
     }
   }
