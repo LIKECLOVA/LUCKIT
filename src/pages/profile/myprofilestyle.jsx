@@ -1,9 +1,10 @@
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 import IconLayers from '../../assets/icon/iccon-img-layers.png'
+import { palette } from '../../styles/global/globalColor';
 
 export const ProfileWrap = styled.main`
-  padding: 0 15px;
+  padding: 0 12px;
   overflow: scroll;
     -ms-overflow-style: none;
     ::-webkit-scrollbar{
@@ -28,14 +29,14 @@ export const SnsPostBtn = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-left: -14px;
-  margin-right: -14px;
+  margin-left: -11px;
+  margin-right: -11px;
   height: 42px;
   border-top-left-radius: 25px;
   border-top-right-radius: 25px;
-  box-shadow: 0px -12px 0 0px #F5F4F4;
-  border-bottom: 0.5px solid #DBDBDB;
-  padding: 0 15px;
+  box-shadow: 0px -8px 0 0px ${palette.연한회색};
+  border-bottom: 0.5px solid ${palette.연중회색};
+  padding: 0 12px;
 `
 
 export const ImgAlbumBox = styled.ul`

@@ -32,7 +32,7 @@ export const MarketPreviewPost = () => {
         </h3>
         {id === myAccountName ?
         <ProfilePostUploadBtn pathName='/upload' />
-        : <></>}
+        : null }
       </HeadingWrap>
       <MarketPostWrap>
         {product.length === 0 &&

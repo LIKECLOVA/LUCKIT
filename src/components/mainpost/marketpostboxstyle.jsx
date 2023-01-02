@@ -16,7 +16,7 @@ export const CardImg = styled.img`
   object-fit: cover;
   object-position: center;
   box-shadow: 0 0 3px 3px #f3f3f3;
-  background: #fff;
+  background: #ffffff;
 `;
 
 export const CardCont = styled.div`
