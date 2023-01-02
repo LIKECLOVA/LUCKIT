@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { palette } from '../../styles/global/globalColor';
 
 export const MarketPostWrap = styled.section`
   margin: 70px 0;
@@ -8,7 +9,7 @@ export const MarketPostWrap = styled.section`
     display: none;
   }
   height: 100%;
-  padding: 0 15px 90px;
+  padding: 0 12px 90px;
 
   h2 {
     position: absolute;
@@ -44,5 +45,5 @@ export const ListItem = styled.li`
   position: relative;
   margin-bottom: 55px;
   border-radius: 25px;
-  box-shadow: 1px 1px 7px #dbdbdb;
+  box-shadow: 1px 1px 7px ${palette.연중회색};
 `;

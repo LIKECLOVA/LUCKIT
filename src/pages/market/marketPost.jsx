@@ -18,7 +18,6 @@ export function MarketPost() {
 
   }, []);
 
-
   return (
     <>
       <ProfileAndChatHeader />

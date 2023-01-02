@@ -32,7 +32,7 @@ export const HomeTxt = styled.p`
 // 게시글 있을 시
 
 export const HomeSection = styled.section`
-  padding: 0 15px 60px;
+  padding: 0 12px 60px;
 
   h2 {
     position: absolute;

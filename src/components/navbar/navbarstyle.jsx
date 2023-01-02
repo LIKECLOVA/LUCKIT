@@ -8,7 +8,7 @@ export const NavWrap = styled.nav`
   bottom: 0px;
   width: 100%;
   height: 58px;
-  border-top: 1px solid #dbdbdb;
+  border-top: 1px solid ${palette.연중회색};
   padding: 10px 0 8px;
   z-index: 50;
 
