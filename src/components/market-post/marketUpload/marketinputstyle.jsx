@@ -81,8 +81,8 @@ export const TextLabel = styled.label`
 
 export const UploadLabel = styled.label`
   position: absolute;
-  width: 60px;
-  height: 60px;
+  width: 50px;
+  height: 50px;
   bottom: 20px;
   right: 20px;
   background: url(${ImgButtonIcon});
