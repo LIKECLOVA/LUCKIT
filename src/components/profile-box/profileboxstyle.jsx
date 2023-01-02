@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components';
 import { palette } from '../../styles/global/globalColor';
 
 export const ProfileInfoWrap = styled.section`
-  margin: 80px 0 25px;
+  margin: 65px 0 25px;
   width: 100%;
   min-height: 170px;
   padding: 10px;
@@ -59,23 +59,20 @@ export const ProfileInfoCont = styled.div`
 `;
 
 export const FollowerCont = styled.div`
-    display: flex;
-    margin-top: 20px;
+  display: flex;
+  margin-top: 20px;
 
-    span {
-        margin-right: 4px;
-        font-size: 12px;
-        font-weight: 300;
-    }
+  span {
+    margin-right: 4px;
+    font-size: 12px;
+    font-weight: 300;
+  }
 
-    .followingTxt {
-        margin-left: 13px;
-        font-weight: 300;
-    }
-
-
-`
-
+  .followingTxt {
+    margin-left: 13px;
+    font-weight: 300;
+  }
+`;
 
 export const FollowNavLink = styled(NavLink)`
   display: flex;
