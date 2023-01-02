@@ -54,11 +54,11 @@ export const IconBtn = styled.button`
 export const SnsMoreBtn = styled.button`
   background: url(${moreBtn});
   background-size: cover;
-  width: 15px;
-  height: 15px;
+  width: 20px;
+  height: 20px;
   position: absolute;
-  margin-top: 2px;
-  right: 10px;
+  top: 0px;
+  right: 0px;
   padding: 0;
 `;
 export const CommentBtn = styled.button`

@@ -1,12 +1,14 @@
 import styled from 'styled-components';
+import { palette } from '../../styles/global/globalColor';
+
 
 const MainSnsPostWrap = styled.div`
   position: relative;
   align-items: top;
   box-sizing: border-box;
-  margin: 16px 10px;
+  margin: 20px 10px;
   width: 95%;
-  background: rgb(255, 255, 255);
+  background: #fff;
   display: flex;
   border-top-right-radius: 15px;
   border-top-left-radius: 15px;
@@ -17,12 +19,12 @@ const MainSnsPostWrap = styled.div`
     flex-wrap: no-wrap;
     overflow-x: auto;
     ::-webkit-scrollbar {
-      height: 1.4rem;
+      height: 16px;
     }
     ::-webkit-scrollbar-thumb {
-      background-color: rgb(237, 237, 237);
+      background-color: ${palette.연한회색};
       border-radius: 20px;
-      border: 0.5rem solid #fff;
+      border: 4px solid #fff;
     }
     ::-webkit-scrollbar-track {
     }
@@ -37,7 +39,7 @@ const UserProfileImg = styled.img`
   border-radius: 50%;
   width: 50px;
   height: 50px;
-  border: 0.5px solid #eaeaea;
+  border: 0.5px solid ${palette.연연회색};
 `;
 
 export { UserProfileImg };
@@ -45,7 +47,7 @@ export { UserProfileImg };
 const SnsPostBox = styled.div`
   box-sizing: border-box;
   width: 290px;
-  background: rgb(255, 255, 255);
+  background: #fff;
   display: flex;
   flex-direction: column;
 `;
@@ -53,7 +55,7 @@ const SnsPostBox = styled.div`
 export { SnsPostBox };
 
 const SnsPostContent = styled.p`
-  margin: 14px 0px 15px 0px;
+  margin: 15px 0px;
   font-weight: 300;
   font-size: 14px;
   line-height: 24px;
@@ -66,7 +68,7 @@ const SnsIdWrap = styled.div`
   left: 0;
   box-sizing: border-box;
   height: 14px;
-  background: rgb(255, 255, 255);
+  background: #fff;
   display: flex;
   justify-items: center;
   align-items: baseline;
@@ -89,9 +91,9 @@ export { SnsIdWrap };
 const IconWrap = styled.div`
   display: flex;
   font-weight: 400;
-  font-size: 0.8rem;
-  line-height: 1.2rem;
-  margin: 0.8rem 0rem;
+  font-size: 8px;
+  line-height: 12px;
+  margin: 8px 0px;
   align-items: center;
   vertical-align: bottom;
   z-index: 10;
@@ -111,12 +113,12 @@ export const CommentBtnWrap = styled.div`
   background: #fff;
   display: flex;
   align-items: center;
-  margin-right: 1rem;
+  margin-right: 10px;
   flex-grow: 1;
   z-index: 10;
   span {
     font-size: 13px;
-    color: #a3a3a3;
+    color: ${palette.중간회색};
   }
 `;
 
