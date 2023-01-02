@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
+import IconLayers from '../../assets/icon/iccon-img-layers.png'
 
 export const ProfileWrap = styled.main`
   padding: 0 15px;
@@ -35,28 +36,6 @@ export const SnsPostBtn = styled.div`
   box-shadow: 0px -12px 0 0px #F5F4F4;
   border-bottom: 0.5px solid #DBDBDB;
   padding: 0 15px;
-
-  .snsBtnWrap {
-    display: flex;
-    align-items: center;
-  }
-
-  button {
-    width: 24px;
-    height: 24px;
-    border: none;
-    padding: 0;
-    background-color: transparent;
-  }
-
-  button + button {
-    margin-left: 8px;
-  }
-
-  button > img {
-    width: 100%;
-    height: 100%;
-  }
 `
 
 export const ImgAlbumBox = styled.ul`
@@ -76,8 +55,26 @@ export const ImgAlbumList = styled.li`
   }
 `
 
+export const MultiImgLayers = styled.div`
+
+  &::before {
+    content: " ";
+    display: block;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 22px;
+    height: 22px;
+    background-image: url(${IconLayers});
+    background-size: cover;
+    background-repeat: no-repeat;
+    z-index: 99;
+  }
+`
+
 export const NavLinkStyle = styled(NavLink)`
   display: flex;
+  position: relative;
 `
 
 export const SnsPostWrap = styled.li`

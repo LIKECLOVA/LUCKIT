@@ -78,6 +78,10 @@ export const ProfileHeaderWrap = styled(BasicHeader)`
     width: 18px;
     height: 18px;
   }
+
+  strong {
+    font-size: 14px;
+  }
 `;
 
 export const FollowHeaderWrap = styled(BasicHeader)`
