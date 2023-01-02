@@ -55,10 +55,10 @@ export const Envelope = styled.main`
     width: 100%;
     height: 0;
     margin: 0 auto;
-    border: 188px solid #c8e9a1;
-    border-bottom: 150px solid #bede99;
-    border-top: 150px solid transparent;
-    margin-top: -300px;
+    border: 168px solid #c8e9a1;
+    border-bottom: 120px solid #bede99;
+    border-top: 120px solid transparent;
+    margin-top: -500px;
     border-radius: 10px;
     position: relative;
   }

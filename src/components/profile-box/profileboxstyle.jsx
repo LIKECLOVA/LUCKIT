@@ -52,9 +52,9 @@ export const ProfileInfoCont = styled.div`
   }
 
   p {
-    font-size: 10px;
+    font-size: 9px;
     margin-top: 6px;
-    font-weight: 300;
+    color: #919090;
   }
 `;
 
@@ -64,13 +64,12 @@ export const FollowerCont = styled.div`
 
   span {
     margin-right: 4px;
-    font-size: 12px;
-    font-weight: 300;
+    font-size: 11px;
+    color: #919090;
   }
 
   .followingTxt {
     margin-left: 13px;
-    font-weight: 300;
   }
 `;
 
@@ -116,15 +115,14 @@ export const IsFollowButton = styled.button`
 
 export const BottomInfoBox = styled.div`
   margin-top: 20px;
-  font-size: 12px;
+  font-size: 11px;
   margin-left: 5px;
   font-weight: 500;
 
   .btInfoTxt {
-    font-weight: 300;
     margin-top: 6px;
     padding-top: 3px;
-    font-size: 14px;
+    font-size: 13px;
     line-height: 16px;
     overflow: hidden;
     text-overflow: ellipsis;

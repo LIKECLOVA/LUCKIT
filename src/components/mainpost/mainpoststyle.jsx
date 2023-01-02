@@ -56,7 +56,7 @@ export { SnsPostBox };
 const SnsPostContent = styled.p`
   margin: 15px 0px;
   font-weight: 300;
-  font-size: 14px;
+  font-size: 13px;
   line-height: 24px;
   white-space: initial;
 `;

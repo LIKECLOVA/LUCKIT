@@ -15,7 +15,7 @@ export const Envelope = styled.main`
   .envbox {
     display: inline-block;
     position: absolute;
-    bottom: 1px;
+    bottom: -1px;
     width: 100%;
   }
   .env {
@@ -33,9 +33,9 @@ export const Envelope = styled.main`
     width: 100%;
     height: 0;
     margin: 0 auto;
-    border: 200px solid #c8e9a1;
-    border-bottom: 150px solid #bede99;
-    border-top: 150px solid transparent;
+    border: 168px solid #c8e9a1;
+    border-bottom: 120px solid #bede99;
+    border-top: 120px solid transparent;
     margin-top: -300px;
     border-radius: 10px;
     position: relative;
