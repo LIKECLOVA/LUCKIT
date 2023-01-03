@@ -1,5 +1,5 @@
 import React from 'react';
-import { MapModalWrap, MapSection } from './stylemap';
+import { MapModalWrap, MapSection } from './mapstyle';
 
 export const MapModal = ({ modalClose, isClicked, title, location, img, page }) => {
   return isClicked ? (
