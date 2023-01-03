@@ -36,6 +36,7 @@ const SnsUploadSec = styled.section`
   height: 90%;
   & > input {
   }
+
 `;
 
 export { SnsUploadSec };
@@ -190,11 +191,13 @@ const SnsPageSec = styled.section`
   }
   h1 {
     margin: 10px 15px 30px 15px;
-    padding: 14px 65px;
+    text-align: center;
+    padding: 16px 0;
     background-color: #edf8e1;
     color: #457907;
     border-radius: 20px;
     font-size: 14px;
+    width: 366px;
   }
   .SnsDefalutPage {
     align-items: center;
