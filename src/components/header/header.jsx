@@ -125,7 +125,7 @@ export const ProductUploadHeader = ({ isActive, handleClick, disabled }) => {
 };
 
 // 채팅방 페이지
-export const ChatRoomHeader = () => {
+export const ChatRoomHeader = ({ nickName }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const onClick = () => {
@@ -139,7 +139,7 @@ export const ChatRoomHeader = () => {
   return (
     <ProfileHeaderWrap>
       <BackBtn />
-      <strong>몰랑이</strong>
+      <strong>{nickName}</strong>
       <button className='setBtn' onClick={onClick}>
         <img src={IconMoreVertical} alt='채팅방 나가기 버튼' />
       </button>
