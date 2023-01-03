@@ -88,7 +88,7 @@ export const SnsPage = () => {
     <>
       <HelmetProvider>
         <Helmet>
-          <title>LUCKIT - Sns피드</title>
+          <title>LUCKIT - SNS 피드</title>
           <meta name='description' content='럭킷 Sns피드입니다. 럭킷메이트들의 새로운 소식을 확인해보세요! ' />
         </Helmet>
       </HelmetProvider>

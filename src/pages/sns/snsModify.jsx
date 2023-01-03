@@ -1,10 +1,19 @@
-import React, { useState, useRef, useEffect } from 'react'
-import axios from 'axios'
-import { useNavigate, useLocation} from 'react-router-dom';
-import { HelmetProvider, Helmet } from 'react-helmet-async'
-import { SnsUploadSec, SnsUploadImg, SnsTextLable, SnsTextInput, FileUploader,FileInput, SingleImg, DeleteBtn, Img } from './snsstyle';
-import {PostUploadHeader} from '../../components/header/header'
-
+import React, { useState, useRef, useEffect } from 'react';
+import axios from 'axios';
+import { useNavigate, useLocation } from 'react-router-dom';
+import { HelmetProvider, Helmet } from 'react-helmet-async';
+import {
+  SnsUploadSec,
+  SnsUploadImg,
+  SnsTextLable,
+  SnsTextInput,
+  FileUploader,
+  FileInput,
+  SingleImg,
+  DeleteBtn,
+  Img,
+} from './snsstyle';
+import { PostUploadHeader } from '../../components/header/header';
 
 export const SnsModify = () => {
   const token = localStorage.getItem('Access Token');
@@ -13,43 +22,41 @@ export const SnsModify = () => {
   const [showImgs, setShowImg] = useState([]);
   const [postImg, setPostImg] = useState([]);
   const [uploadBtn, SetuploadBtn] = useState(true);
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
   const location = useLocation();
-  const postId =location.state.postId;
-  const oripostContent= location.state.postContent;
-  const oripostImg =location.state.postImg;
+  const postId = location.state.postId;
+  const oripostContent = location.state.postContent;
+  const oripostImg = location.state.postImg;
 
   const data = {
-    'post': {
-      'content': '',
-      'image': showImgs?.length === 0 ? postImg : showImgs
-    }
+    post: {
+      content: '',
+      image: showImgs?.length === 0 ? postImg : showImgs,
+    },
+  };
+
+  /* 이미지 업로드 함수 */
+  async function ImgUpload(userImg) {
+    const formData = new FormData();
+    const URL = 'https://mandarin.api.weniv.co.kr/';
+
+    formData.append('image', userImg);
+    const res = await axios.post('https://mandarin.api.weniv.co.kr/image/uploadfile', formData);
+
+    const Imgup = URL + res.data.filename;
+
+    return Imgup;
   }
 
-/* 이미지 업로드 함수 */
-async function ImgUpload(userImg) {
-  const formData = new FormData()
-  const URL = 'https://mandarin.api.weniv.co.kr/';
-
-  formData.append('image', userImg)
-  const res = await axios.post('https://mandarin.api.weniv.co.kr/image/uploadfile', formData)
-
-  const Imgup= URL + res.data.filename;
-
-  return Imgup;
-}
-
-
-function sliceImg(oripostImgs) {
+  function sliceImg(oripostImgs) {
     const arr = oripostImgs?.split(',');
 
     return arr;
   }
 
   useEffect(() => {
-
-     setShowImg(() => sliceImg(oripostImg))
-  }, [])
+    setShowImg(() => sliceImg(oripostImg));
+  }, []);
 
   /* 이미지 띄워주는 함수 */
   const handleAddImg = (e) => {
@@ -58,25 +65,25 @@ function sliceImg(oripostImgs) {
     const fileArr = e.target.files;
 
     for (let i = 0; i < fileArr.length; i++) {
-        const currentImgURL = window.URL.createObjectURL(fileArr[i]);
+      const currentImgURL = window.URL.createObjectURL(fileArr[i]);
 
-        fileURLs.push(currentImgURL);
-        files.push(fileArr[i]);
+      fileURLs.push(currentImgURL);
+      files.push(fileArr[i]);
     }
 
     if (fileURLs.length > 3) {
       alert('사진은 최대 3장까지 업로드 가능합니다.');
-     fileURLs = fileURLs.slice(0, 3);
+      fileURLs = fileURLs.slice(0, 3);
       const preImglen = getPreImglen(fileURLs);
 
-      files = files.slice(0, 3 - preImglen);  // 추가 이미지 길이  = 3- 기존이미지 길이 
+      files = files.slice(0, 3 - preImglen); // 추가 이미지 길이  = 3- 기존이미지 길이
     }
 
     setPostImg(files);
     setShowImg(fileURLs);
-  }
+  };
 
-/* 이미지 삭제함수 */
+  /* 이미지 삭제함수 */
   const handleDeleteImg = (id) => {
     const preImglen = getPreImglen(showImgs);
 
@@ -88,12 +95,12 @@ function sliceImg(oripostImgs) {
     let addImgLength = 0;
 
     showImg.map((image) => {
-      if (image.slice(0, 4) === 'blob') { 
+      if (image.slice(0, 4) === 'blob') {
         addImgLength += 1;
       }
       return 0;
-    })
-    return showImg.length - addImgLength; 
+    });
+    return showImg.length - addImgLength;
   }
 
   /* 게시글 업로드 함수 */
@@ -101,92 +108,101 @@ function sliceImg(oripostImgs) {
     const snsImgList = [];
 
     showImgs?.map((showImg) => {
-        if (showImg.slice(0, 4) !== 'blob') {
-            snsImgList.push(showImg);
-        }
-        return 0;
-      })
+      if (showImg.slice(0, 4) !== 'blob') {
+        snsImgList.push(showImg);
+      }
+      return 0;
+    });
 
     for (let i = 0; i < postImg?.length; i++) {
-      const img =ImgUpload(postImg[i]);
+      const img = ImgUpload(postImg[i]);
 
       snsImgList.push(img);
     }
-    const SnsImgs = await Promise.all(snsImgList)
+    const SnsImgs = await Promise.all(snsImgList);
 
-   
     if (snsImgList.length > 3) {
-        snsImgList.slice(0, 3);
-      }
+      snsImgList.slice(0, 3);
+    }
 
     data.post.image = SnsImgs.join(',');
-    data.post.content = content?.length === 0 ? oripostContent : content;;
+    data.post.content = content?.length === 0 ? oripostContent : content;
 
     try {
-        const URL = 'https://mandarin.api.weniv.co.kr';
-    const REQ_PATH = '/post/';
+      const URL = 'https://mandarin.api.weniv.co.kr';
+      const REQ_PATH = '/post/';
 
-      await axios.put(URL + REQ_PATH+ postId, data, {
-        headers: {
-          'Authorization': `Bearer ${token}`,
-          'Content-type': 'application/json'
-        },
-      })
-      .then(navigate(-1))
-    }
-    catch (error) {
+      await axios
+        .put(URL + REQ_PATH + postId, data, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+            'Content-type': 'application/json',
+          },
+        })
+        .then(navigate(-1));
+    } catch (error) {
       console.log(error);
     }
   }
 
- useEffect(() => {
+  useEffect(() => {
     if (content.length === 0 && postImg.length === 0) {
-      SetuploadBtn(false);  
-    }
-    else {
+      SetuploadBtn(false);
+    } else {
       SetuploadBtn(true);
     }
-  }, [content, postImg])
+  }, [content, postImg]);
 
   return (
     <>
-    <HelmetProvider>
-      <Helmet>
-        <title>LUCKIT - Sns게시글 수정</title>
-        <meta name='description' content='럭킷 게시글 수정 페이지입니다. 작성한 게시글을 수정해보세요!'/>
+      <HelmetProvider>
+        <Helmet>
+          <title>LUCKIT - SNS 게시글 수정</title>
+          <meta name='description' content='럭킷 게시글 수정 페이지입니다. 작성한 게시글을 수정해보세요!' />
         </Helmet>
-    </HelmetProvider>
-    <PostUploadHeader handlePostSns={handlePostSns} disabled={uploadBtn ? null : 'disabled'}/>
+      </HelmetProvider>
+      <PostUploadHeader handlePostSns={handlePostSns} disabled={uploadBtn ? null : 'disabled'} />
 
-    <SnsUploadSec>
-    <SnsTextLable htmlFor='snspost' />
-      <SnsTextInput 
-          key={oripostContent} 
+      <SnsUploadSec>
+        <SnsTextLable htmlFor='snspost' />
+        <SnsTextInput
+          key={oripostContent}
           defaultValue={oripostContent}
-          name='snspost' 
-          id='snspost' 
-          placeholder='게시글 입력하기 ...' 
-
-          onChange={(e) => { setContent(e.target.value) }} />
-      <SnsUploadImg>
-      {
-        showImgs.length === 1 ?
-            showImgs.map((image, id) => {return(
-              <div key={id} >
-                <SingleImg key={id} src={image} />
-                <DeleteBtn onClick={() => {return handleDeleteImg(id)}} />
-              </div>
-            )})
-            :
-            showImgs.map((image, id) => {return(
-              <div key={id} >
-                <Img key={id} src={image} />
-                <DeleteBtn onClick={() => {return handleDeleteImg(id)}} />
-              </div>
-            )})
-      }
-      </SnsUploadImg>
-      <FileUploader htmlFor='input-file'>
+          name='snspost'
+          id='snspost'
+          placeholder='게시글 입력하기 ...'
+          onChange={(e) => {
+            setContent(e.target.value);
+          }}
+        />
+        <SnsUploadImg>
+          {showImgs.length === 1
+            ? showImgs.map((image, id) => {
+                return (
+                  <div key={id}>
+                    <SingleImg key={id} src={image} />
+                    <DeleteBtn
+                      onClick={() => {
+                        return handleDeleteImg(id);
+                      }}
+                    />
+                  </div>
+                );
+              })
+            : showImgs.map((image, id) => {
+                return (
+                  <div key={id}>
+                    <Img key={id} src={image} />
+                    <DeleteBtn
+                      onClick={() => {
+                        return handleDeleteImg(id);
+                      }}
+                    />
+                  </div>
+                );
+              })}
+        </SnsUploadImg>
+        <FileUploader htmlFor='input-file'>
           <FileInput
             id='input-file'
             name='PostingImg'
@@ -197,6 +213,7 @@ function sliceImg(oripostImgs) {
             ref={fileInput}
           />
         </FileUploader>
-    </SnsUploadSec>
+      </SnsUploadSec>
     </>
-  )};
+  );
+};
