@@ -13,7 +13,7 @@ const setSize = (size) => {
     case 'middle':
       return css`
         width: 120px;
-        height: 48px;
+        height: 38px;
         padding: 12px;
         font-size: 14px;
         line-height: 14px;

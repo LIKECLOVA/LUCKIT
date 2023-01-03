@@ -111,14 +111,14 @@ export const SnsPage = () => {
           </SnsPageArt>
           {followList.length === 0 ? (
             <SnsPageSec className='SnsDefalutPage'>
-              <h1>새로운 럭킷을 찾아보세요!</h1>
+              <h1>럭킷들을 팔로우하고 소식을 받아보세요!</h1>
               <NavLink to='/search'>
                 <SearchBtn size='middle' />
               </NavLink>
             </SnsPageSec>
           ) : (
             <SnsPageSec>
-              <h1>럭킷들의 새로운 소식을 확인해보세요!</h1>
+              <h1>럭킷들의 새로운 소식을 확인해보세요! ✨</h1>
               <MainPostArea>
                 {list.map((post, i) =>
                   // 마지막 요소에 ref추가 (ref보이면 이벤트실행)

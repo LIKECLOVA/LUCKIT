@@ -25,9 +25,10 @@ export const Main = styled.main`
 `;
 
 export const HomeTxt = styled.p`
-  margin: 12px 0 26px;
+  margin: 32px 0 26px;
   font-weight: 500;
   text-align: center;
+  font-size: 15px;
 `;
 // 게시글 있을 시
 

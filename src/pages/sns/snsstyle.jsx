@@ -163,7 +163,7 @@ export { SnsPageArt };
 const SnsStoryImg = styled.img`
   box-sizing: border-box;
   object-fit: cover;
-  border: 3px solid ${palette.초록초록};;
+  border: 3px solid ${palette.초록초록};
   border-radius: 50%;
   width: 60px;
   height: 60px;
@@ -190,7 +190,7 @@ const SnsPageSec = styled.section`
   }
   h1 {
     margin: 10px 15px 30px 15px;
-    padding: 14px 70px;
+    padding: 14px 65px;
     background-color: #edf8e1;
     color: #457907;
     border-radius: 20px;
@@ -208,7 +208,7 @@ const MainPostArea = styled.div`
   box-sizing: border-box;
   width: 100%;
   top: 0px;
-  box-shadow: 0px -8px 0 0px ${palette.연한회색};;
+  box-shadow: 0px -8px 0 0px ${palette.연한회색};
   border-radius: 20px;
   border: 1px solid #f5f4f4;
   background: #fff;
