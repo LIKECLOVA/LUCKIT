@@ -8,7 +8,7 @@ export const PostIconBtn = styled.button`
   padding: 0px;
   background-color: #fff;
   span {
-    font-size: 13px;
+    font-size: 11px;
     color: ${palette.중간회색};
   }
 `;

@@ -11,8 +11,8 @@ export const BasicHeader = styled.header`
   top: 0;
   height: 48px;
   z-index: 99;
-  background-color: white;
-  border-bottom: 0.5px solid #dbdbdb;
+  background-color: #ffffff;
+  border-bottom: 0.5px solid ${palette.연중회색};
 
   img {
     width: 18px;
@@ -69,6 +69,7 @@ export const SnsFeedHeaderWrap = styled(BasicHeader)`
 
 export const ProfileHeaderWrap = styled(BasicHeader)`
   padding: 12px 14px 12px 16px;
+  border: none;
 
   .setBtn {
     background-color: transparent;

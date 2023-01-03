@@ -9,23 +9,24 @@ export const Envelope = styled.main`
     font-weight: normal;
     font-style: normal;
   }
-  animation: fadein 2s;
-  @keyframes fadein {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
+  animation: intro 2s;
+  @keyframes intro {
+  from {
+    opacity: 0;
+    top: 0;
   }
-
+  to {
+    opacity: 1;
+    top: 50%;
+  }
+}
   
   .envbox {
     display: inline-block;
     position: absolute;
     bottom: 100px;
-    width: 98%;
-    left: 1%;
+    width: 360px;
+    left: 4%;
 
     animation: vertical-wait2 1.45s ease infinite;
 }
@@ -55,10 +56,10 @@ export const Envelope = styled.main`
     width: 100%;
     height: 0;
     margin: 0 auto;
-    border: 188px solid #c8e9a1;
-    border-bottom: 150px solid #bede99;
-    border-top: 150px solid transparent;
-    margin-top: -300px;
+    border: 168px solid #c8e9a1;
+    border-bottom: 120px solid #bede99;
+    border-top: 120px solid transparent;
+    margin-top: -500px;
     border-radius: 10px;
     position: relative;
   }

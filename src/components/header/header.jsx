@@ -12,7 +12,7 @@ import {
 import IconSearch from '../../assets/icon/icon-search.png';
 import IconLuckitLogo from '../../assets/icon/icon-luckit.png';
 import IconMoreVertical from '../../assets/icon/icon- more-vertical.png';
-import { StoreBtn, UploadBtn } from '../../components/button/button';
+import { MarketUploadBtn, StoreBtn, UploadBtn } from '../../components/button/button';
 import { ChatRoomModal, LogoutModal } from '../modal/modal';
 import { BackBtn } from '../button/iconBtn';
 
@@ -111,6 +111,15 @@ export const PostUploadHeader = ({ isActive, handlePostSns, disabled }) => {
     <EditAndUploadHeaderWrap>
       <BackBtn />
       <UploadBtn size='middle-sm' isActive={isActive} handlePostSns={handlePostSns} disabled={disabled} text='저장' />
+    </EditAndUploadHeaderWrap>
+  );
+};
+
+export const ProductUploadHeader = ({ isActive, handleClick, disabled }) => {
+  return (
+    <EditAndUploadHeaderWrap>
+      <BackBtn />
+      <MarketUploadBtn size='middle-sm' isActive={isActive} handleClick={handleClick} disabled={disabled} text='저장' />
     </EditAndUploadHeaderWrap>
   );
 };

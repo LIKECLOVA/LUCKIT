@@ -96,8 +96,8 @@ export const AddBtn = styled.button`
   position: fixed;
   right: 10px;
   bottom: 70px;
-  width: 65px;
-  height: 65px;
+  width: 50px;
+  height: 50px;
   padding: 0px;
   background: url(${addBtn});
   background-repeat: no-repeat;

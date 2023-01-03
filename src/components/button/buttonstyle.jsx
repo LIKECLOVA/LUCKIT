@@ -35,26 +35,24 @@ export const Button = styled.button`
   padding: 20px;
   border-radius: 50px;
   font-size: 14px;
-  box-shadow: 0 1px 5px 0 #b9d795;
+  box-shadow: 0 1px 5px 0 #d7ecbd;
 
   color: white;
-  
 
-  
   background-color: ${(props) => {
-    return props.disabled === 'disabled' ? '#b9d795' : '#78d00c' ;
+    return props.disabled === 'disabled' ? '#d7ecbd' : '#78d00c';
   }};
-  
+
   cursor: ${(props) => {
     return props.disabled === 'disabled' ? 'not-allowed' : 'pointer';
   }};
 
-&:hover {
-  background-color: ${(props) => {
-    return props.disabled !== 'disabled' ? '#47a902' : '#b9d795;';
-  }};
+  &:hover {
+    background-color: ${(props) => {
+      return props.disabled !== 'disabled' ? '#47a902' : '#d7ecbd;';
+    }};
   }
-  
+
   /* 사이즈 설정 */
   ${({ size }) => {
     return setSize(size);
@@ -90,20 +88,16 @@ export const UploadButton = styled.button`
   padding: 20px;
   border-radius: 50px;
   font-size: 14px;
-  box-shadow: 0 1px 5px 0 #b9d795;
+  box-shadow: 0 1px 2px #d7ecbd;
   color: #fff;
+  background: #d7ecbd;
   &.true {
-    background: #74d004;
+    background: #78d00c;
     :hover {
       background: #47a902;
+      cursor: pointer;
     }
   }
-
-  &.false {
-    background: #b9d795;
-    cursor: default;
-  }
-  cursor: pointer;
 
   /* 사이즈 설정 */
   ${({ size }) => {
@@ -122,13 +116,13 @@ export const SnsBtnWrap = styled.div`
     padding: 0;
     background-color: transparent;
   }
-  
+
   button + button {
     margin-left: 8px;
   }
-  
+
   button > img {
     width: 100%;
     height: 100%;
   }
-`
+`;

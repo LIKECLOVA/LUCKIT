@@ -31,15 +31,6 @@ export const ChatInfoWrap = styled.div`
     object-fit: cover;
     border: 0.5px solid #eaeaea;
   }
-  .one {
-    position: absolute;
-    background-color: #f9cfe0;
-    border-radius: 50%;
-    width: 13px;
-    height: 13px;
-    top: 8px;
-    left: 4px;
-  }
 
   .chatList {
     margin-top: 3px;
@@ -67,7 +58,7 @@ export const ChatInfoWrap = styled.div`
 
 export const NewChat = styled.div`
   position: absolute;
-  background-color: #f9cfe0;
+  background-color: #feaacc;
   border-radius: 20px;
   width: 23px;
   height: 15px;
@@ -81,7 +72,7 @@ export const NewChat = styled.div`
 
 export const SecChat = styled.div`
   position: absolute;
-  background-color: #f9cfe0;
+  background-color: #feaacc;
   border-radius: 20px;
   width: 23px;
   height: 15px;

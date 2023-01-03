@@ -3,12 +3,13 @@ import styled, { css } from 'styled-components';
 import { palette } from '../../styles/global/globalColor';
 
 export const ProfileInfoWrap = styled.section`
-  margin: 80px 0 25px;
+  margin: 65px 0 25px;
+
   width: 100%;
   min-height: 170px;
   padding: 10px;
   background-color: #fbfbfb;
-  box-shadow: 0px -12px 0 0px #f0fae4;
+  box-shadow: 0px -8px 0 0px #f0fae4;
   border-radius: 25px;
   border: 1px solid #f2f2f2;
 
@@ -37,7 +38,7 @@ export const ProfileInfoBox = styled.div`
     border-radius: 50%;
     object-fit: cover;
     object-position: center;
-    box-shadow: 0 1px 10px #eaeaea;
+    box-shadow: 0 1px 10px ${palette.연연회색};
   }
 `;
 
@@ -52,30 +53,26 @@ export const ProfileInfoCont = styled.div`
   }
 
   p {
-    font-size: 10px;
+    font-size: 9px;
     margin-top: 6px;
-    font-weight: 300;
+    color: #919090;
   }
 `;
 
 export const FollowerCont = styled.div`
-    display: flex;
-    margin-top: 20px;
+  display: flex;
+  margin-top: 20px;
 
-    span {
-        margin-right: 4px;
-        font-size: 12px;
-        font-weight: 300;
-    }
+  span {
+    margin-right: 4px;
+    font-size: 11px;
+    color: #919090;
+  }
 
-    .followingTxt {
-        margin-left: 13px;
-        font-weight: 300;
-    }
-
-
-`
-
+  .followingTxt {
+    margin-left: 13px;
+  }
+`;
 
 export const FollowNavLink = styled(NavLink)`
   display: flex;
@@ -107,7 +104,7 @@ export const IsFollowButton = styled.button`
     return isFollow
       ? css`
           background-color: white;
-          border: 0.5px solid #dbdbdb;
+          border: 0.5px solid ${palette.연중회색};
           color: ${palette.내부텍스트};
         `
       : css`
@@ -119,15 +116,14 @@ export const IsFollowButton = styled.button`
 
 export const BottomInfoBox = styled.div`
   margin-top: 20px;
-  font-size: 12px;
+  font-size: 11px;
   margin-left: 5px;
   font-weight: 500;
 
   .btInfoTxt {
-    font-weight: 300;
     margin-top: 6px;
     padding-top: 3px;
-    font-size: 14px;
+    font-size: 13px;
     line-height: 16px;
     overflow: hidden;
     text-overflow: ellipsis;

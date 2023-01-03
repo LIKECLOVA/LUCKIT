@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import { palette } from '../../styles/global/globalColor';
 
-
 const MainSnsPostWrap = styled.div`
   position: relative;
   align-items: top;
@@ -57,7 +56,7 @@ export { SnsPostBox };
 const SnsPostContent = styled.p`
   margin: 15px 0px;
   font-weight: 300;
-  font-size: 14px;
+  font-size: 13px;
   line-height: 24px;
   white-space: initial;
 `;
@@ -117,7 +116,7 @@ export const CommentBtnWrap = styled.div`
   flex-grow: 1;
   z-index: 10;
   span {
-    font-size: 13px;
+    font-size: 11px;
     color: ${palette.중간회색};
   }
 `;

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import { PostUploadHeader } from '../../header/header';
+import { ProductUploadHeader } from '../../header/header';
 import { MarketImage } from './marketImage';
 import { MarketInput } from './marketInput';
 import { InputWrap, MarketForm } from './marketinputstyle';
@@ -67,8 +67,8 @@ export const MarketUpload = () => {
 
   return (
     <MarketForm method='POST' encType='multipart/form-data' onSubmit={handleSubmit}>
-      <PostUploadHeader isActive={isActive} disabled={disabled} />
-      <h1 className='a11y-hieen'>럭킷 메이트 등록 페이지</h1>
+      <ProductUploadHeader isActive={isActive} disabled={disabled} />
+      <h1 className='a11y-hidden'>럭킷 메이트 등록 페이지</h1>
       <InputWrap>
         <MarketImage itemImage={itemImage} setItemImage={setItemImage} />
         <MarketInput

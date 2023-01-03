@@ -1,28 +1,6 @@
 import styled from 'styled-components';
 import ImgButtonIcon from '../../../assets/icon/upload-file.png';
 
-export const MarketHeader = styled.section`
-  display: flex;
-  position: relative;
-  border-bottom: 1px solid rgb(219, 219, 219);
-  box-sizing: border-box;
-  width: 100%;
-  height: 48px;
-  padding: 8px 11px;
-  margin: 0px auto;
-  position: fixed;
-  top: 0px;
-  background: #edf8e1;
-  display: flex;
-  z-index: 10;
-  button {
-    cursor: pointer;
-    :last-child {
-      margin-left: 80%;
-    }
-  }
-`;
-
 export const Container = styled.section`
   margin-top: 70px;
   padding: 50px;
@@ -103,8 +81,8 @@ export const TextLabel = styled.label`
 
 export const UploadLabel = styled.label`
   position: absolute;
-  width: 60px;
-  height: 60px;
+  width: 50px;
+  height: 50px;
   bottom: 20px;
   right: 20px;
   background: url(${ImgButtonIcon});
