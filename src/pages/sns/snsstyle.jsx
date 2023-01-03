@@ -86,10 +86,8 @@ export const SnsPageArt = styled.article`
   width: 95%;
   height: 90px;
   margin: 55px 15px 0px 15px;
-  top: 0px;
   background: #fff;
   display: flex;
-  z-index: 10;
   ul {
     display: flex;
     list-style: none;
@@ -130,11 +128,9 @@ export const SnsPageSec = styled.section`
   width: 100%;
   margin-bottom: 10px;
   height: 79%;
-  top: 0px;
   background: #fff;
   display: flex;
   flex-direction: column;
-  z-index: 10;
   white-space: nowrap;
   overflow: scroll;
   -ms-overflow-style: none;
@@ -142,8 +138,8 @@ export const SnsPageSec = styled.section`
     display: none;
   }
   h1 {
-    margin: 10px 15px 30px 15px;
-    padding: 14px 65px;
+    margin: 10px 10px 30px 10px;
+    padding: 14px 60px;
     background-color: #edf8e1;
     color: #457907;
     border-radius: 20px;
@@ -152,7 +148,6 @@ export const SnsPageSec = styled.section`
   .SnsDefalutPage {
     align-items: center;
   }
-
   .SnsText {
     margin-top: 180px;
     font-size: 15px;
@@ -166,10 +161,8 @@ export const MainPostArea = styled.div`
   align-items: left;
   box-sizing: border-box;
   width: 100%;
-  top: 0px;
   box-shadow: 0px -8px 0 0px ${palette.연한회색};
   border-radius: 20px;
-  border: 1px solid #f5f4f4;
   background: #fff;
   display: flex;
   flex-direction: column;
