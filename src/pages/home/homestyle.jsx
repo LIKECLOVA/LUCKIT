@@ -43,9 +43,6 @@ export const HomeSection = styled.section`
     overflow: hidden;
   }
 
-  .swal2-title {
-    color: red;
-  }
 `;
 
 export const HomeTitle = styled.p`
