@@ -44,11 +44,11 @@ export const positions = [
   },
   {
     id: 4,
-    location: '피규어뮤지엄w',
+    location: '약수역3번출구',
     title: '마블피규어 모임',
-    latlng: { lat: 37.525774214033795 , lng: 127.04039253627407},
+    latlng: { lat: 37.55477924970022 , lng: 127.01145304165846},
     img: 아이언맨,
-    page: 'https://place.map.kakao.com/26524097'
+    page: 'https://place.map.kakao.com/21160813'
   },
   {
     id: 5,
