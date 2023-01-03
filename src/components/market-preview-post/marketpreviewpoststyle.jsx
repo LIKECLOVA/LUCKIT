@@ -20,7 +20,7 @@ export const HeadingWrap = styled.div`
   align-items: center;
 
   h3 {
-    font-size: 14px;
+    font-size: 12px;
   }
 
   h3 > strong {

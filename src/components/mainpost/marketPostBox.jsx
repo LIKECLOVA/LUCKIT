@@ -18,7 +18,7 @@ export default function MarketPostBox({ data, accountname }) {
         'https://user-images.githubusercontent.com/102042383/210169119-cd6360aa-d675-4766-94b6-dcb76b05c632.gif',
       width: 390,
       imageWidth: 380,
-      imageHeight: 330,
+      imageHeight: 300,
       showCancelButton: true,
       cancelButtonText: '럭킷 매칭 취소',
       confirmButtonText: '럭킷 매칭 신청',

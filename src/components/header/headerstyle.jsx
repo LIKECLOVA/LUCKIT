@@ -69,6 +69,7 @@ export const SnsFeedHeaderWrap = styled(BasicHeader)`
 
 export const ProfileHeaderWrap = styled(BasicHeader)`
   padding: 12px 14px 12px 16px;
+  border: none;
 
   .setBtn {
     background-color: transparent;
