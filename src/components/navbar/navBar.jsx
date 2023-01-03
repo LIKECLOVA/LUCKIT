@@ -50,7 +50,7 @@ export const NavBar = () => {
               return isActive ? 'active' : null;
             }}
           >
-            모임장소
+            럭킷스팟
           </StyleNavLink>
         </li>
         <li>

@@ -200,7 +200,7 @@ const SnsPageSec = styled.section`
     align-items: center;
   }
 
-  p {
+  .SnsText {
     margin-top: 180px;
     font-size: 15px;
     line-height: 25px;
@@ -222,6 +222,7 @@ const MainPostArea = styled.div`
   background: #fff;
   display: flex;
   flex-direction: column;
+  margin-bottom: 30px;
 `;
 
 export { MainPostArea };
