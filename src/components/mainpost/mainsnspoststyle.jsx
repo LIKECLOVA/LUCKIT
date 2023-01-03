@@ -124,7 +124,7 @@ export const CommentBtnWrap = styled.div`
 export const ImgListDiv = styled.div`
   img {
     width: 280px;
-    height: 200px;
+    height: 340px;
     margin: 4px;
     object-fit: cover;
     object-position: center;
