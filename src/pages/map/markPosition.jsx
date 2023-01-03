@@ -1,5 +1,5 @@
 /* eslint-disable */
-import 집꾸미기 from '../../assets/icon/맛집.jpeg';
+import 집꾸미기 from '../../assets/icon/집꾸미기.webp';
 import 산책 from '../../assets/icon/산책.webp';
 import 몰랑 from '../../assets/icon/몰랑.gif';
 import 맛집 from '../../assets/icon/맛집.jpeg';

@@ -40,8 +40,6 @@ const JoinProfile = () => {
     setProfileImg(`https://mandarin.api.weniv.co.kr/${json.filename}`);
   };
 
-  /* ****** 닉네임,아이디 유효성 검사 ******** */
-
   /* userName 유효성 검사 */
   const [userName, setUserName] = useState('');
   const [UserNameWarningMessage, setUserNameWarningMessage] = useState('');
