@@ -118,7 +118,7 @@ export const SnsPage = () => {
           </SnsPageArt>
           {followList.length === 0 ? (
             <SnsPageSec className='SnsDefalutPage'>
-              <p className='SnSText'>
+              <p className='SnsText'>
                 럭킷들을 팔로우하고
                 <br />
                 다양한 소식을 받아보세요!
