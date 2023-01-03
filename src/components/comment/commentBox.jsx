@@ -3,6 +3,7 @@ import CommentList from './commentlist/commentList';
 import CommentInput from './commentinput/commentInput';
 import { CommentListBox } from './commentboxstyle';
 
+
 function CommentBox({ postId, comments, getComments }) {
 
     return (
