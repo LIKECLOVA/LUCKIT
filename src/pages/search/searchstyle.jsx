@@ -4,7 +4,7 @@ import { palette } from '../../styles/global/globalColor';
 
 export const H2 = styled.h2`
   position: absolute;
-  clip: rect(0 0 0 0)
+  clip: rect(0 0 0 0);
   width: 1px;
   height: 1px;
   margin: -1px;

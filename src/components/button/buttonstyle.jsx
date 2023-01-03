@@ -59,7 +59,7 @@ export const Button = styled.button`
   }}
 `;
 
-/**  ***********팔로우 버튼************ **/
+// 팔로우 버튼
 
 export const FollowButton = styled.button`
   padding: 20px;
@@ -82,7 +82,8 @@ export const FollowButton = styled.button`
   }}
 `;
 
-/* ***************업로드 버튼************** */
+// 업로드 버튼
+
 export const UploadButton = styled.button`
   /* 기본셋팅 */
   padding: 20px;
