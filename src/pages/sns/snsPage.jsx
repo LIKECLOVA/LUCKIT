@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import axios from 'axios';
 import { NavLink } from 'react-router-dom';
+import { HelmetProvider, Helmet } from 'react-helmet-async'
 import { useInView } from 'react-intersection-observer';
 import { useSelector, useDispatch } from 'react-redux';
 import MainSnsPost from '../../components/mainpost/mainSnsPost';
@@ -85,6 +86,12 @@ export const SnsPage = () => {
 
   return (
     <>
+    <HelmetProvider>
+      <Helmet>
+        <title>LUCKIT - Sns피드</title>
+        <meta name='description' content='럭킷 Sns피드입니다. 럭킷메이트들의 새로운 소식을 확인해보세요! '/>
+        </Helmet>
+    </HelmetProvider>
       {isLoading ? (
         <Loading />
       ) : (

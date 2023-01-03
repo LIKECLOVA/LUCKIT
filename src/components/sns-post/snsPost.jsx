@@ -1,6 +1,7 @@
 import React, {useEffect,useState} from 'react'
 import axios from 'axios';
 import { useNavigate, useParams } from 'react-router-dom';
+import { HelmetProvider, Helmet } from 'react-helmet-async'
 import {SnsPostModalWrap, CloseBtn, PostDetailWrap} from './snspoststyle'
 import MainSnsPost from '../mainpost/mainSnsPost'
 import CommentBox from '../comment/commentBox'
@@ -48,6 +49,13 @@ export const SnsPost = () => {
   },[])
 
   return (
+    <>
+    <HelmetProvider>
+      <Helmet>
+        <title>LUCKIT - 게시글 상세페이지</title>
+        <meta name='description' content='럭킷 채팅 페이지입니다. 럭킷메이트들과 대화를 나눠보세요!'/>
+        </Helmet>
+    </HelmetProvider>
     <PostDetailWrap>
     <SnsPostModalWrap>
       <div className='closeArt'>
@@ -64,5 +72,6 @@ export const SnsPost = () => {
       </div>
     </SnsPostModalWrap>
     </PostDetailWrap>
+    </>
   )
 }

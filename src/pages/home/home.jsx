@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector,useDispatch } from 'react-redux';
+import { HelmetProvider, Helmet } from 'react-helmet-async'
 import { NavBar } from '../../components/navbar/navBar';
 import { AxiosFollow } from '../../reducers/getFollowSlice';
 import DefaultHome from './defaultHome';
@@ -27,6 +28,13 @@ export const Home = () => {
   }
 
   return (
+    <>
+    <HelmetProvider>
+      <Helmet>
+        <title>LUCKIT - Home </title>
+        <meta name='description' content='럭킷 홈페이지입니다. 럭킷메이트들에게 매칭신청을 해보세요!'/>
+        </Helmet>
+    </HelmetProvider>
     <HomeWrap onScroll={onScroll}>
       { followingData && followingData.length > 0 ? <>
       <MarketFeedHome scrollTopData={scrollTopData} followingData={followingData} />
@@ -35,6 +43,7 @@ export const Home = () => {
       </>}
       <NavBar />
     </HomeWrap>
+    </>
   );
 };
 
