@@ -34,21 +34,17 @@ const RecommendMap = () => {
       >
         {positions.map((v, index) => {
           return (
-            <EventMarkerContainer
-              key={crypto.randomUUID()}
-              onClick={() => {
-                setSeleteMarker(v.id);
-              }}
-              isClicked={selectedMarker === index}
-              position={v.latlng}
-              title={v.title}
-              location={v.location}
-              img={v.img}
-              page={v.page}
-              modalClose={() => {
-                setSeleteMarker(false);
-              }}
-            />
+              <EventMarkerContainer
+                key={v.id}
+                onClick={ ()=> {setSeleteMarker(v.id) } }
+                isClicked={selectedMarker === index}
+                position={v.latlng}
+                title ={v.title}
+                location ={v.location}
+                img ={v.img}
+                page={v.page}
+                modalClose={()=>{setSeleteMarker(false)}}
+              />
           );
         })}
       </Map>
