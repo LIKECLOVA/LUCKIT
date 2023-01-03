@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { palette } from '../../styles/global/globalColor';
 
-const MainSnsPostWrap = styled.div`
+export const MainSnsPostWrap = styled.div`
   position: relative;
   align-items: top;
   box-sizing: border-box;
@@ -15,7 +15,6 @@ const MainSnsPostWrap = styled.div`
   .snsImgList {
     width: 100%;
     display: flex;
-    flex-wrap: no-wrap;
     overflow-x: auto;
     ::-webkit-scrollbar {
       height: 16px;
@@ -30,9 +29,7 @@ const MainSnsPostWrap = styled.div`
   }
 `;
 
-export { MainSnsPostWrap };
-
-const UserProfileImg = styled.img`
+export const UserProfileImg = styled.img`
   object-fit: cover;
   margin-right: 10px;
   border-radius: 50%;
@@ -41,9 +38,7 @@ const UserProfileImg = styled.img`
   border: 0.5px solid ${palette.연연회색};
 `;
 
-export { UserProfileImg };
-
-const SnsPostBox = styled.div`
+export const SnsPostBox = styled.div`
   box-sizing: border-box;
   width: 290px;
   background: #fff;
@@ -51,9 +46,7 @@ const SnsPostBox = styled.div`
   flex-direction: column;
 `;
 
-export { SnsPostBox };
-
-const SnsPostContent = styled.p`
+export const SnsPostContent = styled.p`
   margin: 15px 0px;
   font-weight: 300;
   font-size: 13px;
@@ -61,10 +54,7 @@ const SnsPostContent = styled.p`
   white-space: initial;
 `;
 
-export { SnsPostContent };
-
-const SnsIdWrap = styled.div`
-  left: 0;
+export const SnsIdWrap = styled.div`
   box-sizing: border-box;
   height: 14px;
   background: #fff;
@@ -85,27 +75,17 @@ const SnsIdWrap = styled.div`
   }
 `;
 
-export { SnsIdWrap };
-
-const IconWrap = styled.div`
+export const IconWrap = styled.div`
   display: flex;
   font-weight: 400;
   font-size: 8px;
   line-height: 12px;
   margin: 8px 0px;
-  align-items: center;
-  vertical-align: bottom;
-  z-index: 10;
 
   > button {
     cursor: pointer;
   }
-  .test {
-    flex-grow: 1;
-  }
 `;
-
-export { IconWrap };
 
 export const CommentBtnWrap = styled.div`
   box-sizing: border-box;
@@ -113,8 +93,6 @@ export const CommentBtnWrap = styled.div`
   display: flex;
   align-items: center;
   margin-right: 10px;
-  flex-grow: 1;
-  z-index: 10;
   span {
     font-size: 11px;
     color: ${palette.중간회색};
@@ -127,9 +105,7 @@ export const ImgListDiv = styled.div`
     height: 340px;
     margin: 4px;
     object-fit: cover;
-    object-position: center;
     border-radius: 15px;
     border: 0.5px solid #dbdbdb;
-    vertical-align: top;
   }
 `;
