@@ -151,7 +151,7 @@ export const SnsPageSec = styled.section`
     align-items: center;
   }
   .SnsText {
-    margin-top: 20px;
+    margin-top: 150px;
     font-size: 15px;
     line-height: 25px;
     margin-bottom: 20px;
