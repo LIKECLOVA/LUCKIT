@@ -8,8 +8,7 @@ export const PostDetailWrap = styled.div`
   background-color: ${palette.연중회색};
 `;
 
-const SnsPostModalWrap = styled.div`
-  align-items: left;
+export const SnsPostModalWrap = styled.div`
   box-sizing: border-box;
   width: 95%;
   height: 95%;
@@ -20,7 +19,6 @@ const SnsPostModalWrap = styled.div`
   background: #fff;
   display: flex;
   flex-direction: column;
-  z-index: 20;
   box-shadow: 0 1px 5px #c5c5c5;
   border-radius: 15px;
   overflow: hidden;
@@ -35,28 +33,21 @@ const SnsPostModalWrap = styled.div`
   }
   .closeArt {
     position: absolute;
-    z-index: 30;
     width: 100%;
     height: 24px;
     background-color: ${palette.연두색};
   }
 `;
 
-export { SnsPostModalWrap };
-
-const CommentInp = styled.input`
-  align-items: left;
+export const CommentInp = styled.input`
   box-sizing: border-box;
   width: 100%;
   height: 10%;
   padding-top: 11px;
   background: ${palette.연두색};
-  z-index: 10;
   border: none;
   border-top: 1px solid ${palette.연중회색};
 `;
-
-export { CommentInp };
 
 export const CloseBtn = styled.button`
   box-sizing: border-box;
@@ -66,7 +57,6 @@ export const CloseBtn = styled.button`
   position: absolute;
   width: 12px;
   height: 12px;
-  padding: 0px;
   right: 14px;
   top: 10px;
 `;
