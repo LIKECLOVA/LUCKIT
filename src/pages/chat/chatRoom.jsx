@@ -1,5 +1,5 @@
 import React from 'react';
-import { HelmetProvider, Helmet } from 'react-helmet-async'
+import { HelmetProvider, Helmet } from 'react-helmet-async';
 import { ChatRoomHeader } from '../../components/header/header';
 import { ChatRoomWrap, LeftChatTxT, RightChatTxT, ChatInput, ChatInputWrap } from './chatroomstyle';
 import molang from '../../assets/icon/몰랑이.png';
@@ -9,18 +9,18 @@ export const ChatRoom = () => {
   const LeftText = ({ chatTxT }) => {
     return (
       <>
-      <HelmetProvider>
-      <Helmet>
-        <title>LUCKIT - 몰랑이님과의 채팅 </title>
-        <meta name='description' content='럭킷 채팅 페이지입니다. 럭킷메이트들과 대화를 나눠보세요!'/>
-        </Helmet>
-    </HelmetProvider>
-      <LeftChatTxT>
-        <div className='imgwrap'>
-          <img src={molang} alt='유저이미지' />
-        </div>
-        <div className='txtwrap'>{chatTxT}</div>
-      </LeftChatTxT>
+        <HelmetProvider>
+          <Helmet>
+            <title>LUCKIT - 몰랑이님과의 채팅 </title>
+            <meta name='description' content='럭킷 채팅 페이지입니다. 럭킷메이트들과 대화를 나눠보세요!' />
+          </Helmet>
+        </HelmetProvider>
+        <LeftChatTxT>
+          <div className='imgwrap'>
+            <img src={molang} alt='유저이미지' />
+          </div>
+          <div className='txtwrap'>{chatTxT}</div>
+        </LeftChatTxT>
       </>
     );
   };
@@ -36,7 +36,7 @@ export const ChatRoom = () => {
   return (
     <>
       <ChatRoomWrap>
-        <ChatRoomHeader />
+        <ChatRoomHeader nickName={'몰랑이'} />
         <LeftText chatTxT={'럭킷 매칭 신청하신 거 보고 연락드려요! ㅎㅎ 몰랑이 팝업 스토어 같이 가실래용?'} />
         <RightText chatTxT={'안녕하세요! 너무 좋아요! ㅎㅎ'} />
         <LeftText chatTxT={'그러면 내일 5시 어떠세요!? 더현대 지하 1층 팝업존 앞에서 봬요!'} />

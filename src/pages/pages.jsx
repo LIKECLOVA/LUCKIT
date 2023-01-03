@@ -24,9 +24,10 @@ import { MarketPost } from './market/marketPost.jsx';
 import { MarketUpload } from '../components/market-post/marketUpload/marketUpload';
 import { MarketUpdate } from '../components/market-post/marketUpdate/marketUpdate';
 import RecommendMap from './map/map.jsx';
-import {Error} from './404-error/errorPage.jsx';
+import { Error } from './404-error/errorPage.jsx';
 import { PrivateRoute, PublicRoute } from '../Route';
 import Start from './start/start.jsx';
+import { ChatRoomSec } from './chat/chatRoomSec.jsx';
 
 const Pages = () => {
   const [loading, setLoading] = useState(false);
@@ -132,6 +133,14 @@ const MainPages = () => {
         }
       ></Route>
       <Route
+        path='/chatroom/2'
+        element={
+          <PrivateRoute>
+            <ChatRoomSec />
+          </PrivateRoute>
+        }
+      ></Route>
+      <Route
         path='/myfollow'
         element={
           <PrivateRoute>
@@ -195,11 +204,11 @@ const MainPages = () => {
           </PrivateRoute>
         }
       ></Route>
-       <Route
+      <Route
         path='/map'
         element={
           <PrivateRoute>
-            <RecommendMap/>
+            <RecommendMap />
           </PrivateRoute>
         }
       ></Route>
