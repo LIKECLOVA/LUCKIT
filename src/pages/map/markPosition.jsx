@@ -3,6 +3,11 @@ import 집꾸미기 from '../../assets/icon/집꾸미기.webp';
 import 산책 from '../../assets/icon/산책.webp';
 import 몰랑 from '../../assets/icon/몰랑.gif';
 import 맛집 from '../../assets/icon/맛집.jpeg';
+import 아이언맨 from '../../assets/icon/아이언맨.jpeg';
+import 영화 from '../../assets/icon/영화.webp';
+import 러닝 from '../../assets/icon/러닝.jpeg';
+import 자전거 from '../../assets/icon/자전거.jpeg';
+import 제과제빵 from '../../assets/icon/제과제빵.jpeg';
 
 export const positions = [
   {
@@ -36,5 +41,45 @@ export const positions = [
     latlng: { lat: 37.51158067259524, lng: 127.0739720326137 },
     img: 몰랑,
     page: 'https://place.map.kakao.com/21160812'
+  },
+  {
+    id: 4,
+    location: '피규어뮤지엄w',
+    title: '마블피규어 모임',
+    latlng: { lat: 37.525774214033795 , lng: 127.04039253627407},
+    img: 아이언맨,
+    page: 'https://place.map.kakao.com/26524097'
+  },
+  {
+    id: 5,
+    location: 'CGV 청담씨네시티',
+    title: '영화감상모임',
+    latlng: { lat: 37.522887599702784, lng: 127.03704250510769 },
+    img: 영화,
+    page: 'https://place.map.kakao.com/14718298'
+  },
+  {
+    id: 6,
+    location: '도곡역 1번출구',
+    title: '운동모임',
+    latlng: { lat: 37.4909400501528, lng: 127.05482485105486 },
+    img: 러닝,
+    page: 'https://place.map.kakao.com/22905589'
+  },
+  {
+    id: 7,
+    location: '잠원한강공원',
+    title: '사이클 모임',
+    latlng: { lat: 37.526919299925545, lng: 127.01937355463978 },
+    img: 자전거,
+    page: 'https://place.map.kakao.com/17384905'
+  },
+  {
+    id: 8,
+    location: '청담역 11번출구',
+    title: '제과제빵 모임',
+    latlng: { lat: 37.51933641525569, lng: 127.05220431686571 },
+    img: 제과제빵,
+    page: 'https://place.map.kakao.com/10850542'
   },
 ];
