@@ -13,7 +13,7 @@ export const H2 = styled.h2`
 
 export const SearchMain = styled.main`
   margin-top: 55px;
-  padding: 15px 15px 100px;
+  padding: 15px 12px 100px;
   height: 100%;
   overflow: auto;
   -ms-overflow-style: none;
@@ -39,7 +39,7 @@ export const AuthorImgNavLink = styled(NavLink)`
     margin-right: 10px;
     border-radius: 50%;
     vertical-align: top;
-    border: 1px solid #eaeaea;
+    border: 1px solid ${palette.연연회색};
   }
 `;
 

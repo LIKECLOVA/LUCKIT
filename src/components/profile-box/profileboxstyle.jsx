@@ -4,11 +4,12 @@ import { palette } from '../../styles/global/globalColor';
 
 export const ProfileInfoWrap = styled.section`
   margin: 65px 0 25px;
+
   width: 100%;
   min-height: 170px;
   padding: 10px;
   background-color: #fbfbfb;
-  box-shadow: 0px -12px 0 0px #f0fae4;
+  box-shadow: 0px -8px 0 0px #f0fae4;
   border-radius: 25px;
   border: 1px solid #f2f2f2;
 
@@ -37,7 +38,7 @@ export const ProfileInfoBox = styled.div`
     border-radius: 50%;
     object-fit: cover;
     object-position: center;
-    box-shadow: 0 1px 10px #eaeaea;
+    box-shadow: 0 1px 10px ${palette.연연회색};
   }
 `;
 
@@ -103,7 +104,7 @@ export const IsFollowButton = styled.button`
     return isFollow
       ? css`
           background-color: white;
-          border: 0.5px solid #dbdbdb;
+          border: 0.5px solid ${palette.연중회색};
           color: ${palette.내부텍스트};
         `
       : css`

@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const MarketPreviewBoxWrap = styled.section`
   height: 186px;
-  margin: 0 0 30px;
+  margin: 0 0 20px;
 
   h2 {
     position: absolute;
@@ -34,10 +34,10 @@ export const HeadingWrap = styled.div`
 export const MarketPostWrap = styled.ul`
     display: flex;
     flex-wrap: nowrap;
-    gap: 10px;
+    gap: 9px;
     margin-top: 15px;
-    /* overflow-y: hidden;
-    overflow-x: auto; */
+    overflow-y: hidden;
+    overflow-x: auto;
     ::-webkit-scrollbar {
     height: 1.4rem;
     }
@@ -64,7 +64,7 @@ export const MarketPostWrap = styled.ul`
         p {
             font-size: 14px;
             color: rgba(0, 0, 0, 0.5)
-    font-weight: 300;
+            font-weight: 300;
         }
     }
 `;

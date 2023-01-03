@@ -8,9 +8,11 @@ export const NavWrap = styled.nav`
   bottom: 0px;
   width: 100%;
   height: 58px;
+
   /* border-top: 1px solid #ebebeb; */
   box-shadow: 0px 0px 3px 0px #d7d7d7;
   border-radius: 25px 25px 0 0;
+
   padding: 10px 0 8px;
   z-index: 50;
 

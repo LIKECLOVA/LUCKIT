@@ -30,7 +30,11 @@ export const MarketPreviewPost = () => {
         <h3>
           <strong>{username}</strong>님이 찾는 럭킷 메이트✨
         </h3>
-        {id === myAccountName ? <ProfilePostUploadBtn pathName='/upload' /> : <></>}
+
+        {id === myAccountName ?
+        <ProfilePostUploadBtn pathName='/upload' />
+        : null }
+
       </HeadingWrap>
       <MarketPostWrap>
         {product.length === 0 && (
