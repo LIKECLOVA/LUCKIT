@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
+import { HelmetProvider, Helmet } from 'react-helmet-async'
 import { FollowPageUl, FollowPageWrap } from './followstyle';
 import { FollowerHeader } from '../../components/header/header';
 import { Follow } from '../../components/follow/follow';
@@ -48,6 +49,12 @@ export const MyFollow = () => {
 
   return (
     <>
+    <HelmetProvider>
+      <Helmet>
+        <title>LUCKIT - Fllow 조회 </title>
+        <meta name='description' content='럭킷 팔로우 페이지입니다. 팔로우한 럭킷 메이트들을 확인해보세요!'/>
+        </Helmet>
+    </HelmetProvider>
       <FollowerHeader target={target}/>
       <FollowPageWrap>
         <FollowPageUl>
