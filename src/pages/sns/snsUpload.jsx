@@ -1,10 +1,19 @@
-import React, { useState, useRef ,useEffect} from 'react'
-import axios from 'axios'
+import React, { useState, useRef, useEffect } from 'react';
+import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import { HelmetProvider, Helmet } from 'react-helmet-async'
-import { SnsUploadSec, SnsUploadImg, SnsTextLable, SnsTextInput, FileUploader,FileInput, SingleImg, DeleteBtn, Img } from './snsstyle';
-import {PostUploadHeader} from '../../components/header/header'
-
+import { HelmetProvider, Helmet } from 'react-helmet-async';
+import {
+  SnsUploadSec,
+  SnsUploadImg,
+  SnsTextLable,
+  SnsTextInput,
+  FileUploader,
+  FileInput,
+  SingleImg,
+  DeleteBtn,
+  Img,
+} from './snsstyle';
+import { PostUploadHeader } from '../../components/header/header';
 
 export const SnsUpload = () => {
   const token = localStorage.getItem('Access Token');
@@ -13,27 +22,27 @@ export const SnsUpload = () => {
   const [showImg, setShowImg] = useState([]);
   const [postImg, setPostImg] = useState([]);
   const [uploadBtn, SetuploadBtn] = useState(true);
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
 
   const data = {
-    'post': {
-      'content': '',
-      'image': ''
-    }
+    post: {
+      content: '',
+      image: '',
+    },
+  };
+
+  /* 이미지 업로드 함수 */
+  async function ImgUpload(userImg) {
+    const formData = new FormData();
+    const URL = 'https://mandarin.api.weniv.co.kr/';
+
+    formData.append('image', userImg);
+    const res = await axios.post('https://mandarin.api.weniv.co.kr/image/uploadfile', formData);
+
+    const Imgup = URL + res.data.filename;
+
+    return Imgup;
   }
-
-/* 이미지 업로드 함수 */
-async function ImgUpload(userImg) {
-  const formData = new FormData()
-  const URL = 'https://mandarin.api.weniv.co.kr/';
-  
-  formData.append('image', userImg)
-  const res = await axios.post('https://mandarin.api.weniv.co.kr/image/uploadfile', formData)
-  
-  const Imgup= URL + res.data.filename;
-
-  return Imgup;
-}
 
   /* 이미지 띄워주는 함수 */
   const handleAddImg = (e) => {
@@ -48,14 +57,13 @@ async function ImgUpload(userImg) {
 
       if (TotalfileSize > maxSize) {
         alert('첨부파일의 총 사이즈는 10MB 이내로 등록 가능합니다.');
-        return
-      }
-      else{
-      const currentImgURL = URL.createObjectURL(fileArr[i]);
+        return;
+      } else {
+        const currentImgURL = URL.createObjectURL(fileArr[i]);
 
-      fileURLs.push(currentImgURL);
+        fileURLs.push(currentImgURL);
 
-      files.push(fileArr[i]);
+        files.push(fileArr[i]);
       }
     }
 
@@ -67,16 +75,22 @@ async function ImgUpload(userImg) {
 
     setPostImg(files);
     setShowImg(fileURLs);
-  }
-
-
-/* 이미지 삭제함수 */
-  const handleDeleteImg = (id) => {
-    setShowImg(showImg.filter((_, index) => {return(index !== id)}));
-
-    setPostImg(postImg.filter((_, index) => {return(index !== id)}));
   };
 
+  /* 이미지 삭제함수 */
+  const handleDeleteImg = (id) => {
+    setShowImg(
+      showImg.filter((_, index) => {
+        return index !== id;
+      })
+    );
+
+    setPostImg(
+      postImg.filter((_, index) => {
+        return index !== id;
+      })
+    );
+  };
 
   /* 게시글 업로드 함수 */
   async function handlePostSns() {
@@ -85,77 +99,86 @@ async function ImgUpload(userImg) {
     const snsImgList = [];
 
     for (let i = 0; i < postImg?.length; i++) {
-      const img =ImgUpload(postImg[i]);
- 
+      const img = ImgUpload(postImg[i]);
+
       snsImgList.push(img);
-         
     }
-    const SnsImgs = await Promise.all(snsImgList)
+    const SnsImgs = await Promise.all(snsImgList);
 
     data.post.image = SnsImgs.join(',');
     data.post.content = content;
 
     try {
-      await axios.post(URL + REQ_PATH, data, {
-        headers: {
-          'Authorization': `Bearer ${token}`,
-          'Content-type': 'application/json'
-        },
-      })
-      .then(navigate(-1))
-    }
-    catch (error) {
+      await axios
+        .post(URL + REQ_PATH, data, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+            'Content-type': 'application/json',
+          },
+        })
+        .then(navigate(-1));
+    } catch (error) {
       console.log(error);
     }
   }
 
   useEffect(() => {
     if (content.length === 0 && postImg.length === 0) {
-      SetuploadBtn(false);  
-    }
-    else {
+      SetuploadBtn(false);
+    } else {
       SetuploadBtn(true);
     }
-  }, [content, postImg])
+  }, [content, postImg]);
 
   return (
     <>
-    <HelmetProvider>
-      <Helmet>
-        <title>LUCKIT - Sns게시글 업로드</title>
-        <meta name='description' content='럭킷 게시글 업로드페이지입니다. 멋진 게시글을 업로드해보세요! '/>
+      <HelmetProvider>
+        <Helmet>
+          <title>LUCKIT - SNS 게시글 업로드</title>
+          <meta name='description' content='럭킷 게시글 업로드페이지입니다. 멋진 게시글을 업로드해보세요! ' />
         </Helmet>
-    </HelmetProvider>
-    <PostUploadHeader handlePostSns={handlePostSns} disabled={uploadBtn ? null : 'disabled'}/>
+      </HelmetProvider>
+      <PostUploadHeader handlePostSns={handlePostSns} disabled={uploadBtn ? null : 'disabled'} />
 
-    <SnsUploadSec>
-    <SnsTextLable htmlFor='snspost' />
-      <SnsTextInput 
-          name='snspost' 
-          id='snspost' 
-          placeholder='게시글 입력하기 ...' 
-          value={content} 
-          onChange={(e) => { setContent(e.target.value) 
-          }} />
-      <SnsUploadImg>
-      {
-        showImg.length === 1 ?
-            showImg.map((image, id) => {return(
-              <div key={id} >
-                <SingleImg key={id} src={image} />
-                <DeleteBtn onClick={() => {return handleDeleteImg(id)}} />
-              </div>
-            )})
-            :
-            showImg.map((image, id) => {return(
-              <div key={id} >
-                <Img key={id} src={image} />
-                <DeleteBtn onClick={() => {return handleDeleteImg(id)}} />
-              </div>
-            )})
-      }
-      </SnsUploadImg>
-      <FileUploader htmlFor='input-file'>
+      <SnsUploadSec>
+        <SnsTextLable htmlFor='snspost' />
+        <SnsTextInput
+          name='snspost'
+          id='snspost'
+          placeholder='게시글 입력하기 ...'
+          value={content}
+          onChange={(e) => {
+            setContent(e.target.value);
+          }}
+        />
+        <SnsUploadImg>
+          {showImg.length === 1
+            ? showImg.map((image, id) => {
+                return (
+                  <div key={id}>
+                    <SingleImg key={id} src={image} />
+                    <DeleteBtn
+                      onClick={() => {
+                        return handleDeleteImg(id);
+                      }}
+                    />
+                  </div>
+                );
+              })
+            : showImg.map((image, id) => {
+                return (
+                  <div key={id}>
+                    <Img key={id} src={image} />
+                    <DeleteBtn
+                      onClick={() => {
+                        return handleDeleteImg(id);
+                      }}
+                    />
+                  </div>
+                );
+              })}
+        </SnsUploadImg>
+        <FileUploader htmlFor='input-file'>
           <FileInput
             id='input-file'
             name='PostingImg'
@@ -166,6 +189,7 @@ async function ImgUpload(userImg) {
             ref={fileInput}
           />
         </FileUploader>
-    </SnsUploadSec>
+      </SnsUploadSec>
     </>
-  )};
+  );
+};
