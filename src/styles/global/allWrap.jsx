@@ -11,7 +11,7 @@ export const Bg = styled.div`
   width: 100%;
   height: 100vh;
   @media screen and (max-width: 768px) {
-    background: #dbdbdb;
+    background: #fff;
   }
 `;
 
