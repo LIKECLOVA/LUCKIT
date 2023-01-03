@@ -149,7 +149,7 @@ export const SnsPageSec = styled.section`
     align-items: center;
   }
   .SnsText {
-    margin-top: 180px;
+    margin-top: 20px;
     font-size: 15px;
     line-height: 25px;
     margin-bottom: 20px;

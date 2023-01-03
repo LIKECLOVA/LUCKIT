@@ -11,8 +11,6 @@ export const CommentListWrapper = styled.section`
 export const CommentListContainer = styled.ul`
   display: flex;
   flex-direction: column-reverse;
-  max-width: 100%;
-  margin: 0 auto;
 `;
 
 export const CommentListLi = styled.li`
