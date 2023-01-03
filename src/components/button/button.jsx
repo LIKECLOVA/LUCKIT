@@ -13,6 +13,14 @@ export const NextBtn = ({ size, onClick, disabled }) => {
   );
 };
 
+export const ProfileNextBtn = ({ size, onClick, disabled }) => {
+  return (
+    <Button disabled={disabled} onClick={onClick} size={size}>
+      나의 럭킷 메이트 찾으러 가기!
+    </Button>
+  );
+};
+
 export const FollowBtn = ({ size, onClick, isFollow }) => {
   return (
     <FollowButton isFollow={isFollow} onClick={onClick} size={size}>

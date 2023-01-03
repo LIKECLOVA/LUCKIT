@@ -5,7 +5,7 @@ const setSize = (size) => {
   switch (size) {
     case 'large':
       return css`
-        width: 280px;
+        width: 340px;
         padding: 12px 0;
         font-size: 14px;
         line-height: 18px;
