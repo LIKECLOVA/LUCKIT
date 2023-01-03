@@ -9,11 +9,11 @@ import {
   ImgListDiv,
   SnsPostContent,
   CommentBtnWrap,
-} from './mainpoststyle';
+} from './mainsnspoststyle';
 import { MoreBtn } from '../button/iconBtn';
 import DefaultUserImg from '../../assets/icon/basic-profile-img-.png';
 import CommentIcon from '../../assets/icon/icon-message-circle.svg';
-import HeartBtn from '../button/heart/heartBtn';
+import HeartBtn from '../button/heartBtn/heartBtn';
 
 const onErrorImg = (e) => {
   e.target.src = DefaultUserImg;

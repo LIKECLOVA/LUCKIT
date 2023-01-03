@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
-import { AddBtn, BackArrowBtn, IconBtn, MarketMoreBtn, PostUploadImg, SnsMoreBtn, CommentBtn } from './iconBtnstyle';
+import { AddBtn, BackArrowBtn, IconBtn, MarketMoreBtn, PostUploadImg, SnsMoreBtn, CommentBtn } from './iconbtnstyle';
 import moreBtn from '../../assets/icon/s-icon-more-vertical.png';
 import imgBtn from '../../assets/icon/upload-file.png';
 import { CommentModal, MarketPreviewModal, SnsPostModal } from '../modal/modal';

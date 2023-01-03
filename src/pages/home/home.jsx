@@ -11,7 +11,7 @@ export const Home = () => {
   const accountName = localStorage.getItem("Account Name");
   const dispatch = useDispatch();
   const followingData = useSelector(state => state.followInfoSlice.followData);
-  const followimgURL = `https://mandarin.api.weniv.co.kr/profile/${accountName}/following?limit=100`
+  const followimgURL = `https://mandarin.api.weniv.co.kr/profile/${accountName}/following?limit=1000`
 
   useEffect(()=>{
     dispatch(AxiosFollow(followimgURL))

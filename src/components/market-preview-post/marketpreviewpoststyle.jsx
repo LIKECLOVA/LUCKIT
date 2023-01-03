@@ -63,7 +63,7 @@ export const MarketPostWrap = styled.ul`
 
         p {
             font-size: 14px;
-            color: rgba(0, 0, 0, 0.5)
+            color: rgba(0, 0, 0, 0.5);
             font-weight: 300;
         }
     }
