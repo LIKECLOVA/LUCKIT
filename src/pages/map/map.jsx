@@ -35,7 +35,7 @@ const RecommendMap = () => {
         {positions.map((v,index) => {
           return (
               <EventMarkerContainer
-                key={crypto.randomUUID()}
+                key={v.id}
                 onClick={ ()=> {setSeleteMarker(v.id) } }
                 isClicked={selectedMarker === index}
                 position={v.latlng}
