@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import { HelmetProvider, Helmet } from 'react-helmet-async'
-import { Follow } from '../../components/follow/follow'
+import { HelmetProvider, Helmet } from 'react-helmet-async';
+import { Follow } from '../../components/follow/follow';
 import { FollowPageWrap, FollowPageUl } from './followstyle';
 import { FollowerHeader } from '../../components/header/header';
 
@@ -48,22 +48,24 @@ export const YourFollow = () => {
 
   return (
     <>
-    <HelmetProvider>
-      <Helmet>
-        <title>LUCKIT - Fllow 조회 </title>
-        <meta name='description' content='럭킷 팔로우 페이지입니다. 럭킷들이 팔로우한 럭킷 메이트들을 확인해보세요!'/>
+      <HelmetProvider>
+        <Helmet>
+          <title>LUCKIT - Follow </title>
+          <meta
+            name='description'
+            content='럭킷 팔로우 페이지입니다. 럭킷들이 팔로우한 럭킷 메이트들을 확인해보세요!'
+          />
         </Helmet>
-    </HelmetProvider>
-      <FollowerHeader target={target}/>
+      </HelmetProvider>
+      <FollowerHeader target={target} />
       <FollowPageWrap>
         <FollowPageUl>
-         {/* 조건부 렌더링. Follow에 내려주는 프롭스 값이 다름 */}
-         {target === 'followers' ? 
-            followerList.map((user) => {
+          {/* 조건부 렌더링. Follow에 내려주는 프롭스 값이 다름 */}
+          {target === 'followers'
+            ? followerList.map((user) => {
                 return <Follow user={user} key={user._id} />;
               })
-            : 
-            followingList.map((user) => {
+            : followingList.map((user) => {
                 return <Follow user={user} key={user._id} />;
               })}
         </FollowPageUl>
