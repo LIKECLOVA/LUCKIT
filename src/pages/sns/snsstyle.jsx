@@ -199,6 +199,14 @@ const SnsPageSec = styled.section`
   .SnsDefalutPage {
     align-items: center;
   }
+
+  p {
+    margin-top: 180px;
+    font-size: 15px;
+    line-height: 25px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
 `;
 
 export { SnsPageSec };

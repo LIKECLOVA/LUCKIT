@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import axios from 'axios';
 import { NavLink } from 'react-router-dom';
-import { HelmetProvider, Helmet } from 'react-helmet-async'
+import { HelmetProvider, Helmet } from 'react-helmet-async';
 import { useInView } from 'react-intersection-observer';
 import { useSelector, useDispatch } from 'react-redux';
 import MainSnsPost from '../../components/mainpost/mainSnsPost';
@@ -86,12 +86,12 @@ export const SnsPage = () => {
 
   return (
     <>
-    <HelmetProvider>
-      <Helmet>
-        <title>LUCKIT - Sns피드</title>
-        <meta name='description' content='럭킷 Sns피드입니다. 럭킷메이트들의 새로운 소식을 확인해보세요! '/>
+      <HelmetProvider>
+        <Helmet>
+          <title>LUCKIT - Sns피드</title>
+          <meta name='description' content='럭킷 Sns피드입니다. 럭킷메이트들의 새로운 소식을 확인해보세요! ' />
         </Helmet>
-    </HelmetProvider>
+      </HelmetProvider>
       {isLoading ? (
         <Loading />
       ) : (
@@ -118,7 +118,11 @@ export const SnsPage = () => {
           </SnsPageArt>
           {followList.length === 0 ? (
             <SnsPageSec className='SnsDefalutPage'>
-              <h1>럭킷들을 팔로우하고 소식을 받아보세요!</h1>
+              <p>
+                럭킷들을 팔로우하고
+                <br />
+                다양한 소식을 받아보세요!
+              </p>
               <NavLink to='/search'>
                 <SearchBtn size='middle' />
               </NavLink>
