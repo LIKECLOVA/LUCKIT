@@ -56,8 +56,8 @@ export const Follow = ({ user }) => {
       <FollowInfoWrap onClick={goYourProfile}>
         <img onError={onErrorImg} src={user.image} alt='프로필사진' />
         <div>
-          <p className='userAccount'>{user.accountname}</p>
-          <p className='userIntro'>{user.intro}</p>
+          <p className='userAccount'>{user.username}</p>
+          <p className='userIntro'>{user.accountname}</p>
         </div>
       </FollowInfoWrap>
       {user.accountname !== myAccountName ? 
