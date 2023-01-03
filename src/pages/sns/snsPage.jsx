@@ -109,7 +109,7 @@ export const SnsPage = () => {
               {}
             </ul>
           </SnsPageArt>
-          {followList.length === 1 ? (
+          {followList.length === 0 ? (
             <SnsPageSec className='SnsDefalutPage'>
               <h1>새로운 럭킷을 찾아보세요!</h1>
               <NavLink to='/search'>
