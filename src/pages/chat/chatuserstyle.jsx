@@ -48,9 +48,12 @@ export const ChatInfoWrap = styled.div`
 
   .userId {
     font-size: 14px;
+    line-height: 16px;
   }
+
   .userChat {
     font-size: 12px;
+    line-height: 15px;
     margin-top: 8px;
     color: #969696;
   }
@@ -62,11 +65,11 @@ export const NewChat = styled.div`
   border-radius: 20px;
   width: 23px;
   height: 15px;
-  top: 95px;
+  top: 100px;
   left: 342px;
   font-size: 10px;
   text-align: center;
-  padding-top: 2px;
+  padding-top: 4px;
   color: white;
 `;
 
@@ -76,10 +79,10 @@ export const SecChat = styled.div`
   border-radius: 20px;
   width: 23px;
   height: 15px;
-  top: 175px;
+  top: 180px;
   left: 342px;
   font-size: 10px;
   text-align: center;
-  padding-top: 2px;
+  padding-top: 4px;
   color: white;
 `;
