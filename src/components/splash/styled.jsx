@@ -9,23 +9,24 @@ export const Envelope = styled.main`
     font-weight: normal;
     font-style: normal;
   }
-  animation: fadein 2s;
-  @keyframes fadein {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
+  animation: intro 2s;
+  @keyframes intro {
+  from {
+    opacity: 0;
+    top: 0;
   }
-
+  to {
+    opacity: 1;
+    top: 50%;
+  }
+}
   
   .envbox {
     display: inline-block;
     position: absolute;
     bottom: 100px;
-    width: 98%;
-    left: 1%;
+    width: 360px;
+    left: 4%;
 
     animation: vertical-wait2 1.45s ease infinite;
 }

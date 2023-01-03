@@ -43,7 +43,7 @@ export const Envelope = styled.main`
   .env .content {
     width: 95%;
     margin-bottom: 500px;
-    padding: 10px 20px;
+    padding: 20px;
     height: 90vmax;
     right: 10px;
     top: 45px;
