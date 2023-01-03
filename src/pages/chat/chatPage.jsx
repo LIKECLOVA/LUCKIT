@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { HelmetProvider, Helmet } from 'react-helmet-async'
 import { ProfileAndChatHeader } from '../../components/header/header';
 import { ChatList, ChatPageUl, ChatPageWrap } from './chatpagestyle';
 import ChatUser from './chatUser';
@@ -14,6 +15,12 @@ import { NewChat, SecChat } from './chatuserstyle';
 export const ChatPage = () => {
   return (
     <>
+    <HelmetProvider>
+      <Helmet>
+        <title>LUCKIT - 채팅 </title>
+        <meta name='description' content='럭킷 채팅 페이지입니다. 럭킷메이트들과 대화를 나눠보세요!'/>
+        </Helmet>
+    </HelmetProvider>
       <ProfileAndChatHeader />
       <ChatPageWrap>
         <ChatPageUl>

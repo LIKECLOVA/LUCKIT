@@ -1,5 +1,6 @@
 import { Map } from 'react-kakao-maps-sdk';
 import React, { useState } from 'react';
+import { HelmetProvider, Helmet } from 'react-helmet-async'
 import { ProfileAndChatHeader } from '../../components/header/header';
 import { positions } from './markPosition';
 import EventMarkerContainer from './eventMarker';
@@ -10,6 +11,12 @@ const RecommendMap = () => {
 
   return (
     <>
+    <HelmetProvider>
+      <Helmet>
+        <title>LUCKIT - 럭킷 모임장소</title>
+        <meta name='description' content='럭킷 모임장소 조회페이지 입니다. 럭킷들과의 만남 장소를 찾아보세요! '/>
+        </Helmet>
+    </HelmetProvider>
       <ProfileAndChatHeader />
       <Map // 지도를 표시할 Container
         id={`map`}
