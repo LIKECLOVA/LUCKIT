@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useRef, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { NextBtn } from '../button/button';
+import { ProfileNextBtn } from '../button/button';
 import { ImgUploadBtn } from '../button/iconBtn';
 import {
   ProfileInput,
@@ -80,8 +80,6 @@ const JoinProfile = () => {
     }
   }, [userId]);
 
-  
-
   /* 아이디 이메일,소개글 input값 변경 함수 */
   const onChangeHandler = (event) => {
     if (event.target.name === 'userName') {
@@ -110,7 +108,6 @@ const JoinProfile = () => {
     },
   };
 
-
   /* 버튼 활성화 기능 */
   const possibleJoin = checkValidatedId && checkValidatedUserName;
 
@@ -129,11 +126,9 @@ const JoinProfile = () => {
           'Content-type': 'application/json',
         })
         .then((response) => navigate('/login'));
-    } 
-    else if (res.data.message === '이미 가입된 계정ID 입니다.') {
-        alert('이미 가입된 계정 ID 입니다')
-    } 
-    else {
+    } else if (res.data.message === '이미 가입된 계정ID 입니다.') {
+      alert('이미 가입된 계정 ID 입니다');
+    } else {
       alert('잘못된 접근입니다.');
     }
   };
@@ -143,7 +138,7 @@ const JoinProfile = () => {
       <JoinProfileWrap>
         <h2>반가워요!</h2>
         <p className='title'>프로필을 설정해볼까요?</p>
-        <p className='title'>나중에 언제든지 변경할 수 있습니다.</p>
+        <p className='title'>나중에 언제든지 변경할 수 있어요!</p>
         <div className='profileMidWrap'>
           <ProfileImgLabel htmlFor='joinProfileImg'>
             <img
@@ -186,7 +181,7 @@ const JoinProfile = () => {
         <ProfileLabel>To. 나의 럭킷에게</ProfileLabel>
         <ProfileTextarea onChange={onChangeHandler} value={intro} name='userInfo' style={{ resize: 'none' }} />
         <div className='buttonFlexBox'>
-          <NextBtn disabled={possibleJoin ? null : 'disabled'} onClick={join} size={'large'} />
+          <ProfileNextBtn disabled={possibleJoin ? null : 'disabled'} onClick={join} size={'large'} />
         </div>
       </JoinProfileWrap>
     </>

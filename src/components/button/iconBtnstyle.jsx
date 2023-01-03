@@ -19,7 +19,7 @@ const setPosition = (posi) => {
     case 'profileIn':
       return css`
         position: absolute;
-        bottom: 10px;
+        bottom: 40px;
         right: 10px;
       `;
     default:
@@ -30,10 +30,10 @@ const setPosition = (posi) => {
 /* 기본설정: 원형 */
 export const IconBtn = styled.button`
   right: 10px;
-  bottom: 70px;
+  bottom: 40px;
   z-index: 30;
-  width: 40px;
-  height: 40px;
+  width: 33px;
+  height: 33px;
   margin: 0px;
   padding: 0px;
   background-color: #ffffff;

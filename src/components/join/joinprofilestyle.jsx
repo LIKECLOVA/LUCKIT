@@ -7,15 +7,17 @@ export const JoinProfileWrap = styled.div`
 
   h2 {
     margin-top: 10px;
-    font-size: 40px;
+    font-size: 30px;
   }
   .title:nth-of-type(1) {
     font-size: 20px;
-    margin-top: 14px;
+    margin-top: 20px;
   }
   .title:nth-of-type(2) {
-    font-size: 20px;
+    font-size: 14px;
     margin-top: 14px;
+    font-weight: 300;
+    color: #979797;
   }
   // 컴포넌트 부분
   .profileMidWrap {
@@ -23,8 +25,8 @@ export const JoinProfileWrap = styled.div`
     display: flex;
     height: 140px;
     img {
-      width: 120px;
-      height: 120px;
+      width: 100px;
+      height: 100px;
       margin-right: 10px;
       object-fit: cover;
       border-radius: 50%;
@@ -66,7 +68,7 @@ export const ProfileLabel = styled.label`
 export const ProfileInput = styled.input`
   display: block;
   width: 100%;
-  height: 50px;
+  height: 40px;
   border-radius: 50px;
   padding: 10px 15px;
   border: none;
