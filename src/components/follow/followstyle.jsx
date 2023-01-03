@@ -14,7 +14,7 @@ export const FollowInfoWrap = styled.div`
   display: flex;
   align-items: center;
   cursor: pointer;
-  flex-grow:1;
+  flex-grow: 1;
   img {
     width: 60px;
     height: 60px;
@@ -35,6 +35,7 @@ export const FollowInfoWrap = styled.div`
   }
   .userIntro {
     font-size: 12px;
+    line-height: 16px;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;

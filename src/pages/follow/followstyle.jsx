@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { palette } from '../../styles/global/globalColor';
 
 export const FollowPageWrap = styled.div`
   margin: 60px 15px 0px;
@@ -7,6 +8,10 @@ export const FollowPageWrap = styled.div`
   padding-bottom: 80px;
   ::-webkit-scrollbar {
     display: none;
+  }
+
+  img {
+    border: 0.5px solid ${palette.연연회색};
   }
 `;
 

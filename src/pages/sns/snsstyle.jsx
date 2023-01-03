@@ -138,12 +138,14 @@ export const SnsPageSec = styled.section`
     display: none;
   }
   h1 {
+    text-align: center;
+    padding: 16px 0;
     margin: 10px 10px 30px 10px;
-    padding: 14px 60px;
     background-color: #edf8e1;
     color: #457907;
     border-radius: 20px;
     font-size: 14px;
+    width: 366px;
   }
   .SnsDefalutPage {
     align-items: center;
