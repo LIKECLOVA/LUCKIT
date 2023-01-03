@@ -6,12 +6,11 @@ import DefaultUserImg from '../../assets/icon/basic-profile-img-.png'
 
 export const Follow = ({ user }) => {
 
-  /* 받아오는 유저 정보에 따라 (follower인지 following인지) 바뀌는 컴포넌트 */
-
   const unfollowURL = `https://mandarin.api.weniv.co.kr/profile/${user.accountname}/unfollow`;
   const followURL = `https://mandarin.api.weniv.co.kr/profile/${user.accountname}/follow`;
   const token = localStorage.getItem('Access Token');
   const myAccountName = localStorage.getItem('Account Name');
+  const [isFollow, setIsFollow] = useState(user.isfollow);
   const navigate = useNavigate();
 
   const unfollow = async () => {
@@ -33,10 +32,8 @@ export const Follow = ({ user }) => {
     });
   };
 
-  /* follow 버튼 컴포넌트를 클릭했을때 텍스트,색상 변경함수 */
-  const [isFollow, setIsFollow] = useState(user.isfollow);
-  // 만약 팔로우가 되어있으면 언팔로우 요청, 팔로우가 안되어 있으면 팔로우 요청.
   const followToggle = () => {
+
     setIsFollow(!isFollow);
 
     if (isFollow === true) {

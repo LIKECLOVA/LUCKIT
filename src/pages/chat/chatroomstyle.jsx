@@ -49,7 +49,7 @@ export const RightChatTxT = styled.div`
       font-size: 12px;
       line-height: 20px;
     }
-  }
+  
 `;
 
 export const ChatInputWrap = styled.div`

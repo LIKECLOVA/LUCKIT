@@ -40,7 +40,7 @@ export const Envelope = styled.main`
   18.03279% { transform:translate(0,0) }
   100% { transform:translate(0,0) }
 }
-  }
+  
   .env {
     animation: envelope 2s;
     margin: 200px auto 0;
@@ -95,22 +95,6 @@ export const Envelope = styled.main`
       color: #1e9c21;
     }
   }
-  /* .env .top {
-    display: block;
-    width: 0;
-    height: 0;
-    top: 5px;
-    border: 200px solid transparent;
-    border-top-color: #b7da8f;
-    margin: 0 auto;
-    transform: scale(1.25, 1);
-    margin-bottom: -397px;
-    cursor: pointer;
-    transition: all 0.5s ease;
-    transform-origin: 50% 0;
-    position: relative;
-    border-radius: 10px;
-  } */
 `;
 
 export const Logo = styled.div`
