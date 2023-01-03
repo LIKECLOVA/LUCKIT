@@ -50,7 +50,7 @@ const JoinProfile = () => {
       setUserNameWarningMessage('2자~10자 이내여야 합니다.');
       setCheckValidatedUserName(false);
     } else if (userName === '') {
-      setUserNameWarningMessage('닉네임을 입력해주세요');
+      setUserNameWarningMessage('');
       setCheckValidatedUserName(false);
     } else {
       setUserNameWarningMessage('');
@@ -70,7 +70,7 @@ const JoinProfile = () => {
       setUserIDWarningMessage('영문, 숫자, 밑줄 및 마침표만 사용할 수 있습니다.');
       setCheckValidatedId(false);
     } else if (userId === '') {
-      setUserIDWarningMessage('아이디를 입력해주세요');
+      setUserIDWarningMessage('');
       setCheckValidatedId(false);
     } else {
       setUserIDWarningMessage('');
@@ -142,10 +142,6 @@ const JoinProfile = () => {
             <img
               src={profileImage}
               alt='프로필 사진'
-              onClick={(event) => {
-                event.preventDefault();
-                return fileInput.current.click();
-              }}
             />
             <ProfileImgInput onChange={postImg} ref={fileInput} type='file' id='joinProfileImg' />
             <ImgUploadBtn click={changeImg} posi='profileIn' />
