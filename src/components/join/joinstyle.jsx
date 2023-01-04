@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { palette } from '../../styles/global/globalColor';
 
 export const Envelope = styled.main`
-  @import url(//db.onlinewebfonts.com/c/298bfa6079855cc72b38f0cd35391e2f?family=Gmarket+Sans+TTF+Light);
+  @import url('https://db.onlinewebfonts.com/c/298bfa6079855cc72b38f0cd35391e2f?family=Gmarket+Sans+TTF+Light');
 
   @font-face {
     font-family: 'TmoneyRoundWindExtraBold';
