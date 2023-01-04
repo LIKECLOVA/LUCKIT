@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { HelmetProvider, Helmet } from 'react-helmet-async'
+import { Helmet } from 'react-helmet-async'
 import { ProfileAndChatHeader } from '../../components/header/header';
 import { MarketPreviewPost } from '../../components/market-preview-post/marketPreviewPost';
 import { ProfileBox } from '../../components/profile-box/profileBox';
@@ -51,12 +51,10 @@ export const Profile = () => {
 
   return (
     <>
-    <HelmetProvider>
       <Helmet>
         <title>LUCKIT - 럭킷 프로필</title>
         <meta name='description' content='럭킷 프로필페이지 입니다. 럭킷들의 프로필을 조회해보세요! '/>
         </Helmet>
-    </HelmetProvider>
       <ProfileAndChatHeader />
       <ProfileWrap>
         <ProfileBox />

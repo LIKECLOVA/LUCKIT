@@ -1,5 +1,5 @@
 import React from 'react';
-import { HelmetProvider, Helmet } from 'react-helmet-async';
+import { Helmet } from 'react-helmet-async';
 import { ChatRoomHeader } from '../../components/header/header';
 import { ChatRoomWrap, LeftChatTxT, RightChatTxT, ChatInput, ChatInputWrap } from './chatroomstyle';
 import molang from '../../assets/icon/몰랑이.png';
@@ -9,12 +9,10 @@ export const ChatRoom = () => {
   const LeftText = ({ chatTxT }) => {
     return (
       <>
-        <HelmetProvider>
           <Helmet>
             <title>LUCKIT - 몰랑이님과의 채팅 </title>
             <meta name='description' content='럭킷 채팅 페이지입니다. 럭킷메이트들과 대화를 나눠보세요!' />
           </Helmet>
-        </HelmetProvider>
         <LeftChatTxT>
           <div className='imgwrap'>
             <img src={molang} alt='유저이미지' />
