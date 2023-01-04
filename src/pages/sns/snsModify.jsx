@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { HelmetProvider, Helmet } from 'react-helmet-async';
+import { Helmet } from 'react-helmet-async';
 import {
   SnsUploadSec,
   SnsUploadImg,
@@ -155,12 +155,10 @@ export const SnsModify = () => {
 
   return (
     <>
-      <HelmetProvider>
         <Helmet>
           <title>LUCKIT - SNS 게시글 수정</title>
           <meta name='description' content='럭킷 게시글 수정 페이지입니다. 작성한 게시글을 수정해보세요!' />
         </Helmet>
-      </HelmetProvider>
       <PostUploadHeader handlePostSns={handlePostSns} disabled={uploadBtn ? null : 'disabled'} />
 
       <SnsUploadSec>

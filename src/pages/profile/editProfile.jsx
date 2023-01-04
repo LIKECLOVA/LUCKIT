@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { HelmetProvider, Helmet } from 'react-helmet-async'
+import { Helmet } from 'react-helmet-async'
 import { ProfileEditHeader } from '../../components/header/header';
 import { AxiosUserData, onChangeIntro, onChangeUserName, AxiosImgUpload} from '../../reducers/getUserInfoSlice';
 import {
@@ -67,12 +67,10 @@ export const EditProfile = () => {
 
   return (
     <>
-    <HelmetProvider>
       <Helmet>
         <title>LUCKIT - 프로필 설정</title>
         <meta name='description' content='럭킷 프로필설정 페이지입니다. 내 프로필을 설정해보세요! '/>
         </Helmet>
-    </HelmetProvider>
       <ProfileEditHeader onClick={profileSave} />
       <EditProfilePageWrap>
         <EditProfilePageUserInfo>

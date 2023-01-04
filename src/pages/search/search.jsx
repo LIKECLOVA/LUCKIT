@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { HelmetProvider, Helmet } from 'react-helmet-async'
+import { Helmet } from 'react-helmet-async'
 import { SearchHeader } from '../../components/header/header';
 import { NavBar } from '../../components/navbar/navBar';
 import { SearchListWrap, Span, Div, SearchResult, H2, SnsProfileWrap, AuthorNavLink, AuthorImgNavLink, NoResultTxt, DefaultWrap, SearchMain } from './searchstyle'
@@ -53,12 +53,10 @@ export const Search = () => {
 
   return (
     <>
-    <HelmetProvider>
       <Helmet>
         <title>LUCKIT - 럭킷 검색</title>
         <meta name='description' content='럭킷 검색 페이지입니다 취미 키워드를 넣어서 검색해보세요!'/>
         </Helmet>
-    </HelmetProvider>
       <SearchHeader value={keyword} onChange={onChange}/>
       <H2>검색 페이지</H2>
       <SearchMain>

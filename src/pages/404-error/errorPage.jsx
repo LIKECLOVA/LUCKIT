@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { HelmetProvider, Helmet } from 'react-helmet-async'
+import { Helmet } from 'react-helmet-async'
 import notFound from '../../assets/notFound.png';
 import { ProfileAndChatHeader } from '../../components/header/header';
 import { NavBar } from '../../components/navbar/navBar';
@@ -8,12 +8,10 @@ import { NavBar } from '../../components/navbar/navBar';
 export const Error = () => {
   return (
     <>
-    <HelmetProvider>
       <Helmet>
         <title>LUCKIT - error </title>
         <meta name='description' content='럭킷 에러페이지입니다.'/>
         </Helmet>
-    </HelmetProvider>
       <ProfileAndChatHeader />
       <NotFound />;
       <NavBar />;
