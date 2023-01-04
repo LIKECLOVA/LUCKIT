@@ -271,3 +271,124 @@ style : 공통 스타일드 컴포넌트, reset.css, 프로젝트 컬러 상수�
 - 좋아요 / 좋아요 취소 기능
 
 <br><br>
+<br>
+
+## 트러블 슈팅
+### 1. 회원가입 구현시 문제해결
+회원가입 기능 구현시 이메일과 패스워드를 입력하는 페이지, 프로필 설정을 하는 페이지를 구분해 놓았는데 api명세상 아이디,패스워드 페이지에서 이메일과 패스워드 값을 받아와 프로필 설정 페이지에서 값을 합쳐 서버에 보내야 했습니다.
+
+<img src="https://velog.velcdn.com/images/jinss77/post/019b2628-8064-488d-9e1b-fa04c018c94a/image.jpg" width="70%" aling="left">
+
+일반적인 방법으로는 자식 컴포넌트가 아닌 값들을 다른 컴포넌트에 가지고 갈 수 없었습니다. 리덕스로 회원가입시 필요 데이터를 관리할까 생각했지만 코드량이 많아지는 부분을 고려하여 좀 더 간단한 방법이 없는지 고민하였습니다.
+### 해결방법
+useNavigate을 이용하여 페이지 이동시 두번째 인자로 state값을 같이 가지고 갈 수 있었습니다.
+
+1. navigate() 함수의 첫번째 인자에 이동할 경로, 두번째 인자의 state 속성에 파라미터를 넣어준다.
+2. 이동한 페이지에서 useLocation을 사용해 locaiton.state 로 전달 받은 파라미터를 취득할 수 있다.
+
+![](https://velog.velcdn.com/images/jinss77/post/728c00c8-e38d-404a-9d1c-1ed8fb4e78e5/image.png)
+![](https://velog.velcdn.com/images/jinss77/post/8c728d26-d0d9-433a-ac42-03c27e9e099d/image.png)
+
+이렇게 전달받은 state값들을 useLocation으로 꺼내 현 페이지의 닉네임, 계정아이디 state값들과 함께 서버에 보내주었습니다.
+
+<br><br>
+
+### 2.홈페이지 재렌더링 문제해결
+내가 팔로잉 한 사람들의 상품 목록들만 불러와서 홈페이지에 뿌려주는 것이 구현 목표였습니다. 하지만 제공된 api에는 그런 기능이 없었습니다. 때문에 제공된 api 기능중에 내가 팔로잉 한 사람들의 목록을 가져오기와 해당계정의 상품 리스트 가져오기의 기능을 혼합해서 구현하였습니다.
+```js
+// followimgData는 api로 불러온 내가 팔로잉 하고 있는 유저 계정 리스트
+// 예 ) [ 철수, 미나, 민우, 유리, 민수 ]
+
+const [productData, setProductData] = useState([]);
+
+useEffect(() => {
+     followingData.forEach((list) => {
+       axios({
+         method: 'get',
+         url: `https:~~~/product/${list.accountname}`,
+         headers: {
+           Authorization: `Bearer ${token}`,
+           'Content-type': 'application/json',
+         },
+       }).then((res) => {
+         for (const product of res.data.product) {
+           setProductData((v) => {
+            return [...v, product]
+           });
+         }
+       });
+     });
+   }, []);
+
+// MarketPostBox에 props로 data를 전달해 피드에 뿌려주기
+productData.map((data) => <MarketPostBox key={data.id} data={data}/> );
+
+```
+문제없이 잘 작동하지만 내가 팔로잉한 계정들을 순회하면서 가져온 상품 목록들을 가져와 useState값에 넣어줄때마다 재렌더링이 일어났습니다. 예를들어 내가 현재 100명을 팔로잉하고 있다면 100명의 상품들을 useState값에 넣어줄때마다 state값이 변해 100번의 재렌더링이 일어났습니다.
+### 해결방안
+useState값에 상품들을 모아놨다가 한 번에 전달하는 방법을 고민 하였습니다. 그렇게 된다면 렌더링이 한 번 일어날 것이고 불필요한 재렌더링을 많이 줄여 효율적이라고 생각하였습니다.
+해결방안으로는 Promise.all을 사용했습니다. Promise.all은 복수의 URL에 동시에 요청을 보내고 모두 완료된 후에 한번에 처리할때 사용. 즉 여러개의 비동기 처리를 병렬적으로 할 수 있습니다.
+```js
+const ProductList = async () => {
+
+  const followProductList = await followingData.map((list) => {
+
+   return axios({
+      method: 'get',
+      url: `https:~~~/product/${list.accountname}`,
+      headers: {
+        Authorization: `Bearer ${userToken}`,
+        'Content-type': 'application/json',
+      },
+    }).then(res => res.data.product)
+
+  })
+ 
+  return Promise.all(followProductList)
+};
+```
+Promise.all을 사용하기 위해 async 함수로 따로 빼주었고 모든 팔로잉 유저의 상품을 불러오고 나서 값을 반환되게 하였습니다.
+> async 함수 Return 값
+<img src="https://velog.velcdn.com/images/jinss77/post/f612ab74-0f1e-4e26-8e46-4d6ac690f852/image.png" width="50%" >
+
+각각의 2차원 배열들을 useState값에 병합하여 넣어주기 위해 flat() 함수 사용.
+
+> 해당결과
+
+![](https://velog.velcdn.com/images/jinss77/post/29288757-2d11-4dc4-a8de-1f56e46ffc65/image.png)
+
+병합한 상품목록들을 useState에 넣어주면 한 번만 렌더링이 일어나게 됩니다.
+```js
+useEffect(()=>{
+   ProductList().then(res => setProductData( res.flat(1) ))
+
+  },[])
+
+```
+
+
+<br><br>
+
+
+### 3. onScroll 이벤트 적용과 관련한 재렌더링 문제 해결
+일정 길이의 스크롤이 내려가면(scrollTop값이 300 이상일 때) Header 스타일의 변경을 주기 위해 홈페이지 컴포넌트에 onScroll event를 적용하였습니다. 
+그러나 스크롤을 움직일 때마다 재렌더링 되는 이슈가 발생했습니다.
+![온스크롤이슈3-min](https://user-images.githubusercontent.com/83122749/210471276-23b44a5a-5810-4587-8da1-1dfffbea0739.gif)
+<br>
+
+### 내가 생각한 오류 원인
+scrollTop 값 자체를 state 값으로 지정했기 때문에 스크롤을 움직일 때마다, 즉 scrollTop 값이 변할 때마다 재렌더링이 되는 것이라 생각했습니다.
+![트러블슈팅코드1](https://user-images.githubusercontent.com/83122749/210471950-7cdd7a00-ed94-4cd5-8b1e-bd4b6db3b605.png)
+![트러블슈팅코드2](https://user-images.githubusercontent.com/83122749/210471960-37b83ff0-0f4d-49bb-a6fa-b44e052e7d60.png)
+<br>
+
+### 해결 방법
+scrollTop 값 자체를 state로 지정하지 않고, scrollTop 값이 300 이상일 때 true, 300 미만일 때 false 값을 지정하여 재렌더링 되는 횟수를 대폭 줄임으로 해결하였습니다.
+![트러블슈팅해결1](https://user-images.githubusercontent.com/83122749/210471601-948f12f6-a503-43a9-b68a-9e56137318d9.png)
+![트러블슈팅해결2](https://user-images.githubusercontent.com/83122749/210471611-5959a661-775b-4b4d-b289-3d749beb92ee.png)
+<br>
+
+그 결과 스크롤을 움직일 때마다 재렌더링 되지 않고, scrollTop 300 값을 기준으로 재렌더링 되었습니다.
+![온스크롤이슈해결3-min](https://user-images.githubusercontent.com/83122749/210472021-054026ee-8615-4be2-895a-d7e6ee34c84b.gif)
+
+
