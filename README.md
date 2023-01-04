@@ -52,9 +52,11 @@
 
 |최유정|김성진|김현빈|박혜영|
 |:---:|:---:|:---:|:---:|
-|![유정](https://user-images.githubusercontent.com/102042383/210314902-aa3a7ce0-5a19-4c72-bf70-4842ce1d3437.png)|![성진](https://user-images.githubusercontent.com/102042383/210314898-90e66e9f-36e7-4fb6-b821-d60fda7089f8.png)|![현빈](https://user-images.githubusercontent.com/102042383/210314903-3a832f77-2d02-4512-b7a7-0dba4a96f978.png)|![혜영](https://user-images.githubusercontent.com/102042383/210314907-4117cd13-51d4-46ba-a570-31bb0e91cdc2.png)|
+|<img src = "https://user-images.githubusercontent.com/102042383/210314902-aa3a7ce0-5a19-4c72-bf70-4842ce1d3437.png" width="250" height="280">|<img src = "https://user-images.githubusercontent.com/102042383/210314898-90e66e9f-36e7-4fb6-b821-d60fda7089f8.png" width="250" height="280">|<img src = "https://user-images.githubusercontent.com/102042383/210314903-3a832f77-2d02-4512-b7a7-0dba4a96f978.png" width="250" height="280">|<img src = "https://user-images.githubusercontent.com/102042383/210314907-4117cd13-51d4-46ba-a570-31bb0e91cdc2.png" width="250" height="280">|
 |**팀 리딩, Git, 디자인 리더** <br> 버전 관리, 디테일 끝판왕|**개발, 전역상태관리 리더** <br> 성능 최적화 끝판왕|**컴포넌트, 기록 문서화 리더** <br> 컴포넌트 관리 끝판왕|**코드 리뷰, 웹 접근성 리더** <br> 사용자 경험 개선 끝판왕|
 |🔗[yuzomi](https://github.com/yuzomi)|🔗[seongjin77](https://github.com/seongjin77)|🔗[christianB053](https://github.com/christianB053)|🔗[bakhyeyeong](https://github.com/bakhyeyeong)|
+
+<br><br>
 
 <br><br>
 
