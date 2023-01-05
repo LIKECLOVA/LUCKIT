@@ -412,4 +412,4 @@ scrollTop 값 자체를 state로 지정하지 않고, scrollTop 값이 300 이�
   - 재사용되는 컴포넌트, API를 한 곳에 분류해 추후 변경될 경우 수정에 용이하도록 할 예정
 
 <br><br>
-[![TOP](https://user-images.githubusercontent.com/102042383/210679860-c559fe5c-0bf9-42f0-af91-6b50ac25f02e.png)](#top)
+[![TOP](https://user-images.githubusercontent.com/102042383/210679860-c559fe5c-0bf9-42f0-af91-6b50ac25f02e.png)](#-취향을-잇다-luckit)
