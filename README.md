@@ -231,7 +231,7 @@ style : 공통 스타일드 컴포넌트, reset.css, 프로젝트 컬러 상수�
 
 ### 최유정
 - 프로젝트 기획 및 전체 디자인 총괄
-- Github Issue & PR 템플릿, Git-branch 사용 가이드 라인 제공, Project Board 관리
+- Github 리드미, Issue & PR 템플릿, Git-branch 사용 가이드 라인 제공, Project Board 관리
 - splash 페이지 
 - 로그인 기능
 - 회원가입 유효성 검사 및 기능
@@ -395,4 +395,12 @@ scrollTop 값 자체를 state로 지정하지 않고, scrollTop 값이 300 이�
 <br><br>
 
 ## 버전 계획
-### 럭킷 v1.1
+### 럭킷 v1.1 (2023년 1월 18일 예정)
+- 사용자 경험 개선
+  - SNS 피드 이미지 여러장일 때 캐러셀로 처리
+
+- 재사용성 고려
+  - 재사용되는 컴포넌트, API를 한 곳에 분류해 추후 변경될 경우 수정에 용이하도록 할 예정
+
+
+
