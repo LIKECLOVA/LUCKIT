@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import screenLogo from '../../assets/loginScreen-logo.png';
 
 export const Envelope = styled.main`
+
   @font-face {
     font-family: 'GmarketSans';
     font-weight: 300;
@@ -13,6 +14,7 @@ export const Envelope = styled.main`
          url('https://cdn.jsdelivr.net/gh/webfontworld/gmarket/GmarketSansLight.ttf') format("truetype");
     font-display: swap;
 } 
+
 
   @font-face {
     font-family: 'TmoneyRoundWindExtraBold';

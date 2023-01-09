@@ -1,12 +1,12 @@
 # 🍀 취향을 잇다, LUCKIT
-![멋클](https://user-images.githubusercontent.com/102042383/210462009-f4159ea6-b16e-4861-8ed4-cb85fa54ef57.png)
+![top](https://user-images.githubusercontent.com/102042383/210462009-f4159ea6-b16e-4861-8ed4-cb85fa54ef57.png)
 
 
 
 
 📄 진행 기간 : 2022. 12. 09 ~ 2023. 01. 04
 
-📄 URL : 배포 주소
+📄 URL : https://cloverluckit.netlify.app/
 
 📄 서비스 이용을 위한 테스트 계정
 
@@ -58,10 +58,18 @@
 
 <br><br>
 
+
+### [목차]
+[1. 기술 및 개발 환경](#기술-및-개발-환경) <br>
+[2. 구현 기능](#구현-기능) <br>
+[3. UI](#ui) <br>
+[4. 폴더 구조](#폴더-구조) <br>
+[5. 역할 분담](#역할-분담) <br>
+[6. 트러블 슈팅](#트러블-슈팅) <br>
+[7. 버전 계획](#버전-계획) <br>
+
 <br><br>
-
-
-## 기술 및 개발 환경
+## 기술 및 개발 환경 
 ### [기술]
 🛠 FrontEnd: React, redux-toolkit, redux-thunk, Styled-components, Figma <br>
 🛠 BackEnd: 제공된 API 사용
@@ -78,7 +86,7 @@
 
 <br><br><br>
 
-## 구현기능
+## 구현 기능
 
 - 🔐 계정
   - 로그인 / 로그아웃
@@ -91,7 +99,6 @@
   - 캐러셀
   - 유저 검색
   - 마켓게시글 목록 조회
-  - 무한 스크롤
   - 럭킷 메이트 신청 / 취소
   - 마켓 게시글 등록 / 신고
 
@@ -232,7 +239,7 @@ style : 공통 스타일드 컴포넌트, reset.css, 프로젝트 컬러 상수�
 
 ### 최유정
 - 프로젝트 기획 및 전체 디자인 총괄
-- Github Issue & PR 템플릿, Git-branch 사용 가이드 라인 제공, Project Board 관리
+- Github 리드미, Issue & PR 템플릿, Git-branch 사용 가이드 라인 제공, Project Board 관리
 - splash 페이지 
 - 로그인 기능
 - 회원가입 유효성 검사 및 기능
@@ -240,7 +247,8 @@ style : 공통 스타일드 컴포넌트, reset.css, 프로젝트 컬러 상수�
 - 럭킷 매칭 게시글 등록, 수정, 삭제 기능
 - 홈 페이지 럭킷 메이트 신청 모달창 UI
 - 채팅리스트 페이지 UI & 채팅룸 페이지 UI
-- 프로젝트 배포(Vercel)
+- 프로젝트 리팩토링 버전 관리 
+
 
 ### 김성진
 - 전반적인 프로젝트 개발 총괄 및 피드백 제공
@@ -251,6 +259,7 @@ style : 공통 스타일드 컴포넌트, reset.css, 프로젝트 컬러 상수�
 - 로딩 페이지
 - 카카오 맵 API 사용 지도 기능
 - 성능 최적화
+- 프로젝트 배포 (netlify)
 
 ### 김현빈
 - 재사용성 높은 부분 컴포넌트 설계 및 관리 총괄
@@ -391,4 +400,16 @@ scrollTop 값 자체를 state로 지정하지 않고, scrollTop 값이 300 이�
 그 결과 스크롤을 움직일 때마다 재렌더링 되지 않고, scrollTop 300 값을 기준으로 재렌더링 되었습니다.
 ![온스크롤이슈해결3-min](https://user-images.githubusercontent.com/83122749/210472021-054026ee-8615-4be2-895a-d7e6ee34c84b.gif)
 
+<br><br>
 
+## 버전 계획
+### 럭킷 v1.1 (2023년 1월 18일 예정)
+
+- 사용자 경험 개선
+  - SNS 피드 이미지 여러장일 때 캐러셀로 처리
+
+- 재사용성 고려
+  - 재사용되는 컴포넌트, API를 한 곳에 분류해 추후 변경될 경우 수정에 용이하도록 할 예정
+
+<br><br>
+[![TOP](https://user-images.githubusercontent.com/102042383/210679860-c559fe5c-0bf9-42f0-af91-6b50ac25f02e.png)](#-취향을-잇다-luckit)
