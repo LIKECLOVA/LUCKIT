@@ -41,7 +41,6 @@ export const MarketFeedHome = ({ scrollTopData, followingData }) => {
       }).then((res) => res.data.product);
     });
 
-    setLoading(false);
     return Promise.all(followProductList);
   };
 
