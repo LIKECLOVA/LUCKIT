@@ -13,7 +13,7 @@ export const MarketPreviewPost = () => {
   const product = useSelector((state) => state.productListSlice.productList);
   const { username } = useSelector((state) => state.userInfoSlice.userData);
   const dispatch = useDispatch();
-  const URLProduct = `https://mandarin.api.weniv.co.kr/product/${id}`;
+  const URLProduct = `https://api.mandarin.weniv.co.kr/product/${id}`;
 
   useEffect(() => {
     dispatch(AxiosProductList(URLProduct));
@@ -31,10 +31,7 @@ export const MarketPreviewPost = () => {
           <strong>{username}</strong>님이 찾는 럭킷 메이트✨
         </h3>
 
-        {id === myAccountName ?
-        <ProfilePostUploadBtn pathName='/upload' />
-        : null }
-
+        {id === myAccountName ? <ProfilePostUploadBtn pathName='/upload' /> : null}
       </HeadingWrap>
       <MarketPostWrap>
         {product.length === 0 && (

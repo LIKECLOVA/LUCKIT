@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { Helmet } from 'react-helmet-async'
+import { Helmet } from 'react-helmet-async';
 import { ProfileAndChatHeader } from '../../components/header/header';
 import { MarketPreviewPost } from '../../components/market-preview-post/marketPreviewPost';
 import { ProfileBox } from '../../components/profile-box/profileBox';
@@ -28,10 +28,9 @@ export const Profile = () => {
   const { id } = useParams();
   const snsPostData = useSelector((state) => state.snsPostSlice.snspost);
   const dispatch = useDispatch();
-  const snsPostURL = `https://mandarin.api.weniv.co.kr/post/${id}/userpost/?limit=number`;
+  const snsPostURL = `https://api.mandarin.weniv.co.kr/post/${id}/userpost/?limit=number`;
 
   useEffect(() => {
-
     dispatch(AxiosSnsPost(snsPostURL));
   }, [id]);
 
@@ -46,74 +45,70 @@ export const Profile = () => {
   };
 
   const onError = (e) => {
-    e.target.style.display = 'none'
-  }
+    e.target.style.display = 'none';
+  };
 
   return (
     <>
       <Helmet>
         <title>LUCKIT - 럭킷 프로필</title>
-        <meta name='description' content='럭킷 프로필페이지 입니다. 럭킷들의 프로필을 조회해보세요! '/>
-        </Helmet>
+        <meta name='description' content='럭킷 프로필페이지 입니다. 럭킷들의 프로필을 조회해보세요! ' />
+      </Helmet>
       <ProfileAndChatHeader />
       <ProfileWrap>
         <ProfileBox />
         <MarketPreviewPost />
-          <SnsPostBox>
-            <h2>sns 게시글 피드</h2>
-            <SnsPostBtn>
-              <ListAndAlbumBtn onClickListBtn={onClickListBtn} onClickAlbumBtn={onClickAlbumBtn} imgList={imgList} imgAlbum={imgAlbum}/>
-              {id === myAccountName ? <ProfilePostUploadBtn pathName='/snsupload' /> : null}
-            </SnsPostBtn>
-            {snsPostData.length !== 0 ? (
-              <>
-                <ul>
-                  {imgList &&
-                    snsPostData.map((post) => {
-                      return (
-                        <SnsPostWrap key={post.id}>
-                          <MainSnsPost data={post} />
-                        </SnsPostWrap>
-                      );
-                    })}
-                </ul>
-                <ImgAlbumBox>
-                  {imgAlbum &&
-                    snsPostData.map((post) => {
-                      const imgArr = post.image !== "" ? post.image.split(',') : []
-                      const thumbImg = post.image.split(',')[0];
-                    
-                      return (
-                        <>
-                          {post.image ? (
-                            <ImgAlbumList key={post.id}>
-                                <NavLinkStyle to={`/snspost/${post.id}`}>
-                                  {imgArr.length > 1 ?
-                                  <MultiImgLayers>
-                                    <img
-                                    src={thumbImg}
-                                    onError={onError}
-                                    alt='게시글 이미지'
-                                    />
-                                  </MultiImgLayers>
-                                  : 
-                                  <img
-                                  src={thumbImg}
-                                  onError={onError}
-                                  alt='게시글 이미지'
-                                  />}
-                                </NavLinkStyle>
-                            </ImgAlbumList>
-                          ) : (
-                            null
-                          )}
-                        </>
-                      );
-                    })}
-                </ImgAlbumBox>
-              </>
-            ) : null}
-          </SnsPostBox>
+        <SnsPostBox>
+          <h2>sns 게시글 피드</h2>
+          <SnsPostBtn>
+            <ListAndAlbumBtn
+              onClickListBtn={onClickListBtn}
+              onClickAlbumBtn={onClickAlbumBtn}
+              imgList={imgList}
+              imgAlbum={imgAlbum}
+            />
+            {id === myAccountName ? <ProfilePostUploadBtn pathName='/snsupload' /> : null}
+          </SnsPostBtn>
+          {snsPostData.length !== 0 ? (
+            <>
+              <ul>
+                {imgList &&
+                  snsPostData.map((post) => {
+                    return (
+                      <SnsPostWrap key={post.id}>
+                        <MainSnsPost data={post} />
+                      </SnsPostWrap>
+                    );
+                  })}
+              </ul>
+              <ImgAlbumBox>
+                {imgAlbum &&
+                  snsPostData.map((post) => {
+                    const imgArr = post.image !== '' ? post.image.split(',') : [];
+                    const thumbImg = post.image.split(',')[0];
+
+                    return (
+                      <>
+                        {post.image ? (
+                          <ImgAlbumList key={post.id}>
+                            <NavLinkStyle to={`/snspost/${post.id}`}>
+                              {imgArr.length > 1 ? (
+                                <MultiImgLayers>
+                                  <img src={thumbImg} onError={onError} alt='게시글 이미지' />
+                                </MultiImgLayers>
+                              ) : (
+                                <img src={thumbImg} onError={onError} alt='게시글 이미지' />
+                              )}
+                            </NavLinkStyle>
+                          </ImgAlbumList>
+                        ) : null}
+                      </>
+                    );
+                  })}
+              </ImgAlbumBox>
+            </>
+          ) : null}
+        </SnsPostBox>
       </ProfileWrap>
       <NavBar />
     </>

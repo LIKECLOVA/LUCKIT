@@ -2,12 +2,11 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FollowBtn } from '../button/button';
 import { FollowInfoWrap, FollowLi } from './followstyle';
-import DefaultUserImg from '../../assets/icon/basic-profile-img-.png'
+import DefaultUserImg from '../../assets/icon/basic-profile-img-.png';
 
 export const Follow = ({ user }) => {
-
-  const unfollowURL = `https://mandarin.api.weniv.co.kr/profile/${user.accountname}/unfollow`;
-  const followURL = `https://mandarin.api.weniv.co.kr/profile/${user.accountname}/follow`;
+  const unfollowURL = `https://api.mandarin.weniv.co.kr/profile/${user.accountname}/unfollow`;
+  const followURL = `https://api.mandarin.weniv.co.kr/profile/${user.accountname}/follow`;
   const token = localStorage.getItem('Access Token');
   const myAccountName = localStorage.getItem('Account Name');
   const [isFollow, setIsFollow] = useState(user.isfollow);
@@ -33,7 +32,6 @@ export const Follow = ({ user }) => {
   };
 
   const followToggle = () => {
-
     setIsFollow(!isFollow);
 
     if (isFollow === true) {
@@ -44,8 +42,8 @@ export const Follow = ({ user }) => {
   };
 
   const goYourProfile = () => {
-    navigate(`/profile/${user.accountname}`)
-  }
+    navigate(`/profile/${user.accountname}`);
+  };
 
   const onErrorImg = (e) => {
     e.target.src = DefaultUserImg;
@@ -60,10 +58,9 @@ export const Follow = ({ user }) => {
           <p className='userIntro'>{user.accountname}</p>
         </div>
       </FollowInfoWrap>
-      {user.accountname !== myAccountName ? 
-      <FollowBtn isFollow={isFollow} onClick={followToggle} size='middle' /> : 
-      null }
-      
+      {user.accountname !== myAccountName ? (
+        <FollowBtn isFollow={isFollow} onClick={followToggle} size='middle' />
+      ) : null}
     </FollowLi>
   );
 };

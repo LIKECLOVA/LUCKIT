@@ -56,7 +56,7 @@ export const Join = () => {
   // 다음 버튼 클릭 시
   const sendDatatoJoinProfile = async function (event) {
     event.preventDefault();
-    const res = await axios.post('https://mandarin.api.weniv.co.kr/user/emailvalid', {
+    const res = await axios.post('https://api.mandarin.weniv.co.kr/user/emailvalid', {
       user: {
         email,
       },

@@ -36,7 +36,7 @@ export const MarketUpdate = () => {
 
   async function getProduct() {
     try {
-      const res = await axios.get(`https://mandarin.api.weniv.co.kr/product/detail/${productId}`, {
+      const res = await axios.get(`https://api.mandarin.weniv.co.kr/product/detail/${productId}`, {
         headers: {
           Authorization: `Bearer ${userToken}`,
           'Content-type': 'application/json',
@@ -57,7 +57,7 @@ export const MarketUpdate = () => {
     try {
       await axios
         .put(
-          `https://mandarin.api.weniv.co.kr/product/${productId}`,
+          `https://api.mandarin.weniv.co.kr/product/${productId}`,
           {
             product: {
               itemName: itemName,

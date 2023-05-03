@@ -22,7 +22,7 @@ export const ProfileBox = () => {
   );
   const { id } = useParams();
   const dispatch = useDispatch();
-  const BaseURL = `https://mandarin.api.weniv.co.kr/profile/${id}`;
+  const BaseURL = `https://api.mandarin.weniv.co.kr/profile/${id}`;
   const myAccountName = localStorage.getItem('Account Name');
   const userToken = localStorage.getItem('Access Token');
 
@@ -31,7 +31,7 @@ export const ProfileBox = () => {
   }, [isfollow, id, username, intro]);
 
   const unfollow = async () => {
-    await axios(`https://mandarin.api.weniv.co.kr/profile/${id}/unfollow`, {
+    await axios(`https://api.mandarin.weniv.co.kr/profile/${id}/unfollow`, {
       method: 'DELETE',
       headers: {
         Authorization: `Bearer ${userToken}`,
@@ -43,7 +43,7 @@ export const ProfileBox = () => {
   };
 
   const follow = async () => {
-    await axios(`https://mandarin.api.weniv.co.kr/profile/${id}/follow`, {
+    await axios(`https://api.mandarin.weniv.co.kr/profile/${id}/follow`, {
       method: 'POST',
       headers: {
         Authorization: `Bearer ${userToken}`,
