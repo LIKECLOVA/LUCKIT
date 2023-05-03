@@ -38,10 +38,10 @@ export const SnsModify = () => {
   /* 이미지 업로드 함수 */
   async function ImgUpload(userImg) {
     const formData = new FormData();
-    const URL = 'https://mandarin.api.weniv.co.kr/';
+    const URL = 'https://api.mandarin.weniv.co.kr/';
 
     formData.append('image', userImg);
-    const res = await axios.post('https://mandarin.api.weniv.co.kr/image/uploadfile', formData);
+    const res = await axios.post('https://api.mandarin.weniv.co.kr/image/uploadfile', formData);
 
     const Imgup = URL + res.data.filename;
 
@@ -129,7 +129,7 @@ export const SnsModify = () => {
     data.post.content = content?.length === 0 ? oripostContent : content;
 
     try {
-      const URL = 'https://mandarin.api.weniv.co.kr';
+      const URL = 'https://api.mandarin.weniv.co.kr';
       const REQ_PATH = '/post/';
 
       await axios
@@ -155,10 +155,10 @@ export const SnsModify = () => {
 
   return (
     <>
-        <Helmet>
-          <title>LUCKIT - SNS 게시글 수정</title>
-          <meta name='description' content='럭킷 게시글 수정 페이지입니다. 작성한 게시글을 수정해보세요!' />
-        </Helmet>
+      <Helmet>
+        <title>LUCKIT - SNS 게시글 수정</title>
+        <meta name='description' content='럭킷 게시글 수정 페이지입니다. 작성한 게시글을 수정해보세요!' />
+      </Helmet>
       <PostUploadHeader handlePostSns={handlePostSns} disabled={uploadBtn ? null : 'disabled'} />
 
       <SnsUploadSec>

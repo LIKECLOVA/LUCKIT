@@ -18,12 +18,12 @@ export const MarketImage = ({ itemImage, setItemImage }) => {
 
   async function onLoadImage(formData, loadImage) {
     try {
-      const res = await axios.post('https://mandarin.api.weniv.co.kr/image/uploadfile', formData, {
+      const res = await axios.post('https://api.mandarin.weniv.co.kr/image/uploadfile', formData, {
         'Content-Type': 'multipart/form-data',
       });
 
       if (res.data.filename) {
-        setItemImage(`https://mandarin.api.weniv.co.kr/${res.data.filename}`);
+        setItemImage(`https://api.mandarin.weniv.co.kr/${res.data.filename}`);
         preview(loadImage);
       } else {
         alert('.jpg, .gif, .png, .jpeg, .bmp, .tif, .heic 파일만 업로드 가능합니다.');

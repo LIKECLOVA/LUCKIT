@@ -23,7 +23,7 @@ export const Login = () => {
   async function login() {
     if (isActive === true) {
       try {
-        const res = await axios.post('https://mandarin.api.weniv.co.kr/user/login', {
+        const res = await axios.post('https://api.mandarin.weniv.co.kr/user/login', {
           headers: {
             'Content-type': 'application/json',
           },
@@ -40,7 +40,7 @@ export const Login = () => {
           // data가 valid 상태일 때만 local storage에 유저 정보가 추가되고, axois 실패 시 콘솔에 에러 출력
           try {
             await axios
-              .get('https://mandarin.api.weniv.co.kr/user/checktoken', {
+              .get('https://api.mandarin.weniv.co.kr/user/checktoken', {
                 headers: {
                   Authorization: `Bearer ${res.data.user.token}`,
                   'Content-type': 'application/json',

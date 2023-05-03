@@ -55,7 +55,7 @@ export const LogoutModal = ({ onClickClose }) => {
 export const MarketPreviewModal = ({ onClickClose, productId }) => {
   const [isOpenModal, setIsOpenModal] = useState(false);
   const userToken = localStorage.getItem('Access Token');
-  const myAccountName = localStorage.getItem("Account Name");
+  const myAccountName = localStorage.getItem('Account Name');
   const { id } = useParams();
 
   const onClickDeleteModal = () => {
@@ -69,7 +69,7 @@ export const MarketPreviewModal = ({ onClickClose, productId }) => {
   const handleMarketDelete = async () => {
     try {
       await axios
-        .delete(`https://mandarin.api.weniv.co.kr/product/${productId}`, {
+        .delete(`https://api.mandarin.weniv.co.kr/product/${productId}`, {
           headers: {
             Authorization: `Bearer ${userToken}`,
             'Content-type': 'application/json',
@@ -88,24 +88,25 @@ export const MarketPreviewModal = ({ onClickClose, productId }) => {
   return (
     <PostModalWrap onClick={() => onClickClose(false)}>
       <div className='postModalList' onClick={(e) => e.stopPropagation()}>
-        {id === myAccountName ? 
-        <>
-          <PostModalBtnWrap>
-            <button onClick={onClickDeleteModal}>삭제</button>
-            <NavLinkStyle to={`/update/${productId}`}>수정</NavLinkStyle>
-          </PostModalBtnWrap>
-          {isOpenModal && (
-            <Div>
-              <ModalWrap>
-                <strong>매칭글을 삭제할까요?</strong>
-                <ModalBtnWrap>
-                  <button onClick={onClickCancel}>취소</button>
-                  <button onClick={handleMarketDelete}>삭제</button>
-                </ModalBtnWrap>
-              </ModalWrap>
-            </Div>
-          )}
-          </> : 
+        {id === myAccountName ? (
+          <>
+            <PostModalBtnWrap>
+              <button onClick={onClickDeleteModal}>삭제</button>
+              <NavLinkStyle to={`/update/${productId}`}>수정</NavLinkStyle>
+            </PostModalBtnWrap>
+            {isOpenModal && (
+              <Div>
+                <ModalWrap>
+                  <strong>매칭글을 삭제할까요?</strong>
+                  <ModalBtnWrap>
+                    <button onClick={onClickCancel}>취소</button>
+                    <button onClick={handleMarketDelete}>삭제</button>
+                  </ModalBtnWrap>
+                </ModalWrap>
+              </Div>
+            )}
+          </>
+        ) : (
           <>
             <PostModalBtnWrap>
               <button onClick={onClickDeleteModal}>신고하기</button>
@@ -121,17 +122,18 @@ export const MarketPreviewModal = ({ onClickClose, productId }) => {
                 </ModalWrap>
               </Div>
             )}
-          </>}
+          </>
+        )}
       </div>
     </PostModalWrap>
   );
 };
 
 /* Sns게시글 모달 */
-export const SnsPostModal = ({ onClickClose, accountName, myAccountName, postId, postContent, postImg}) => {
+export const SnsPostModal = ({ onClickClose, accountName, myAccountName, postId, postContent, postImg }) => {
   const [isOpenModal, setIsOpenModal] = useState(false);
   const token = localStorage.getItem('Access Token');
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
 
   const onClickDeleteModal = () => {
     setIsOpenModal(true);
@@ -142,9 +144,8 @@ export const SnsPostModal = ({ onClickClose, accountName, myAccountName, postId,
   };
 
   const deletePost = () => {
-
     axios({
-      url: `https://mandarin.api.weniv.co.kr/post/${postId}`,
+      url: `https://api.mandarin.weniv.co.kr/post/${postId}`,
       method: 'DELETE',
       headers: {
         Authorization: `Bearer ${token}`,
@@ -169,12 +170,16 @@ export const SnsPostModal = ({ onClickClose, accountName, myAccountName, postId,
           <>
             <PostModalBtnWrap>
               <button onClick={onClickDeleteModal}>삭제</button>
-              <NavLinkStyle to={'/snsmodify'} state={{
-                    postId: postId,
-                    postContent: postContent,
-                    postImg:postImg
-                  }}
-              >수정</NavLinkStyle>
+              <NavLinkStyle
+                to={'/snsmodify'}
+                state={{
+                  postId: postId,
+                  postContent: postContent,
+                  postImg: postImg,
+                }}
+              >
+                수정
+              </NavLinkStyle>
             </PostModalBtnWrap>
             {isOpenModal && (
               <Div>
@@ -235,9 +240,8 @@ export const CommentModal = ({ onClickClose, myAccountName, accountName, postId,
     setIsOpenModal(false);
   };
   const onClickCommentDelete = () => {
-
     axios({
-      url: `https://mandarin.api.weniv.co.kr/post/${postId}/comments/${commentId}`,
+      url: `https://api.mandarin.weniv.co.kr/post/${postId}/comments/${commentId}`,
       method: 'DELETE',
       headers: {
         Authorization: `Bearer ${userToken}`,

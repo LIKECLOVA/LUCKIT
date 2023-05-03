@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async'
+import { Helmet } from 'react-helmet-async';
 import { ProfileAndChatHeader } from '../../components/header/header';
 import MarketPostBox from '../../components/mainpost/marketPostBox';
 import { NavBar } from '../../components/navbar/navBar';
@@ -15,16 +15,18 @@ export function MarketPost() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(AxiosProductList(`https://mandarin.api.weniv.co.kr/product/${id}/?limit=20`));
-
+    dispatch(AxiosProductList(`https://api.mandarin.weniv.co.kr/product/${id}/?limit=20`));
   }, []);
 
   return (
     <>
       <Helmet>
         <title>LUCKIT - Market 게시글 </title>
-        <meta name='description' content='럭킷 내Market게시글 관리 페이지입니다. Market게시글을 수정 및 삭제해보세요! '/>
-        </Helmet>
+        <meta
+          name='description'
+          content='럭킷 내Market게시글 관리 페이지입니다. Market게시글을 수정 및 삭제해보세요! '
+        />
+      </Helmet>
       <ProfileAndChatHeader />
       <MarketPostWrap>
         <h2>마켓 게시글 페이지</h2>

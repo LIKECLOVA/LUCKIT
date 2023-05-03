@@ -37,7 +37,7 @@ export const MarketUpload = () => {
     try {
       await axios
         .post(
-          'https://mandarin.api.weniv.co.kr/product',
+          'https://api.mandarin.weniv.co.kr/product',
           {
             product: {
               itemName: itemName,

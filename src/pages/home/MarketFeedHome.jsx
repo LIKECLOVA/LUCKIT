@@ -33,7 +33,7 @@ export const MarketFeedHome = ({ scrollTopData, followingData }) => {
     const followProductList = await followingData.map((list) => {
       return axios({
         method: 'get',
-        url: `https://mandarin.api.weniv.co.kr/product/${list.accountname}/?limit=100`,
+        url: `https://api.mandarin.weniv.co.kr/product/${list.accountname}/?limit=100`,
         headers: {
           Authorization: `Bearer ${userToken}`,
           'Content-type': 'application/json',

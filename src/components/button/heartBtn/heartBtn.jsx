@@ -12,7 +12,7 @@ const HeartBtn = ({ userToken, postId, hearted, heartCount }) => {
     if (!isHearted) {
       try {
         await axios({
-          url: `https://mandarin.api.weniv.co.kr/post/${postId}/heart`,
+          url: `https://api.mandarin.weniv.co.kr/post/${postId}/heart`,
           method: 'post',
           headers: {
             Authorization: `Bearer ${userToken}`,
@@ -31,7 +31,7 @@ const HeartBtn = ({ userToken, postId, hearted, heartCount }) => {
     if (isHearted) {
       try {
         await axios({
-          url: `https://mandarin.api.weniv.co.kr/post/${postId}/unheart`,
+          url: `https://api.mandarin.weniv.co.kr/post/${postId}/unheart`,
           method: 'delete',
           headers: {
             Authorization: `Bearer ${userToken}`,

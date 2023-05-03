@@ -2,9 +2,9 @@ import axios from 'axios';
 import React, { useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async'
+import { Helmet } from 'react-helmet-async';
 import { ProfileEditHeader } from '../../components/header/header';
-import { AxiosUserData, onChangeIntro, onChangeUserName, AxiosImgUpload} from '../../reducers/getUserInfoSlice';
+import { AxiosUserData, onChangeIntro, onChangeUserName, AxiosImgUpload } from '../../reducers/getUserInfoSlice';
 import {
   EditProfilePageWrap,
   EditProfilePageUserInfo,
@@ -20,9 +20,9 @@ export const EditProfile = () => {
   const navigate = useNavigate();
   const accountname = localStorage.getItem('Account Name');
   const token = localStorage.getItem('Access Token');
-  const URL = `https://mandarin.api.weniv.co.kr/profile/${accountname}`;
+  const URL = `https://api.mandarin.weniv.co.kr/profile/${accountname}`;
   const dispatch = useDispatch();
-  const userInfoData = useSelector((state) => state.userInfoSlice.userData); 
+  const userInfoData = useSelector((state) => state.userInfoSlice.userData);
 
   useEffect(() => {
     dispatch(AxiosUserData(URL));
@@ -35,7 +35,7 @@ export const EditProfile = () => {
     } else if (event.target.name === 'userInfo') {
       dispatch(onChangeIntro(event.target.value));
     } else if (event.target.name === 'userImg') {
-       dispatch(AxiosImgUpload(event.target.files[0]))
+      dispatch(AxiosImgUpload(event.target.files[0]));
     }
   };
 
@@ -51,17 +51,17 @@ export const EditProfile = () => {
 
   // 프로필수정
   async function profileSave() {
-
-    try { 
-
-      await axios.put('https://mandarin.api.weniv.co.kr/user', userData, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-          'Content-type': 'application/json',
-        }
-      }).then( navigate(`/profile/${accountname}`) )
+    try {
+      await axios
+        .put('https://api.mandarin.weniv.co.kr/user', userData, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+            'Content-type': 'application/json',
+          },
+        })
+        .then(navigate(`/profile/${accountname}`));
     } catch (error) {
-      console.log('error',error);
+      console.log('error', error);
     }
   }
 
@@ -69,8 +69,8 @@ export const EditProfile = () => {
     <>
       <Helmet>
         <title>LUCKIT - 프로필 설정</title>
-        <meta name='description' content='럭킷 프로필설정 페이지입니다. 내 프로필을 설정해보세요! '/>
-        </Helmet>
+        <meta name='description' content='럭킷 프로필설정 페이지입니다. 내 프로필을 설정해보세요! ' />
+      </Helmet>
       <ProfileEditHeader onClick={profileSave} />
       <EditProfilePageWrap>
         <EditProfilePageUserInfo>
@@ -99,14 +99,20 @@ export const EditProfile = () => {
               />
             </EditProFileUserLabel>
             <EditProFileUserLabel>
-              <EditProfileUserInput readOnly value={userInfoData.accountname || '' } type='text' id='userID' name='userID' />
+              <EditProfileUserInput
+                readOnly
+                value={userInfoData.accountname || ''}
+                type='text'
+                id='userID'
+                name='userID'
+              />
             </EditProFileUserLabel>
           </div>
         </EditProfilePageUserInfo>
         <EditProFileUserLabel>To. 나의 럭킷에게</EditProFileUserLabel>
         <EditProfileTextarea
           onChange={onEdit}
-          value={userInfoData.intro || '' }
+          value={userInfoData.intro || ''}
           name='userInfo'
           style={{ resize: 'none' }}
         ></EditProfileTextarea>

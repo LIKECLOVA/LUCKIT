@@ -15,8 +15,8 @@ export const YourFollow = () => {
 
   const location = useLocation();
   const accountname = location.state.accountname;
-  const URL = `https://mandarin.api.weniv.co.kr/profile/${accountname}/follower?limit=1000`;
-  const URL2 = `https://mandarin.api.weniv.co.kr/profile/${accountname}/following?limit=1000`;
+  const URL = `https://api.mandarin.weniv.co.kr/profile/${accountname}/follower?limit=1000`;
+  const URL2 = `https://api.mandarin.weniv.co.kr/profile/${accountname}/following?limit=1000`;
   const token = localStorage.getItem('Access Token');
   const target = useLocation()?.state.text;
   const [followerList, setFollowerList] = useState([]);
@@ -48,13 +48,10 @@ export const YourFollow = () => {
 
   return (
     <>
-        <Helmet>
-          <title>LUCKIT - Follow </title>
-          <meta
-            name='description'
-            content='럭킷 팔로우 페이지입니다. 럭킷들이 팔로우한 럭킷 메이트들을 확인해보세요!'
-          />
-        </Helmet>
+      <Helmet>
+        <title>LUCKIT - Follow </title>
+        <meta name='description' content='럭킷 팔로우 페이지입니다. 럭킷들이 팔로우한 럭킷 메이트들을 확인해보세요!' />
+      </Helmet>
       <FollowerHeader target={target} />
       <FollowPageWrap>
         <FollowPageUl>
