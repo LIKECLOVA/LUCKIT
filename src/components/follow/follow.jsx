@@ -52,7 +52,7 @@ export const Follow = ({ user }) => {
   return (
     <FollowLi>
       <FollowInfoWrap onClick={goYourProfile}>
-        <img onError={onErrorImg} src={user.image} alt='프로필사진' />
+        <img onError={onErrorImg} src={user.image.includes("mandarin.api") ? user.image.replace("mandarin.api", "api.mandarin") : user.image} alt='프로필사진' />
         <div>
           <p className='userAccount'>{user.username}</p>
           <p className='userIntro'>{user.accountname}</p>
