@@ -108,12 +108,12 @@ export const SnsPage = () => {
                 return (
                   <NavLink key={story._id} to={`/profile/${story.accountname}`}>
                     <li>
-                      <SnsStoryImg src={storyImg} onError={onErrorImg} />
+                      <SnsStoryImg src={storyImg.includes("mandarin.api") ? storyImg.replace("mandarin.api", "api.mandarin") : storyImg.image} onError={onErrorImg} />
                     </li>
                   </NavLink>
                 );
               })}
-              {}
+              { }
             </ul>
           </SnsPageArt>
           {followList.length === 0 ? (

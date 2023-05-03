@@ -67,7 +67,7 @@ export default function MarketPostBox({ data, accountname }) {
 
   return (
     <CardWrap>
-      <CardImg src={data.itemImage} onError={onErrorImg} />
+      <CardImg src={data.itemImage?.includes("mandarin.api") ? data.itemImage.replace("mandarin.api", "api.mandarin") : data.itemImage} onError={onErrorImg} />
       <CardCont>
         <CardTitle>{data.itemName}</CardTitle>
         <CardTxt>{data.link}</CardTxt>

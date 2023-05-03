@@ -25,7 +25,7 @@ const MainSnsPost = ({ data }) => {
   return (
     <MainSnsPostWrap>
       <NavLink to={`/profile/${data.author.accountname}`} style={{ height: 'fit-content' }}>
-        <UserProfileImg src={data.author.image} onError={onErrorImg} />
+        <UserProfileImg src={data.author.image.includes("mandarin.api") ? data.author.image.replace("mandarin.api", "api.mandarin") : data.author.image} onError={onErrorImg} />
       </NavLink>
       <SnsPostBox>
         <NavLink to={`/profile/${data.author.accountname}`} style={{ width: 'fit-content' }}>
@@ -42,7 +42,7 @@ const MainSnsPost = ({ data }) => {
                 return (
                   <ImgListDiv key={index}>
                     <img
-                      src={src}
+                      src={src.includes("mandarin.api") ? src.replace("mandarin.api", "api.mandarin") : src}
                       onError={(e) => {
                         e.target.style.display = 'none';
                       }}
